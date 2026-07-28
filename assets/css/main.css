@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Ultra-Luxury Automotive Edition CSS
+ * Hi-Gloss Design 2026 - Subtle Glassmorphism & Micro-Animation Edition CSS
  */
 
 /* Container */
@@ -17,11 +17,12 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(9, 11, 16, 0.94);
+  background: rgba(7, 9, 14, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.1rem 0;
+  transition: all var(--transition-smooth);
 }
 
 .hg-header-inner {
@@ -35,11 +36,11 @@
   height: 48px;
   width: 48px;
   object-fit: contain;
-  transition: opacity var(--transition-smooth);
+  transition: transform var(--transition-smooth);
 }
 
-.hg-logo-standalone:hover {
-  opacity: 0.85;
+.hg-brand-logo:hover .hg-logo-standalone {
+  transform: scale(1.05);
 }
 
 .hg-nav-menu {
@@ -54,13 +55,29 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  position: relative;
+}
+
+.hg-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-blue);
+  transition: width var(--transition-smooth);
 }
 
 .hg-nav-link:hover {
   color: var(--accent-blue);
 }
 
-/* Main Homepage Grid (4 Ultra-Luxury Tiles) */
+.hg-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Main Homepage Grid (4 Glassmorphism Tile Cards) */
 .sec-homepage-tiles {
   padding: 9.5rem 0 4.5rem;
   flex: 1;
@@ -82,11 +99,34 @@
   }
 }
 
-/* Luxury Automotive Card */
+/* Subtle Entrance Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hg-tiles-grid > a {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hg-tiles-grid > a:nth-child(1) { animation-delay: 0.1s; }
+.hg-tiles-grid > a:nth-child(2) { animation-delay: 0.2s; }
+.hg-tiles-grid > a:nth-child(3) { animation-delay: 0.3s; }
+.hg-tiles-grid > a:nth-child(4) { animation-delay: 0.4s; }
+
+/* Subtly Animated Frosted Glassmorphism Card */
 .hg-luxury-card {
   position: relative;
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
   border-radius: 0 !important;
   min-height: 280px;
   padding: 2.5rem;
@@ -102,31 +142,48 @@
 .hg-luxury-card:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-blue-glow);
 }
 
-/* High-Definition Vehicle Background Image Overlay */
+/* Subtle Metallic / Sapphire Shimmer Reflection across Top Edge */
+.hg-luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  transition: left 0.75s ease;
+  z-index: 10;
+}
+
+.hg-luxury-card:hover::before {
+  left: 100%;
+}
+
+/* Vehicle Background Photography Smooth Micro-Zoom */
 .hg-luxury-card-bg {
   position: absolute;
   top: 0;
   right: 0;
-  width: 60%;
+  width: 62%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;
+  opacity: 0.38;
   mask-image: linear-gradient(to right, transparent 0%, black 50%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
   z-index: 1;
 }
 
 .hg-luxury-card:hover .hg-luxury-card-bg {
-  transform: scale(1.06);
-  opacity: 0.6;
+  transform: scale(1.07);
+  opacity: 0.62;
 }
 
-/* Card Content Overlay */
+/* Card Content */
 .hg-luxury-card-content {
   position: relative;
   z-index: 5;
@@ -152,7 +209,7 @@
   font-weight: 500;
 }
 
-/* Understated High-End Action Link */
+/* Subtle Arrow Motion Action Button */
 .hg-luxury-card-btn {
   display: inline-flex;
   align-items: center;
@@ -162,19 +219,28 @@
   font-size: 0.8rem;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   transition: color var(--transition-smooth);
   position: relative;
   z-index: 5;
+}
+
+.hg-luxury-card-btn span.arrow {
+  display: inline-block;
+  transition: transform var(--transition-smooth);
 }
 
 .hg-luxury-card:hover .hg-luxury-card-btn {
   color: var(--accent-blue);
 }
 
+.hg-luxury-card:hover .hg-luxury-card-btn span.arrow {
+  transform: translateX(6px);
+}
+
 /* Footer */
 .hg-footer {
-  background: #040508;
+  background: #030407;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 2rem 0;
   text-align: center;

@@ -1,28 +1,29 @@
 /*
-Theme Name: Hi-Gloss Design 2026 - Ultra-Luxury Automotive Edition
+Theme Name: Hi-Gloss Design 2026 - Subtle Glassmorphism Edition
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Dedykowany, luksusowy i ponadczasowy motyw WordPress dla studia car wrappingu Hi-Gloss Design (Szczecin / Mierzyn).
-Version: 14.0.0
+Description: Luksusowy, subtelny motyw WordPress z efektami glassmorphismu i mikronamacji z ostrymi krawędziami (0px radius) dla Hi-Gloss Design.
+Version: 15.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: luxury-automotive, dark-theme, 4-tiles, hi-gloss, car-wrapping, ppf
+Tags: glassmorphism, luxury-automotive, dark-theme, 4-tiles, hi-gloss, car-wrapping, ppf
 Text Domain: higloss2026
 */
 
 :root {
-  --bg-dark: #090b10;
-  --bg-card: #111522;
-  --bg-card-hover: #161b2a;
+  --bg-dark: #07090e;
+  --bg-card: rgba(16, 21, 34, 0.72);
+  --bg-card-hover: rgba(22, 28, 44, 0.85);
   --accent-blue: #25aae1;
+  --accent-blue-glow: rgba(37, 170, 225, 0.25);
   --text-main: #ffffff;
   --text-muted: #94a3b8;
-  --border-subtle: rgba(255, 255, 255, 0.12);
-  --border-hover: rgba(37, 170, 225, 0.5);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(37, 170, 225, 0.45);
   --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after {
@@ -45,7 +46,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-dark);
-  background-image: linear-gradient(to bottom, rgba(9, 11, 16, 0.94), rgba(9, 11, 16, 0.98)), url('assets/images/tlo.jpg');
+  background-image: linear-gradient(to bottom, rgba(7, 9, 14, 0.92), rgba(7, 9, 14, 0.98)), url('assets/images/tlo.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

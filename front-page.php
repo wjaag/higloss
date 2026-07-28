@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Ultra-Luxury 4-Tile Performance Homepage
+ * Template Name: Subtle Glassmorphism 4-Tile Performance Homepage
  *
  * @package HiGloss2026
  */
@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + 4 LUXURY TILES (hi-glossdesign.pl mapped) -->
+<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + 4 FROSTED GLASS TILES -->
 <main class="sec-homepage-tiles">
     <div class="hg-container">
         <div class="hg-tiles-grid">
@@ -23,7 +23,7 @@ get_header();
                 </div>
 
                 <div class="hg-luxury-card-btn">
-                    POZNAJ NAS &rarr;
+                    POZNAJ NAS <span class="arrow">&rarr;</span>
                 </div>
             </a>
 
@@ -37,7 +37,7 @@ get_header();
                 </div>
 
                 <div class="hg-luxury-card-btn">
-                    SPRAWDŹ OFERTĘ &rarr;
+                    SPRAWDŹ OFERTĘ <span class="arrow">&rarr;</span>
                 </div>
             </a>
 
@@ -51,7 +51,7 @@ get_header();
                 </div>
 
                 <div class="hg-luxury-card-btn">
-                    GALERIA PRAC &rarr;
+                    GALERIA PRAC <span class="arrow">&rarr;</span>
                 </div>
             </a>
 
@@ -65,7 +65,7 @@ get_header();
                 </div>
 
                 <div class="hg-luxury-card-btn">
-                    SKONTAKTUJ SIĘ &rarr;
+                    SKONTAKTUJ SIĘ <span class="arrow">&rarr;</span>
                 </div>
             </a>
 
