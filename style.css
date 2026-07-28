@@ -1,13 +1,13 @@
 /*
-Theme Name: Hi-Gloss Design 2026 - Multi-Color Block Edition
+Theme Name: Hi-Gloss Design 2026 - Multi-Color Green Block Edition
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Surowy, wielobarwny motyw "Less is More" z ostrymi krawędziami (0px radius) oraz silnie skontrastowanymi blokami kolorystycznymi dla Hi-Gloss Design.
-Version: 8.0.0
+Description: Surowy, wielobarwny motyw "Less is More" z wyrazistą zielenią, ostrymi krawędziami (0px radius) oraz silnie skontrastowanymi blokami kolorystycznymi dla Hi-Gloss Design.
+Version: 9.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: multi-color, minimal, sharp-edges, color-blocks, car-wrapping, ppf
+Tags: green, multi-color, minimal, sharp-edges, color-blocks, car-wrapping, ppf
 Text Domain: higloss2026
 */
 
@@ -17,12 +17,13 @@ Text Domain: higloss2026
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --transition-fast: 0.2s ease;
   
-  /* Distinct Multi-Color Section Palette */
+  /* Vibrant Multi-Color Palette with Prominent Green */
+  --color-green: #15803d;
+  --color-green-light: #16a34a;
+  --color-mint: #86efac;
   --color-crimson: #e11d48;
-  --color-emerald: #064e3b;
-  --color-mint: #10b981;
-  --color-purple: #4c1d95;
-  --color-pink: #ec4899;
+  --color-purple: #581c87;
+  --color-pink: #f43f5e;
   --color-charcoal: #111827;
   --color-orange: #ea580c;
 }

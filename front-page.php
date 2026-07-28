@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Multi-Color Block "Less is More" Edition
+ * Template Name: Multi-Color Green Block "Less is More" Edition
  *
  * @package HiGloss2026
  */
@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<!-- SECTION 1: HERO (PURE WHITE + CRIMSON RED ACCENT) -->
+<!-- SECTION 1: HERO (PURE WHITE + CRIMSON ACCENT) -->
 <section class="sec-hero">
     <div class="hg-container hg-grid hg-grid-2" style="align-items: center;">
         <div>
@@ -17,7 +17,7 @@ get_header();
             </div>
 
             <h1 style="font-family: var(--font-heading); font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 900; line-height: 1.1; color: #000000; margin-bottom: 1.25rem; text-transform: uppercase;">
-                SZTU KA ZMIANY KOLORU & <span style="color: var(--color-crimson);">OCHRONA PPF</span>
+                SZTU KA ZMIANY KOLORU & <span style="color: var(--color-green);">OCHRONA PPF</span>
             </h1>
 
             <p style="font-size: 1.15rem; color: #475569; margin-bottom: 2rem; font-weight: 500; max-width: 540px;">
@@ -28,7 +28,7 @@ get_header();
                 <a href="#wycena" class="hg-btn hg-btn-crimson">
                     BEZPŁATNA WYCENA &rarr;
                 </a>
-                <a href="#uslugi" class="hg-btn" style="background:#000000; color:#ffffff; border: 2px solid #000000;">
+                <a href="#uslugi" class="hg-btn hg-btn-green">
                     ZOBACZ USŁUGI
                 </a>
             </div>
@@ -53,11 +53,11 @@ get_header();
     </div>
 </section>
 
-<!-- SECTION 2: USŁUGI (DEEP EMERALD GREEN BACKGROUND) -->
+<!-- SECTION 2: USŁUGI (EMERALD GREEN BACKGROUND) -->
 <section id="uslugi" class="sec-services">
     <div class="hg-container">
         <div style="margin-bottom: 3rem;">
-            <div style="display: inline-block; padding: 0.3rem 0.8rem; background: var(--color-mint); color: #000000; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">
+            <div style="display: inline-block; padding: 0.3rem 0.8rem; background: #ffffff; color: #15803d; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">
                 OFERTA STUDIO
             </div>
             <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0;">
@@ -66,41 +66,41 @@ get_header();
         </div>
 
         <div class="hg-grid hg-grid-3">
-            <div class="hg-card hg-card-emerald">
+            <div class="hg-card hg-card-green">
                 <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--color-mint); margin-bottom: 0.5rem;">01</div>
                 <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 0.75rem;">
                     Zmiana Koloru Auta
                 </h3>
-                <p style="color: #a7f3d0; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <p style="color: #bbf7d0; font-size: 0.95rem; margin-bottom: 1.5rem;">
                     Całościowe oklejanie karoserii foliami wylewanymi (Mat, Połysk, Satyna, Carbon 3D) z profesjonalnym demontażem klamek, lamp i zderzaków.
                 </p>
-                <a href="#wycena" class="hg-btn hg-btn-mint" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
+                <a href="#wycena" class="hg-btn hg-btn-green" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
                     Wycena &rarr;
                 </a>
             </div>
 
-            <div class="hg-card hg-card-emerald">
+            <div class="hg-card hg-card-green">
                 <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--color-mint); margin-bottom: 0.5rem;">02</div>
                 <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 0.75rem;">
                     Bezbarwne PPF
                 </h3>
-                <p style="color: #a7f3d0; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <p style="color: #bbf7d0; font-size: 0.95rem; margin-bottom: 1.5rem;">
                     Niewidzialna folia ochronna poliuretanowa (140-200 µm) z funkcją samoregeneracji pod wpływem ciepła. 100% odporności na kamienie.
                 </p>
-                <a href="#wycena" class="hg-btn hg-btn-mint" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
+                <a href="#wycena" class="hg-btn hg-btn-green" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
                     Wycena &rarr;
                 </a>
             </div>
 
-            <div class="hg-card hg-card-emerald">
+            <div class="hg-card hg-card-green">
                 <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--color-mint); margin-bottom: 0.5rem;">03</div>
                 <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 0.75rem;">
                     Reklama & Floty
                 </h3>
-                <p style="color: #a7f3d0; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <p style="color: #bbf7d0; font-size: 0.95rem; margin-bottom: 1.5rem;">
                     Mobilna reklama wizualna dla firm. Własny park maszyn drukujących i tnących. Braliśmy udział w oklejaniu floty DHL (40 aut) oraz Warty.
                 </p>
-                <a href="#wycena" class="hg-btn hg-btn-mint" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
+                <a href="#wycena" class="hg-btn hg-btn-green" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
                     Wycena &rarr;
                 </a>
             </div>
