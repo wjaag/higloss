@@ -3,38 +3,39 @@ Theme Name: Hi-Gloss Design 2026
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Dedykowany, ultra-nowoczesny motyw WordPress dla profesjonalnego studia car wrappingu, folii ochronnych PPF oraz reklamy na pojazdach Hi-Gloss Design (Szczecin / Mierzyn). Godny roku 2026.
-Version: 2.0.1
+Description: Dedykowany, lekki, czysty i nowoczesny motyw WordPress 2026 dla studia car wrappingu, folii PPF i reklamy na pojazdach Hi-Gloss Design (Szczecin / Mierzyn).
+Version: 3.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: dark-theme, automotive, car-wrapping, ppf, responsiveness, custom-colors, custom-menu, portfolio, schema-org
+Tags: light-theme, automotive, car-wrapping, ppf, responsiveness, custom-colors, custom-menu, portfolio, schema-org
 Text Domain: higloss2026
 */
 
-/* Reset & Root Variables */
+/* Reset & Root Variables (Light & Crisp Automotive Theme) */
 :root {
-  --bg-dark: #090c12;
-  --bg-card: rgba(18, 24, 38, 0.75);
-  --bg-card-hover: rgba(28, 36, 56, 0.85);
-  --bg-surface: #101622;
-  --accent-blue: #00c2ff;
-  --accent-blue-glow: rgba(0, 194, 255, 0.35);
-  --accent-electric: #25aae1;
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(0, 194, 255, 0.25);
+  --bg-light: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-alt: #f1f5f9;
+  --bg-dark: #0f172a;
+  --bg-dark-card: #1e293b;
+  --primary-blue: #0066ff;
+  --primary-glow: rgba(0, 102, 255, 0.25);
+  --accent-cyan: #00c2ff;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --text-light: #f8fafc;
+  --border-light: #e2e8f0;
+  --border-dark: rgba(255, 255, 255, 0.12);
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 24px;
+  --radius-lg: 20px;
   --radius-full: 9999px;
-  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --transition-fast: 0.2s ease;
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 25px rgba(0, 194, 255, 0.25);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
 }
 
 *, *::before, *::after {
@@ -46,8 +47,8 @@ Text Domain: higloss2026
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -55,8 +56,8 @@ html {
 
 body {
   overflow-x: hidden;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -65,7 +66,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-smooth);
 }
 
 img {
