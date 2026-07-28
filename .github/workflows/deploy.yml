@@ -13,14 +13,37 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
+      - name: ⚙️ Prepare Credentials
+        id: ftp_config
+        run: |
+          SERVER="${{ secrets.FTP_SERVER }}${{ secrets.FTP_HOST }}${{ secrets.SERVER }}${{ secrets.HOST }}${{ secrets.FTP_HOSTNAME }}"
+          USERNAME="${{ secrets.FTP_USERNAME }}${{ secrets.FTP_USER }}${{ secrets.USER }}${{ secrets.USERNAME }}${{ secrets.FTP_LOGIN }}"
+          PASSWORD="${{ secrets.FTP_PASSWORD }}${{ secrets.FTP_PASS }}${{ secrets.PASSWORD }}${{ secrets.PASS }}"
+          SERVER_DIR="${{ secrets.FTP_SERVER_DIR }}${{ secrets.FTP_TARGET }}${{ secrets.SERVER_DIR }}${{ secrets.TARGET_DIR }}"
+
+          if [ -z "$SERVER" ]; then
+            echo "Error: Could not find FTP server variable in secrets."
+            echo "Please ensure you created a secret named FTP_SERVER or FTP_HOST in GitHub Settings."
+            exit 1
+          fi
+
+          if [ -z "$SERVER_DIR" ]; then
+            SERVER_DIR="/htdocs/wp-content/themes/higloss/"
+          fi
+
+          echo "server=$SERVER" >> $GITHUB_OUTPUT
+          echo "username=$USERNAME" >> $GITHUB_OUTPUT
+          echo "password=$PASSWORD" >> $GITHUB_OUTPUT
+          echo "server_dir=$SERVER_DIR" >> $GITHUB_OUTPUT
+
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER || secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME || secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD || secrets.FTP_PASS }}
+          server: ${{ steps.ftp_config.outputs.server }}
+          username: ${{ steps.ftp_config.outputs.username }}
+          password: ${{ steps.ftp_config.outputs.password }}
           port: ${{ secrets.FTP_PORT || 21 }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR || secrets.FTP_TARGET || '/htdocs/wp-content/themes/higloss/' }}
+          server-dir: ${{ steps.ftp_config.outputs.server_dir }}
           exclude: |
             **/.git**
             **/.git*/**
