@@ -1,47 +1,38 @@
 /*
-Theme Name: Hi-Gloss Design 2026 - Color Studio Edition
+Theme Name: Hi-Gloss Design 2026
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Kolorowy, czysty i nowoczesny motyw WordPress dla studia car wrappingu i ochrony lakieru Hi-Gloss Design (Szczecin / Mierzyn).
-Version: 5.0.0
+Description: Ultra-nowoczesny, dedykowany motyw WordPress dla profesjonalnego studia car wrappingu, folii ochronnych PPF i reklamy na pojazdach Hi-Gloss Design (Szczecin / Mierzyn).
+Version: 6.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: colorful, automotive, car-wrapping, ppf, clean, responsive
+Tags: dark-theme, automotive, car-wrapping, ppf, responsiveness, custom-menu, portfolio, schema-org
 Text Domain: higloss2026
 */
 
 :root {
-  --bg-main: #f8fafc;
-  --bg-white: #ffffff;
-  --bg-dark: #0f172a;
-  --text-dark: #0f172a;
-  --text-muted: #475569;
-  --text-light: #ffffff;
-  
-  /* Distinct Color Spectrum Palette */
-  --color-blue: #2563eb;
-  --color-blue-subtle: #eff6ff;
-  --color-teal: #0d9488;
-  --color-teal-subtle: #f0fdf4;
-  --color-orange: #ea580c;
-  --color-orange-subtle: #fff7ed;
-  --color-purple: #7c3aed;
-  --color-purple-subtle: #f5f3ff;
-  --color-emerald: #059669;
-  --color-rose: #e11d48;
-
-  --border-light: #e2e8f0;
-  --border-dark: rgba(255, 255, 255, 0.12);
+  --bg-dark: #07090e;
+  --bg-card: rgba(16, 22, 34, 0.78);
+  --bg-card-hover: rgba(24, 32, 48, 0.88);
+  --bg-surface: #0e131f;
+  --primary-blue: #25aae1;
+  --primary-glow: rgba(37, 170, 225, 0.35);
+  --accent-cyan: #00c2ff;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(37, 170, 225, 0.3);
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-lg: 22px;
   --radius-full: 9999px;
   --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-card: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 30px rgba(37, 170, 225, 0.3);
 }
 
 *, *::before, *::after {
@@ -53,8 +44,8 @@ Text Domain: higloss2026
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--bg-main);
-  color: var(--text-dark);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -62,8 +53,12 @@ html {
 
 body {
   overflow-x: hidden;
-  background-color: var(--bg-main);
-  color: var(--text-dark);
+  background-color: var(--bg-dark);
+  background-image: linear-gradient(to bottom, rgba(7, 9, 14, 0.88), rgba(7, 9, 14, 0.95)), url('assets/images/tlo.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
