@@ -1,41 +1,33 @@
 /*
-Theme Name: Hi-Gloss Design 2026
+Theme Name: Hi-Gloss Design 2026 - Gaming Edition
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Dedykowany, lekki, czysty i nowoczesny motyw WordPress 2026 dla studia car wrappingu, folii PPF i reklamy na pojazdach Hi-Gloss Design (Szczecin / Mierzyn).
-Version: 3.0.0
+Description: Minimalistyczny, gamingowy motyw WordPress "Less is More" dla studia car wrappingu Hi-Gloss Design (Szczecin / Mierzyn).
+Version: 4.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: light-theme, automotive, car-wrapping, ppf, responsiveness, custom-colors, custom-menu, portfolio, schema-org
+Tags: gaming-theme, dark-theme, neon-accent, minimalist, car-wrapping, ppf
 Text Domain: higloss2026
 */
 
-/* Reset & Root Variables (Light & Crisp Automotive Theme) */
 :root {
-  --bg-light: #ffffff;
-  --bg-subtle: #f8fafc;
-  --bg-alt: #f1f5f9;
-  --bg-dark: #0f172a;
-  --bg-dark-card: #1e293b;
-  --primary-blue: #0066ff;
-  --primary-glow: rgba(0, 102, 255, 0.25);
-  --accent-cyan: #00c2ff;
-  --text-dark: #0f172a;
-  --text-muted: #475569;
-  --text-light: #f8fafc;
-  --border-light: #e2e8f0;
-  --border-dark: rgba(255, 255, 255, 0.12);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+  --bg-dark: #050508;
+  --bg-card: #0b0e14;
+  --bg-card-hover: #121620;
+  --neon-cyan: #00f0ff;
+  --neon-cyan-glow: rgba(0, 240, 255, 0.35);
+  --neon-magenta: #ff0055;
+  --text-main: #ffffff;
+  --text-muted: #8a99ad;
+  --border-neon: rgba(0, 240, 255, 0.2);
+  --border-muted: rgba(255, 255, 255, 0.08);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --font-heading: 'Orbitron', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after {
@@ -47,8 +39,8 @@ Text Domain: higloss2026
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -56,8 +48,12 @@ html {
 
 body {
   overflow-x: hidden;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: var(--bg-dark);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  color: var(--text-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
