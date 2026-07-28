@@ -1,11 +1,11 @@
 /*
- * Hi-Gloss Design 2026 - Harmonized Color System CSS
+ * Hi-Gloss Design 2026 - Premium 4-Tile Edition CSS
  */
 
 /* Container & Grid */
 .hg-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -16,90 +16,15 @@
 }
 
 .hg-grid-2 { grid-template-columns: repeat(2, 1fr); }
-.hg-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.hg-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
-@media (max-width: 900px) {
-  .hg-grid-3, .hg-grid-2 { grid-template-columns: 1fr; }
+@media (max-width: 1024px) {
+  .hg-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .hg-grid-2 { grid-template-columns: 1fr; }
 }
 
-/* Sharp Cards */
-.hg-card {
-  border-radius: 0 !important;
-  padding: 2rem;
-  transition: all var(--transition-fast);
-}
-
-.hg-card-white {
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid #e2e8f0;
-}
-
-.hg-card-white:hover {
-  border-color: var(--brand-blue);
-  box-shadow: 0 10px 25px -5px rgba(37, 170, 225, 0.15);
-}
-
-.hg-card-dark {
-  background: #1e293b;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.hg-card-dark:hover {
-  border-color: var(--brand-blue);
-}
-
-/* Harmonized Buttons */
-.hg-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.9rem 2rem;
-  font-size: 0.9rem;
-  font-weight: 800;
-  border-radius: 0 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.hg-btn-brand {
-  background: var(--brand-blue);
-  color: #ffffff;
-  border: 2px solid var(--brand-blue);
-}
-
-.hg-btn-brand:hover {
-  background: #000000;
-  border-color: #000000;
-  color: #ffffff;
-}
-
-.hg-btn-black {
-  background: #000000;
-  color: #ffffff;
-  border: 2px solid #000000;
-}
-
-.hg-btn-black:hover {
-  background: var(--brand-blue);
-  border-color: var(--brand-blue);
-  color: #ffffff;
-}
-
-.hg-btn-white {
-  background: #ffffff;
-  color: #0f172a;
-  border: 2px solid #ffffff;
-}
-
-.hg-btn-white:hover {
-  background: var(--brand-blue);
-  border-color: var(--brand-blue);
-  color: #ffffff;
+@media (max-width: 640px) {
+  .hg-grid-4, .hg-grid-2 { grid-template-columns: 1fr; }
 }
 
 /* Header */
@@ -109,15 +34,23 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.96);
-  border-bottom: 2px solid #000000;
-  padding: 0.8rem 0;
+  background: rgba(7, 9, 14, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 2px solid #25aae1;
+  padding: 0.85rem 0;
 }
 
 .hg-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.hg-logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
 }
 
 .hg-nav-menu {
@@ -129,55 +62,184 @@
 .hg-nav-link {
   font-size: 0.9rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .hg-nav-link:hover {
-  color: var(--brand-blue);
+  color: #25aae1;
 }
 
-/* Smooth Flowing Harmonized Section Rhythm */
-/* Section 1: Hero (Clean White) */
-.sec-hero {
-  padding: 9rem 0 5rem;
+/* Buttons (0px Radius) */
+.hg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  border-radius: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.hg-btn-cyan {
+  background: #25aae1;
+  color: #ffffff;
+  border: 2px solid #25aae1;
+  box-shadow: 0 4px 20px rgba(37, 170, 225, 0.35);
+}
+
+.hg-btn-cyan:hover {
   background: #ffffff;
-  color: #0f172a;
+  border-color: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
 }
 
-/* Section 2: Usługi (Midnight Slate) */
-.sec-services {
-  padding: 5.5rem 0;
-  background: var(--brand-dark);
+.hg-btn-outline {
+  background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
-  border-y: 2px solid #000000;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Section 3: Realizacje (Cool Ice Slate) */
-.sec-realizacje {
-  padding: 5.5rem 0;
-  background: var(--brand-slate);
-  color: #0f172a;
-  border-bottom: 2px solid #e2e8f0;
+.hg-btn-outline:hover {
+  border-color: #25aae1;
+  color: #25aae1;
+  background: rgba(37, 170, 225, 0.1);
 }
 
-/* Section 4: Wycena & Kontakt (Deep Onyx) */
-.sec-contact {
-  padding: 5.5rem 0;
-  background: var(--brand-darker);
+/* Hero Section */
+.sec-hero {
+  padding: 10.5rem 0 4.5rem;
+  text-align: center;
+}
+
+.hg-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.1;
   color: #ffffff;
-  border-top: 3px solid var(--brand-blue);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-/* Before / After Slider (Sharp 0px Radius) */
+.hg-hero-title span {
+  color: #25aae1;
+  text-shadow: 0 0 25px rgba(37, 170, 225, 0.4);
+}
+
+/* The 4 Iconic Tiles Grid (Kafelki Inspired by hi-glossdesign.pl) */
+.sec-tiles {
+  padding: 4rem 0 6rem;
+}
+
+.hg-tile-card {
+  border-radius: 0 !important;
+  padding: 2.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  min-height: 320px;
+}
+
+.hg-tile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+}
+
+/* Distinct Harmonized Tile Colors */
+.tile-1-navy {
+  background: linear-gradient(145deg, #1e1b4b 0%, #312e81 100%);
+  border: 2px solid #4338ca;
+}
+
+.tile-1-navy:hover {
+  border-color: #25aae1;
+  box-shadow: 0 0 30px rgba(37, 170, 225, 0.4);
+}
+
+.tile-2-emerald {
+  background: linear-gradient(145deg, #064e3b 0%, #047857 100%);
+  border: 2px solid #059669;
+}
+
+.tile-2-emerald:hover {
+  border-color: #10b981;
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+}
+
+.tile-3-ruby {
+  background: linear-gradient(145deg, #881337 0%, #9f1239 100%);
+  border: 2px solid #be123c;
+}
+
+.tile-3-ruby:hover {
+  border-color: #f43f5e;
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.4);
+}
+
+.tile-4-bronze {
+  background: linear-gradient(145deg, #78350f 0%, #92400e 100%);
+  border: 2px solid #b45309;
+}
+
+.tile-4-bronze:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
+}
+
+.hg-tile-icon {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+  transition: transform var(--transition-smooth);
+}
+
+.hg-tile-card:hover .hg-tile-icon {
+  transform: scale(1.08);
+}
+
+.hg-tile-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.hg-tile-desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Before / After Wrap Slider (0px Radius) */
 .hg-slider-box {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 420px;
   border-radius: 0 !important;
   overflow: hidden;
-  border: 2px solid #000000;
+  border: 2px solid #25aae1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   user-select: none;
 }
 
@@ -201,7 +263,8 @@
   z-index: 2;
   width: 50%;
   overflow: hidden;
-  border-right: 4px solid var(--brand-blue);
+  border-right: 4px solid #25aae1;
+  box-shadow: 4px 0 20px rgba(37, 170, 225, 0.6);
   background-size: cover;
   background-position: center;
 }
@@ -212,9 +275,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  width: 40px;
-  height: 40px;
-  background: var(--brand-blue);
+  width: 44px;
+  height: 44px;
+  background: #25aae1;
   color: #ffffff;
   border-radius: 0 !important;
   display: flex;
@@ -227,41 +290,89 @@
 
 .hg-slider-badge {
   position: absolute;
-  bottom: 12px;
+  bottom: 15px;
   z-index: 5;
-  padding: 4px 10px;
+  padding: 5px 12px;
   background: #000000;
   border-radius: 0 !important;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #ffffff;
   font-weight: 800;
   text-transform: uppercase;
 }
-.hg-slider-badge.left { left: 12px; }
-.hg-slider-badge.right { right: 12px; }
+.hg-slider-badge.left { left: 15px; }
+.hg-slider-badge.right { right: 15px; }
 
-/* Inputs (Sharp 0px Radius) */
+/* Interactive Quote Section */
+.sec-details {
+  padding: 5rem 0 6rem;
+  background: #0b0f19;
+  border-top: 2px solid #25aae1;
+}
+
 .hg-input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0 !important;
-  padding: 0.85rem 1rem;
+  padding: 0.9rem 1rem;
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .hg-input:focus {
-  border-color: var(--brand-blue);
+  border-color: #25aae1;
   outline: none;
+}
+
+/* Mobile Sticky Bar */
+.hg-mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(7, 9, 14, 0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .hg-mobile-bar {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+  }
+  .hg-nav-menu { display: none; }
+}
+
+.hg-m-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hg-m-btn.highlight {
+  background: #25aae1;
+  color: #ffffff;
 }
 
 /* Footer */
 .hg-footer {
-  background: #04060a;
+  background: #030508;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2.5rem 0;
+  padding: 3rem 0;
   text-align: center;
   color: #94a3b8;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
