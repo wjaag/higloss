@@ -12,13 +12,12 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<!-- Header (Matching koncept.png) -->
+<!-- Header (Navbar with ONLY standalone logo.png on left) -->
 <header class="hg-header">
     <div class="hg-container hg-header-inner">
-        <!-- Logo.png Square Badge + HI-GLOSS -->
+        <!-- Standalone Official Logo Image (NO TEXT) -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo">
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS" class="hg-logo-square">
-            <span class="hg-brand-text">HI-GLOSS</span>
+            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS" class="hg-logo-standalone">
         </a>
 
         <!-- Navigation Menu -->
