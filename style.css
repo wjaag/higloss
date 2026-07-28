@@ -1,37 +1,30 @@
 /*
-Theme Name: Hi-Gloss Design 2026 - Ultra Premium Edition
+Theme Name: Hi-Gloss Design 2026 - Dynamic Angled Performance Edition
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Luksusowy, ultra-premium motyw WordPress z logo "HI w kwadraciku", ostrymi krawędziami (0px radius) oraz 4-kafelkową strukturą dla Hi-Gloss Design.
-Version: 12.0.0
+Description: Dedykowany, ultramodernistyczny motyw WordPress inspirowany konceptem Dynamic Angled Performance i oficjalnym logo.png z 4 czystymi kafelkami na stronie głównej.
+Version: 13.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: ultra-premium, dark-theme, 4-tiles, hi-logo, sharp-edges, car-wrapping, ppf
+Tags: angled-performance, dark-theme, 4-tiles, hi-gloss, automotive, car-wrapping, ppf
 Text Domain: higloss2026
 */
 
 :root {
-  --radius-zero: 0px;
+  --bg-dark: #0a0b10;
+  --bg-card: #0f1118;
+  --text-main: #ffffff;
+  --text-muted: #8a96a8;
   --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  
-  /* Ultra Premium Palette */
-  --brand-blue: #25aae1;
-  --brand-cyan-glow: rgba(37, 170, 225, 0.35);
-  --bg-dark: #05070b;
-  --bg-surface: #0e131f;
-  --bg-card: rgba(16, 22, 34, 0.85);
-  --border-glass: rgba(255, 255, 255, 0.12);
-  --border-glow: rgba(37, 170, 225, 0.4);
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border-radius: 0 !important; /* Strictly 0px radius everywhere */
 }
 
 html {
@@ -47,11 +40,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-dark);
-  background-image: linear-gradient(to bottom, rgba(5, 7, 11, 0.92), rgba(5, 7, 11, 0.98)), url('assets/images/tlo.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  color: #ffffff;
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(0, 194, 255, 0.08) 0%, transparent 65%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  color: var(--text-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
