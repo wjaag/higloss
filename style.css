@@ -1,13 +1,13 @@
 /*
-Theme Name: Hi-Gloss Design 2026 - Multi-Color Green Block Edition
+Theme Name: Hi-Gloss Design 2026 - Harmonized Edition
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Surowy, wielobarwny motyw "Less is More" z wyrazistą zielenią, ostrymi krawędziami (0px radius) oraz silnie skontrastowanymi blokami kolorystycznymi dla Hi-Gloss Design.
-Version: 9.0.0
+Description: Harmonijny, spójny kolorystycznie, czysty i architektoniczny motyw WordPress z ostrymi krawędziami (0px radius) dla Hi-Gloss Design.
+Version: 10.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: green, multi-color, minimal, sharp-edges, color-blocks, car-wrapping, ppf
+Tags: harmonized-colors, minimal, sharp-edges, car-wrapping, ppf
 Text Domain: higloss2026
 */
 
@@ -17,15 +17,19 @@ Text Domain: higloss2026
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --transition-fast: 0.2s ease;
   
-  /* Vibrant Multi-Color Palette with Prominent Green */
-  --color-green: #15803d;
-  --color-green-light: #16a34a;
-  --color-mint: #86efac;
-  --color-crimson: #e11d48;
-  --color-purple: #581c87;
-  --color-pink: #f43f5e;
-  --color-charcoal: #111827;
-  --color-orange: #ea580c;
+  /* Harmonized Automotive Palette */
+  --brand-blue: #25aae1;
+  --brand-blue-dark: #1d82b2;
+  --brand-blue-subtle: rgba(37, 170, 225, 0.1);
+  --brand-dark: #0f172a;
+  --brand-darker: #090d16;
+  --brand-light: #ffffff;
+  --brand-slate: #f8fafc;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #ffffff;
+  --border-light: #e2e8f0;
+  --border-dark: rgba(255, 255, 255, 0.12);
 }
 
 *, *::before, *::after {
@@ -47,8 +51,8 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--brand-light);
+  color: var(--text-dark);
 }
 
 a {

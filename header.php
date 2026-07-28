@@ -33,10 +33,10 @@
         </nav>
 
         <div class="hg-header-actions">
-            <a href="tel:+48605088065" class="hg-btn" style="background:#000; color:#fff; border: 2px solid #000; padding: 0.5rem 1rem; font-size: 0.8rem;">
+            <a href="tel:+48605088065" class="hg-btn hg-btn-black" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
                 605 088 065
             </a>
-            <a href="<?php echo esc_url(home_url('/#wycena')); ?>" class="hg-btn hg-btn-crimson" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+            <a href="<?php echo esc_url(home_url('/#wycena')); ?>" class="hg-btn hg-btn-brand" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
                 Szybka Wycena
             </a>
         </div>
