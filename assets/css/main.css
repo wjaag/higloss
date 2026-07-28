@@ -1,16 +1,16 @@
 /*
- * Hi-Gloss Design 2026 - Background Graphic Icons Edition CSS
+ * Hi-Gloss Design 2026 - AI-Powered Masterpiece 4-Tile Edition CSS
  */
 
 /* Container */
 .hg-container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1260px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* Header (COMPLETELY TRANSPARENT, NO BACKGROUND, NO BORDER) */
+/* Header (Transparent, Standalone Logo) */
 .hg-header {
   position: fixed;
   top: 0;
@@ -21,7 +21,7 @@
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border-bottom: none !important;
-  padding: 1.6rem 0 1rem;
+  padding: 1.8rem 0 1rem;
   transition: all var(--transition-smooth);
 }
 
@@ -31,11 +31,12 @@
   justify-content: space-between;
 }
 
-/* Standalone Official Logo Image */
+/* Standalone Logo Image */
 .hg-logo-standalone {
-  height: 50px;
-  width: 50px;
+  height: 52px;
+  width: 52px;
   object-fit: contain;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8));
   transition: transform var(--transition-smooth);
 }
 
@@ -56,7 +57,7 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   position: relative;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .hg-nav-link::after {
@@ -78,7 +79,7 @@
   width: 100%;
 }
 
-/* Main Homepage Grid (4 Frosted Glass Tile Cards) */
+/* Main Homepage Grid (4 AI Visual Masterpiece Tiles) */
 .sec-homepage-tiles {
   padding: 9.5rem 0 4.5rem;
   flex: 1;
@@ -89,14 +90,14 @@
 .hg-tiles-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 2.2rem;
   width: 100%;
 }
 
 @media (max-width: 900px) {
   .hg-tiles-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.8rem;
   }
 }
 
@@ -104,7 +105,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px);
   }
   to {
     opacity: 1;
@@ -113,7 +114,7 @@
 }
 
 .hg-tiles-grid > a {
-  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hg-tiles-grid > a:nth-child(1) { animation-delay: 0.1s; }
@@ -121,124 +122,167 @@
 .hg-tiles-grid > a:nth-child(3) { animation-delay: 0.3s; }
 .hg-tiles-grid > a:nth-child(4) { animation-delay: 0.4s; }
 
-/* Subtly Animated Frosted Glassmorphism Card */
-.hg-luxury-card {
+/* AI Visual Masterpiece Tile Card (0px Radius, Full-Bleed Imagery) */
+.hg-ai-mastercard {
   position: relative;
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-glass);
+  background: #0b0e17;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0 !important;
-  min-height: 290px;
-  padding: 2.5rem;
+  height: 380px;
+  padding: 2.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   transition: all var(--transition-smooth);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
 
-.hg-luxury-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-blue-glow);
+.hg-ai-mastercard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
 }
 
-/* Subtle Metallic / Sapphire Shimmer Reflection across Top Edge */
-.hg-luxury-card::before {
+/* Full-Bleed AI Generated Vehicle Image */
+.hg-ai-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  z-index: 1;
+}
+
+.hg-ai-mastercard:hover .hg-ai-card-img {
+  transform: scale(1.08);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Cinematic Dark Overlay Vignette */
+.hg-ai-card-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.5) 50%, rgba(5, 7, 12, 0.25) 100%);
+  z-index: 2;
+  transition: background 0.5s ease;
+}
+
+.hg-ai-mastercard:hover .hg-ai-card-vignette {
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.98) 0%, rgba(5, 7, 12, 0.4) 60%, rgba(5, 7, 12, 0.15) 100%);
+}
+
+/* Shimmer Light Beam across top on hover */
+.hg-ai-mastercard::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
-  transition: left 0.75s ease;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--card-accent, #25aae1), transparent);
+  transition: left 0.8s ease;
   z-index: 10;
 }
 
-.hg-luxury-card:hover::before {
+.hg-ai-mastercard:hover::before {
   left: 100%;
 }
 
-/* Corresponding Background Graphic Icon */
-.hg-card-icon-bg {
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 180px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.2;
-  filter: drop-shadow(0 0 15px rgba(37, 170, 225, 0.2));
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, filter 0.5s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hg-luxury-card:hover .hg-card-icon-bg {
-  transform: translateY(-50%) scale(1.08);
-  opacity: 0.42;
-  filter: drop-shadow(0 0 25px rgba(37, 170, 225, 0.5));
-}
-
-/* Card Content Overlay */
-.hg-luxury-card-content {
+/* Top Badge Overlay */
+.hg-ai-card-tag {
   position: relative;
   z-index: 5;
-  max-width: 65%;
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--card-accent, #25aae1);
+  color: var(--card-accent, #25aae1);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: fit-content;
 }
 
-.hg-luxury-card-title {
+/* Bottom Content */
+.hg-ai-card-body {
+  position: relative;
+  z-index: 5;
+}
+
+.hg-ai-card-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 900;
   line-height: 1.15;
   color: #ffffff;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
   letter-spacing: -0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.hg-luxury-card-desc {
-  color: var(--text-muted);
+.hg-ai-card-desc {
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
   font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Subtle Arrow Motion Action Button */
-.hg-luxury-card-btn {
+/* Action Button Badge */
+.hg-ai-card-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  padding: 0.65rem 1.4rem;
+  background: var(--card-accent, #25aae1);
+  color: #000000;
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-weight: 900;
   font-size: 0.8rem;
-  color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  transition: color var(--transition-smooth);
-  position: relative;
-  z-index: 5;
+  letter-spacing: 0.08em;
+  border-radius: 0 !important;
+  transition: all var(--transition-smooth);
 }
 
-.hg-luxury-card-btn span.arrow {
+.hg-ai-card-btn span.arrow {
   display: inline-block;
   transition: transform var(--transition-smooth);
 }
 
-.hg-luxury-card:hover .hg-luxury-card-btn {
-  color: var(--accent-blue);
+.hg-ai-mastercard:hover .hg-ai-card-btn {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 20px var(--card-accent, #25aae1);
 }
 
-.hg-luxury-card:hover .hg-luxury-card-btn span.arrow {
+.hg-ai-mastercard:hover .hg-ai-card-btn span.arrow {
   transform: translateX(6px);
+}
+
+/* Specific Accent Color Themes for the 4 AI Mastercards */
+.tile-theme-green {
+  --card-accent: #00ff66;
+}
+.tile-theme-amber {
+  --card-accent: #ff9900;
+}
+.tile-theme-ruby {
+  --card-accent: #ff0055;
+}
+.tile-theme-cyan {
+  --card-accent: #00c2ff;
 }
 
 /* Footer */

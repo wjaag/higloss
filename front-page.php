@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Background Graphic Icons 4-Tile Performance Homepage
+ * Template Name: AI-Powered Masterpiece 4-Tile Homepage
  *
  * @package HiGloss2026
  */
@@ -8,64 +8,72 @@
 get_header();
 ?>
 
-<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + 4 TILES WITH CORRESPONDING BACKGROUND GRAPHIC ICONS -->
+<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + 4 AI VISUAL MASTERPIECE TILES -->
 <main class="sec-homepage-tiles">
     <div class="hg-container">
         <div class="hg-tiles-grid">
 
-            <!-- TILE 1: HISTORIA FIRMY (Background Icon: historia_firmy.png) -->
-            <a href="<?php echo esc_url(home_url('/o-firmie')); ?>" class="hg-luxury-card">
-                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/historia_firmy.png'); ?>" alt="Historia Firmy" class="hg-card-icon-bg">
-                
-                <div class="hg-luxury-card-content">
-                    <h2 class="hg-luxury-card-title">HISTORIA FIRMY & PASJA</h2>
-                    <p class="hg-luxury-card-desc">Certyfikowany zespół aplikatorów 3M i Avery Dennison, ogrzewana hala w Mierzynie i własny park maszynowy.</p>
-                </div>
+            <!-- TILE 1: HISTORIA FIRMY (AI Porsche GT3 RS Wrap Studio) -->
+            <a href="<?php echo esc_url(home_url('/o-firmie')); ?>" class="hg-ai-mastercard tile-theme-green">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile1_pasja.jpg'); ?>" alt="Historia Firmy & Pasja" class="hg-ai-card-img">
+                <div class="hg-ai-card-vignette"></div>
 
-                <div class="hg-luxury-card-btn">
-                    POZNAJ NAS <span class="arrow">&rarr;</span>
+                <div class="hg-ai-card-tag">01 / HISTORIA FIRMY</div>
+                
+                <div class="hg-ai-card-body">
+                    <h2 class="hg-ai-card-title">HISTORIA FIRMY & PASJA</h2>
+                    <p class="hg-ai-card-desc">Certyfikowany zespół aplikatorów, ogrzewana pracownia w Mierzynie i własny park maszynowy.</p>
+                    <div class="hg-ai-card-btn">
+                        POZNAJ NAS <span class="arrow">&rarr;</span>
+                    </div>
                 </div>
             </a>
 
-            <!-- TILE 2: NASZA OFERTA (Background Icon: nasza_oferta.png) -->
-            <a href="<?php echo esc_url(home_url('/oferta')); ?>" class="hg-luxury-card">
-                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/nasza_oferta.png'); ?>" alt="Nasza Oferta" class="hg-card-icon-bg">
-                
-                <div class="hg-luxury-card-content">
-                    <h2 class="hg-luxury-card-title">NASZA OFERTA & USŁUGI</h2>
-                    <p class="hg-luxury-card-desc">Całościowa zmiana koloru (Mat, Połysk, Satyna, Carbon), bezbarwne folie PPF z samoregeneracją oraz reklama flot.</p>
-                </div>
+            <!-- TILE 2: NASZA OFERTA (AI BMW M4 Gold & Carbon Wrap Detail) -->
+            <a href="<?php echo esc_url(home_url('/oferta')); ?>" class="hg-ai-mastercard tile-theme-amber">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile2_oferta.jpg'); ?>" alt="Nasza Oferta & Usługi" class="hg-ai-card-img">
+                <div class="hg-ai-card-vignette"></div>
 
-                <div class="hg-luxury-card-btn">
-                    SPRAWDŹ OFERTĘ <span class="arrow">&rarr;</span>
+                <div class="hg-ai-card-tag">02 / NASZA OFERTA</div>
+                
+                <div class="hg-ai-card-body">
+                    <h2 class="hg-ai-card-title">NASZA OFERTA & USŁUGI</h2>
+                    <p class="hg-ai-card-desc">Całościowa zmiana koloru (Mat, Połysk, Satyna, Carbon), bezbarwne folie PPF oraz reklama flot.</p>
+                    <div class="hg-ai-card-btn">
+                        SPRAWDŹ OFERTĘ <span class="arrow">&rarr;</span>
+                    </div>
                 </div>
             </a>
 
-            <!-- TILE 3: GALERIA REALIZACJI (Background Icon: galeria_realizacji.png) -->
-            <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-luxury-card">
-                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/galeria_realizacji.png'); ?>" alt="Galeria Realizacji" class="hg-card-icon-bg">
-                
-                <div class="hg-luxury-card-content">
-                    <h2 class="hg-luxury-card-title">GALERIA REALIZACJI</h2>
-                    <p class="hg-luxury-card-desc">Zobacz setki ukończonych aut: Audi A7 Blue Gloss, Mercedes S Satyna, Porsche Panamera PPF.</p>
-                </div>
+            <!-- TILE 3: GALERIA REALIZACJI (AI Audi RS7 Blue Gloss Gallery) -->
+            <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-ai-mastercard tile-theme-ruby">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile3_galeria.jpg'); ?>" alt="Galeria Realizacji" class="hg-ai-card-img">
+                <div class="hg-ai-card-vignette"></div>
 
-                <div class="hg-luxury-card-btn">
-                    GALERIA PRAC <span class="arrow">&rarr;</span>
+                <div class="hg-ai-card-tag">03 / GALERIA PRAC</div>
+                
+                <div class="hg-ai-card-body">
+                    <h2 class="hg-ai-card-title">GALERIA REALIZACJI</h2>
+                    <p class="hg-ai-card-desc">Zobacz setki ukończonych aut: Audi A7 Blue Gloss, Mercedes S Satyna, Porsche Panamera PPF.</p>
+                    <div class="hg-ai-card-btn">
+                        GALERIA PRAC <span class="arrow">&rarr;</span>
+                    </div>
                 </div>
             </a>
 
-            <!-- TILE 4: KONTAKT Z NAMI (Background Icon: kontakt_z_nami.png) -->
-            <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-luxury-card">
-                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/kontakt_z_nami.png'); ?>" alt="Kontakt Z Nami" class="hg-card-icon-bg">
-                
-                <div class="hg-luxury-card-content">
-                    <h2 class="hg-luxury-card-title">KONTAKT Z NAMI & WYCENA</h2>
-                    <p class="hg-luxury-card-desc">Infolinia studio: 605 088 065 / 664 129 023. Odwiedź naszą ogrzewaną pracownię w Mierzynie ul. Podmiejska 4.</p>
-                </div>
+            <!-- TILE 4: KONTAKT Z NAMI (AI High-Tech Studio Scan) -->
+            <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-ai-mastercard tile-theme-cyan">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile4_kontakt.jpg'); ?>" alt="Kontakt Z Nami & Wycena" class="hg-ai-card-img">
+                <div class="hg-ai-card-vignette"></div>
 
-                <div class="hg-luxury-card-btn">
-                    SKONTAKTUJ SIĘ <span class="arrow">&rarr;</span>
+                <div class="hg-ai-card-tag">04 / KONTAKT & WYCENA</div>
+                
+                <div class="hg-ai-card-body">
+                    <h2 class="hg-ai-card-title">KONTAKT Z NAMI & WYCENA</h2>
+                    <p class="hg-ai-card-desc">Infolinia studio: 605 088 065 / 664 129 023. Odwiedź naszą ogrzewaną pracownię w Mierzynie ul. Podmiejska 4.</p>
+                    <div class="hg-ai-card-btn">
+                        SKONTAKTUJ SIĘ <span class="arrow">&rarr;</span>
+                    </div>
                 </div>
             </a>
 
