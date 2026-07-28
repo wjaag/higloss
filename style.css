@@ -1,30 +1,35 @@
 /*
-Theme Name: Hi-Gloss Design 2026 - Dynamic Angled Performance Edition
+Theme Name: Hi-Gloss Design 2026 - Ultra-Luxury Automotive Edition
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Dedykowany, ultramodernistyczny motyw WordPress inspirowany konceptem Dynamic Angled Performance i oficjalnym logo.png z 4 czystymi kafelkami na stronie głównej.
-Version: 13.0.0
+Description: Dedykowany, luksusowy i ponadczasowy motyw WordPress dla studia car wrappingu Hi-Gloss Design (Szczecin / Mierzyn).
+Version: 14.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: angled-performance, dark-theme, 4-tiles, hi-gloss, automotive, car-wrapping, ppf
+Tags: luxury-automotive, dark-theme, 4-tiles, hi-gloss, car-wrapping, ppf
 Text Domain: higloss2026
 */
 
 :root {
-  --bg-dark: #0a0b10;
-  --bg-card: #0f1118;
+  --bg-dark: #090b10;
+  --bg-card: #111522;
+  --bg-card-hover: #161b2a;
+  --accent-blue: #25aae1;
   --text-main: #ffffff;
-  --text-muted: #8a96a8;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(37, 170, 225, 0.5);
   --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border-radius: 0 !important; /* Strictly 0px radius */
 }
 
 html {
@@ -40,11 +45,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-dark);
-  background-image: 
-    radial-gradient(ellipse at 50% 0%, rgba(0, 194, 255, 0.08) 0%, transparent 65%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-image: linear-gradient(to bottom, rgba(9, 11, 16, 0.94), rgba(9, 11, 16, 0.98)), url('assets/images/tlo.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   color: var(--text-main);
   min-height: 100vh;
   display: flex;

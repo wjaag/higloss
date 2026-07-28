@@ -1,11 +1,11 @@
 /*
- * Hi-Gloss Design 2026 - Innovative 4-Tile Performance Edition CSS
+ * Hi-Gloss Design 2026 - Ultra-Luxury Automotive Edition CSS
  */
 
 /* Container */
 .hg-container {
   width: 100%;
-  max-width: 1260px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -17,11 +17,11 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(5, 7, 12, 0.94);
+  background: rgba(9, 11, 16, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem 0;
+  padding: 1.1rem 0;
 }
 
 .hg-header-inner {
@@ -30,16 +30,16 @@
   justify-content: space-between;
 }
 
-/* Standalone Logo Image (NO TEXT) */
+/* Standalone Official Logo Image */
 .hg-logo-standalone {
   height: 48px;
   width: 48px;
   object-fit: contain;
-  transition: transform var(--transition-smooth);
+  transition: opacity var(--transition-smooth);
 }
 
-.hg-brand-logo:hover .hg-logo-standalone {
-  transform: scale(1.05);
+.hg-logo-standalone:hover {
+  opacity: 0.85;
 }
 
 .hg-nav-menu {
@@ -53,17 +53,16 @@
   font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 .hg-nav-link:hover {
-  color: #00c2ff;
-  text-shadow: 0 0 12px rgba(0, 194, 255, 0.6);
+  color: var(--accent-blue);
 }
 
-/* Main Homepage Area (4 Innovative Tile Cards) */
+/* Main Homepage Grid (4 Ultra-Luxury Tiles) */
 .sec-homepage-tiles {
-  padding: 9rem 0 4rem;
+  padding: 9.5rem 0 4.5rem;
   flex: 1;
   display: flex;
   align-items: center;
@@ -72,220 +71,112 @@
 .hg-tiles-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.2rem;
+  gap: 2rem;
   width: 100%;
 }
 
 @media (max-width: 900px) {
   .hg-tiles-grid {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
 }
 
-/* Innovative Tile Card (2026 Technical Automotive Frame) */
-.hg-innovative-card {
+/* Luxury Automotive Card */
+.hg-luxury-card {
   position: relative;
-  background: #0d1018;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 0 !important;
-  min-height: 290px;
-  padding: 2.2rem;
+  min-height: 280px;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   transition: all var(--transition-smooth);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
-.hg-innovative-card:hover {
-  transform: translateY(-6px);
-  background: #111522;
+.hg-luxury-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* Technical L-Corner Brackets */
-.hg-innovative-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  z-index: 10;
-  transition: all var(--transition-smooth);
-}
-
-.hg-innovative-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  border-bottom: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
-  z-index: 10;
-  transition: all var(--transition-smooth);
-}
-
-/* Vehicle Background Photography Overlay */
-.hg-card-bg-vehicle {
+/* High-Definition Vehicle Background Image Overlay */
+.hg-luxury-card-bg {
   position: absolute;
   top: 0;
   right: 0;
-  width: 65%;
+  width: 60%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.35;
-  filter: contrast(1.1) saturate(1.2);
-  mask-image: linear-gradient(to right, transparent 0%, black 65%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 65%);
+  opacity: 0.4;
+  mask-image: linear-gradient(to right, transparent 0%, black 50%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
   z-index: 1;
 }
 
-.hg-innovative-card:hover .hg-card-bg-vehicle {
-  transform: scale(1.08);
-  opacity: 0.65;
+.hg-luxury-card:hover .hg-luxury-card-bg {
+  transform: scale(1.06);
+  opacity: 0.6;
 }
 
-/* Large Background Numerals (01, 02, 03, 04) */
-.hg-card-numeral {
-  position: absolute;
-  top: -10px;
-  left: 15px;
-  font-family: var(--font-heading);
-  font-size: 7.5rem;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.03);
-  line-height: 1;
-  user-select: none;
-  z-index: 2;
-  transition: color var(--transition-smooth);
-}
-
-/* Tile Content */
-.hg-card-content {
+/* Card Content Overlay */
+.hg-luxury-card-content {
   position: relative;
   z-index: 5;
   max-width: 65%;
 }
 
-.hg-card-title {
+.hg-luxury-card-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   font-weight: 900;
   line-height: 1.15;
   color: #ffffff;
   text-transform: uppercase;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
 }
 
-.hg-card-desc {
+.hg-luxury-card-desc {
   color: var(--text-muted);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
-/* Innovative Action Pill Badge */
-.hg-card-action-btn {
+/* Understated High-End Action Link */
+.hg-luxury-card-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.6rem 1.4rem;
+  gap: 0.5rem;
   font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 0.78rem;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-radius: 0 !important;
-  transition: all var(--transition-smooth);
+  letter-spacing: 0.1em;
+  transition: color var(--transition-smooth);
   position: relative;
   z-index: 5;
-  width: fit-content;
 }
 
-/* Card Color Accents (Green, Amber, Red, Cyan) */
-
-/* Tile 1: Green Accent (Historia Firmy) */
-.tile-accent-green:hover {
-  border-color: #00ff66;
-  box-shadow: 0 0 30px rgba(0, 255, 102, 0.3);
-}
-.tile-accent-green::before, .tile-accent-green::after {
-  border-color: #00ff66;
-}
-.tile-accent-green .hg-card-action-btn {
-  background: #00ff66;
-  color: #000000;
-}
-.tile-accent-green:hover .hg-card-action-btn {
-  background: #ffffff;
-  box-shadow: 0 0 20px #00ff66;
-}
-
-/* Tile 2: Amber Accent (Nasza Oferta) */
-.tile-accent-amber:hover {
-  border-color: #ff9900;
-  box-shadow: 0 0 30px rgba(255, 153, 0, 0.3);
-}
-.tile-accent-amber::before, .tile-accent-amber::after {
-  border-color: #ff9900;
-}
-.tile-accent-amber .hg-card-action-btn {
-  background: #ff9900;
-  color: #000000;
-}
-.tile-accent-amber:hover .hg-card-action-btn {
-  background: #ffffff;
-  box-shadow: 0 0 20px #ff9900;
-}
-
-/* Tile 3: Red Accent (Galeria Realizacji) */
-.tile-accent-red:hover {
-  border-color: #ff0055;
-  box-shadow: 0 0 30px rgba(255, 0, 85, 0.3);
-}
-.tile-accent-red::before, .tile-accent-red::after {
-  border-color: #ff0055;
-}
-.tile-accent-red .hg-card-action-btn {
-  background: #ff0055;
-  color: #ffffff;
-}
-.tile-accent-red:hover .hg-card-action-btn {
-  background: #ffffff;
-  color: #000000;
-  box-shadow: 0 0 20px #ff0055;
-}
-
-/* Tile 4: Cyan Accent (Kontakt Z Nami) */
-.tile-accent-cyan:hover {
-  border-color: #00c2ff;
-  box-shadow: 0 0 30px rgba(0, 194, 255, 0.3);
-}
-.tile-accent-cyan::before, .tile-accent-cyan::after {
-  border-color: #00c2ff;
-}
-.tile-accent-cyan .hg-card-action-btn {
-  background: #00c2ff;
-  color: #000000;
-}
-.tile-accent-cyan:hover .hg-card-action-btn {
-  background: #ffffff;
-  box-shadow: 0 0 20px #00c2ff;
+.hg-luxury-card:hover .hg-luxury-card-btn {
+  color: var(--accent-blue);
 }
 
 /* Footer */
 .hg-footer {
-  background: #030407;
+  background: #040508;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.8rem 0;
+  padding: 2rem 0;
   text-align: center;
   color: var(--text-muted);
   font-size: 0.85rem;
