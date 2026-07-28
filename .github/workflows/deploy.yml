@@ -43,6 +43,7 @@ jobs:
           username: ${{ steps.ftp_config.outputs.username }}
           password: ${{ steps.ftp_config.outputs.password }}
           port: ${{ secrets.FTP_PORT || 21 }}
+          protocol: ftp
           server-dir: ${{ steps.ftp_config.outputs.server_dir }}
           exclude: |
             **/.git**
