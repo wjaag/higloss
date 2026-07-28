@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Transparent Navbar Edition CSS
+ * Hi-Gloss Design 2026 - Background Graphic Icons Edition CSS
  */
 
 /* Container */
@@ -100,7 +100,7 @@
   }
 }
 
-/* Subtle Entrance Animation */
+/* Entrance Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -129,7 +129,7 @@
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
   border-radius: 0 !important;
-  min-height: 280px;
+  min-height: 290px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -164,27 +164,29 @@
   left: 100%;
 }
 
-/* Vehicle Background Photography Smooth Micro-Zoom */
-.hg-luxury-card-bg {
+/* Corresponding Background Graphic Icon */
+.hg-card-icon-bg {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 62%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.38;
-  mask-image: linear-gradient(to right, transparent 0%, black 50%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%);
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.2;
+  filter: drop-shadow(0 0 15px rgba(37, 170, 225, 0.2));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, filter 0.5s ease;
   z-index: 1;
+  pointer-events: none;
 }
 
-.hg-luxury-card:hover .hg-luxury-card-bg {
-  transform: scale(1.07);
-  opacity: 0.62;
+.hg-luxury-card:hover .hg-card-icon-bg {
+  transform: translateY(-50%) scale(1.08);
+  opacity: 0.42;
+  filter: drop-shadow(0 0 25px rgba(37, 170, 225, 0.5));
 }
 
-/* Card Content */
+/* Card Content Overlay */
 .hg-luxury-card-content {
   position: relative;
   z-index: 5;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Subtle Glassmorphism 4-Tile Performance Homepage
+ * Template Name: Background Graphic Icons 4-Tile Performance Homepage
  *
  * @package HiGloss2026
  */
@@ -8,14 +8,14 @@
 get_header();
 ?>
 
-<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + 4 FROSTED GLASS TILES -->
+<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + 4 TILES WITH CORRESPONDING BACKGROUND GRAPHIC ICONS -->
 <main class="sec-homepage-tiles">
     <div class="hg-container">
         <div class="hg-tiles-grid">
 
-            <!-- TILE 1: HISTORIA FIRMY -->
+            <!-- TILE 1: HISTORIA FIRMY (Background Icon: historia_firmy.png) -->
             <a href="<?php echo esc_url(home_url('/o-firmie')); ?>" class="hg-luxury-card">
-                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1000&q=80" alt="Historia Firmy" class="hg-luxury-card-bg">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/historia_firmy.png'); ?>" alt="Historia Firmy" class="hg-card-icon-bg">
                 
                 <div class="hg-luxury-card-content">
                     <h2 class="hg-luxury-card-title">HISTORIA FIRMY & PASJA</h2>
@@ -27,9 +27,9 @@ get_header();
                 </div>
             </a>
 
-            <!-- TILE 2: NASZA OFERTA -->
+            <!-- TILE 2: NASZA OFERTA (Background Icon: nasza_oferta.png) -->
             <a href="<?php echo esc_url(home_url('/oferta')); ?>" class="hg-luxury-card">
-                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=80" alt="Nasza Oferta" class="hg-luxury-card-bg">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/nasza_oferta.png'); ?>" alt="Nasza Oferta" class="hg-card-icon-bg">
                 
                 <div class="hg-luxury-card-content">
                     <h2 class="hg-luxury-card-title">NASZA OFERTA & USŁUGI</h2>
@@ -41,9 +41,9 @@ get_header();
                 </div>
             </a>
 
-            <!-- TILE 3: GALERIA REALIZACJI -->
+            <!-- TILE 3: GALERIA REALIZACJI (Background Icon: galeria_realizacji.png) -->
             <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-luxury-card">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80" alt="Galeria Realizacji" class="hg-luxury-card-bg">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/galeria_realizacji.png'); ?>" alt="Galeria Realizacji" class="hg-card-icon-bg">
                 
                 <div class="hg-luxury-card-content">
                     <h2 class="hg-luxury-card-title">GALERIA REALIZACJI</h2>
@@ -55,9 +55,9 @@ get_header();
                 </div>
             </a>
 
-            <!-- TILE 4: KONTAKT Z NAMI -->
+            <!-- TILE 4: KONTAKT Z NAMI (Background Icon: kontakt_z_nami.png) -->
             <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-luxury-card">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=80" alt="Kontakt Z Nami" class="hg-luxury-card-bg">
+                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/kontakt_z_nami.png'); ?>" alt="Kontakt Z Nami" class="hg-card-icon-bg">
                 
                 <div class="hg-luxury-card-content">
                     <h2 class="hg-luxury-card-title">KONTAKT Z NAMI & WYCENA</h2>
