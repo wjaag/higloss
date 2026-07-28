@@ -15,9 +15,15 @@
 <!-- Header -->
 <header class="hg-header">
     <div class="hg-container hg-header-inner">
-        <!-- Official Client Logo -->
-        <a href="<?php echo esc_url(home_url('/')); ?>" style="display: flex; align-items: center;">
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS DESIGN" class="hg-logo-img">
+        <!-- Square-Outline "HI" Logo Component -->
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-logo-brand" style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 44px; height: 44px; border: 2.5px solid #25aae1; background: #000000; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.35rem; color: #25aae1; flex-shrink: 0; box-shadow: 0 0 15px rgba(37, 170, 225, 0.4);">
+                HI
+            </div>
+            <div style="display: flex; flex-direction: column; line-height: 1;">
+                <span style="font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase;">HI-GLOSS</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.72rem; color: #25aae1; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 3px;">DESIGN</span>
+            </div>
         </a>
 
         <nav class="hg-nav-menu" id="hgNavMenu">

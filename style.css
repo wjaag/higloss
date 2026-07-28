@@ -1,13 +1,13 @@
 /*
-Theme Name: Hi-Gloss Design 2026 - Premium 4-Tile Edition
+Theme Name: Hi-Gloss Design 2026 - Ultra Premium Edition
 Theme URI: https://www.hi-glossdesign.pl/
 Author: Hi-Gloss Design
 Author URI: https://www.hi-glossdesign.pl/
-Description: Luksusowy, 4-kafelkowy motyw WordPress inspirowany strukturą hi-glossdesign.pl, z ostrymi krawędziami (0px radius) oraz harmonijnymi, nasyconymi blokami kolorystycznymi.
-Version: 11.0.0
+Description: Luksusowy, ultra-premium motyw WordPress z logo "HI w kwadraciku", ostrymi krawędziami (0px radius) oraz 4-kafelkową strukturą dla Hi-Gloss Design.
+Version: 12.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: 4-tiles, premium-automotive, car-wrapping, ppf, sharp-edges
+Tags: ultra-premium, dark-theme, 4-tiles, hi-logo, sharp-edges, car-wrapping, ppf
 Text Domain: higloss2026
 */
 
@@ -17,22 +17,14 @@ Text Domain: higloss2026
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* Harmonized 4-Tile Jewel Tone Colors */
-  --tile-navy: #1e1b4b;
-  --tile-emerald: #064e3b;
-  --tile-ruby: #881337;
-  --tile-bronze: #78350f;
-  
-  --accent-cyan: #25aae1;
-  --accent-mint: #10b981;
-  --accent-rose: #f43f5e;
-  --accent-gold: #f59e0b;
-
-  --bg-dark: #07090e;
-  --bg-light: #ffffff;
-  --text-dark: #0f172a;
-  --text-light: #ffffff;
+  /* Ultra Premium Palette */
+  --brand-blue: #25aae1;
+  --brand-cyan-glow: rgba(37, 170, 225, 0.35);
+  --bg-dark: #05070b;
+  --bg-surface: #0e131f;
+  --bg-card: rgba(16, 22, 34, 0.85);
   --border-glass: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(37, 170, 225, 0.4);
 }
 
 *, *::before, *::after {
@@ -55,11 +47,11 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-dark);
-  background-image: linear-gradient(to bottom, rgba(7, 9, 14, 0.92), rgba(7, 9, 14, 0.97)), url('assets/images/tlo.jpg');
+  background-image: linear-gradient(to bottom, rgba(5, 7, 11, 0.92), rgba(5, 7, 11, 0.98)), url('assets/images/tlo.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  color: var(--text-light);
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

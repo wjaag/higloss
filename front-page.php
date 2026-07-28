@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Premium 4-Tile Landing Page (hi-glossdesign.pl inspired)
+ * Template Name: Ultra Premium 4-Tile Landing Page
  *
  * @package HiGloss2026
  */
@@ -10,7 +10,7 @@ get_header();
 
 <!-- HERO BANNER -->
 <section class="sec-hero">
-    <div class="hg-container" style="max-width: 960px;">
+    <div class="hg-container" style="max-width: 980px;">
         <div style="display: inline-block; padding: 0.35rem 1rem; background: rgba(37, 170, 225, 0.12); border: 1px solid #25aae1; color: #25aae1; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">
             STUDIO CAR WRAPPINGU & PPF SZCZECIN - MIERZYN
         </div>
@@ -38,7 +38,7 @@ get_header();
 <section class="sec-tiles">
     <div class="hg-container">
         <div class="hg-grid hg-grid-4">
-            <!-- Tile 1: Historia Firmy (Deep Navy) -->
+            <!-- Tile 1: Historia Firmy (Navy) -->
             <a href="#o-firmie" class="hg-tile-card tile-1-navy">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/historia_firmy.png'); ?>" alt="Historia Firmy" class="hg-tile-icon">
                 <h3 class="hg-tile-title">Historia Firmy</h3>
@@ -50,7 +50,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- Tile 2: Nasza Oferta (Deep Emerald Green) -->
+            <!-- Tile 2: Nasza Oferta (Deep Emerald) -->
             <a href="#oferta" class="hg-tile-card tile-2-emerald">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/nasza_oferta.png'); ?>" alt="Nasza Oferta" class="hg-tile-icon">
                 <h3 class="hg-tile-title">Nasza Oferta</h3>
@@ -62,7 +62,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- Tile 3: Galeria Realizacji (Deep Ruby Crimson) -->
+            <!-- Tile 3: Galeria Realizacji (Ruby Crimson) -->
             <a href="#realizacje" class="hg-tile-card tile-3-ruby">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/galeria_realizacji.png'); ?>" alt="Galeria Realizacji" class="hg-tile-icon">
                 <h3 class="hg-tile-title">Galeria Prac</h3>
@@ -74,7 +74,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- Tile 4: Kontakt Z Nami (Deep Burnt Bronze) -->
+            <!-- Tile 4: Kontakt Z Nami (Burnt Bronze) -->
             <a href="#kontakt" class="hg-tile-card tile-4-bronze">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/kontakt_z_nami.png'); ?>" alt="Kontakt z Nami" class="hg-tile-icon">
                 <h3 class="hg-tile-title">Kontakt Z Nami</h3>
@@ -90,7 +90,7 @@ get_header();
 </section>
 
 <!-- BEFORE / AFTER SLIDER SHOWCASE -->
-<section id="przed-po" style="padding: 4rem 0 6rem; background: rgba(11, 15, 25, 0.7); border-y: 2px solid #25aae1;">
+<section id="przed-po" style="padding: 4rem 0 6rem; background: rgba(8, 12, 22, 0.8); border-top: 2px solid #25aae1; border-bottom: 2px solid #25aae1;">
     <div class="hg-container">
         <div style="text-align: center; margin-bottom: 2.5rem;">
             <div style="display: inline-block; padding: 0.3rem 0.8rem; background: #25aae1; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">
@@ -118,7 +118,7 @@ get_header();
     <div class="hg-container">
         <div class="hg-grid hg-grid-2" style="align-items: center;">
             <div>
-                <div style="display: inline-block; padding: 0.3rem 0.8rem; background: #312e81; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;">
+                <div style="display: inline-block; padding: 0.3rem 0.8rem; background: #25aae1; color: #ffffff; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;">
                     O NASZYM STUDIO
                 </div>
                 <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.25rem;">
@@ -132,7 +132,7 @@ get_header();
                 </p>
             </div>
 
-            <div style="background: rgba(30, 27, 75, 0.6); padding: 2.5rem; border: 2px solid #4338ca;">
+            <div style="background: rgba(15, 23, 42, 0.8); padding: 2.5rem; border: 2px solid #334155; border-top: 4px solid #25aae1;">
                 <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.25rem;">
                     Dlaczego Wybrać Hi-Gloss?
                 </h3>
@@ -156,7 +156,7 @@ get_header();
 </section>
 
 <!-- DEDICATED SECTION 2: NASZA OFERTA -->
-<section id="oferta" style="padding: 6rem 0; background: #064e3b; border-y: 2px solid #059669;">
+<section id="oferta" style="padding: 6rem 0; background: #064e3b; border-top: 2px solid #059669; border-bottom: 2px solid #059669;">
     <div class="hg-container">
         <div style="text-align: center; margin-bottom: 3.5rem;">
             <div style="display: inline-block; padding: 0.3rem 0.8rem; background: #ffffff; color: #064e3b; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">
@@ -257,7 +257,7 @@ get_header();
 </section>
 
 <!-- DEDICATED SECTION 4: KONTAKT & KALKULATOR (BURNT BRONZE / CHARCOAL) -->
-<section id="kontakt" class="sec-details" style="background: #090d16;">
+<section id="kontakt" class="sec-details">
     <div class="hg-container">
         <div style="margin-bottom: 3rem;">
             <div style="display: inline-block; padding: 0.3rem 0.8rem; background: #f59e0b; color: #000000; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">
