@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Sharp Architectural "Less is More" CSS
+ * Hi-Gloss Design 2026 - Multi-Color Block "Less is More" CSS
  */
 
 /* Container & Grid */
@@ -26,29 +26,28 @@
 .hg-card {
   border-radius: 0 !important;
   padding: 2rem;
-  border: 1px solid #000000;
   transition: transform var(--transition-fast);
 }
 
-.hg-card-white {
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid #e2e8f0;
-}
-
-.hg-card-blue {
-  background: #1e3a8a;
+.hg-card-emerald {
+  background: #022c22;
   color: #ffffff;
-  border: 1px solid #3b82f6;
+  border: 2px solid #059669;
 }
 
-.hg-card-dark {
-  background: #1e293b;
+.hg-card-purple {
+  background: #2e1065;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 2px solid #7c3aed;
 }
 
-/* Sharp Buttons */
+.hg-card-charcoal {
+  background: #1f2937;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Sharp Multi-Color Buttons */
 .hg-btn {
   display: inline-flex;
   align-items: center;
@@ -64,16 +63,40 @@
   transition: all var(--transition-fast);
 }
 
-.hg-btn-black {
-  background: #000000;
+.hg-btn-crimson {
+  background: var(--color-crimson);
   color: #ffffff;
-  border: 2px solid #000000;
+  border: 2px solid var(--color-crimson);
 }
 
-.hg-btn-black:hover {
-  background: #25aae1;
-  border-color: #25aae1;
+.hg-btn-crimson:hover {
+  background: #000000;
+  border-color: #000000;
   color: #ffffff;
+}
+
+.hg-btn-mint {
+  background: var(--color-mint);
+  color: #000000;
+  border: 2px solid var(--color-mint);
+}
+
+.hg-btn-mint:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.hg-btn-orange {
+  background: var(--color-orange);
+  color: #ffffff;
+  border: 2px solid var(--color-orange);
+}
+
+.hg-btn-orange:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
 }
 
 .hg-btn-white {
@@ -87,18 +110,6 @@
   color: #ffffff;
 }
 
-.hg-btn-blue {
-  background: #25aae1;
-  color: #ffffff;
-  border: 2px solid #25aae1;
-}
-
-.hg-btn-blue:hover {
-  background: #000000;
-  border-color: #000000;
-  color: #ffffff;
-}
-
 /* Header */
 .hg-header {
   position: fixed;
@@ -106,7 +117,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 2px solid #000000;
   padding: 0.8rem 0;
 }
@@ -137,37 +148,39 @@
 }
 
 .hg-nav-link:hover {
-  color: #25aae1;
+  color: var(--color-crimson);
 }
 
-/* Section 1: Hero (White Background) */
+/* Distinct Multi-Color Section Backgrounds */
+/* Section 1: Hero (Pure White) */
 .sec-hero {
   padding: 9rem 0 5rem;
   background: #ffffff;
   color: #0f172a;
 }
 
-/* Section 2: Usługi (Vibrant Blue Background) */
+/* Section 2: Usługi (Deep Emerald Green) */
 .sec-services {
   padding: 5.5rem 0;
-  background: #1d4ed8;
+  background: var(--color-emerald);
   color: #ffffff;
-  border-y: 2px solid #000000;
+  border-y: 3px solid #000000;
 }
 
-/* Section 3: Realizacje (Dark Onyx Background) */
+/* Section 3: Realizacje (Vibrant Deep Purple) */
 .sec-realizacje {
   padding: 5.5rem 0;
-  background: #0f172a;
+  background: var(--color-purple);
   color: #ffffff;
+  border-bottom: 3px solid #000000;
 }
 
-/* Section 4: Wycena & Kontakt (Deep Charcoal Background) */
+/* Section 4: Wycena & Kontakt (Rich Dark Charcoal + Orange Accents) */
 .sec-contact {
   padding: 5.5rem 0;
-  background: #0b1320;
+  background: var(--color-charcoal);
   color: #ffffff;
-  border-top: 2px solid #25aae1;
+  border-top: 3px solid var(--color-orange);
 }
 
 /* Before / After Slider (Sharp 0px Radius) */
@@ -201,7 +214,7 @@
   z-index: 2;
   width: 50%;
   overflow: hidden;
-  border-right: 4px solid #25aae1;
+  border-right: 4px solid var(--color-crimson);
   background-size: cover;
   background-position: center;
 }
@@ -214,7 +227,7 @@
   z-index: 10;
   width: 40px;
   height: 40px;
-  background: #25aae1;
+  background: var(--color-crimson);
   color: #ffffff;
   border-radius: 0 !important;
   display: flex;
@@ -252,7 +265,7 @@
 }
 
 .hg-input:focus {
-  border-color: #25aae1;
+  border-color: var(--color-orange);
   outline: none;
 }
 
