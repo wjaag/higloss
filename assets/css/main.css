@@ -1,11 +1,11 @@
 /*
- * Hi-Gloss Design 2026 - Fixed Layout & Spacing Edition CSS
+ * Hi-Gloss Design 2026 - Single-Line Headline & Compact Footer Edition CSS
  */
 
 /* Container */
 .hg-container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -64,7 +64,7 @@ body.admin-bar .hg-header {
   width: 48px;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8));
-  transition: transform var(--transition-smooth, 0.3s ease);
+  transition: transform 0.3s ease;
 }
 
 .hg-brand-logo:hover .hg-logo-standalone {
@@ -106,11 +106,11 @@ body.admin-bar .hg-header {
   width: 100%;
 }
 
-/* Main Homepage Section (Safe Padding Top & Bottom) */
+/* Main Homepage Section (Safe Top & Compact Bottom Padding) */
 .sec-homepage-tiles {
   flex: 1 0 auto;
-  padding-top: 160px; /* Safe distance below navbar, no overlap */
-  padding-bottom: 6rem; /* Generous breathing room above footer */
+  padding-top: 140px;
+  padding-bottom: 3rem;
   display: block;
 }
 
@@ -123,12 +123,12 @@ body.admin-bar .hg-header {
 
 @media (max-width: 900px) {
   .sec-homepage-tiles {
-    padding-top: 130px;
-    padding-bottom: 4rem;
+    padding-top: 120px;
+    padding-bottom: 2rem;
   }
   .hg-tiles-grid-2 {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.8rem;
   }
 }
 
@@ -157,7 +157,7 @@ body.admin-bar .hg-header {
   background: #0b0e17;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0 !important;
-  height: 420px;
+  height: 400px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -300,7 +300,7 @@ body.admin-bar .hg-header {
   transform: translateX(6px);
 }
 
-/* Specific Accent Color Themes */
+/* Accent Color Themes */
 .tile-theme-amber {
   --card-accent: #ff9900;
 }
@@ -308,12 +308,12 @@ body.admin-bar .hg-header {
   --card-accent: #00c2ff;
 }
 
-/* Footer (Always at Bottom with Margin) */
+/* Compact Sleek Footer */
 .hg-footer {
   margin-top: auto;
   background: #030407;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.2rem 0; /* Compact Height */
   text-align: center;
   color: #94a3b8;
   font-size: 0.85rem;
