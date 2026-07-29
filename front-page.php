@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: 3-Tile Premium Layout (Nasza Oferta, Galeria Prac, Wycena)
+ * Template Name: 2-Tile Visual Masterpiece Homepage
  *
  * @package HiGloss2026
  */
@@ -8,19 +8,19 @@
 get_header();
 ?>
 
-<!-- MAIN HOMEPAGE AREA -->
-<main style="padding: 9.5rem 0 5rem; flex: 1;">
+<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + SLOGAN + EXACTLY 2 TILES (NASZA OFERTA & GALERIA PRAC) -->
+<main class="sec-homepage-tiles">
     <div class="hg-container">
 
         <!-- 1. NAPIS (SLOGAN HEADLINE) -->
-        <div style="text-align: center; margin-bottom: 3.5rem;">
+        <div style="text-align: center; margin-bottom: 3.5rem; animation: fadeInUp 0.6s ease both;">
             <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.8vw, 4.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
                 CAŁOŚCIOWE <span style="color: #25aae1;">OKLEJANIE POJAZDÓW</span>
             </h1>
         </div>
 
-        <!-- 2. KAFELKI: NASZA OFERTA | GALERIA PRAC (2 COLUMNS) -->
-        <div class="hg-tiles-grid-2" style="margin-bottom: 2.2rem;">
+        <!-- 2. KAFELKI: NASZA OFERTA | GALERIA PRAC (2 COLUMNS ONLY) -->
+        <div class="hg-tiles-grid-2">
 
             <!-- KAFELEK 1: NASZA OFERTA -->
             <a href="<?php echo esc_url(home_url('/oferta')); ?>" class="hg-ai-mastercard tile-theme-amber">
@@ -54,24 +54,6 @@ get_header();
                 </div>
             </a>
 
-        </div>
-
-        <!-- 3. KAFELEK: WYCENA (FULL WIDTH TILE) -->
-        <div id="wycena">
-            <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-ai-mastercard tile-theme-green hg-full-tile">
-                <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile4_kontakt.jpg'); ?>" alt="Szybka Wycena" class="hg-ai-card-img">
-                <div class="hg-ai-card-vignette"></div>
-
-                <div class="hg-ai-card-tag">03 / BEZPŁATNA WYCENA</div>
-                
-                <div class="hg-ai-card-body" style="max-width: 580px;">
-                    <h2 class="hg-ai-card-title">SZYBKA WYCENA & KONTAKT</h2>
-                    <p class="hg-ai-card-desc">Wyślij darmową specyfikację lub skontaktuj się z nami bezpośrednio: 605 088 065 / 664 129 023. Studio Mierzyn ul. Podmiejska 4.</p>
-                    <div class="hg-ai-card-btn">
-                        SKONFIGURUJ WYCENĘ ONLINE <span class="arrow">&rarr;</span>
-                    </div>
-                </div>
-            </a>
         </div>
 
     </div>
