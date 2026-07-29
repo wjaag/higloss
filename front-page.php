@@ -8,13 +8,13 @@
 get_header();
 ?>
 
-<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + SLOGAN + EXACTLY 2 TILES (NASZA OFERTA & GALERIA PRAC) -->
+<!-- MAIN HOMEPAGE AREA: NAVBAR -> SLOGAN -> 2 TILES -> FOOTER -->
 <main class="sec-homepage-tiles">
     <div class="hg-container">
 
-        <!-- 1. NAPIS (SLOGAN HEADLINE) -->
+        <!-- 1. NAPIS (SLOGAN HEADLINE WITH SAFE MARGIN) -->
         <div style="text-align: center; margin-bottom: 3.5rem; animation: fadeInUp 0.6s ease both;">
-            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.8vw, 4.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
                 CAŁOŚCIOWE <span style="color: #25aae1;">OKLEJANIE POJAZDÓW</span>
             </h1>
         </div>

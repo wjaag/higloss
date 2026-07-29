@@ -1,28 +1,46 @@
 /*
- * Hi-Gloss Design 2026 - 3-Tile Premium Layout CSS
+ * Hi-Gloss Design 2026 - Fixed Layout & Spacing Edition CSS
  */
 
 /* Container */
 .hg-container {
   width: 100%;
-  max-width: 1260px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* Header (Transparent, Standalone Logo) */
+/* Body Layout */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: #07090e;
+  background-image: linear-gradient(to bottom, rgba(7, 9, 14, 0.92), rgba(7, 9, 14, 0.98)), url('../images/tlo.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+/* Fixed Header Navbar */
 .hg-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: none !important;
-  padding: 1.6rem 0 1.2rem;
-  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  height: 80px;
+  background: transparent;
+  padding: 0.8rem 0;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* WP Admin Bar Handling */
+body.admin-bar .hg-header {
+  top: 32px;
 }
 
 .hg-header.scrolled {
@@ -30,7 +48,6 @@
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 1rem 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
@@ -38,15 +55,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
 }
 
 /* Standalone Official Logo Image */
 .hg-logo-standalone {
-  height: 52px;
-  width: 52px;
+  height: 48px;
+  width: 48px;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8));
-  transition: transform var(--transition-smooth);
+  transition: transform var(--transition-smooth, 0.3s ease);
 }
 
 .hg-brand-logo:hover .hg-logo-standalone {
@@ -76,30 +94,41 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-blue, #25aae1);
-  transition: width var(--transition-smooth);
+  background: #25aae1;
+  transition: width 0.3s ease;
 }
 
 .hg-nav-link:hover {
-  color: var(--accent-blue, #25aae1);
+  color: #25aae1;
 }
 
 .hg-nav-link:hover::after {
   width: 100%;
 }
 
-/* 2-Column Tiles Grid */
+/* Main Homepage Section (Safe Padding Top & Bottom) */
+.sec-homepage-tiles {
+  flex: 1 0 auto;
+  padding-top: 160px; /* Safe distance below navbar, no overlap */
+  padding-bottom: 6rem; /* Generous breathing room above footer */
+  display: block;
+}
+
 .hg-tiles-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.2rem;
+  gap: 2.5rem;
   width: 100%;
 }
 
 @media (max-width: 900px) {
+  .sec-homepage-tiles {
+    padding-top: 130px;
+    padding-bottom: 4rem;
+  }
   .hg-tiles-grid-2 {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 2rem;
   }
 }
 
@@ -115,13 +144,12 @@
   }
 }
 
-.hg-tiles-grid-2 > a, .hg-full-tile {
+.hg-tiles-grid-2 > a {
   animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hg-tiles-grid-2 > a:nth-child(1) { animation-delay: 0.1s; }
 .hg-tiles-grid-2 > a:nth-child(2) { animation-delay: 0.25s; }
-.hg-full-tile { animation-delay: 0.4s; }
 
 /* AI Visual Masterpiece Tile Card (0px Radius, Full-Bleed Imagery) */
 .hg-ai-mastercard {
@@ -129,13 +157,13 @@
   background: #0b0e17;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0 !important;
-  height: 380px;
+  height: 420px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  transition: all var(--transition-smooth);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
@@ -143,11 +171,6 @@
 .hg-ai-mastercard:hover {
   transform: translateY(-8px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
-}
-
-/* Full Width Tile Custom Height & Layout */
-.hg-full-tile {
-  height: 320px;
 }
 
 /* Full-Bleed AI Generated Vehicle Image */
@@ -174,13 +197,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.5) 50%, rgba(5, 7, 12, 0.25) 100%);
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.5) 50%, rgba(5, 7, 12, 0.2) 100%);
   z-index: 2;
   transition: background 0.5s ease;
 }
 
 .hg-ai-mastercard:hover .hg-ai-card-vignette {
-  background: linear-gradient(to top, rgba(5, 7, 12, 0.98) 0%, rgba(5, 7, 12, 0.4) 60%, rgba(5, 7, 12, 0.15) 100%);
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.98) 0%, rgba(5, 7, 12, 0.4) 60%, rgba(5, 7, 12, 0.1) 100%);
 }
 
 /* Shimmer Light Beam across top on hover */
@@ -205,14 +228,14 @@
   position: relative;
   z-index: 5;
   display: inline-block;
-  padding: 0.35rem 0.9rem;
+  padding: 0.4rem 1rem;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   border: 1px solid var(--card-accent, #25aae1);
   color: var(--card-accent, #25aae1);
-  font-family: var(--font-heading);
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   width: fit-content;
@@ -225,22 +248,22 @@
 }
 
 .hg-ai-card-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 900;
   line-height: 1.15;
   color: #ffffff;
   text-transform: uppercase;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .hg-ai-card-desc {
   color: rgba(255, 255, 255, 0.88);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
   font-weight: 500;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
@@ -250,21 +273,21 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.65rem 1.4rem;
+  padding: 0.75rem 1.6rem;
   background: var(--card-accent, #25aae1);
   color: #000000;
-  font-family: var(--font-heading);
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-radius: 0 !important;
-  transition: all var(--transition-smooth);
+  transition: all 0.35s ease;
 }
 
 .hg-ai-card-btn span.arrow {
   display: inline-block;
-  transition: transform var(--transition-smooth);
+  transition: transform 0.35s ease;
 }
 
 .hg-ai-mastercard:hover .hg-ai-card-btn {
@@ -284,16 +307,14 @@
 .tile-theme-cyan {
   --card-accent: #00c2ff;
 }
-.tile-theme-green {
-  --card-accent: #00ff66;
-}
 
-/* Footer */
+/* Footer (Always at Bottom with Margin) */
 .hg-footer {
+  margin-top: auto;
   background: #030407;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 0;
   text-align: center;
-  color: var(--text-muted);
+  color: #94a3b8;
   font-size: 0.85rem;
 }
