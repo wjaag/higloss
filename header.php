@@ -12,10 +12,10 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<!-- Header (Navbar with ONLY standalone logo.png on left) -->
+<!-- Header Navbar -->
 <header class="hg-header">
     <div class="hg-container hg-header-inner">
-        <!-- Standalone Official Logo Image (NO TEXT) -->
+        <!-- Standalone Official Logo Image -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo">
             <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS" class="hg-logo-standalone">
         </a>
@@ -23,10 +23,15 @@
         <!-- Navigation Menu -->
         <nav class="hg-nav-menu" id="hgNavMenu">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-nav-link">HOME</a>
-            <a href="<?php echo esc_url(home_url('/o-firmie')); ?>" class="hg-nav-link">O FIRMIE</a>
             <a href="<?php echo esc_url(home_url('/oferta')); ?>" class="hg-nav-link">OFERTA</a>
             <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-nav-link">GALERIA</a>
+            <a href="<?php echo esc_url(home_url('/o-firmie')); ?>" class="hg-nav-link">O FIRMIE</a>
             <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-nav-link">KONTAKT</a>
         </nav>
+
+        <!-- Burger Toggle for Mobile -->
+        <button class="hg-burger-btn" id="hgNavToggle" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </div>
 </header>

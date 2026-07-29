@@ -12,14 +12,14 @@ get_header();
 <main class="sec-homepage-tiles">
     <div class="hg-container">
 
-        <!-- 1. NAPIS (SINGLE-LINE SLOGAN HEADLINE) -->
+        <!-- 1. NAPIS (RESPONSIVE SLOGAN HEADLINE) -->
         <div style="text-align: center; margin-bottom: 2.8rem; animation: fadeInUp 0.6s ease both;">
-            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8); white-space: nowrap;">
+            <h1 class="hg-slogan-headline" style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8); white-space: nowrap;">
                 CAŁOŚCIOWE <span style="color: #25aae1;">OKLEJANIE POJAZDÓW</span>
             </h1>
         </div>
 
-        <!-- 2. KAFELKI: NASZA OFERTA | GALERIA PRAC (2 COLUMNS ONLY) -->
+        <!-- 2. KAFELKI: NASZA OFERTA | GALERIA PRAC (2 COLUMNS RESPONSIVE) -->
         <div class="hg-tiles-grid-2">
 
             <!-- KAFELEK 1: NASZA OFERTA -->
