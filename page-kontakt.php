@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Kontakt (Informacje, Mapka, Formularz)
+ * Template Name: Podstrona Kontakt (Informacje, Mapka, Pełnej Szerokości Formularz)
  *
  * @package HiGloss2026
  */
@@ -67,50 +67,55 @@ get_header();
 
         </div>
 
-        <!-- 3. FORMULARZ (STANDALONE FORM CARD BELOW) -->
-        <div style="background: #0b0e17; border: 2px solid #25aae1; padding: 2.5rem; max-width: 1000px; margin: 0 auto;" id="kalkulator">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <span style="font-size: 0.8rem; color: #25aae1; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">SZYBKI KONTAKT ONLINE</span>
-                <h2 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-top: 0.3rem;">
-                    WYŚLIJ SPECFIKACJĘ DO BEZPŁATNEJ WYCENY
+        <!-- 3. FORMULARZ ROZCIĄGNIĘTY NA CAŁĄ SZEROKOŚĆ SEKCJI (100% WIDTH) -->
+        <div style="background: #0b0e17; border: 2px solid #25aae1; padding: 3rem 2.5rem; width: 100%; box-sizing: border-box;" id="kalkulator">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span style="font-size: 0.8rem; color: #25aae1; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">BEZPŁATNE ZAPYTANIE ONLINE</span>
+                <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin-top: 0.4rem;">
+                    SKONFIGURUJ SPECFIKACJĘ DO BEZPŁATNEJ WYCENY
                 </h2>
             </div>
 
             <form id="hgCalcForm">
-                <div style="margin-bottom: 1.25rem;">
-                    <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.4rem; font-weight: 800; text-transform: uppercase;">Wybierz Usługę:</label>
-                    <select id="calcServiceSelect" class="hg-input" style="cursor: pointer; background:#0f172a;">
-                        <option value="Zmiana Koloru Auta">Całościowa Zmiana Koloru Auta</option>
-                        <option value="Bezbarwna Folia PPF">Bezbarwna Folia Ochronna PPF</option>
-                        <option value="Oklejanie Reklamowe">Reklama Mobilna & Floty</option>
-                        <option value="Detailing & Przyciemnianie">Przyciemnianie Szyb & Detailing</option>
-                    </select>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+                <!-- Row 1: Select Service & Personal Details in 3 Columns -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
                     <div>
-                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.4rem; font-weight: 800; text-transform: uppercase;">Imię i Nazwisko:</label>
-                        <input type="text" id="calcName" class="hg-input" placeholder="np. Jan Kowalski" required>
+                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Wybierz Usługę *</label>
+                        <select id="calcServiceSelect" class="hg-input" style="cursor: pointer; background:#0f172a; border-width: 2px;">
+                            <option value="Zmiana Koloru Auta">Całościowa Zmiana Koloru Auta</option>
+                            <option value="Bezbarwna Folia PPF">Bezbarwna Folia Ochronna PPF</option>
+                            <option value="Oklejanie Reklamowe">Reklama Mobilna & Floty</option>
+                            <option value="Detailing & Przyciemnianie">Przyciemnianie Szyb & Detailing</option>
+                        </select>
                     </div>
 
                     <div>
-                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.4rem; font-weight: 800; text-transform: uppercase;">Numer Telefonu *:</label>
-                        <input type="tel" id="calcPhone" class="hg-input" placeholder="np. 605 000 000" required>
+                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Imię i Nazwisko *</label>
+                        <input type="text" id="calcName" class="hg-input" placeholder="np. Jan Kowalski" required style="border-width: 2px;">
                     </div>
 
                     <div>
-                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.4rem; font-weight: 800; text-transform: uppercase;">Adres E-mail:</label>
-                        <input type="email" id="calcEmail" class="hg-input" placeholder="np. jan@domena.pl">
+                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Numer Telefonu *</label>
+                        <input type="tel" id="calcPhone" class="hg-input" placeholder="np. 605 088 065" required style="border-width: 2px;">
                     </div>
                 </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.4rem; font-weight: 800; text-transform: uppercase;">Marka, Model & Uwagi do Zapytania:</label>
-                    <textarea id="calcNotes" class="hg-input" placeholder="np. Audi A7 2022, zmiana koloru na czarną satynę..." rows="4"></textarea>
+                <!-- Row 2: Email & Notes -->
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Adres E-mail</label>
+                        <input type="email" id="calcEmail" class="hg-input" placeholder="np. biuro@domena.pl" style="border-width: 2px;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Marka, Model & Uwagi Do Zapytania</label>
+                        <textarea id="calcNotes" class="hg-input" placeholder="np. Audi A7 2022, zmiana koloru na czarną satynę..." rows="3" style="border-width: 2px;"></textarea>
+                    </div>
                 </div>
 
-                <button type="submit" class="hg-btn hg-btn-cyan" style="width: 100%; justify-content: center;">
-                    WYŚLIJ SPECFIKACJĘ DO WYCENY &rarr;
+                <!-- Action Submit Button stretched full width -->
+                <button type="submit" class="hg-btn" style="width: 100%; background: #25aae1; color: #000000; border: 2px solid #25aae1; font-size: 1rem; font-weight: 900; padding: 1.1rem; letter-spacing: 0.1em; justify-content: center;">
+                    WYŚLIJ SPECFIKACJĘ DO BEZPŁATNEJ WYCENY &rarr;
                 </button>
             </form>
 
