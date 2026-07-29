@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Explicit Tile Spacing Edition CSS
+ * Hi-Gloss Design 2026 - Dedicated Form Fields System CSS
  */
 
 /* Container */
@@ -142,8 +142,8 @@ body.admin-bar .hg-header {
 /* Main Homepage Section */
 .sec-homepage-tiles {
   flex: 1 0 auto;
-  padding-top: 150px;
-  padding-bottom: 4rem;
+  padding-top: 140px;
+  padding-bottom: 3rem;
   display: block;
 }
 
@@ -172,7 +172,7 @@ body.admin-bar .hg-header {
   background: #0b0e17;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0 !important;
-  min-height: 380px;
+  height: 400px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -325,6 +325,91 @@ body.admin-bar .hg-header {
   --card-accent: #00c2ff;
 }
 
+/* ==========================================================================
+   DEDICATED FORM FIELDS SYSTEM
+   ========================================================================== */
+.hg-form-box {
+  background: #0b0f19;
+  border: 2px solid #25aae1;
+  padding: 3rem 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hg-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.hg-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+.hg-input-field,
+.hg-select-field,
+.hg-textarea-field {
+  width: 100%;
+  background: #0f1524;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 !important;
+  padding: 1rem 1.25rem;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.hg-input-field::placeholder,
+.hg-textarea-field::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hg-input-field:focus,
+.hg-select-field:focus,
+.hg-textarea-field:focus {
+  border-color: #25aae1;
+  background: #141c30;
+  box-shadow: 0 0 20px rgba(37, 170, 225, 0.3);
+  outline: none;
+}
+
+.hg-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: #25aae1;
+  color: #000000;
+  border: 2px solid #25aae1;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1.15rem 2rem;
+  border-radius: 0 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hg-submit-btn:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
 /* Mobile Sticky Action Bar */
 .hg-mobile-bar {
   display: none;
@@ -385,6 +470,10 @@ body.admin-bar .hg-header {
   .hg-ai-mastercard {
     height: 340px;
     padding: 1.8rem;
+  }
+
+  .hg-form-box {
+    padding: 2rem 1.5rem;
   }
 
   .hg-nav-menu {
