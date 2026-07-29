@@ -8,9 +8,16 @@
 get_header();
 ?>
 
-<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + 4 AI VISUAL MASTERPIECE TILES -->
+<!-- MAIN HOMEPAGE AREA: ONLY NAVBAR + SIGNATURE SLOGAN + 4 AI VISUAL MASTERPIECE TILES -->
 <main class="sec-homepage-tiles">
     <div class="hg-container">
+        <!-- Signature Client Slogan Headline Before the 4 Tiles -->
+        <div style="text-align: center; margin-bottom: 3.2rem; animation: fadeInUp 0.6s ease both;">
+            <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+                CAŁOŚCIOWE <span style="color: #25aae1;">OKLEJANIE POJAZDÓW</span>
+            </h1>
+        </div>
+
         <div class="hg-tiles-grid">
 
             <!-- TILE 1: HISTORIA FIRMY (AI Porsche GT3 RS Wrap Studio) -->
