@@ -22,8 +22,8 @@ get_header();
             </h1>
         </div>
 
-        <!-- 2-COLUMN TILES GRID FOR OFERTA (ALL TILES LINKING TO KONTAKT, NO BUTTONS, NO NUMBERS) -->
-        <div class="hg-grid hg-grid-2">
+        <!-- 2-COLUMN TILES GRID FOR OFERTA WITH COMFORTABLE 2.5REM GAP BETWEEN TILES -->
+        <div class="hg-grid hg-grid-2" style="gap: 2.5rem;">
 
             <!-- CARD 1: CAŁOŚCIOWA ZMIANA KOLORU -->
             <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-ai-mastercard tile-theme-cyan" style="min-height: 380px;">
