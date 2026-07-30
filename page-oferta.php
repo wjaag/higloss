@@ -9,20 +9,17 @@ get_header();
 ?>
 
 <!-- SUBPAGE HEADER -->
-<main style="padding: 10rem 0 6rem; flex: 1;">
+<main style="padding: 9.5rem 0 6rem; flex: 1;">
     <div class="hg-container">
 
-        <!-- TITLE HEADLINE -->
+        <!-- TITLE HEADLINE (NO TOP BADGE BOX) -->
         <div style="text-align: center; margin-bottom: 3.5rem;">
-            <div style="display: inline-block; padding: 0.35rem 1rem; background: rgba(37, 170, 225, 0.12); border: 1px solid #25aae1; color: #25aae1; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem;">
-                USŁUGI STUDIO HI-GLOSS
-            </div>
             <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
                 PEŁNA <span style="color: #25aae1;">OFERTA STUDIO</span>
             </h1>
         </div>
 
-        <!-- 2-COLUMN TILES GRID FOR OFERTA WITH COMFORTABLE 2.5REM GAP BETWEEN TILES -->
+        <!-- 2-COLUMN TILES GRID FOR OFERTA (CLICKABLE TILES REDIRECTING TO KONTAKT) -->
         <div class="hg-grid hg-grid-2" style="gap: 2.5rem;">
 
             <!-- CARD 1: CAŁOŚCIOWA ZMIANA KOLORU -->
