@@ -70,7 +70,7 @@ get_header();
 
                 <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                     <a href="tel:+48605088065" class="hg-btn hg-btn-cyan" style="flex: 1; text-align: center; justify-content: center; padding: 1.1rem; font-size: 0.95rem;">
-                        📞 ZADZWROŃ: 605 088 065
+                        📞 ZADZWOŃ: 605 088 065
                     </a>
                 </div>
             </div>
