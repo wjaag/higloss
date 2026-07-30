@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Kontakt (Powiększona Informacja + Mapa w Kolorze na Hover)
+ * Template Name: Podstrona Kontakt (Mapa Zawsze w Pełnym Kolorze)
  *
  * @package HiGloss2026
  */
@@ -12,14 +12,14 @@ get_header();
 <main style="padding: 9.5rem 0 5rem; flex: 1;">
     <div class="hg-container">
 
-        <!-- 1. NAPIS (SINGLE CLEAN TITLE - NO EXTRA BADGE) -->
+        <!-- 1. NAPIS (SINGLE CLEAN TITLE) -->
         <div style="text-align: center; margin-bottom: 3.5rem;">
             <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
                 KONTAKT <span style="color: #25aae1;">Z NAMI</span>
             </h1>
         </div>
 
-        <!-- 2. DWA POWIĘKSZONE KAFLE: DANE TELEADRESOWE & MAPA GOOGLE (FULL COLOR ON HOVER) -->
+        <!-- 2. DWA POWIĘKSZONE KAFLE: DANE TELEADRESOWE & MAPA GOOGLE (ALWAYS FULL COLOR) -->
         <div class="hg-grid hg-grid-2" style="gap: 2.5rem;">
 
             <!-- KAFEL 1: POWIĘKSZONE DANE TELEADRESOWE -->
@@ -75,7 +75,7 @@ get_header();
                 </div>
             </div>
 
-            <!-- KAFEL 2: MAPA GOOGLE (FULL COLOR ON HOVER) -->
+            <!-- KAFEL 2: MAPA GOOGLE (ALWAYS FULL VIBRANT COLOR) -->
             <div class="hg-map-card">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.8!2d14.4781!3d53.4242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa093412345678%3A0x1234567890abcdef!2sPodmiejska%204%2C%2072-006%20Mierzyn!5e0!3m2!1spl!2spl!4v1600000000000!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
             </div>

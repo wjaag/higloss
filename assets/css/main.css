@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Contact Map Hover Full-Color Edition CSS
+ * Hi-Gloss Design 2026 - Always Full-Color Map Edition CSS
  */
 
 /* Container */
@@ -169,7 +169,7 @@ body.admin-bar .hg-header {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
 }
 
-/* Map Tile Container & Full-Color Hover */
+/* Map Tile Container & Always Full-Color Map */
 .hg-map-card {
   position: relative;
   background: #0b0e17;
@@ -178,7 +178,6 @@ body.admin-bar .hg-header {
   min-height: 480px;
   padding: 0;
   overflow: hidden;
-  transition: all 0.35s ease;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
@@ -187,12 +186,7 @@ body.admin-bar .hg-header {
   height: 100%;
   min-height: 480px;
   border: 0;
-  filter: grayscale(0.9) invert(0.9) contrast(1.2);
-  transition: filter 0.5s ease;
-}
-
-.hg-map-card:hover iframe {
-  filter: none !important; /* Full Vibrant Color on Hover! */
+  filter: none !important; /* ALWAYS FULL VIBRANT COLOR! */
 }
 
 /* Buttons */
@@ -272,7 +266,7 @@ body.admin-bar .hg-header {
   margin-top: auto;
   background: #030407;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5rem 0;
+  padding: 1.2rem 0;
   text-align: center;
   color: #94a3b8;
   font-size: 0.85rem;
