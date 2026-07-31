@@ -5,12 +5,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     /* ==========================================================================
-       1. STICKY NAVBAR SCROLL GLASSMORPHISM TOGGLE
+       1. STICKY NAVBAR SCROLL GLASSMORPHISM & MOBILE BURGER MENU
        ========================================================================== */
     const header = document.querySelector('.hg-header');
     if (header) {
         function updateHeaderOnScroll() {
-            if (window.scrollY > 40) {
+            if (window.scrollY > 30) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -18,6 +18,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         window.addEventListener('scroll', updateHeaderOnScroll);
         updateHeaderOnScroll();
+    }
+
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('hgNavToggle');
+    const navMenu = document.getElementById('hgNavMenu');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu on link click
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
     }
 
     /* ==========================================================================
@@ -69,22 +96,5 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.touches[0]) updateSliderPosition(e.touches[0].clientX);
         });
     }
-
-    /* ==========================================================================
-       3. FAQ ACCORDION
-       ========================================================================== */
-    const faqItems = document.querySelectorAll('.hg-faq-item');
-    faqItems.forEach(item => {
-        const header = item.querySelector('.hg-faq-header');
-        if (header) {
-            header.addEventListener('click', function() {
-                const isOpen = item.classList.contains('open');
-                faqItems.forEach(i => i.classList.remove('open'));
-                if (!isOpen) {
-                    item.classList.add('open');
-                }
-            });
-        }
-    });
 
 });

@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Compact Hero Background Subpages & Mobile CSS
+ * Hi-Gloss Design 2026 - High-Contrast Editorial Subpages & Mobile Fixes CSS
  */
 
 /* Container */
@@ -35,8 +35,8 @@ body {
   z-index: 1000;
   height: 80px;
   background: transparent;
-  padding: 1.2rem 0;
-  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  padding: 1.6rem 0 1.2rem;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* WP Admin Bar Handling */
@@ -45,11 +45,11 @@ body.admin-bar .hg-header {
 }
 
 .hg-header.scrolled {
-  background: rgba(7, 9, 14, 0.94) !important;
+  background: rgba(7, 9, 14, 0.95) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 .hg-header-inner {
@@ -110,11 +110,12 @@ body.admin-bar .hg-header {
 /* Mobile Navigation Toggle Button */
 .hg-burger-btn {
   display: none;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.6rem;
   color: #ffffff;
   cursor: pointer;
+  z-index: 1002;
 }
 
 /* Subpage Compact Hero Card with Background Photo */
@@ -142,10 +143,38 @@ body.admin-bar .hg-header {
 .hg-subpage-hero-content {
   position: relative;
   z-index: 5;
-  max-width: 750px;
+  max-width: 780px;
 }
 
-/* Homepage Main Container */
+/* Subpage Main Description Card (High Contrast & Prominent) */
+.hg-desc-card {
+  background: #111522;
+  border: 2px solid var(--card-accent, #25aae1);
+  padding: 2.8rem;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.hg-desc-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--card-accent, #25aae1);
+  padding-bottom: 0.6rem;
+}
+
+.hg-desc-text {
+  color: #ffffff;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* Homepage Main Section */
 .sec-homepage-tiles {
   flex: 1 0 auto;
   padding-top: 150px;
@@ -162,7 +191,7 @@ body.admin-bar .hg-header {
   width: 100%;
 }
 
-/* AI Visual Masterpiece Tile Card (0px Radius, Full-Bleed Imagery) */
+/* AI Visual Masterpiece Tile Card */
 .hg-ai-mastercard {
   position: relative;
   background: #0b0e17;
@@ -298,6 +327,23 @@ body.admin-bar .hg-header {
   transform: translateX(6px);
 }
 
+.tile-theme-amber {
+  --card-accent: #ff9900;
+  --card-glow: rgba(255, 153, 0, 0.35);
+}
+.tile-theme-cyan {
+  --card-accent: #00c2ff;
+  --card-glow: rgba(0, 194, 255, 0.35);
+}
+.tile-theme-green {
+  --card-accent: #10b981;
+  --card-glow: rgba(16, 185, 129, 0.35);
+}
+.tile-theme-ruby {
+  --card-accent: #ff0055;
+  --card-glow: rgba(255, 0, 85, 0.35);
+}
+
 /* Mobile Sticky Action Bar */
 .hg-mobile-bar {
   display: none;
@@ -306,7 +352,7 @@ body.admin-bar .hg-header {
   left: 0;
   right: 0;
   z-index: 999;
-  background: rgba(7, 9, 14, 0.96);
+  background: rgba(7, 9, 14, 0.98);
   backdrop-filter: blur(16px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding: 0.6rem 0.8rem;
@@ -336,16 +382,13 @@ body.admin-bar .hg-header {
   margin-top: auto;
   background: #030407;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.2rem 0;
+  padding: 1.5rem 0;
   text-align: center;
   color: #94a3b8;
   font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   MOBILE & TABLET RESPONSIVE MEDIA QUERIES
-   ========================================================================== */
-
+/* RESPONSIVE MEDIA QUERIES & MOBILE FIXES */
 @media (max-width: 900px) {
   .sec-homepage-tiles {
     padding-top: 120px;
@@ -364,6 +407,10 @@ body.admin-bar .hg-header {
   }
 
   .hg-subpage-hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .hg-desc-card {
     padding: 2rem 1.5rem;
   }
 
@@ -387,7 +434,14 @@ body.admin-bar .hg-header {
   }
 
   body {
-    padding-bottom: 60px;
+    padding-bottom: 70px;
+  }
+
+  .hg-footer {
+    padding: 2rem 1.5rem 6.5rem 1.5rem !important; /* Ample space above sticky bar */
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: center;
   }
 
   .hg-nav-menu {
@@ -399,13 +453,15 @@ body.admin-bar .hg-header {
     background: #07090e;
     border-bottom: 2px solid #25aae1;
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.2rem;
+    padding: 1.8rem;
+    gap: 1.4rem;
     align-items: flex-start;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    z-index: 1001;
   }
 
   .hg-nav-menu.active {
-    display: flex;
+    display: flex !important;
   }
 
   .hg-slogan-headline {
