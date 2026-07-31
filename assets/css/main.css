@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Clean Compact Mobile CSS (No Floating Bar)
+ * Hi-Gloss Design 2026 - Distinct Service Hover Colors Edition CSS
  */
 
 /* Container */
@@ -120,62 +120,6 @@ body.admin-bar .hg-header {
   border-radius: 0 !important;
 }
 
-/* Subpage Compact Hero Card */
-.hg-subpage-hero {
-  position: relative;
-  border: 2px solid var(--hero-border, #25aae1);
-  padding: 3rem 2.5rem;
-  margin-bottom: 2.5rem;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-}
-
-.hg-subpage-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to right, rgba(7, 9, 14, 0.96) 0%, rgba(7, 9, 14, 0.8) 55%, rgba(7, 9, 14, 0.45) 100%);
-  z-index: 1;
-}
-
-.hg-subpage-hero-content {
-  position: relative;
-  z-index: 5;
-  max-width: 780px;
-}
-
-/* Subpage Main Description Card */
-.hg-desc-card {
-  background: #111522;
-  border: 2px solid var(--card-accent, #25aae1);
-  padding: 2.8rem;
-  color: #ffffff;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-}
-
-.hg-desc-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: #ffffff;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--card-accent, #25aae1);
-  padding-bottom: 0.6rem;
-}
-
-.hg-desc-text {
-  color: #ffffff;
-  font-size: 1.125rem;
-  line-height: 1.85;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-}
-
 /* Homepage Main Section */
 .sec-homepage-tiles {
   flex: 1 0 auto;
@@ -188,20 +132,20 @@ body.admin-bar .hg-header {
 .hg-grid-2, .hg-tiles-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2.5rem;
-  gap: 2.5rem;
+  grid-gap: 2.5rem !important;
+  gap: 2.5rem !important;
   width: 100%;
 }
 
 .hg-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2.5rem;
-  gap: 2.5rem;
+  grid-gap: 2.5rem !important;
+  gap: 2.5rem !important;
   width: 100%;
 }
 
-/* AI Visual Masterpiece Tile Card */
+/* FULL-BLEED AI VEHICLE MASTERPIECE CARD (0px Radius) */
 .hg-ai-mastercard {
   position: relative;
   background: #0b0e17;
@@ -209,7 +153,7 @@ body.admin-bar .hg-header {
   border-radius: 0 !important;
   min-height: 400px;
   height: 400px;
-  padding: 2.5rem;
+  padding: 2.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -224,10 +168,11 @@ body.admin-bar .hg-header {
 
 .hg-ai-mastercard:hover {
   transform: translateY(-8px);
-  border-color: var(--card-accent, #25aae1);
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 25px var(--card-glow, rgba(37, 170, 225, 0.3));
+  border-color: var(--card-accent, #25aae1) !important;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 30px var(--card-glow, rgba(37, 170, 225, 0.35)) !important;
 }
 
+/* Full-Bleed AI Generated Vehicle Image */
 .hg-ai-card-img {
   position: absolute;
   top: 0;
@@ -245,6 +190,7 @@ body.admin-bar .hg-header {
   filter: brightness(1.1) contrast(1.05);
 }
 
+/* Cinematic Dark Overlay Vignette */
 .hg-ai-card-vignette {
   position: absolute;
   top: 0;
@@ -261,6 +207,25 @@ body.admin-bar .hg-header {
   background: linear-gradient(to top, rgba(5, 7, 12, 0.98) 0%, rgba(5, 7, 12, 0.4) 65%, rgba(5, 7, 12, 0.1) 100%);
 }
 
+/* Shimmer Light Beam across top on hover */
+.hg-ai-mastercard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffffff, var(--card-accent, #25aae1), transparent);
+  transition: left 0.8s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hg-ai-mastercard:hover::before {
+  left: 100%;
+}
+
+/* Top Badge Overlay */
 .hg-ai-card-tag {
   position: relative;
   z-index: 5;
@@ -278,6 +243,7 @@ body.admin-bar .hg-header {
   width: fit-content;
 }
 
+/* Bottom Content */
 .hg-ai-card-body {
   position: relative;
   z-index: 5;
@@ -305,6 +271,7 @@ body.admin-bar .hg-header {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
+/* Action Button Badge */
 .hg-ai-card-btn {
   display: inline-flex;
   align-items: center;
@@ -337,54 +304,79 @@ body.admin-bar .hg-header {
   transform: translateX(6px);
 }
 
-.tile-theme-amber {
-  --card-accent: #ff9900;
-  --card-glow: rgba(255, 153, 0, 0.35);
-}
+/* Distinct Hover Accent Colors per Offer/Service */
 .tile-theme-cyan {
   --card-accent: #00c2ff;
-  --card-glow: rgba(0, 194, 255, 0.35);
+  --card-glow: rgba(0, 194, 255, 0.45);
 }
 
-/* Map Tile Container & Always Full-Color Map */
-.hg-map-card {
-  position: relative;
-  background: #0b0e17;
-  border: 2px solid #25aae1;
+.tile-theme-green {
+  --card-accent: #10b981;
+  --card-glow: rgba(16, 185, 129, 0.45);
+}
+
+.tile-theme-amber {
+  --card-accent: #ff9900;
+  --card-glow: rgba(255, 153, 0, 0.45);
+}
+
+.tile-theme-ruby {
+  --card-accent: #ff0055;
+  --card-glow: rgba(255, 0, 85, 0.45);
+}
+
+/* Mobile Sticky Action Bar */
+.hg-mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(7, 9, 14, 0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.6rem 0.8rem;
+}
+
+.hg-m-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 0.5rem;
   border-radius: 0 !important;
-  min-height: 480px;
-  padding: 0;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.hg-map-card iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 480px;
-  border: 0;
-  filter: none !important;
+.hg-m-btn.highlight {
+  background: #25aae1;
+  color: #ffffff;
 }
 
-/* Compact Footer (Desktop & Mobile) */
+/* Compact Footer */
 .hg-footer {
   margin-top: auto;
   background: #030407;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5rem 0;
+  padding: 1.2rem 0;
   text-align: center;
   color: #94a3b8;
   font-size: 0.85rem;
 }
 
-/* RESPONSIVE MEDIA QUERIES & MOBILE FIXES */
+/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 900px) {
   .sec-homepage-tiles {
     padding-top: 120px;
     padding-bottom: 3rem;
   }
 
-  .hg-tiles-grid-2, .hg-grid-2, .hg-grid-3 {
+  .hg-tiles-grid-2, .hg-grid-2 {
     grid-template-columns: 1fr !important;
     grid-gap: 2rem !important;
     gap: 2rem !important;
@@ -393,7 +385,7 @@ body.admin-bar .hg-header {
   .hg-ai-mastercard {
     height: auto !important;
     min-height: 320px !important;
-    padding: 1.8rem !important;
+    padding: 1.8rem 1.4rem !important;
   }
 
   .hg-map-card, .hg-map-card iframe {
@@ -410,20 +402,21 @@ body.admin-bar .hg-header {
 }
 
 @media (max-width: 768px) {
-  .hg-header {
-    height: 70px !important;
-  }
-
   .hg-burger-btn {
     display: flex !important;
   }
 
+  .hg-mobile-bar {
+    display: flex !important;
+    justify-content: space-around !important;
+  }
+
   body {
-    padding-bottom: 0 !important; /* No extra padding for bottom bar */
+    padding-bottom: 60px !important;
   }
 
   .hg-footer {
-    padding: 1.5rem 1rem !important;
+    padding: 1.2rem 1rem 4.8rem 1rem !important;
     font-size: 0.8rem;
     line-height: 1.5;
   }
@@ -455,16 +448,6 @@ body.admin-bar .hg-header {
     display: flex !important;
   }
 
-  .hg-nav-link {
-    font-size: 1.1rem !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
-    display: block !important;
-    width: 100% !important;
-    padding: 0.5rem 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  }
-
   .hg-slogan-headline {
     white-space: normal !important;
     font-size: 1.8rem !important;
@@ -491,9 +474,5 @@ body.admin-bar .hg-header {
 
   .hg-slogan-headline {
     font-size: 1.45rem !important;
-  }
-
-  .hg-ai-card-title {
-    font-size: 1.4rem !important;
   }
 }
