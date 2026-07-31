@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Kontakt (Mapa Zawsze w Pełnym Kolorze)
+ * Template Name: Podstrona Kontakt (Lewo: Dane, Prawo: Mapa)
  *
  * @package HiGloss2026
  */
@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <!-- MAIN KONTAKT SUBPAGE AREA -->
-<main style="padding: 9.5rem 0 5rem; flex: 1;">
+<main style="padding: 10rem 0 6rem; flex: 1;">
     <div class="hg-container">
 
         <!-- 1. NAPIS (SINGLE CLEAN TITLE) -->
@@ -19,11 +19,11 @@ get_header();
             </h1>
         </div>
 
-        <!-- 2. DWA POWIĘKSZONE KAFLE: DANE TELEADRESOWE & MAPA GOOGLE (ALWAYS FULL COLOR) -->
-        <div class="hg-grid hg-grid-2" style="gap: 2.5rem;">
+        <!-- 2. DWA KAFLE: LEWO (DANE KONTAKTOWE) | PRAWO (MAPA GOOGLE) -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; width: 100%; align-items: stretch;">
 
-            <!-- KAFEL 1: POWIĘKSZONE DANE TELEADRESOWE -->
-            <div class="hg-ai-mastercard tile-theme-cyan" style="min-height: 480px; padding: 3rem 2.5rem; justify-content: space-between;">
+            <!-- LEWA KOLUMNA: DANE TELEADRESOWE -->
+            <div class="hg-ai-mastercard tile-theme-cyan" style="height: 100%; min-height: 520px; padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; cursor: default;">
                 <div>
                     <h2 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 2rem; border-bottom: 2px solid #25aae1; padding-bottom: 0.75rem;">
                         HI-GLOSS DESIGN
@@ -33,7 +33,7 @@ get_header();
                         <div style="display: flex; gap: 1rem; align-items: flex-start;">
                             <span style="font-size: 1.5rem;">📍</span>
                             <div>
-                                <span style="color: #25aae1; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; letter-spacing: 0.08em;">Adres Pracowni:</span>
+                                <span style="color: #25aae1; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; letter-spacing: 0.08em;">Adres Studio:</span>
                                 <strong style="font-size: 1.15rem; color: #ffffff; display: block; line-height: 1.4;">ul. Podmiejska 4, 72-006 Mierzyn / Szczecin</strong>
                             </div>
                         </div>
@@ -68,16 +68,16 @@ get_header();
                     </div>
                 </div>
 
-                <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
                     <a href="tel:+48605088065" class="hg-btn hg-btn-cyan" style="flex: 1; text-align: center; justify-content: center; padding: 1.1rem; font-size: 0.95rem;">
                         📞 ZADZWOŃ: 605 088 065
                     </a>
                 </div>
             </div>
 
-            <!-- KAFEL 2: MAPA GOOGLE (ALWAYS FULL VIBRANT COLOR) -->
-            <div class="hg-map-card">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.8!2d14.4781!3d53.4242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa093412345678%3A0x1234567890abcdef!2sPodmiejska%204%2C%2072-006%20Mierzyn!5e0!3m2!1spl!2spl!4v1600000000000!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
+            <!-- PRAWA KOLUMNA: MAPA GOOGLE (FULL COLOR) -->
+            <div class="hg-map-card" style="height: 100%; min-height: 520px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.8!2d14.4781!3d53.4242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa093412345678%3A0x1234567890abcdef!2sPodmiejska%204%2C%2072-006%20Mierzyn!5e0!3m2!1spl!2spl!4v1600000000000!5m2!1spl!2spl" style="width:100%; height:100%; min-height:520px; border:0; filter:none !important;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
         </div>
