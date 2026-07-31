@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Distinct Service Hover Colors Edition CSS
+ * Hi-Gloss Design 2026 - Master Editorial Subpages UI/UX CSS
  */
 
 /* Container */
@@ -120,6 +120,110 @@ body.admin-bar .hg-header {
   border-radius: 0 !important;
 }
 
+/* Subpage Framed Image Header */
+.hg-subpage-image-banner {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border: 2px solid var(--banner-accent, #25aae1);
+  border-radius: 0 !important;
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+}
+
+.hg-subpage-image-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hg-subpage-banner-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(7, 9, 14, 0.9) 0%, rgba(7, 9, 14, 0.4) 60%, transparent 100%);
+}
+
+.hg-subpage-banner-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2rem;
+  z-index: 5;
+  padding: 0.5rem 1.2rem;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--banner-accent, #25aae1);
+  color: var(--banner-accent, #25aae1);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Editorial Description Card (Maximum High-Contrast Readability) */
+.hg-editorial-card {
+  background: #0d111a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 4px solid var(--card-accent, #25aae1);
+  border-radius: 0 !important;
+  padding: 2.8rem;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.hg-editorial-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--card-accent, #25aae1);
+  padding-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.hg-editorial-paragraph {
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hg-editorial-highlight-box {
+  background: rgba(37, 170, 225, 0.08);
+  border-left: 4px solid var(--card-accent, #25aae1);
+  padding: 1.5rem 1.8rem;
+  margin-top: 1.8rem;
+}
+
+/* Sticky Specs & Call CTA Card */
+.hg-specs-cta-card {
+  background: #0d111a;
+  border: 2px solid var(--card-accent, #25aae1);
+  border-radius: 0 !important;
+  padding: 2.5rem;
+  position: sticky;
+  top: 110px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.hg-specs-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--card-accent, #25aae1);
+  padding-bottom: 0.6rem;
+}
+
 /* Homepage Main Section */
 .sec-homepage-tiles {
   flex: 1 0 auto;
@@ -137,15 +241,7 @@ body.admin-bar .hg-header {
   width: 100%;
 }
 
-.hg-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2.5rem !important;
-  gap: 2.5rem !important;
-  width: 100%;
-}
-
-/* FULL-BLEED AI VEHICLE MASTERPIECE CARD (0px Radius) */
+/* AI Visual Masterpiece Tile Card */
 .hg-ai-mastercard {
   position: relative;
   background: #0b0e17;
@@ -153,7 +249,7 @@ body.admin-bar .hg-header {
   border-radius: 0 !important;
   min-height: 400px;
   height: 400px;
-  padding: 2.2rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -168,11 +264,10 @@ body.admin-bar .hg-header {
 
 .hg-ai-mastercard:hover {
   transform: translateY(-8px);
-  border-color: var(--card-accent, #25aae1) !important;
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 30px var(--card-glow, rgba(37, 170, 225, 0.35)) !important;
+  border-color: var(--card-accent, #25aae1);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 25px var(--card-glow, rgba(37, 170, 225, 0.3));
 }
 
-/* Full-Bleed AI Generated Vehicle Image */
 .hg-ai-card-img {
   position: absolute;
   top: 0;
@@ -190,7 +285,6 @@ body.admin-bar .hg-header {
   filter: brightness(1.1) contrast(1.05);
 }
 
-/* Cinematic Dark Overlay Vignette */
 .hg-ai-card-vignette {
   position: absolute;
   top: 0;
@@ -207,25 +301,6 @@ body.admin-bar .hg-header {
   background: linear-gradient(to top, rgba(5, 7, 12, 0.98) 0%, rgba(5, 7, 12, 0.4) 65%, rgba(5, 7, 12, 0.1) 100%);
 }
 
-/* Shimmer Light Beam across top on hover */
-.hg-ai-mastercard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #ffffff, var(--card-accent, #25aae1), transparent);
-  transition: left 0.8s ease;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.hg-ai-mastercard:hover::before {
-  left: 100%;
-}
-
-/* Top Badge Overlay */
 .hg-ai-card-tag {
   position: relative;
   z-index: 5;
@@ -243,7 +318,6 @@ body.admin-bar .hg-header {
   width: fit-content;
 }
 
-/* Bottom Content */
 .hg-ai-card-body {
   position: relative;
   z-index: 5;
@@ -252,7 +326,7 @@ body.admin-bar .hg-header {
 
 .hg-ai-card-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 900;
   line-height: 1.15;
   color: #ffffff;
@@ -271,7 +345,6 @@ body.admin-bar .hg-header {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
-/* Action Button Badge */
 .hg-ai-card-btn {
   display: inline-flex;
   align-items: center;
@@ -304,58 +377,52 @@ body.admin-bar .hg-header {
   transform: translateX(6px);
 }
 
-/* Distinct Hover Accent Colors per Offer/Service */
-.tile-theme-cyan {
-  --card-accent: #00c2ff;
-  --card-glow: rgba(0, 194, 255, 0.45);
-}
-
-.tile-theme-green {
-  --card-accent: #10b981;
-  --card-glow: rgba(16, 185, 129, 0.45);
-}
-
 .tile-theme-amber {
   --card-accent: #ff9900;
-  --card-glow: rgba(255, 153, 0, 0.45);
+  --card-glow: rgba(255, 153, 0, 0.35);
+}
+.tile-theme-cyan {
+  --card-accent: #00c2ff;
+  --card-glow: rgba(0, 194, 255, 0.35);
 }
 
-.tile-theme-ruby {
-  --card-accent: #ff0055;
-  --card-glow: rgba(255, 0, 85, 0.45);
-}
-
-/* Mobile Sticky Action Bar */
-.hg-mobile-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: rgba(7, 9, 14, 0.96);
-  backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.6rem 0.8rem;
-}
-
-.hg-m-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+/* Buttons */
+.hg-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 0.2rem;
-  font-size: 0.75rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 0.9rem;
   font-weight: 800;
-  color: #ffffff;
-  padding: 0.5rem;
   border-radius: 0 !important;
-  background: rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.hg-m-btn.highlight {
+.hg-btn-cyan {
   background: #25aae1;
   color: #ffffff;
+  border: 2px solid #25aae1;
+}
+
+.hg-btn-cyan:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.hg-btn-outline {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.hg-btn-outline:hover {
+  border-color: #25aae1;
+  color: #25aae1;
 }
 
 /* Compact Footer */
@@ -388,15 +455,11 @@ body.admin-bar .hg-header {
     padding: 1.8rem 1.4rem !important;
   }
 
-  .hg-map-card, .hg-map-card iframe {
-    min-height: 360px !important;
+  .hg-subpage-image-banner {
+    height: 260px;
   }
 
-  .hg-subpage-hero {
-    padding: 2rem 1.5rem !important;
-  }
-
-  .hg-desc-card {
+  .hg-editorial-card, .hg-specs-cta-card {
     padding: 2rem 1.5rem !important;
   }
 }
@@ -406,17 +469,12 @@ body.admin-bar .hg-header {
     display: flex !important;
   }
 
-  .hg-mobile-bar {
-    display: flex !important;
-    justify-content: space-around !important;
-  }
-
   body {
-    padding-bottom: 60px !important;
+    padding-bottom: 0 !important;
   }
 
   .hg-footer {
-    padding: 1.2rem 1rem 4.8rem 1rem !important;
+    padding: 1.2rem 1rem !important;
     font-size: 0.8rem;
     line-height: 1.5;
   }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Usługi - Bezbarwne Folie PPF
+ * Template Name: Podstrona Usługi - Bezbarwne Folie PPF (Editorial UI/UX)
  *
  * @package HiGloss2026
  */
@@ -11,51 +11,50 @@ get_header();
 <main style="padding: 10rem 0 6rem; flex: 1;">
     <div class="hg-container">
         
-        <!-- TITLE -->
-        <div style="text-align: center; margin-bottom: 3.5rem;">
-            <div style="display: inline-block; padding: 0.35rem 1rem; background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem;">
-                PAINT PROTECTION FILM (PPF)
-            </div>
+        <!-- SUBPAGE TITLE -->
+        <div style="text-align: center; margin-bottom: 3rem;">
             <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
                 BEZBARWNE <span style="color: #10b981;">FOLIE OCHRONNE PPF</span>
             </h1>
         </div>
 
-        <!-- HERO VEHICLE PHOTO -->
-        <div style="margin-bottom: 3.5rem; border: 2px solid #10b981; overflow: hidden; max-height: 480px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);">
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>" alt="Bezbarwne Folie PPF" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- FRAMED HIGH-DEFINITION AI PHOTO BANNER -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981;">
+            <span class="hg-subpage-banner-badge" style="color: #10b981; border-color: #10b981;">PAINT PROTECTION FILM (PPF)</span>
+            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>" alt="Folie Ochronne PPF">
+            <div class="hg-subpage-banner-vignette"></div>
         </div>
 
         <!-- 2-COLUMN EDITORIAL CONTENT GRID -->
-        <div class="hg-grid hg-grid-2" style="gap: 3rem; align-items: flex-start; margin-bottom: 4rem;">
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 4rem;">
             
-            <!-- LEFT COLUMN: HIGHLY READABLE EDITORIAL TEXT -->
-            <div style="background: #0b0e17; border: 1px solid rgba(255,255,255,0.15); padding: 2.5rem; color: #ffffff;">
-                <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 900; color: #10b981; text-transform: uppercase; margin-bottom: 1.25rem;">
+            <!-- LEFT COLUMN: PROMINENT HIGH-CONTRAST DESCRIPTION CARD -->
+            <div class="hg-editorial-card" style="--card-accent: #10b981;">
+                <h2 class="hg-editorial-title" style="border-color: #10b981;">
                     Niewidzialny Pancerz Dla Lakieru
                 </h2>
 
-                <p style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; font-weight: 500;">
+                <p class="hg-editorial-paragraph">
                     Powłoka lakiernicza nowoczesnego samochodu jest wyjątkowo narażona na uszkodzenia: odpryski od kamieni wyrzucanych spod kół, otarcia parkingowe, gałęzie czy chemię drogową.
                 </p>
 
-                <p style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; font-weight: 500;">
-                    Ochronę zapewniają specjalne, bezbarwne folie poliuretanowe PPF (140–200 mikrometrów), które przyjmują na siebie siłę uderzeń. Powierzchnia folii posiada unikalne właściwości <strong>samoregeneracji</strong> – drobne zarysowania znikają samoistnie pod wpływem ciepła (słońce lub gorąca woda).
+                <p class="hg-editorial-paragraph">
+                    Ochronę zapewniają specjalne, bezbarwne folie poliuretanowe PPF (140–200 mikrometrów), które przyjmują na siebie siłę uderzeń. Powierzchnia folii posiada unikalne właściwości <strong>samoregeneracji</strong> – drobne zarysowania i mikrorysy znikają samoistnie pod wpływem ciepła (słońce lub gorąca woda).
                 </p>
 
-                <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.5rem; margin-top: 1.5rem;">
-                    <strong style="color: #10b981; display: block; margin-bottom: 0.4rem; text-transform: uppercase; font-size: 0.85rem;">Pakiety Ochrony PPF:</strong>
-                    <span style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">Pakiet Przód (Full Front), Pakiet Całe Auto (Full Body) oraz Dedykowane Strefy Rys (progi, wnęki klamek, próg załadunkowy bagażnika).</span>
+                <div class="hg-editorial-highlight-box" style="--card-accent: #10b981; background: rgba(16, 185, 129, 0.1);">
+                    <strong style="color: #10b981; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Dedykowane Pakiety PPF:</strong>
+                    <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">Pakiet Przód (Full Front), Pakiet Całe Auto (Full Body) oraz Dedykowane Strefy Rys (progi, wnęki klamek, próg załadunkowy bagażnika).</span>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: SPECS & DIRECT CTA CARD -->
-            <div style="background: #0b0e17; border: 2px solid #10b981; padding: 2.5rem; position: sticky; top: 110px;">
-                <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.8rem; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 0.75rem;">
+            <!-- RIGHT COLUMN: STICKY SPECS & CALL CTA CARD -->
+            <div class="hg-specs-cta-card" style="--card-accent: #10b981;">
+                <h3 class="hg-specs-title" style="border-color: #10b981;">
                     SPECYFIKACJA PPF
                 </h3>
 
-                <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2rem;">
+                <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
                         <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Grubość Folii:</span>
                         <strong style="color: #10b981; font-size: 1rem;">140 - 200 Mikronów</strong>
@@ -77,8 +76,9 @@ get_header();
                     </div>
                 </div>
 
-                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #10b981; color: #000; border: 2px solid #10b981; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
-                    🛡️ ZAPYTAJ O PAKIET OCHRONY PPF &rarr;
+                <!-- CALL CTA BUTTON -->
+                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #10b981; color: #000000; border: 2px solid #10b981; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
+                    🛡️ ZADZWOŃ: 605 088 065 &rarr;
                 </a>
             </div>
 
