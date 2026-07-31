@@ -1,6 +1,6 @@
 <?php
 /**
- * Minimal Footer with Subtle Brand Logo & Subtitle
+ * Minimal Footer with Subtle Brand Logo & Subtitle (No Mobile Action Bar)
  *
  * @package HiGloss2026
  */
@@ -23,19 +23,6 @@
         </p>
     </div>
 </footer>
-
-<!-- Mobile Sticky Action Bar -->
-<div class="hg-mobile-bar">
-    <a href="tel:+48605088065" class="hg-m-btn highlight">
-        📞 Zadzwoń
-    </a>
-    <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-m-btn">
-        ⚡ Wycena
-    </a>
-    <a href="https://maps.google.com/?q=Podmiejska+4+Mierzyn" target="_blank" rel="noopener" class="hg-m-btn">
-        🗺️ Dojazd
-    </a>
-</div>
 
 <?php wp_footer(); ?>
 </body>
