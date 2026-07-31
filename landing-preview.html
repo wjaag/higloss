@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi-Gloss Design - 2x2 Grid Offer Layout (1|2 / 3|4)</title>
+    <title>Hi-Gloss Design - Brand Title in Navbar Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -12,88 +12,77 @@
 </head>
 <body>
 
-<!-- Header (Initially Transparent, Glassmorphism on Scroll) -->
+<!-- Header Navbar -->
 <header class="hg-header">
     <div class="hg-container hg-header-inner">
-        <!-- Standalone Official Logo Image (NO TEXT) -->
-        <a href="#" class="hg-brand-logo">
+        <!-- Official Logo Image + Brand Title & Subtitle -->
+        <a href="#" class="hg-brand-logo" style="display: flex; align-items: center; gap: 0.85rem;">
             <img src="assets/images/logo.png" alt="HI-GLOSS" class="hg-logo-standalone">
+            <div style="display: flex; flex-direction: column; line-height: 1.1; text-align: left;">
+                <span style="font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.15rem; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase;">HI-GLOSSDESIGN</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.72rem; color: #94a3b8; margin-top: 2px;">Całościowe oklejanie pojazdów</span>
+            </div>
         </a>
 
         <!-- Navigation Menu -->
         <nav class="hg-nav-menu" id="hgNavMenu">
-            <a href="landing-preview.html" class="hg-nav-link">HOME</a>
+            <a href="#" class="hg-nav-link">HOME</a>
             <a href="page-oferta.php" class="hg-nav-link">OFERTA</a>
             <a href="page-galeria.php" class="hg-nav-link">GALERIA</a>
             <a href="page-o-firmie.php" class="hg-nav-link">O FIRMIE</a>
             <a href="page-kontakt.php" class="hg-nav-link">KONTAKT</a>
         </nav>
+
+        <!-- Burger Toggle for Mobile -->
+        <button class="hg-burger-btn" id="hgNavToggle" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </div>
 </header>
 
-<!-- MAIN OFERTA SUBPAGE PREVIEW -->
-<main style="padding: 10rem 0 6rem; flex: 1;">
+<!-- MAIN HOMEPAGE AREA: NAVBAR -> SINGLE-LINE SLOGAN -> 2 TILES -> COMPACT FOOTER -->
+<main class="sec-homepage-tiles">
     <div class="hg-container">
 
-        <!-- TITLE HEADLINE -->
-        <div style="text-align: center; margin-bottom: 3.5rem;">
-            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                PEŁNA <span style="color: #25aae1;">OFERTA STUDIO</span>
+        <!-- 1. NAPIS (SINGLE-LINE SLOGAN HEADLINE) -->
+        <div style="text-align: center; margin-bottom: 2.8rem; animation: fadeInUp 0.6s ease both;">
+            <h1 class="hg-slogan-headline" style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8); white-space: nowrap;">
+                CAŁOŚCIOWE <span style="color: #25aae1;">OKLEJANIE POJAZDÓW</span>
             </h1>
         </div>
 
-        <!-- 2x2 TILES GRID FOR OFERTA (ROW 1: 1 | 2 , ROW 2: 3 | 4) -->
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; width: 100%;">
+        <!-- 2. KAFELKI: NASZA OFERTA | GALERIA PRAC (2 COLUMNS ONLY) -->
+        <div class="hg-tiles-grid-2">
 
-            <!-- ROW 1, COL 1 (TILE 1): CAŁOŚCIOWA ZMIANA KOLORU -->
-            <a href="page-zmiana-koloru.php" class="hg-ai-mastercard tile-theme-cyan" style="min-height: 380px;">
-                <img src="assets/images/ai_oferta_zmiana_koloru.jpg" alt="Całościowa Zmiana Koloru" class="hg-ai-card-img">
+            <!-- KAFELEK 1: NASZA OFERTA -->
+            <a href="page-oferta.php" class="hg-ai-mastercard tile-theme-amber">
+                <img src="assets/images/ai_tile2_oferta.jpg" alt="Nasza Oferta" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
 
-                <div class="hg-ai-card-body" style="margin-top: auto;">
-                    <h2 class="hg-ai-card-title">CAŁOŚCIOWA ZMIANA KOLORU</h2>
-                    <p class="hg-ai-card-desc">
-                        Szybka zmiana barwy pojazdu foliami wylewanymi (Mat, Połysk, Satyna, Carbon 3D, Kameleon) marek 3M, Avery Dennison, Hexis.
-                    </p>
+                <div class="hg-ai-card-tag">01 / NASZA OFERTA</div>
+                
+                <div class="hg-ai-card-body">
+                    <h2 class="hg-ai-card-title">NASZA OFERTA & USŁUGI</h2>
+                    <p class="hg-ai-card-desc">Całościowa zmiana koloru (Mat, Połysk, Satyna, Carbon), bezbarwne folie ochronne PPF z samoregeneracją oraz reklama flot.</p>
+                    <div class="hg-ai-card-btn">
+                        SPRAWDŹ OFERTĘ <span class="arrow">&rarr;</span>
+                    </div>
                 </div>
             </a>
 
-            <!-- ROW 1, COL 2 (TILE 2): BEZBARWNE FOLIE PPF -->
-            <a href="page-ppf.php" class="hg-ai-mastercard tile-theme-green" style="min-height: 380px;">
-                <img src="assets/images/ai_oferta_ppf.jpg" alt="Bezbarwne Folie PPF" class="hg-ai-card-img">
+            <!-- KAFELEK 2: GALERIA PRAC -->
+            <a href="page-galeria.php" class="hg-ai-mastercard tile-theme-cyan">
+                <img src="assets/images/ai_tile3_galeria.jpg" alt="Galeria Prac" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
 
-                <div class="hg-ai-card-body" style="margin-top: auto;">
-                    <h2 class="hg-ai-card-title">BEZBARWNE FOLIE PPF</h2>
-                    <p class="hg-ai-card-desc">
-                        Bezbarwne folie poliuretanowe (140-200 µm) chroniące lakier przed uderzeniami kamieni i rysami z funkcją samoregeneracji.
-                    </p>
-                </div>
-            </a>
-
-            <!-- ROW 2, COL 1 (TILE 3): OKLEJANIE REKLAMOWE & FLOTY -->
-            <a href="page-reklama.php" class="hg-ai-mastercard tile-theme-amber" style="min-height: 380px;">
-                <img src="assets/images/ai_oferta_reklama.jpg" alt="Oklejanie Reklamowe & Floty" class="hg-ai-card-img">
-                <div class="hg-ai-card-vignette"></div>
-
-                <div class="hg-ai-card-body" style="margin-top: auto;">
-                    <h2 class="hg-ai-card-title">OKLEJANIE REKLAMOWE & FLOTY</h2>
-                    <p class="hg-ai-card-desc">
-                        Grafika mobilna i branding dla firm i korporacji. Własny park maszynowy drukarek wielkoformatowych oraz ploterów tnących.
-                    </p>
-                </div>
-            </a>
-
-            <!-- ROW 2, COL 2 (TILE 4): PRZYCIEMNIANIE SZYB & DETAILING -->
-            <a href="page-detailing.php" class="hg-ai-mastercard tile-theme-ruby" style="min-height: 380px;">
-                <img src="assets/images/ai_oferta_detailing.jpg" alt="Przyciemnianie Szyb & Detailing" class="hg-ai-card-img">
-                <div class="hg-ai-card-vignette"></div>
-
-                <div class="hg-ai-card-body" style="margin-top: auto;">
-                    <h2 class="hg-ai-card-title">PRZYCIEMNIANIE SZYB & DETAILING</h2>
-                    <p class="hg-ai-card-desc">
-                        Przyciemnianie szyb atestowanymi foliami ceramicznymi, dechroming listew na wysoki połysk oraz oklejanie wnętrza pojazdów.
-                    </p>
+                <div class="hg-ai-card-tag">02 / GALERIA PRAC</div>
+                
+                <div class="hg-ai-card-body">
+                    <h2 class="hg-ai-card-title">GALERIA REALIZACJI</h2>
+                    <p class="hg-ai-card-desc">Zobacz setki ukończonych aut: Audi A7 Blue Gloss, Mercedes S Satyna, Porsche Panamera PPF oraz projekty specjalne.</p>
+                    <div class="hg-ai-card-btn">
+                        GALERIA PRAC <span class="arrow">&rarr;</span>
+                    </div>
                 </div>
             </a>
 
@@ -102,7 +91,7 @@
     </div>
 </main>
 
-<!-- Footer -->
+<!-- Footer (Compact Single-Line Height) -->
 <footer class="hg-footer">
     <div class="hg-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
         <div style="display: flex; align-items: center; gap: 0.8rem;">

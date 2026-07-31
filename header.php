@@ -6,7 +6,7 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -15,9 +15,13 @@
 <!-- Header Navbar -->
 <header class="hg-header">
     <div class="hg-container hg-header-inner">
-        <!-- Standalone Official Logo Image -->
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo">
+        <!-- Official Logo Image + Brand Title & Subtitle -->
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" style="display: flex; align-items: center; gap: 0.85rem;">
             <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS" class="hg-logo-standalone">
+            <div style="display: flex; flex-direction: column; line-height: 1.1; text-align: left;">
+                <span style="font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.15rem; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase;">HI-GLOSSDESIGN</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.72rem; color: #94a3b8; margin-top: 2px;">Całościowe oklejanie pojazdów</span>
+            </div>
         </a>
 
         <!-- Navigation Menu -->
