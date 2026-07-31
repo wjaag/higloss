@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propozycja A - Luxury Glass Architecture 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        .prop-hub-bar {
+            background: rgba(5, 7, 12, 0.95);
+            backdrop-filter: blur(16px);
+            padding: 0.9rem;
+            text-align: center;
+            border-bottom: 2px solid #25aae1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .prop-hub-btn {
+            color: #ffffff;
+            padding: 0.55rem 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .prop-hub-btn.active {
+            background: #25aae1;
+            color: #000000;
+            border-color: #25aae1;
+            box-shadow: 0 0 15px rgba(37, 170, 225, 0.4);
+        }
+
+        /* Glassmorphism 2026 System */
+        .glass-hero-panel {
+            background: rgba(12, 17, 29, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25), 0 25px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .glass-icon-box {
+            width: 44px;
+            height: 44px;
+            background: rgba(37, 170, 225, 0.12);
+            border: 1px solid rgba(37, 170, 225, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #25aae1;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .glass-feature-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.85rem 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-feature-pill:hover {
+            border-color: #25aae1;
+            background: rgba(37, 170, 225, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .glass-feature-pill:hover .glass-icon-box {
+            background: #25aae1;
+            color: #000000;
+            box-shadow: 0 0 15px rgba(37, 170, 225, 0.5);
+        }
+
+        .glass-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffffff, #25aae1, transparent);
+            transition: left 0.8s ease;
+        }
+
+        .glass-shimmer:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body style="padding-top: 55px;">
+
+<!-- Hub Navigation Bar -->
+<div class="prop-hub-bar">
+    <span style="color:#25aae1; font-weight:900; font-size: 0.85rem;">NOWA WIZJA 2026:</span>
+    <a href="preview-proposal-a.html" class="prop-hub-btn active">PROPOZYCJA A: LUXURY GLASS</a>
+    <a href="preview-proposal-b.html" class="prop-hub-btn">PROPOZYCJA B: NEO MONOLITH</a>
+</div>
+
+<!-- Transparent Header -->
+<header class="hg-header" style="top: 55px;">
+    <div class="hg-container hg-header-inner">
+        <a href="#" class="hg-brand-logo">
+            <img src="assets/images/logo.png" alt="HI-GLOSS" class="hg-logo-standalone">
+        </a>
+        <nav class="hg-nav-menu">
+            <a href="#" class="hg-nav-link">HOME</a>
+            <a href="page-oferta.php" class="hg-nav-link">OFERTA</a>
+            <a href="page-galeria.php" class="hg-nav-link">GALERIA</a>
+            <a href="page-kontakt.php" class="hg-nav-link">KONTAKT</a>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN SERVICE PAGE PROPOSAL A -->
+<main style="padding: 9.5rem 0 6rem; flex: 1;">
+    <div class="hg-container">
+
+        <!-- 1. COMPACT INTEGRATED HERO PANEL (PHOTO BACKGROUND + GLASS OVERLAY) -->
+        <div style="position: relative; background-image: url('assets/images/ai_oferta_zmiana_koloru.jpg'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid #25aae1; margin-bottom: 3rem; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.85);">
+            <div style="position: absolute; top:0; left:0; right:0; bottom:0; background: linear-gradient(180deg, rgba(5,7,12,0.8) 0%, rgba(5,7,12,0.95) 100%);"></div>
+
+            <div class="glass-hero-panel glass-shimmer" style="background: transparent; border: none; box-shadow: none;">
+                <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 1rem; background: rgba(37, 170, 225, 0.15); backdrop-filter: blur(12px); border: 1px solid #25aae1; color: #25aae1; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem;">
+                    CAR WRAPPING & TUNING OPTYCZNY
+                </div>
+
+                <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0 0 1.25rem 0; line-height: 1.12; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">
+                    CAŁOŚCIOWA <span style="color: #25aae1;">ZMIANA KOLORU AUTA</span>
+                </h1>
+
+                <!-- 4 VECTOR ICON SPECS PILLS (GLASSMORPHISM) -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 2rem;">
+                    <div class="glass-feature-pill">
+                        <div class="glass-icon-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div>
+                            <span style="display:block; font-size:0.75rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Czas Realizacji</span>
+                            <strong style="color:#ffffff; font-size:0.95rem;">3 - 5 Dni Roboczych</strong>
+                        </div>
+                    </div>
+
+                    <div class="glass-feature-pill">
+                        <div class="glass-icon-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <span style="display:block; font-size:0.75rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Gwarancja Jakosci</span>
+                            <strong style="color:#ffffff; font-size:0.95rem;">5 - 7 Lat Producenta</strong>
+                        </div>
+                    </div>
+
+                    <div class="glass-feature-pill">
+                        <div class="glass-icon-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <div>
+                            <span style="display:block; font-size:0.75rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Folie Premium</span>
+                            <strong style="color:#ffffff; font-size:0.95rem;">3M 2080 / Avery Supreme</strong>
+                        </div>
+                    </div>
+
+                    <div class="glass-feature-pill">
+                        <div class="glass-icon-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <span style="display:block; font-size:0.75rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Hala Aplikacji</span>
+                            <strong style="color:#ffffff; font-size:0.95rem;">Ogrzewana Mierzyn</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. HIGH-CONTRAST EDITORIAL GLASS CONTENT (65 / 35 GRID) -->
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 3.5rem;">
+            
+            <!-- LEFT COLUMN: PROMINENT HIGH-CONTRAST DESCRIPTION CARD -->
+            <div class="glass-hero-panel glass-shimmer">
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid #25aae1; padding-bottom: 0.6rem;">
+                    O Szybkiej Zmianie Koloru
+                </h2>
+
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.85; margin-bottom: 1.5rem; font-weight: 500;">
+                    Firma <strong>HI-GLOSS DESIGN</strong> ze Szczecina specjalizuje się w całościowym oklejaniu aut foliami wylewanymi zmieniającymi kolor karoserii. Jest to metoda pozwalająca na szybką i spektakularną zmianę wyglądu pojazdu bez konieczności kosztownego i nieodwracalnego lakierowania.
+                </p>
+
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.85; margin-bottom: 2rem; font-weight: 500;">
+                    Oklejamy samochody, łodzie i motocykle. Pracujemy wyłącznie na wylewanych foliach renomowanych producentów: <strong>3M 2080, Avery Dennison Supreme, Hexis Skintac, KPMF oraz Oracal</strong> (mat, połysk, satyna, carbon 3D, kameleon).
+                </p>
+
+                <!-- GLASS HIGHLIGHT BOX -->
+                <div style="background: rgba(37, 170, 225, 0.12); backdrop-filter: blur(12px); border-left: 4px solid #25aae1; padding: 1.5rem; margin-top: 1.8rem;">
+                    <strong style="color: #25aae1; display: block; margin-bottom: 0.4rem; text-transform: uppercase; font-size: 0.88rem; font-family: 'Montserrat', sans-serif;">Dbałość O Każdy Detal:</strong>
+                    <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">Przed aplikacją folii demontujemy klamki, lampy, zderzaki i lusterka. Folia zawijana jest głęboko do wnętrza, co wyklucza ryzyko odklejania. Wykonujemy też drobne naprawy blacharsko-lakiernicze w cenie przygotowania auta.</span>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: STICKY GLASS CALL CTA CARD -->
+            <div class="glass-hero-panel" style="position: sticky; top: 120px; border-color: #25aae1;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.35rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid #25aae1; padding-bottom: 0.6rem;">
+                    REZERWACJA TERMINU
+                </h3>
+
+                <p style="color: #cbd5e1; font-size: 0.98rem; line-height: 1.65; margin-bottom: 2rem; font-weight: 500;">
+                    Zadzwoń do naszej pracowni w Mierzynie lub odwiedź nas osobiście, aby obejrzeć fizyczne wzorniki folii 3M i Avery przy kawie.
+                </p>
+
+                <a href="tel:+48605088065" class="hg-btn" style="background: #25aae1; color: #000000; border: 2px solid #25aae1; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.15rem; box-shadow: 0 0 20px rgba(37, 170, 225, 0.4);">
+                    📞 ZADZWOŃ: 605 088 065 &rarr;
+                </a>
+
+                <div style="font-size: 0.82rem; color: #94a3b8; text-align: center; font-weight: 600; margin-top: 1.5rem;">
+                    📍 ul. Podmiejska 4, 72-006 Mierzyn / Szczecin
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="hg-footer">
+    <div class="hg-container" style="display: flex; align-items: center; justify-content: space-between;">
+        <img src="assets/images/logo.png" alt="HI-GLOSS" style="height: 36px;">
+        <p>&copy; 2026 HI-GLOSS DESIGN Szczecin - Mierzyn</p>
+    </div>
+</footer>
+
+</body>
+</html>
