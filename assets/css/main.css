@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Rock-Solid Masterpiece Tiles Edition CSS
+ * Hi-Gloss Design 2026 - Compact Hero Background Subpages & Mobile CSS
  */
 
 /* Container */
@@ -117,6 +117,34 @@ body.admin-bar .hg-header {
   cursor: pointer;
 }
 
+/* Subpage Compact Hero Card with Background Photo */
+.hg-subpage-hero {
+  position: relative;
+  border: 2px solid var(--hero-border, #25aae1);
+  padding: 3rem 2.5rem;
+  margin-bottom: 2.5rem;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.hg-subpage-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(7, 9, 14, 0.96) 0%, rgba(7, 9, 14, 0.8) 55%, rgba(7, 9, 14, 0.45) 100%);
+  z-index: 1;
+}
+
+.hg-subpage-hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 750px;
+}
+
 /* Homepage Main Container */
 .sec-homepage-tiles {
   flex: 1 0 auto;
@@ -125,8 +153,8 @@ body.admin-bar .hg-header {
   display: block;
 }
 
-/* 2-Column Responsive Tiles Grid */
-.hg-tiles-grid-2 {
+/* 2-Column Responsive Grid */
+.hg-grid-2, .hg-tiles-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2.5rem !important;
@@ -134,26 +162,7 @@ body.admin-bar .hg-header {
   width: 100%;
 }
 
-/* Entrance Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hg-tiles-grid-2 > a {
-  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.hg-tiles-grid-2 > a:nth-child(1) { animation-delay: 0.1s; }
-.hg-tiles-grid-2 > a:nth-child(2) { animation-delay: 0.25s; }
-
-/* BULLETPROOF MASTERPIECE TILE CARD DESIGN (0px Radius, Full-Bleed Imagery) */
+/* AI Visual Masterpiece Tile Card (0px Radius, Full-Bleed Imagery) */
 .hg-ai-mastercard {
   position: relative;
   background: #0b0e17;
@@ -180,7 +189,6 @@ body.admin-bar .hg-header {
   box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 25px var(--card-glow, rgba(37, 170, 225, 0.3));
 }
 
-/* Full-Bleed AI Generated Vehicle Image */
 .hg-ai-card-img {
   position: absolute;
   top: 0;
@@ -198,14 +206,13 @@ body.admin-bar .hg-header {
   filter: brightness(1.1) contrast(1.05);
 }
 
-/* Cinematic Dark Overlay Vignette */
 .hg-ai-card-vignette {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(5, 7, 12, 0.96) 0%, rgba(5, 7, 12, 0.5) 55%, rgba(5, 7, 12, 0.2) 100%);
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.5) 55%, rgba(5, 7, 12, 0.2) 100%);
   z-index: 2;
   transition: background 0.5s ease;
   pointer-events: none;
@@ -215,25 +222,6 @@ body.admin-bar .hg-header {
   background: linear-gradient(to top, rgba(5, 7, 12, 0.98) 0%, rgba(5, 7, 12, 0.4) 65%, rgba(5, 7, 12, 0.1) 100%);
 }
 
-/* Shimmer Light Beam across top on hover */
-.hg-ai-mastercard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--card-accent, #25aae1), transparent);
-  transition: left 0.8s ease;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.hg-ai-mastercard:hover::before {
-  left: 100%;
-}
-
-/* Top Badge Overlay */
 .hg-ai-card-tag {
   position: relative;
   z-index: 5;
@@ -251,7 +239,6 @@ body.admin-bar .hg-header {
   width: fit-content;
 }
 
-/* Bottom Content */
 .hg-ai-card-body {
   position: relative;
   z-index: 5;
@@ -279,7 +266,6 @@ body.admin-bar .hg-header {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
-/* Action Button Badge */
 .hg-ai-card-btn {
   display: inline-flex;
   align-items: center;
@@ -310,16 +296,6 @@ body.admin-bar .hg-header {
 
 .hg-ai-mastercard:hover .hg-ai-card-btn span.arrow {
   transform: translateX(6px);
-}
-
-/* Accent Color Themes */
-.tile-theme-amber {
-  --card-accent: #ff9900;
-  --card-glow: rgba(255, 153, 0, 0.35);
-}
-.tile-theme-cyan {
-  --card-accent: #00c2ff;
-  --card-glow: rgba(0, 194, 255, 0.35);
 }
 
 /* Mobile Sticky Action Bar */
@@ -366,22 +342,29 @@ body.admin-bar .hg-header {
   font-size: 0.85rem;
 }
 
-/* RESPONSIVE MEDIA QUERIES */
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
 @media (max-width: 900px) {
   .sec-homepage-tiles {
     padding-top: 120px;
     padding-bottom: 3rem;
   }
 
-  .hg-tiles-grid-2 {
+  .hg-tiles-grid-2, .hg-grid-2 {
     grid-template-columns: 1fr !important;
     grid-gap: 2rem !important;
     gap: 2rem !important;
   }
 
   .hg-ai-mastercard {
-    height: 360px;
-    padding: 2rem;
+    height: 340px;
+    padding: 1.8rem;
+  }
+
+  .hg-subpage-hero {
+    padding: 2rem 1.5rem;
   }
 
   .hg-nav-menu {
@@ -439,8 +422,8 @@ body.admin-bar .hg-header {
   }
 
   .hg-ai-mastercard {
-    height: 320px;
-    padding: 1.5rem;
+    height: 300px;
+    padding: 1.4rem;
   }
 
   .hg-logo-standalone {
