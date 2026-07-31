@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi-Gloss Design - 2x2 Offer Tiles Edition</title>
+    <title>Hi-Gloss Design - 2x2 Grid Offer Layout (1|2 / 3|4)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -42,10 +42,10 @@
             </h1>
         </div>
 
-        <!-- 2x2 TILES GRID FOR OFERTA (LINKING TO INDIVIDUAL SERVICE SUBPAGES) -->
-        <div class="hg-grid hg-grid-2" style="gap: 2.5rem;">
+        <!-- 2x2 TILES GRID FOR OFERTA (ROW 1: 1 | 2 , ROW 2: 3 | 4) -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; width: 100%;">
 
-            <!-- CARD 1: CAŁOŚCIOWA ZMIANA KOLORU -->
+            <!-- ROW 1, COL 1 (TILE 1): CAŁOŚCIOWA ZMIANA KOLORU -->
             <a href="page-zmiana-koloru.php" class="hg-ai-mastercard tile-theme-cyan" style="min-height: 380px;">
                 <img src="assets/images/ai_oferta_zmiana_koloru.jpg" alt="Całościowa Zmiana Koloru" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -58,7 +58,7 @@
                 </div>
             </a>
 
-            <!-- CARD 2: BEZBARWNE FOLIE PPF -->
+            <!-- ROW 1, COL 2 (TILE 2): BEZBARWNE FOLIE PPF -->
             <a href="page-ppf.php" class="hg-ai-mastercard tile-theme-green" style="min-height: 380px;">
                 <img src="assets/images/ai_oferta_ppf.jpg" alt="Bezbarwne Folie PPF" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -71,7 +71,7 @@
                 </div>
             </a>
 
-            <!-- CARD 3: OKLEJANIE REKLAMOWE & FLOTY -->
+            <!-- ROW 2, COL 1 (TILE 3): OKLEJANIE REKLAMOWE & FLOTY -->
             <a href="page-reklama.php" class="hg-ai-mastercard tile-theme-amber" style="min-height: 380px;">
                 <img src="assets/images/ai_oferta_reklama.jpg" alt="Oklejanie Reklamowe & Floty" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -84,7 +84,7 @@
                 </div>
             </a>
 
-            <!-- CARD 4: PRZYCIEMNIANIE SZYB & DETAILING -->
+            <!-- ROW 2, COL 2 (TILE 4): PRZYCIEMNIANIE SZYB & DETAILING -->
             <a href="page-detailing.php" class="hg-ai-mastercard tile-theme-ruby" style="min-height: 380px;">
                 <img src="assets/images/ai_oferta_detailing.jpg" alt="Przyciemnianie Szyb & Detailing" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>

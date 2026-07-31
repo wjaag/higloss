@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Oferta (2x2 Kafelki z Odnośnikami Do Podstron)
+ * Template Name: Podstrona Oferta (Układ 2x2: 1|2 / 3|4)
  *
  * @package HiGloss2026
  */
@@ -19,10 +19,10 @@ get_header();
             </h1>
         </div>
 
-        <!-- 2x2 TILES GRID FOR OFERTA (CLICKABLE CARDS LINKING TO DEDICATED SUBPAGES) -->
-        <div class="hg-grid hg-grid-2" style="gap: 2.5rem;">
+        <!-- 2x2 GRID TILES LAYOUT (ROW 1: 1 | 2 , ROW 2: 3 | 4) -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; width: 100%;">
 
-            <!-- CARD 1: CAŁOŚCIOWA ZMIANA KOLORU -->
+            <!-- ROW 1, COL 1 (TILE 1): CAŁOŚCIOWA ZMIANA KOLORU -->
             <a href="<?php echo esc_url(home_url('/zmiana-koloru')); ?>" class="hg-ai-mastercard tile-theme-cyan" style="min-height: 380px;">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru.jpg'); ?>" alt="Całościowa Zmiana Koloru" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -35,7 +35,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- CARD 2: BEZBARWNE FOLIE PPF -->
+            <!-- ROW 1, COL 2 (TILE 2): BEZBARWNE FOLIE PPF -->
             <a href="<?php echo esc_url(home_url('/ppf')); ?>" class="hg-ai-mastercard tile-theme-green" style="min-height: 380px;">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>" alt="Bezbarwne Folie PPF" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -48,7 +48,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- CARD 3: OKLEJANIE REKLAMOWE & FLOTY -->
+            <!-- ROW 2, COL 1 (TILE 3): OKLEJANIE REKLAMOWE & FLOTY -->
             <a href="<?php echo esc_url(home_url('/reklama')); ?>" class="hg-ai-mastercard tile-theme-amber" style="min-height: 380px;">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_reklama.jpg'); ?>" alt="Oklejanie Reklamowe & Floty" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -61,7 +61,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- CARD 4: PRZYCIEMNIANIE SZYB & DETAILING -->
+            <!-- ROW 2, COL 2 (TILE 4): PRZYCIEMNIANIE SZYB & DETAILING -->
             <a href="<?php echo esc_url(home_url('/detailing')); ?>" class="hg-ai-mastercard tile-theme-ruby" style="min-height: 380px;">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>" alt="Przyciemnianie Szyb & Detailing" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
