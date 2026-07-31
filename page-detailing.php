@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Usługi - Przyciemnianie Szyb & Detailing (Editorial High-Contrast UX)
+ * Template Name: Podstrona Usługi - Przyciemnianie Szyb & Detailing
  *
  * @package HiGloss2026
  */
@@ -8,66 +8,65 @@
 get_header();
 ?>
 
-<main style="padding: 9.5rem 0 5rem; flex: 1;">
+<main style="padding: 10rem 0 6rem; flex: 1;">
     <div class="hg-container">
         
-        <!-- COMPACT HERO CARD WITH BACKGROUND VEHICLE PHOTO -->
-        <div class="hg-subpage-hero" style="background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>'); --hero-border: #ff0055;">
-            <div class="hg-subpage-hero-overlay"></div>
-            <div class="hg-subpage-hero-content">
-                <div style="display: inline-block; padding: 0.35rem 0.9rem; background: rgba(255, 0, 85, 0.2); border: 1px solid #ff0055; color: #ff0055; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
-                    PRZYCIEMNIANIE SZYB & DECHROMING
-                </div>
-                <h1 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0 0 1rem 0; line-height: 1.15; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">
-                    DETAILING & <span style="color: #ff0055;">PRZYCIEMNIANIE SZYB</span>
-                </h1>
-                <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; line-height: 1.6; margin: 0; font-weight: 500;">
-                    Atestowane folie ceramiczne przyciemniające szyby, dechroming listew na wysoki połysk oraz uszlachetnianie wnętrza.
-                </p>
+        <!-- TITLE -->
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <div style="display: inline-block; padding: 0.35rem 1rem; background: rgba(255, 0, 85, 0.12); border: 1px solid #ff0055; color: #ff0055; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem;">
+                PRZYCIEMNIANIE SZYB & DECHROMING
             </div>
+            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+                DETAILING & <span style="color: #ff0055;">PRZYCIEMNIANIE SZYB</span>
+            </h1>
         </div>
 
-        <!-- HIGH-CONTRAST EDITORIAL DESCRIPTION & SPECS GRID -->
-        <div class="hg-grid hg-grid-2" style="gap: 2.5rem; align-items: flex-start; margin-bottom: 3.5rem;">
+        <!-- HERO VEHICLE PHOTO -->
+        <div style="margin-bottom: 3.5rem; border: 2px solid #ff0055; overflow: hidden; max-height: 480px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);">
+            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>" alt="Przyciemnianie Szyb & Detailing" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <!-- 2-COLUMN EDITORIAL CONTENT GRID -->
+        <div class="hg-grid hg-grid-2" style="gap: 3rem; align-items: flex-start; margin-bottom: 4rem;">
             
-            <!-- LEFT COLUMN: PROMINENT HIGH-CONTRAST DESCRIPTION CARD -->
-            <div class="hg-desc-card" style="--card-accent: #ff0055;">
-                <h2 class="hg-desc-title" style="border-color: #ff0055;">
+            <!-- LEFT COLUMN: HIGHLY READABLE EDITORIAL TEXT -->
+            <div style="background: #0b0e17; border: 1px solid rgba(255,255,255,0.15); padding: 2.5rem; color: #ffffff;">
+                <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 900; color: #ff0055; text-transform: uppercase; margin-bottom: 1.25rem;">
                     Precyzyjne Usługi Wykończeniowe
                 </h2>
 
-                <p class="hg-desc-text">
+                <p style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; font-weight: 500;">
                     Oferujemy przyciemnianie szyb atestowanymi foliami ceramicznymi, które znacznie redukują nagrzewanie się wnętrza pojazdu oraz blokują do 99% promieniowania UV.
                 </p>
 
-                <p class="hg-desc-text">
-                    Wykonujemy również <strong>Dechroming (Shadow Line)</strong> – oklejanie chromowanych listew wokół szyb, grilla i wydechów na głęboki połysk lub satynową czerń, co nadaje autu sportowy charakter.
+                <p style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; font-weight: 500;">
+                    Wykonujemy również **Dechroming (Shadow Line)** – oklejanie chromowanych listew wokół szyb, grilla i wydechów na głęboki połysk lub satynową czerń, co nadaje autu sportowy charakter.
                 </p>
 
-                <div style="background: rgba(255, 0, 85, 0.12); border-left: 4px solid #ff0055; padding: 1.5rem; margin-top: 1.5rem;">
-                    <strong style="color: #ff0055; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Atest ISiC & Legalność:</strong>
-                    <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.6; display: block;">Pracujemy wyłącznie na foliach z homologacją Instytutu Szkła i Ceramiki, gwarantujących bezproblemowy przegląd techniczny.</span>
+                <div style="background: rgba(255, 0, 85, 0.1); border-left: 4px solid #ff0055; padding: 1.5rem; margin-top: 1.5rem;">
+                    <strong style="color: #ff0055; display: block; margin-bottom: 0.4rem; text-transform: uppercase; font-size: 0.85rem;">Atest ISiC & Legalność:</strong>
+                    <span style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">Pracujemy wyłącznie na foliach z homologacją Instytutu Szkła i Ceramiki, gwarantujących bezproblemowy przegląd techniczny.</span>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: QUICK SPECS & CALL CTA CARD -->
-            <div style="background: #0b0f19; border: 2px solid #ff0055; padding: 2.5rem; position: sticky; top: 110px;">
-                <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid #ff0055; padding-bottom: 0.6rem;">
+            <!-- RIGHT COLUMN: SPECS & DIRECT CTA CARD -->
+            <div style="background: #0b0e17; border: 2px solid #ff0055; padding: 2.5rem; position: sticky; top: 110px;">
+                <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.8rem; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 0.75rem;">
                     SPECYFIKACJA DETAILINGU
                 </h3>
 
                 <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2rem;">
-                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
                         <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Szyby:</span>
                         <strong style="color: #ff0055; font-size: 1rem;">Folie Ceramiczne z Atestem</strong>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
                         <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Dechroming:</span>
                         <strong style="color: #ff0055; font-size: 1rem;">Shadow Line Black Gloss/Satin</strong>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
                         <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Czas Usługi:</span>
                         <strong style="color: #ffffff; font-size: 1rem;">1 Dzień Roboczy</strong>
                     </div>
