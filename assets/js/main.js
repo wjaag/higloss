@@ -20,26 +20,34 @@ document.addEventListener('DOMContentLoaded', function() {
         updateHeaderOnScroll();
     }
 
-    // Mobile Navigation Toggle
+    // Bulletproof Mobile Navigation Toggle
     const navToggle = document.getElementById('hgNavToggle');
     const navMenu = document.getElementById('hgNavMenu');
 
     if (navToggle && navMenu) {
-        function toggleMobileMenu(e) {
+        function handleMobileMenuToggle(e) {
             if (e) {
                 e.preventDefault();
                 e.stopPropagation();
             }
-            navMenu.classList.toggle('active');
+            if (navMenu.classList.contains('active') || navMenu.style.display === 'flex') {
+                navMenu.classList.remove('active');
+                navMenu.style.display = '';
+            } else {
+                navMenu.classList.add('active');
+                navMenu.style.display = 'flex';
+            }
         }
 
-        navToggle.addEventListener('click', toggleMobileMenu);
+        navToggle.addEventListener('click', handleMobileMenuToggle);
+        navToggle.addEventListener('touchstart', handleMobileMenuToggle, { passive: false });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (navMenu.classList.contains('active')) {
+            if (navMenu.classList.contains('active') || navMenu.style.display === 'flex') {
                 if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                     navMenu.classList.remove('active');
+                    navMenu.style.display = '';
                 }
             }
         });
@@ -49,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
+                navMenu.style.display = '';
             });
         });
     }
