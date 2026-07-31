@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi-Gloss Design - Brand Title in Navbar Edition</title>
+    <title>Hi-Gloss Design - Subtle Brand Logo in Footer Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -91,13 +91,22 @@
     </div>
 </main>
 
-<!-- Footer (Compact Single-Line Height) -->
+<!-- Footer (Compact with Subtle Brand Title) -->
 <footer class="hg-footer">
     <div class="hg-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-        <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <img src="assets/images/logo.png" alt="HI-GLOSS" style="height: 36px; width: 36px; object-fit: contain;">
-        </div>
-        <p>&copy; 2026 <strong>HI-GLOSS DESIGN</strong> Szczecin - Mierzyn, ul. Podmiejska 4. Tel: <a href="tel:+48605088065" style="color: #00c2ff;">605 088 065</a></p>
+        <!-- Subtly Placed Logo + Brand Text in Footer -->
+        <a href="#" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+            <img src="assets/images/logo.png" alt="HI-GLOSS" style="height: 36px; width: 36px; object-fit: contain; opacity: 0.9;">
+            <div style="display: flex; flex-direction: column; line-height: 1.1; text-align: left;">
+                <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.92rem; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase;">HI-GLOSSDESIGN</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.68rem; color: #64748b; margin-top: 1px;">Całościowe oklejanie pojazdów</span>
+            </div>
+        </a>
+
+        <!-- Right Copyright Line -->
+        <p style="margin: 0; color: #94a3b8; font-size: 0.82rem;">
+            &copy; 2026 <strong>HI-GLOSS DESIGN</strong> Szczecin - Mierzyn, ul. Podmiejska 4. Tel: <a href="tel:+48605088065" style="color: #25aae1;">605 088 065</a>
+        </p>
     </div>
 </footer>
 
