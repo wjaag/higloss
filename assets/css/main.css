@@ -1,5 +1,5 @@
 /*
- * Hi-Gloss Design 2026 - Clean Mobile Vertical Stacking CSS
+ * Hi-Gloss Design 2026 - Master Mobile UI/UX & Responsive CSS
  */
 
 /* Container */
@@ -184,20 +184,20 @@ body.admin-bar .hg-header {
   display: block;
 }
 
-/* 2-Column Desktop Grid */
+/* Grids System */
 .hg-grid-2, .hg-tiles-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2.5rem !important;
-  gap: 2.5rem !important;
+  grid-gap: 2.5rem;
+  gap: 2.5rem;
   width: 100%;
 }
 
 .hg-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2.5rem !important;
-  gap: 2.5rem !important;
+  grid-gap: 2.5rem;
+  gap: 2.5rem;
   width: 100%;
 }
 
@@ -207,8 +207,8 @@ body.admin-bar .hg-header {
   background: #0b0e17;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0 !important;
-  min-height: 420px;
-  height: 420px;
+  min-height: 400px;
+  height: 400px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -345,6 +345,14 @@ body.admin-bar .hg-header {
   --card-accent: #00c2ff;
   --card-glow: rgba(0, 194, 255, 0.35);
 }
+.tile-theme-green {
+  --card-accent: #10b981;
+  --card-glow: rgba(16, 185, 129, 0.35);
+}
+.tile-theme-ruby {
+  --card-accent: #ff0055;
+  --card-glow: rgba(255, 0, 85, 0.35);
+}
 
 /* Map Tile Container & Always Full-Color Map */
 .hg-map-card {
@@ -411,15 +419,16 @@ body.admin-bar .hg-header {
 }
 
 /* ==========================================================================
-   PURE CLEAN MOBILE-FIRST STACKING (SECTION UNDER SECTION)
+   MASTER MOBILE UI/UX & STACKING MEDIA QUERIES (0 OVERLAP / 1 COLUMN)
    ========================================================================== */
 
 @media (max-width: 900px) {
   .sec-homepage-tiles {
-    padding-top: 120px;
+    padding-top: 125px;
     padding-bottom: 3rem;
   }
 
+  /* FORCE STRICT 1-COLUMN FOR ALL GRIDS ON MOBILE/TABLET */
   .hg-grid,
   .hg-grid-2,
   .hg-grid-3,
@@ -427,17 +436,18 @@ body.admin-bar .hg-header {
     display: flex !important;
     flex-direction: column !important;
     gap: 2rem !important;
+    grid-gap: 2rem !important;
     width: 100% !important;
   }
 
   .hg-ai-mastercard {
     height: auto !important;
     min-height: 320px !important;
-    padding: 1.8rem !important;
+    padding: 2rem 1.6rem !important;
   }
 
   .hg-map-card, .hg-map-card iframe {
-    min-height: 380px !important;
+    min-height: 360px !important;
   }
 
   .hg-subpage-hero {
@@ -468,7 +478,7 @@ body.admin-bar .hg-header {
   }
 
   .hg-footer {
-    padding: 1.2rem 1rem 4.8rem 1rem !important; /* Compact mobile footer above sticky bar */
+    padding: 1.2rem 1rem 4.8rem 1rem !important;
     font-size: 0.8rem;
     line-height: 1.5;
   }
@@ -525,8 +535,8 @@ body.admin-bar .hg-header {
 
   .hg-ai-mastercard {
     height: auto !important;
-    min-height: 280px !important;
-    padding: 1.4rem !important;
+    min-height: 290px !important;
+    padding: 1.5rem 1.25rem !important;
   }
 
   .hg-logo-standalone {
@@ -536,5 +546,9 @@ body.admin-bar .hg-header {
 
   .hg-slogan-headline {
     font-size: 1.45rem !important;
+  }
+
+  .hg-ai-card-title {
+    font-size: 1.4rem !important;
   }
 }
