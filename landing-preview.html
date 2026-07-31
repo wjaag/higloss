@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi-Gloss Design - Clean Mobile Footer Edition</title>
+    <title>Hi-Gloss Design - Single Offer Title on Photo Banner Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -22,87 +22,115 @@
 
         <!-- Navigation Menu -->
         <nav class="hg-nav-menu" id="hgNavMenu">
-            <a href="#" class="hg-nav-link">HOME</a>
+            <a href="landing-preview.html" class="hg-nav-link">HOME</a>
             <a href="page-oferta.php" class="hg-nav-link">OFERTA</a>
             <a href="page-galeria.php" class="hg-nav-link">GALERIA</a>
             <a href="page-o-firmie.php" class="hg-nav-link">O FIRMIE</a>
             <a href="page-kontakt.php" class="hg-nav-link">KONTAKT</a>
         </nav>
-
-        <!-- Burger Toggle for Mobile -->
-        <button class="hg-burger-btn" id="hgNavToggle" aria-label="Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
     </div>
 </header>
 
-<!-- MAIN HOMEPAGE AREA: NAVBAR -> SINGLE-LINE SLOGAN -> 2 TILES -> COMPACT FOOTER -->
-<main class="sec-homepage-tiles">
+<!-- SINGLE OFFER SUBPAGE PREVIEW: TITLE DIRECTLY ON PHOTO BANNER -->
+<main style="padding: 9.5rem 0 5rem; flex: 1;">
     <div class="hg-container">
-
-        <!-- 1. NAPIS (SINGLE-LINE SLOGAN HEADLINE) -->
-        <div style="text-align: center; margin-bottom: 2.8rem; animation: fadeInUp 0.6s ease both;">
-            <h1 class="hg-slogan-headline" style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8); white-space: nowrap;">
-                CAŁOŚCIOWE <span style="color: #25aae1;">OKLEJANIE POJAZDÓW</span>
-            </h1>
+        
+        <!-- MODERN HERO BANNER: TITLE DIRECTLY ON THE PHOTO -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('assets/images/ai_oferta_zmiana_koloru.jpg');">
+            <div class="hg-subpage-banner-vignette"></div>
+            
+            <div class="hg-subpage-banner-title-box">
+                <span class="hg-subpage-banner-badge" style="color: #25aae1; border-color: #25aae1;">CAR WRAPPING & TUNING</span>
+                <h1 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0.5rem 0 0 0; line-height: 1.12; text-shadow: 0 4px 25px rgba(0,0,0,0.95);">
+                    CAŁOŚCIOWA <span style="color: #25aae1;">ZMIANA KOLORU AUTA</span>
+                </h1>
+            </div>
         </div>
 
-        <!-- 2. KAFELKI: NASZA OFERTA | GALERIA PRAC (2 COLUMNS ONLY) -->
-        <div class="hg-tiles-grid-2">
+        <!-- 2-COLUMN EDITORIAL CONTENT GRID BELOW -->
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 3.5rem;">
+            
+            <!-- LEFT COLUMN: PROMINENT HIGH-CONTRAST DESCRIPTION CARD -->
+            <div class="hg-editorial-card" style="--card-accent: #25aae1;">
+                <h2 class="hg-editorial-title">
+                    O Szybkiej Zmianie Koloru
+                </h2>
 
-            <!-- KAFELEK 1: NASZA OFERTA -->
-            <a href="page-oferta.php" class="hg-ai-mastercard tile-theme-amber">
-                <img src="assets/images/ai_tile2_oferta.jpg" alt="Nasza Oferta" class="hg-ai-card-img">
-                <div class="hg-ai-card-vignette"></div>
+                <p class="hg-editorial-paragraph">
+                    Firma <strong>HI-GLOSS DESIGN</strong> ze Szczecina specjalizuje się w całościowym oklejaniu aut foliami wylewanymi zmieniającymi kolor karoserii. Jest to metoda pozwalająca na szybką i spektakularną zmianę wyglądu pojazdu bez konieczności kosztownego i nieodwracalnego lakierowania.
+                </p>
 
-                <div class="hg-ai-card-tag">01 / NASZA OFERTA</div>
-                
-                <div class="hg-ai-card-body">
-                    <h2 class="hg-ai-card-title">NASZA OFERTA & USŁUGI</h2>
-                    <p class="hg-ai-card-desc">Całościowa zmiana koloru (Mat, Połysk, Satyna, Carbon), bezbarwne folie ochronne PPF z samoregeneracją oraz reklama flot.</p>
-                    <div class="hg-ai-card-btn">
-                        SPRAWDŹ OFERTĘ <span class="arrow">&rarr;</span>
+                <p class="hg-editorial-paragraph">
+                    Oklejamy samochody, łodzie i motocykle. Pracujemy wyłącznie na wylewanych foliach renomowanych producentów: <strong>3M 2080, Avery Dennison Supreme, Hexis Skintac, KPMF oraz Oracal</strong> (mat, połysk, satyna, carbon 3D, kameleon).
+                </p>
+
+                <div class="hg-editorial-highlight-box" style="--card-accent: #25aae1;">
+                    <strong style="color: #25aae1; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Dbałość O Każdy Detal:</strong>
+                    <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">Przed aplikacją folii demontujemy klamki, lampy, zderzaki i lusterka. Folia zawijana jest głęboko do wnętrza, co wyklucza ryzyko odklejania. Wykonujemy też drobne naprawy blacharsko-lakiernicze w cenie przygotowania auta.</span>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: STICKY SPECS & CALL CTA CARD -->
+            <div class="hg-specs-cta-card" style="--card-accent: #25aae1;">
+                <h3 class="hg-specs-title">
+                    SPECYFIKACJA USŁUGI
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Czas Realizacji:</span>
+                        <strong style="color: #25aae1; font-size: 1rem;">3 - 5 Dni Roboczych</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Gwarancja:</span>
+                        <strong style="color: #25aae1; font-size: 1rem;">5 - 7 Lat Producenta</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Używane Folie:</span>
+                        <strong style="color: #ffffff; font-size: 1rem;">3M 2080 / Avery Supreme</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Warunki:</span>
+                        <strong style="color: #ffffff; font-size: 1rem;">Ogrzewane Studio Mierzyn</strong>
                     </div>
                 </div>
-            </a>
 
-            <!-- KAFELEK 2: GALERIA PRAC -->
-            <a href="page-galeria.php" class="hg-ai-mastercard tile-theme-cyan">
-                <img src="assets/images/ai_tile3_galeria.jpg" alt="Galeria Prac" class="hg-ai-card-img">
-                <div class="hg-ai-card-vignette"></div>
+                <!-- CALL CTA BUTTON -->
+                <a href="page-kontakt.php" class="hg-btn" style="background: #25aae1; color: #000000; border: 2px solid #25aae1; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
+                    📞 ZADZWOŃ: 605 088 065 &rarr;
+                </a>
+            </div>
 
-                <div class="hg-ai-card-tag">02 / GALERIA PRAC</div>
-                
-                <div class="hg-ai-card-body">
-                    <h2 class="hg-ai-card-title">GALERIA REALIZACJI</h2>
-                    <p class="hg-ai-card-desc">Zobacz setki ukończonych aut: Audi A7 Blue Gloss, Mercedes S Satyna, Porsche Panamera PPF oraz projekty specjalne.</p>
-                    <div class="hg-ai-card-btn">
-                        GALERIA PRAC <span class="arrow">&rarr;</span>
-                    </div>
-                </div>
-            </a>
+        </div>
 
+        <!-- BEFORE / AFTER SLIDER SHOWCASE -->
+        <div style="background: #0d111a; border: 2px solid #25aae1; padding: 2.5rem; text-align: center;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.5rem;">
+                PRZESUŃ SUWAK: LAKIER FABRYCZNY VS SATYNA BLACK
+            </h3>
+            
+            <div class="hg-slider-box" id="hgBeforeAfterSlider" style="max-width: 900px; margin: 0 auto;">
+                <div class="hg-slider-img hg-slider-before" style="background-image: url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="hg-slider-img hg-slider-after" style="background-image: url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="hg-slider-handle">↔</div>
+                <div class="hg-slider-badge left">Przed (Lakier)</div>
+                <div class="hg-slider-badge right">Po (Satyna)</div>
+            </div>
         </div>
 
     </div>
 </main>
 
-<!-- Footer (Compact with Subtle Brand Title) -->
+<!-- Footer -->
 <footer class="hg-footer">
     <div class="hg-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-        <!-- Subtly Placed Logo + Brand Text in Footer -->
-        <a href="#" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
-            <img src="assets/images/logo.png" alt="HI-GLOSS" style="height: 36px; width: 36px; object-fit: contain; opacity: 0.9;">
-            <div style="display: flex; flex-direction: column; line-height: 1.1; text-align: left;">
-                <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.92rem; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase;">HI-GLOSSDESIGN</span>
-                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.68rem; color: #64748b; margin-top: 1px;">Całościowe oklejanie pojazdów</span>
-            </div>
-        </a>
-
-        <!-- Right Copyright Line -->
-        <p style="margin: 0; color: #94a3b8; font-size: 0.82rem;">
-            &copy; 2026 <strong>HI-GLOSS DESIGN</strong> Szczecin - Mierzyn, ul. Podmiejska 4. Tel: <a href="tel:+48605088065" style="color: #25aae1;">605 088 065</a>
-        </p>
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <img src="assets/images/logo.png" alt="HI-GLOSS" style="height: 36px; width: 36px; object-fit: contain;">
+        </div>
+        <p>&copy; 2026 <strong>HI-GLOSS DESIGN</strong> Szczecin - Mierzyn, ul. Podmiejska 4. Tel: <a href="tel:+48605088065" style="color: #00c2ff;">605 088 065</a></p>
     </div>
 </footer>
 

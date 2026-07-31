@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Usługi - Przyciemnianie Szyb & Detailing (Editorial UI/UX)
+ * Template Name: Podstrona Usługi - Przyciemnianie Szyb & Detailing (Tytuł na Zdjęciu)
  *
  * @package HiGloss2026
  */
@@ -8,25 +8,23 @@
 get_header();
 ?>
 
-<main style="padding: 10rem 0 6rem; flex: 1;">
+<main style="padding: 9.5rem 0 5rem; flex: 1;">
     <div class="hg-container">
         
-        <!-- SUBPAGE TITLE -->
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                DETAILING & <span style="color: #ff0055;">PRZYCIEMNIANIE SZYB</span>
-            </h1>
-        </div>
-
-        <!-- FRAMED HIGH-DEFINITION AI PHOTO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #ff0055;">
-            <span class="hg-subpage-banner-badge" style="color: #ff0055; border-color: #ff0055;">PRZYCIEMNIANIE SZYB & DECHROMING</span>
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>" alt="Przyciemnianie Szyb & Detailing">
+        <!-- MODERN HERO BANNER: TITLE DIRECTLY ON THE PHOTO -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #ff0055; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
+            
+            <div class="hg-subpage-banner-title-box">
+                <span class="hg-subpage-banner-badge" style="color: #ff0055; border-color: #ff0055;">PRZYCIEMNIANIE SZYB & DECHROMING</span>
+                <h1 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0.5rem 0 0 0; line-height: 1.12; text-shadow: 0 4px 25px rgba(0,0,0,0.95);">
+                    DETAILING & <span style="color: #ff0055;">PRZYCIEMNIANIE SZYB</span>
+                </h1>
+            </div>
         </div>
 
-        <!-- 2-COLUMN EDITORIAL CONTENT GRID -->
-        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 4rem;">
+        <!-- 2-COLUMN EDITORIAL CONTENT GRID BELOW -->
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 3.5rem;">
             
             <!-- LEFT COLUMN: PROMINENT HIGH-CONTRAST DESCRIPTION CARD -->
             <div class="hg-editorial-card" style="--card-accent: #ff0055;">

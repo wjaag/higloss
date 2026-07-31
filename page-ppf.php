@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Usługi - Bezbarwne Folie PPF (Editorial UI/UX)
+ * Template Name: Podstrona Usługi - Bezbarwne Folie PPF (Tytuł na Zdjęciu)
  *
  * @package HiGloss2026
  */
@@ -8,25 +8,23 @@
 get_header();
 ?>
 
-<main style="padding: 10rem 0 6rem; flex: 1;">
+<main style="padding: 9.5rem 0 5rem; flex: 1;">
     <div class="hg-container">
         
-        <!-- SUBPAGE TITLE -->
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                BEZBARWNE <span style="color: #10b981;">FOLIE OCHRONNE PPF</span>
-            </h1>
-        </div>
-
-        <!-- FRAMED HIGH-DEFINITION AI PHOTO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981;">
-            <span class="hg-subpage-banner-badge" style="color: #10b981; border-color: #10b981;">PAINT PROTECTION FILM (PPF)</span>
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>" alt="Folie Ochronne PPF">
+        <!-- MODERN HERO BANNER: TITLE DIRECTLY ON THE PHOTO -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
+            
+            <div class="hg-subpage-banner-title-box">
+                <span class="hg-subpage-banner-badge" style="color: #10b981; border-color: #10b981;">PAINT PROTECTION FILM (PPF)</span>
+                <h1 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0.5rem 0 0 0; line-height: 1.12; text-shadow: 0 4px 25px rgba(0,0,0,0.95);">
+                    BEZBARWNE <span style="color: #10b981;">FOLIE OCHRONNE PPF</span>
+                </h1>
+            </div>
         </div>
 
-        <!-- 2-COLUMN EDITORIAL CONTENT GRID -->
-        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 4rem;">
+        <!-- 2-COLUMN EDITORIAL CONTENT GRID BELOW -->
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 3.5rem;">
             
             <!-- LEFT COLUMN: PROMINENT HIGH-CONTRAST DESCRIPTION CARD -->
             <div class="hg-editorial-card" style="--card-accent: #10b981;">
