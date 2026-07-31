@@ -25,16 +25,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('hgNavMenu');
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
+        function toggleMobileMenu(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             navMenu.classList.toggle('active');
-        });
+        }
+
+        navToggle.addEventListener('click', toggleMobileMenu);
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
+            if (navMenu.classList.contains('active')) {
+                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                }
             }
         });
 

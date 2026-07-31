@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Usługi - Zmiana Koloru Auta (Editorial High-Contrast UX)
+ * Template Name: Podstrona Usługi - Zmiana Koloru Auta (Matching Button Style)
  *
  * @package HiGloss2026
  */
@@ -41,7 +41,7 @@ get_header();
                 </p>
 
                 <p class="hg-desc-text">
-                    Oklejamy samochody, łodzie i motocykle. Pracujemy wyłącznie na wylewanymi foliach renomowanych producentów: <strong>3M 2080, Avery Dennison Supreme, Hexis Skintac, KPMF oraz Oracal</strong> (mat, połysk, satyna, carbon 3D, kameleon).
+                    Oklejamy samochody, łodzie i motocykle. Pracujemy wyłącznie na wylewanych foliach renomowanych producentów: <strong>3M 2080, Avery Dennison Supreme, Hexis Skintac, KPMF oraz Oracal</strong> (mat, połysk, satyna, carbon 3D, kameleon).
                 </p>
 
                 <div style="background: rgba(37, 170, 225, 0.12); border-left: 4px solid #25aae1; padding: 1.5rem; margin-top: 1.5rem;">
@@ -50,7 +50,7 @@ get_header();
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: SPECS & DIRECT CALL CTA CARD -->
+            <!-- RIGHT COLUMN: QUICK SPECS & CALL CTA CARD -->
             <div style="background: #0b0f19; border: 2px solid #25aae1; padding: 2.5rem; position: sticky; top: 110px;">
                 <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid #25aae1; padding-bottom: 0.6rem;">
                     SPECYFIKACJA USŁUGI
@@ -78,7 +78,7 @@ get_header();
                     </div>
                 </div>
 
-                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn hg-btn-cyan" style="width: 100%; justify-content: center; font-size: 0.95rem; text-align: center; padding: 1.1rem;">
+                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #25aae1; color: #000; border: 2px solid #25aae1; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
                     📞 ZADZWOŃ I ZAPYTAJ O WYCENĘ &rarr;
                 </a>
             </div>
