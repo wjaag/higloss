@@ -18,8 +18,10 @@
         </a>
 
         <!-- Right Copyright Line -->
-        <p style="margin: 0; color: #94a3b8; font-size: 0.82rem;">
-            &copy; <?php echo date('Y'); ?> <strong>HI-GLOSS DESIGN</strong> Szczecin - Mierzyn, ul. Podmiejska 4. Tel: <a href="tel:+48605088065" style="color: #25aae1;">605 088 065</a>
+        <p style="margin: 0; color: #94a3b8; font-size: 0.82rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <span>&copy; <?php echo date('Y'); ?> <strong>HI-GLOSS DESIGN</strong> Szczecin - Mierzyn, ul. Podmiejska 4. Tel: <a href="tel:+48605088065" style="color: #25aae1; text-decoration: none;">605 088 065</a></span>
+            <span style="opacity: 0.3;">|</span>
+            <a href="<?php echo esc_url(home_url('/polityka-prywatnosci')); ?>" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#25aae1'" onmouseout="this.style.color='#94a3b8'">Polityka Prywatności &amp; RODO</a>
         </p>
     </div>
 </footer>

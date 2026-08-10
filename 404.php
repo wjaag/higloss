@@ -1,0 +1,52 @@
+<?php
+/**
+ * The template for displaying 404 pages (Not Found)
+ *
+ * @package HiGloss2026
+ */
+
+get_header();
+?>
+
+<main style="padding: 9rem 0 6rem; flex: 1; display: flex; align-items: center;">
+    <div class="hg-container">
+        
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            
+            <!-- 404 GLOW BADGE -->
+            <div style="display: inline-block; padding: 0.5rem 1.5rem; background: rgba(37, 170, 225, 0.1); border: 2px solid #25aae1; color: #25aae1; font-weight: 900; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem;">
+                BŁĄD 404 &bull; STRONA NIE ISTNIEJE
+            </div>
+
+            <h1 style="font-family: var(--font-heading, 'Montserrat', sans-serif); font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; color: #ffffff; text-transform: uppercase; line-height: 1; margin-bottom: 1.5rem; text-shadow: 0 10px 30px rgba(0,0,0,0.9);">
+                SZUKANA STRONA <span style="color: #25aae1;">NIE ZOSTAŁA ZNALEZIONA</span>
+            </h1>
+
+            <p style="color: #cbd5e1; font-size: 1.15rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+                Przepraszamy, ale podany adres URL nie istnieje lub strona została przeniesiona pod inny adres. Skorzystaj z poniższego wyszukiwania lub przejdź do najważniejszych sekcji studio **HI-GLOSS DESIGN**.
+            </p>
+
+            <!-- SEARCH FORM -->
+            <div style="max-width: 500px; margin: 0 auto 3rem auto;">
+                <?php get_search_form(); ?>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-btn hg-btn-cyan" style="padding: 1rem 2rem; font-size: 0.95rem; font-weight: 900;">
+                    &larr; STRONA GŁÓWNA
+                </a>
+                <a href="<?php echo esc_url(home_url('/oferta')); ?>" class="hg-btn" style="background: rgba(255,153,0,0.15); color: #ff9900; border: 2px solid #ff9900; padding: 1rem 2rem; font-size: 0.95rem; font-weight: 900;">
+                    PEŁNA OFERTA &rarr;
+                </a>
+                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn hg-btn-outline" style="padding: 1rem 2rem; font-size: 0.95rem; font-weight: 900;">
+                    📞 KONTAKT
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<?php get_footer(); ?>
