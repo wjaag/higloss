@@ -4,30 +4,28 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   web-deploy:
-    name: 🚀 Deploy Theme via FTP to higloss.gt.tc
+    name: 🚀 Deploy All Theme Files to FTP Server
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: 📂 Sync files via FTP
-        uses: SamKirsch/ftp-deploy-action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/htdocs/wp-content/themes/higloss/' }}
-          protocol: ftp
-          port: 21
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github*
-            **/.github*/**
-            **/README.md
-            **/landing-preview.html
-            **/proposal-*.html
-            **/preview-*.html
+      - name: 📂 Sync ALL files via LFTP Mirror
+        run: |
+          sudo apt-get update && sudo apt-get install -y lftp
+          lftp -c "
+            set ftp:ssl-allow no;
+            set ftp:passive-mode true;
+            open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' '${{ secrets.FTP_SERVER }}';
+            mirror -R --verbose ./ '${{ secrets.FTP_SERVER_DIR || '/htdocs/wp-content/themes/higloss/' }}' \
+              --exclude-glob .git/ \
+              --exclude-glob .github/ \
+              --exclude-glob README.md \
+              --exclude-glob landing-preview.html \
+              --exclude-glob proposal-*.html \
+              --exclude-glob preview-*.html;
+          "
