@@ -31,7 +31,7 @@ get_header();
                 
                 <div class="hg-ai-card-body">
                     <h2 class="hg-ai-card-title">NASZA OFERTA</h2>
-                    <p class="hg-ai-card-desc">Całościowa zmiana koloru (Mat, Połysk, Satyna, Carbon), bezbarwne folie ochronne PPF z samoregeneracją oraz reklama flot.</p>
+                    <p class="hg-ai-card-desc">Całościowa zmiana koloru pojazdu, folie ochronne PPF, reklama flot</p>
                     <div class="hg-ai-card-btn">
                         SPRAWDŹ OFERTĘ <span class="arrow">&rarr;</span>
                     </div>
@@ -47,7 +47,7 @@ get_header();
                 
                 <div class="hg-ai-card-body">
                     <h2 class="hg-ai-card-title">GALERIA REALIZACJI</h2>
-                    <p class="hg-ai-card-desc">Zobacz setki ukończonych aut: Audi A7 Blue Gloss, Mercedes S Satyna, Porsche Panamera PPF oraz projekty specjalne.</p>
+                    <p class="hg-ai-card-desc">Mamy na koncie setki realizacji. Sprawdź efekty!</p>
                     <div class="hg-ai-card-btn">
                         GALERIA PRAC <span class="arrow">&rarr;</span>
                     </div>
