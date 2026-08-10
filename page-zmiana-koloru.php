@@ -8,20 +8,18 @@
 get_header();
 ?>
 
-<main style="padding: 9.5rem 0 5rem; flex: 1;">
+<main style="padding: 7.5rem 0 4rem; flex: 1;">
     <div class="hg-container">
         
-        <!-- SUBPAGE TITLE -->
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                CAŁOŚCIOWA <span style="color: #25aae1;">ZMIANA KOLORU AUTA</span>
-            </h1>
-        </div>
-
-        <!-- FRAMED HIGH-DEFINITION AI PHOTO BANNER -->
+        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
         <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru.jpg'); ?>');">
-            <span class="hg-subpage-banner-badge">CAR WRAPPING & TUNING OPTYCZNY SZCZECIN - MIERZYN</span>
             <div class="hg-subpage-banner-vignette"></div>
+            <div class="hg-subpage-banner-content">
+                <span class="hg-subpage-banner-badge">CAR WRAPPING &amp; TUNING OPTYCZNY SZCZECIN - MIERZYN</span>
+                <h1 class="hg-subpage-banner-title">
+                    CAŁOŚCIOWA <span style="color: #25aae1;">ZMIANA KOLORU AUTA</span>
+                </h1>
+            </div>
         </div>
 
         <!-- 2-COLUMN EDITORIAL CONTENT GRID WITH EXPANDED SEO CONTENT -->
@@ -45,12 +43,12 @@ get_header();
                     <li>🔹 <strong>Głęboki Połysk (Gloss)</strong> – efekt świeżo wylanego lakieru o lustrzanej głębi.</li>
                     <li>🔹 <strong>Aksamitna Satyna (Satin)</strong> – jedwabisty połysk na przetłoczeniach, ulubiony wybór dla aut luksusowych.</li>
                     <li>🔹 <strong>Surowy Mat (Matte)</strong> – rasowy, sportowy wygląd wyróżniający auto na szosie.</li>
-                    <li>🔹 <strong>Carbon 3D & Monza</strong> – wyczuwalna struktura włókna węglowego na dach, maskę lub lusterka.</li>
-                    <li>🔹 <strong>Kameleon & Satin Shimmer</strong> – zmysłowa zmiana barwy w zależności od kąta padania światła.</li>
+                    <li>🔹 <strong>Carbon 3D &amp; Monza</strong> – wyczuwalna struktura włókna węglowego na dach, maskę lub lusterka.</li>
+                    <li>🔹 <strong>Kameleon &amp; Satin Shimmer</strong> – zmysłowa zmiana barwy w zależności od kąta padania światła.</li>
                 </ul>
 
                 <div class="hg-editorial-highlight-box" style="--card-accent: #25aae1;">
-                    <strong style="color: #25aae1; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Dbałość O Każdy Detal & Demontaż Elementów:</strong>
+                    <strong style="color: #25aae1; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Dbałość O Każdy Detal &amp; Demontaż Elementów:</strong>
                     <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">W celu uzyskania perfekcyjnego efektu fabrycznego, przed aplikacją folii demontujemy klamki, lampy, zderzaki oraz lusterka. Folia zawijana jest głęboko do wnętrza elementu, co eliminuje ryzyko jakiegokolwiek odklejania krawędzi. Co więcej – wykonujemy też drobne naprawy blacharsko-lakiernicze przygotowujące lakier w cenie usługi!</span>
                 </div>
             </div>

@@ -8,21 +8,18 @@
 get_header();
 ?>
 
-<main style="padding: 9.5rem 0 5rem; flex: 1;">
+<main style="padding: 7.5rem 0 4rem; flex: 1;">
     <div class="hg-container">
         
-        <!-- SUBPAGE TITLE -->
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                BEZBARWNE <span style="color: #10b981;">FOLIE OCHRONNE PPF</span>
-            </h1>
-        </div>
-
-        <!-- FRAMED HIGH-DEFINITION AI PHOTO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981;">
-            <span class="hg-subpage-banner-badge" style="color: #10b981; border-color: #10b981;">PAINT PROTECTION FILM (PPF) SZCZECIN</span>
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>" alt="Folie Ochronne PPF">
+        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
+            <div class="hg-subpage-banner-content">
+                <span class="hg-subpage-banner-badge" style="color: #10b981; border-color: #10b981;">PAINT PROTECTION FILM (PPF) SZCZECIN - MIERZYN</span>
+                <h1 class="hg-subpage-banner-title">
+                    BEZBARWNE <span style="color: #10b981;">FOLIE OCHRONNE PPF</span>
+                </h1>
+            </div>
         </div>
 
         <!-- 2-COLUMN EDITORIAL CONTENT GRID WITH EXPANDED SEO CONTENT -->

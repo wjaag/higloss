@@ -8,21 +8,18 @@
 get_header();
 ?>
 
-<main style="padding: 9.5rem 0 5rem; flex: 1;">
+<main style="padding: 7.5rem 0 4rem; flex: 1;">
     <div class="hg-container">
         
-        <!-- SUBPAGE TITLE -->
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                OKLEJANIE <span style="color: #ff9900;">REKLAMOWE & FLOTY</span>
-            </h1>
-        </div>
-
-        <!-- FRAMED HIGH-DEFINITION AI PHOTO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #ff9900;">
-            <span class="hg-subpage-banner-badge" style="color: #ff9900; border-color: #ff9900;">REKLAMA MOBILNA & BRANDING FLOT</span>
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_reklama.jpg'); ?>" alt="Oklejanie Reklamowe & Floty">
+        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #ff9900; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_reklama.jpg'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
+            <div class="hg-subpage-banner-content">
+                <span class="hg-subpage-banner-badge" style="color: #ff9900; border-color: #ff9900;">REKLAMA MOBILNA &amp; BRANDING FLOT</span>
+                <h1 class="hg-subpage-banner-title">
+                    OKLEJANIE <span style="color: #ff9900;">REKLAMOWE &amp; FLOTY</span>
+                </h1>
+            </div>
         </div>
 
         <!-- 2-COLUMN EDITORIAL CONTENT GRID WITH EXPANDED SEO CONTENT -->
@@ -44,7 +41,7 @@ get_header();
 
                 <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
                     <li>🚐 <strong>DHL Courier:</strong> Stałe oklejanie floty ponad 40 pojazdów dostawczych.</li>
-                    <li>🚐 <strong>Warta & Poczta Polska:</strong> Projekty reklamowe i branding aut służbowych.</li>
+                    <li>🚐 <strong>Warta &amp; Poczta Polska:</strong> Projekty reklamowe i branding aut służbowych.</li>
                     <li>🚐 <strong>Lokalne MŚP:</strong> Kompleksowa grafika od banerów po całościowe oklejenie vana.</li>
                 </ul>
 
@@ -73,7 +70,7 @@ get_header();
 
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
                         <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Format:</span>
-                        <strong style="color: #ffffff; font-size: 1rem;">Osobowe & Dostawcze</strong>
+                        <strong style="color: #ffffff; font-size: 1rem;">Osobowe &amp; Dostawcze</strong>
                     </div>
                 </div>
 
