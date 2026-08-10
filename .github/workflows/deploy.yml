@@ -1,4 +1,4 @@
-name: Deploy Theme to InfinityFree via FTP
+name: Deploy Theme to Staging (https://higloss.gt.tc)
 
 on:
   push:
@@ -7,39 +7,27 @@ on:
 
 jobs:
   web-deploy:
-    name: 🎉 Deploy Theme to Host
+    name: 🚀 Deploy Theme via FTP to higloss.gt.tc
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: ⚙️ Prepare Credentials
-        id: ftp_config
-        run: |
-          SERVER="${{ secrets.FTP_SERVER }}${{ secrets.FTP_HOST }}${{ secrets.SERVER }}${{ secrets.HOST }}${{ secrets.FTP_HOSTNAME }}"
-          USERNAME="${{ secrets.FTP_USERNAME }}${{ secrets.FTP_USER }}${{ secrets.USER }}${{ secrets.USERNAME }}${{ secrets.FTP_LOGIN }}"
-          PASSWORD="${{ secrets.FTP_PASSWORD }}${{ secrets.FTP_PASS }}${{ secrets.PASSWORD }}${{ secrets.PASS }}"
-          SERVER_DIR="${{ secrets.FTP_SERVER_DIR }}${{ secrets.FTP_TARGET }}${{ secrets.SERVER_DIR }}${{ secrets.TARGET_DIR }}"
-
-          if [ -z "$SERVER" ]; then
-            SERVER="ftpupload.net"
-          fi
-
-          if [ -z "$SERVER_DIR" ]; then
-            SERVER_DIR="/htdocs/wp-content/themes/higloss/"
-          fi
-
-          echo "server=$SERVER" >> $GITHUB_OUTPUT
-          echo "username=$USERNAME" >> $GITHUB_OUTPUT
-          echo "password=$PASSWORD" >> $GITHUB_OUTPUT
-          echo "server_dir=$SERVER_DIR" >> $GITHUB_OUTPUT
-
-      - name: 📂 Sync files via LFTP
-        run: |
-          sudo apt-get update && sudo apt-get install -y lftp
-          lftp -c "
-            set ftp:ssl-allow no;
-            set ftp:passive-mode true;
-            open -u '${{ steps.ftp_config.outputs.username }}','${{ steps.ftp_config.outputs.password }}' '${{ steps.ftp_config.outputs.server }}';
-            mirror -R --delete --verbose ./ '${{ steps.ftp_config.outputs.server_dir }}' --exclude-glob .git/ --exclude-glob .github/ --exclude-glob landing-preview.html --exclude-glob README.md;
-          "
+      - name: 📂 Sync files via FTP
+        uses: SamKirsch/ftp-deploy-action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/htdocs/wp-content/themes/higloss/' }}
+          protocol: ftp
+          port: 21
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github*
+            **/.github*/**
+            **/README.md
+            **/landing-preview.html
+            **/proposal-*.html
+            **/preview-*.html
