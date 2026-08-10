@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Podstrona Oferta (Responsive 2x2 / 1-Col Mobile)
+ * Template Name: Podstrona Oferta (Układ 2x2 z Kolorowym Podświetleniem)
  *
  * @package HiGloss2026
  */
@@ -19,10 +19,10 @@ get_header();
             </h1>
         </div>
 
-        <!-- 2x2 RESPONSIVE GRID FOR OFERTA (2 COLUMNS DESKTOP / 1 COLUMN MOBILE) -->
+        <!-- 2x2 GRID TILES LAYOUT WITH DEDICATED HOVER ACCENT COLORS -->
         <div class="hg-grid-2">
 
-            <!-- CARD 1: CAŁOŚCIOWA ZMIANA KOLORU -->
+            <!-- TILE 1: CAŁOŚCIOWA ZMIANA KOLORU (CYAN HOVER) -->
             <a href="<?php echo esc_url(home_url('/zmiana-koloru')); ?>" class="hg-ai-mastercard tile-theme-cyan">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru.jpg'); ?>" alt="Całościowa Zmiana Koloru" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -35,7 +35,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- CARD 2: BEZBARWNE FOLIE PPF -->
+            <!-- TILE 2: BEZBARWNE FOLIE PPF (GREEN HOVER) -->
             <a href="<?php echo esc_url(home_url('/ppf')); ?>" class="hg-ai-mastercard tile-theme-green">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>" alt="Bezbarwne Folie PPF" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -48,7 +48,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- CARD 3: OKLEJANIE REKLAMOWE & FLOTY -->
+            <!-- TILE 3: OKLEJANIE REKLAMOWE & FLOTY (AMBER HOVER) -->
             <a href="<?php echo esc_url(home_url('/reklama')); ?>" class="hg-ai-mastercard tile-theme-amber">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_reklama.jpg'); ?>" alt="Oklejanie Reklamowe & Floty" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
@@ -61,7 +61,7 @@ get_header();
                 </div>
             </a>
 
-            <!-- CARD 4: PRZYCIEMNIANIE SZYB & DETAILING -->
+            <!-- TILE 4: PRZYCIEMNIANIE SZYB & DETAILING (RUBY HOVER) -->
             <a href="<?php echo esc_url(home_url('/detailing')); ?>" class="hg-ai-mastercard tile-theme-ruby">
                 <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>" alt="Przyciemnianie Szyb & Detailing" class="hg-ai-card-img">
                 <div class="hg-ai-card-vignette"></div>
