@@ -30,7 +30,7 @@ get_header();
                 <div class="hg-ai-card-tag">01 / NASZA OFERTA</div>
                 
                 <div class="hg-ai-card-body">
-                    <h2 class="hg-ai-card-title">NASZA OFERTA & USŁUGI</h2>
+                    <h2 class="hg-ai-card-title">NASZA OFERTA</h2>
                     <p class="hg-ai-card-desc">Całościowa zmiana koloru (Mat, Połysk, Satyna, Carbon), bezbarwne folie ochronne PPF z samoregeneracją oraz reklama flot.</p>
                     <div class="hg-ai-card-btn">
                         SPRAWDŹ OFERTĘ <span class="arrow">&rarr;</span>
