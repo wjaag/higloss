@@ -9,18 +9,14 @@ get_header();
 ?>
 
 <!-- SUBPAGE HEADER -->
-<main style="padding: 7.5rem 0 5rem; flex: 1;">
+<main style="padding: 10rem 0 6rem; flex: 1;">
     <div class="hg-container">
 
-        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile2_oferta.jpg'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">CAR WRAPPING &amp; PAINT PROTECTION STUDIO</span>
-                <h1 class="hg-subpage-banner-title">
-                    PEŁNA <span style="color: #25aae1;">OFERTA STUDIO</span>
-                </h1>
-            </div>
+        <!-- TITLE HEADLINE -->
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <h1 style="font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+                PEŁNA <span style="color: #25aae1;">OFERTA STUDIO</span>
+            </h1>
         </div>
 
         <!-- 2x2 GRID TILES LAYOUT WITH DEDICATED HOVER ACCENT COLORS -->
