@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-define('HIGLOSS_VERSION', '2.1.0');
+define('HIGLOSS_VERSION', '3.0.0');
 define('HIGLOSS_THEME_DIR', get_template_directory());
 define('HIGLOSS_THEME_URI', get_template_directory_uri());
 
@@ -41,11 +41,12 @@ add_action('after_setup_theme', 'higloss_theme_setup');
  */
 function higloss_enqueue_assets() {
     // Fonts: Montserrat & Plus Jakarta Sans
-    wp_enqueue_style('higloss-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap', array(), null);
+    wp_enqueue_style('higloss-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap', array(), null);
 
-    // Main CSS
+    // Core theme CSS and the one-page design layer.
     wp_enqueue_style('higloss-style', get_stylesheet_uri(), array(), HIGLOSS_VERSION);
     wp_enqueue_style('higloss-main-css', HIGLOSS_THEME_URI . '/assets/css/main.css', array('higloss-style'), HIGLOSS_VERSION);
+    wp_enqueue_style('higloss-landing-css', HIGLOSS_THEME_URI . '/assets/css/landing.css', array('higloss-main-css'), HIGLOSS_VERSION);
 
     // Main JavaScript
     wp_enqueue_script('higloss-main-js', HIGLOSS_THEME_URI . '/assets/js/main.js', array(), HIGLOSS_VERSION, true);
@@ -339,31 +340,49 @@ add_action('admin_footer', 'higloss_admin_gallery_scripts');
 function higloss_handle_quote_calculator() {
     check_ajax_referer('higloss_nonce', 'nonce');
 
-    $vehicle = sanitize_text_field($_POST['vehicle'] ?? '');
-    $service = sanitize_text_field($_POST['service'] ?? '');
-    $finish  = sanitize_text_field($_POST['finish'] ?? '');
-    $extras  = isset($_POST['extras']) ? array_map('sanitize_text_field', $_POST['extras']) : array();
-    $name    = sanitize_text_field($_POST['name'] ?? '');
-    $phone   = sanitize_text_field($_POST['phone'] ?? '');
-    $email   = sanitize_email($_POST['email'] ?? '');
-    $notes   = sanitize_textarea_field($_POST['notes'] ?? '');
+    $vehicle = sanitize_text_field(wp_unslash($_POST['vehicle'] ?? ''));
+    $service = sanitize_text_field(wp_unslash($_POST['service'] ?? ''));
+    $finish  = sanitize_text_field(wp_unslash($_POST['finish'] ?? ''));
+    $extras_raw = isset($_POST['extras']) && is_array($_POST['extras']) ? wp_unslash($_POST['extras']) : array();
+    $extras  = array_map('sanitize_text_field', $extras_raw);
+    $name    = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
+    $phone   = sanitize_text_field(wp_unslash($_POST['phone'] ?? ''));
+    $email   = sanitize_email(wp_unslash($_POST['email'] ?? ''));
+    $notes   = sanitize_textarea_field(wp_unslash($_POST['notes'] ?? ''));
+    $consent = !empty($_POST['consent']);
+    $website = sanitize_text_field(wp_unslash($_POST['website'] ?? ''));
 
-    if (empty($phone) || empty($service)) {
-        wp_send_json_error(array('message' => 'Proszę podać przynajmniej numer telefonu i wybrać usługę.'));
+    // Quietly accept honeypot submissions without sending any message.
+    if (!empty($website)) {
+        wp_send_json_success(array('message' => 'Dziękujemy! Zapytanie zostało przyjęte.'));
+    }
+
+    if (empty($phone) || empty($service) || !$consent) {
+        wp_send_json_error(array('message' => 'Uzupełnij numer telefonu, wybierz usługę i zaakceptuj zgodę na kontakt.'));
+    }
+
+    if (!empty($email) && !is_email($email)) {
+        wp_send_json_error(array('message' => 'Podaj poprawny adres e-mail.'));
     }
 
     $to = get_option('admin_email', 'biuro@hi-glossdesign.pl');
-    $subject = 'Nowe zapytanie z kalkulatora online Hi-Gloss Design: ' . $vehicle;
+    $subject = 'Nowe zapytanie ze strony Hi-Gloss Design: ' . $service;
     
     $body  = "Nowe Zapytanie o Wycenę:\n\n";
     $body .= "Imię i nazwisko: " . $name . "\n";
     $body .= "Telefon: " . $phone . "\n";
     $body .= "E-mail: " . $email . "\n\n";
-    $body .= "Typ pojazdu: " . $vehicle . "\n";
     $body .= "Wybrana usługa: " . $service . "\n";
-    $body .= "Wykończenie / folia: " . $finish . "\n";
-    $body .= "Usługi dodatkowe: " . implode(', ', $extras) . "\n";
-    $body .= "Uwagi / Model auta: " . $notes . "\n\n";
+    if (!empty($vehicle)) {
+        $body .= "Typ pojazdu: " . $vehicle . "\n";
+    }
+    if (!empty($finish)) {
+        $body .= "Wykończenie / folia: " . $finish . "\n";
+    }
+    if (!empty($extras)) {
+        $body .= "Usługi dodatkowe: " . implode(', ', $extras) . "\n";
+    }
+    $body .= "Auto i opis projektu: " . $notes . "\n\n";
     $body .= "---\nWysłano z formularza Hi-Gloss Design 2026";
 
     $headers = array('Content-Type: text/plain; charset=UTF-8', 'From: Hi-Gloss Website <noreply@hi-glossdesign.pl>');
@@ -371,11 +390,10 @@ function higloss_handle_quote_calculator() {
     $sent = wp_mail($to, $subject, $body, $headers);
 
     if ($sent) {
-        wp_send_json_success(array('message' => 'Dziękujemy! Twoje zapytanie zostało wysłane. Skontaktujemy się z Tobą w ciągu 2 godzin.'));
-    } else {
-        // Fallback response for demonstration
-        wp_send_json_success(array('message' => 'Dziękujemy za przesłanie specyfikacji! Skontaktujemy się telefonicznie.'));
+        wp_send_json_success(array('message' => 'Dziękujemy! Zapytanie zostało wysłane. Skontaktujemy się w najbliższym możliwym terminie.'));
     }
+
+    wp_send_json_error(array('message' => 'Nie udało się wysłać formularza. Zadzwoń do nas pod numer 605 088 065 lub spróbuj ponownie.'));
 }
 add_action('wp_ajax_higloss_quote', 'higloss_handle_quote_calculator');
 add_action('wp_ajax_nopriv_higloss_quote', 'higloss_handle_quote_calculator');
@@ -388,7 +406,7 @@ function higloss_render_schema_markup() {
         "@context" => "https://schema.org",
         "@type" => "AutoBodyShop",
         "name" => "HI-GLOSS DESIGN - Oklejanie Samochodów & PPF Szczecin",
-        "image" => HIGLOSS_THEME_URI . "/assets/images/logo.svg",
+        "image" => HIGLOSS_THEME_URI . "/assets/images/logo.png",
         "@id" => "https://www.hi-glossdesign.pl/#organization",
         "url" => "https://www.hi-glossdesign.pl",
         "telephone" => "+48605088065",
@@ -402,8 +420,8 @@ function higloss_render_schema_markup() {
         ),
         "geo" => array(
             "@type" => "GeoCoordinates",
-            "latitude" => 53.4242,
-            "longitude" => 14.4781
+            "latitude" => 53.42748,
+            "longitude" => 14.47109
         ),
         "openingHoursSpecification" => array(
             array(
@@ -414,9 +432,20 @@ function higloss_render_schema_markup() {
             )
         ),
         "sameAs" => array(
-            "https://www.facebook.com/Hi-gloss-design-Szczecin-239982882747453/"
+            "https://www.facebook.com/Hi-gloss-design-Szczecin-239982882747453/",
+            "https://www.instagram.com/higlossdesign/"
         ),
-        "description" => "Profesjonalne studio całościowego oklejania pojazdów, zmiany koloru auta foliami premium (3M, Avery) oraz bezbarwnych folii ochronnych PPF w Szczecinie i Mierzynie."
+        "hasOfferCatalog" => array(
+            "@type" => "OfferCatalog",
+            "name" => "Usługi HI-GLOSS DESIGN",
+            "itemListElement" => array(
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Całościowa zmiana koloru auta")),
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Bezbarwne folie ochronne PPF")),
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Oklejanie reklamowe i branding flot")),
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Przyciemnianie szyb i dechroming"))
+            )
+        ),
+        "description" => "Profesjonalne studio całościowego oklejania pojazdów, zmiany koloru auta foliami premium oraz bezbarwnych folii ochronnych PPF w Szczecinie i Mierzynie."
     );
 
     echo '<script type="application/ld+json">' . json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
