@@ -8,6 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
+    <!-- INLINE CRITICAL THEME STYLES TO GUARANTEE PERFECT VISUAL PARITY ON STAGING -->
+    <style>
+        <?php 
+        $css_file = HIGLOSS_THEME_DIR . '/assets/css/main.css';
+        if (file_exists($css_file)) {
+            $css_content = file_get_contents($css_file);
+            echo str_replace('../images/', HIGLOSS_THEME_URI . '/assets/images/', $css_content);
+        }
+        ?>
+    </style>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
