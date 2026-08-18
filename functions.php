@@ -37,18 +37,24 @@ function higloss_theme_setup() {
 add_action('after_setup_theme', 'higloss_theme_setup');
 
 /**
- * Enqueue Scripts and Styles
+ * Enqueue Scripts and Styles with Dynamic Cache-Busting
  */
 function higloss_enqueue_assets() {
     // Fonts: Montserrat & Plus Jakarta Sans
     wp_enqueue_style('higloss-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap', array(), null);
 
+    // Dynamic Version Based on File Modification Time (Busts Browser & Hosting Cache)
+    $css_path = HIGLOSS_THEME_DIR . '/assets/css/main.css';
+    $css_ver  = file_exists($css_path) ? filemtime($css_path) : HIGLOSS_VERSION;
+
     // Main CSS
     wp_enqueue_style('higloss-style', get_stylesheet_uri(), array(), HIGLOSS_VERSION);
-    wp_enqueue_style('higloss-main-css', HIGLOSS_THEME_URI . '/assets/css/main.css', array('higloss-style'), HIGLOSS_VERSION);
+    wp_enqueue_style('higloss-main-css', HIGLOSS_THEME_URI . '/assets/css/main.css', array('higloss-style'), $css_ver);
 
     // Main JavaScript
-    wp_enqueue_script('higloss-main-js', HIGLOSS_THEME_URI . '/assets/js/main.js', array(), HIGLOSS_VERSION, true);
+    $js_path = HIGLOSS_THEME_DIR . '/assets/js/main.js';
+    $js_ver  = file_exists($js_path) ? filemtime($js_path) : HIGLOSS_VERSION;
+    wp_enqueue_script('higloss-main-js', HIGLOSS_THEME_URI . '/assets/js/main.js', array(), $js_ver, true);
 
     // Pass AJAX URL to JS
     wp_localize_script('higloss-main-js', 'higlossData', array(
@@ -56,7 +62,7 @@ function higloss_enqueue_assets() {
         'nonce'   => wp_create_nonce('higloss_nonce')
     ));
 }
-add_action('wp_enqueue_scripts', 'higloss_enqueue_assets');
+add_action('wp_enqueue_scripts', 'higloss_enqueue_assets', 99);
 
 /**
  * Register Custom Post Type: Realizacje (Portfolio / Projects)
