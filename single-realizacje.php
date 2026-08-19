@@ -38,7 +38,7 @@ get_header();
             <?php if (!empty($gallery_ids)) : ?>
                 <div style="margin-bottom: 3.5rem;">
                     <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: #ffffff; text-transform: uppercase; margin-bottom: 1.25rem; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.6rem;">
-                        <span>📸</span> GALERIA ZDJĘĆ PROJEKTU (<?php echo count($gallery_ids); ?> UJĘCIA)
+                        <span style="color: #25aae1; display: inline-flex; line-height: 1;"><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg></span> GALERIA ZDJĘĆ PROJEKTU (<?php echo count($gallery_ids); ?> UJĘCIA)
                     </h3>
 
                     <div class="hg-grid hg-grid-3" style="gap: 1.5rem;">
@@ -121,11 +121,11 @@ get_header();
 
                     <!-- CALL CTA BUTTON -->
                     <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn hg-btn-cyan" style="width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem; margin-bottom: 1rem;">
-                        📞 ZADZWOŃ: 605 088 065 &rarr;
+                        <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ZADZWOŃ: 605 088 065 <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
                     </a>
 
                     <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-btn hg-btn-outline" style="width: 100%; justify-content: center; font-size: 0.88rem; font-weight: 800; text-align: center;">
-                        &larr; Powrót do Galerii
+                        <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg> Powrót do Galerii
                     </a>
                 </div>
 

@@ -27,8 +27,8 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 </h1>
                 <p class="hg-hero-lead hg-reveal">Całościowe oklejanie pojazdów, bezbarwne folie ochronne PPF i branding flot. Precyzyjna aplikacja, materiały premium i efekt dopracowany w każdym detalu.</p>
                 <div class="hg-hero-actions hg-reveal">
-                    <a href="#wycena" class="hg-btn hg-btn-primary">Wyceń swój projekt <span aria-hidden="true">↗</span></a>
-                    <a href="#realizacje" class="hg-btn hg-btn-ghost">Zobacz realizacje <span aria-hidden="true">↓</span></a>
+                    <a href="#wycena" class="hg-btn hg-btn-primary">Wyceń swój projekt <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    <a href="#realizacje" class="hg-btn hg-btn-ghost">Zobacz realizacje <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
                 </div>
             </div>
 
@@ -92,7 +92,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <li><span>Gwarancja producenta</span><strong>5–7 lat</strong></li>
                             <li><span>Materiały</span><strong>3M / Avery / Hexis</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Zapytaj o zmianę koloru <span aria-hidden="true">↗</span></a>
+                        <a href="#wycena" class="hg-text-link">Zapytaj o zmianę koloru <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
@@ -110,7 +110,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <li><span>Trwałość</span><strong>8–10 lat</strong></li>
                             <li><span>Pakiety</span><strong>Strefy / Full Front / Full Body</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Dobierz pakiet ochronny <span aria-hidden="true">↗</span></a>
+                        <a href="#wycena" class="hg-text-link">Dobierz pakiet ochronny <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
@@ -128,7 +128,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <li><span>Zaplecze</span><strong>Drukarki i plotery na miejscu</strong></li>
                             <li><span>Doświadczenie</span><strong>DHL / Warta / MŚP</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Wyceń branding floty <span aria-hidden="true">↗</span></a>
+                        <a href="#wycena" class="hg-text-link">Wyceń branding floty <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
@@ -146,7 +146,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <li><span>Dechroming</span><strong>Połysk / satyna</strong></li>
                             <li><span>Typowy czas usługi</span><strong>1 dzień</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Zaplanuj zakres prac <span aria-hidden="true">↗</span></a>
+                        <a href="#wycena" class="hg-text-link">Zaplanuj zakres prac <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
             </div>
@@ -156,7 +156,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
     <section class="hg-feature-split" id="o-nas" aria-labelledby="about-title">
         <div class="hg-feature-media hg-reveal">
             <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.jpg'); ?>" alt="Studio HI-GLOSS DESIGN — praca nad samochodem" width="1408" height="768" loading="lazy">
-            <div class="hg-feature-label"><span>Studio</span> Szczecin · Mierzyn</div>
+            <div class="hg-feature-label"><span>HI-GLOSS STUDIO</span> Szczecin · Mierzyn</div>
         </div>
         <div class="hg-feature-copy">
             <div class="hg-reveal">
@@ -164,6 +164,16 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <h2 id="about-title">Pasja do grafiki.<br><span>Rzemiosło w detalach.</span></h2>
                 <p class="hg-feature-lead">Specjalizujemy się w całościowym oklejaniu pojazdów i tworzeniu grafiki samochodowej. Łączymy kreatywne podejście z techniczną precyzją, bo przy zmianie koloru lub zabezpieczeniu lakieru efekt końcowy nie może być dziełem przypadku.</p>
                 <p>Pracujemy w ogrzewanej pracowni w Mierzynie, zapewniając folii właściwe warunki aplikacji. Przed rozpoczęciem prac dokładnie przygotowujemy auto, a gdy projekt tego wymaga — demontujemy klamki, lampy, lusterka i inne elementy, aby uzyskać czyste, trwałe wykończenie krawędzi.</p>
+                <p>Od 15 lat rozwijamy HI-GLOSS DESIGN w Szczecinie. Zaczynaliśmy od grafiki samochodowej i oklejania reklamowego, a zdobywane doświadczenie pozwoliło nam rozszerzyć studio o kompleksowe zmiany koloru, ochronę PPF i obsługę flot.</p>
+                <p>Technologia i materiały zmieniały się na przestrzeni lat — standard wykonania oraz odpowiedzialność za każdy detal pozostały takie same.</p>
+            </div>
+
+            <div class="hg-history hg-reveal" role="group" aria-label="15 lat historii HI-GLOSS">
+                <div class="hg-history-figure">
+                    <strong>15</strong>
+                    <span>lat historii<br>HI-GLOSS</span>
+                </div>
+                <p class="hg-history-note">Doświadczenie, które widać w każdym detalu realizacji — od grafiki samochodowej po kompleksową ochronę lakieru.</p>
             </div>
 
             <div class="hg-feature-points hg-reveal">
@@ -229,7 +239,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $projects->current_post + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($service ?: 'Realizacja HI-GLOSS'); ?></span>
                             <span class="hg-work-title"><strong><?php the_title(); ?></strong><?php if ($model) : ?><small><?php echo esc_html($model); ?></small><?php endif; ?></span>
-                            <span class="hg-work-arrow" aria-hidden="true">↗</span>
+                            <span class="hg-work-arrow" aria-hidden="true"><svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
                         </a>
                         <?php
                     endwhile;
@@ -250,7 +260,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($project[1]); ?></span>
                             <span class="hg-work-title"><strong><?php echo esc_html($project[2]); ?></strong><small><?php echo esc_html($project[3]); ?></small></span>
-                            <span class="hg-work-arrow" aria-hidden="true">↗</span>
+                            <span class="hg-work-arrow" aria-hidden="true"><svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
                         </a>
                         <?php
                     endforeach;
@@ -267,7 +277,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
         <div class="hg-container hg-cta-content hg-reveal">
             <p>Masz pomysł na swoje auto?</p>
             <h2>My wiemy, jak go zrealizować.</h2>
-            <a href="#wycena" class="hg-btn hg-btn-primary">Porozmawiajmy o projekcie <span aria-hidden="true">↗</span></a>
+            <a href="#wycena" class="hg-btn hg-btn-primary">Porozmawiajmy o projekcie <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
     </section>
 
@@ -277,7 +287,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <p class="hg-kicker">05 · Warto wiedzieć</p>
                 <h2 id="faq-title">Najczęstsze<br><span>pytania.</span></h2>
                 <p>Nie widzisz odpowiedzi? Zadzwoń — doradzimy rozwiązanie dopasowane do Twojego auta.</p>
-                <a href="tel:+48605088065" class="hg-text-link">605&nbsp;088&nbsp;065 <span aria-hidden="true">↗</span></a>
+                <a href="tel:+48605088065" class="hg-text-link">605&nbsp;088&nbsp;065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </header>
             <div class="hg-accordion hg-reveal">
                 <details open>
@@ -317,8 +327,8 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             <div class="hg-contact-grid" id="wycena">
                 <div class="hg-contact-panel hg-reveal">
                     <p class="hg-contact-label">HI-GLOSS DESIGN</p>
-                    <a class="hg-contact-phone" href="tel:+48605088065">605&nbsp;088&nbsp;065 <span aria-hidden="true">↗</span></a>
-                    <a class="hg-contact-phone hg-contact-phone-secondary" href="tel:+48664129023">664&nbsp;129&nbsp;023 <span aria-hidden="true">↗</span></a>
+                    <a class="hg-contact-phone" href="tel:+48605088065">605&nbsp;088&nbsp;065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    <a class="hg-contact-phone hg-contact-phone-secondary" href="tel:+48664129023">664&nbsp;129&nbsp;023 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 
                     <div class="hg-contact-details">
                         <div><span>Studio</span><a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">ul. Podmiejska 4<br>72-006 Mierzyn / Szczecin</a></div>
@@ -376,7 +386,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <span>Wyrażam zgodę na kontakt w sprawie wyceny. Zapoznałem/am się z <a href="<?php echo esc_url(home_url('/polityka-prywatnosci')); ?>">polityką prywatności</a>. <em>*</em></span>
                         </label>
                         <div class="hg-form-submit">
-                            <button type="submit" class="hg-btn hg-btn-primary">Wyślij zapytanie <span aria-hidden="true">↗</span></button>
+                            <button type="submit" class="hg-btn hg-btn-primary">Wyślij zapytanie <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></button>
                             <p>Pola oznaczone * są wymagane.</p>
                         </div>
                         <div class="hg-form-status" id="hgFormStatus" role="status" aria-live="polite"></div>
@@ -388,7 +398,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <iframe title="Mapa dojazdu do HI-GLOSS DESIGN w Mierzynie" src="https://www.google.com/maps?q=Podmiejska+4,+72-006+Mierzyn&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 <div class="hg-map-caption">
                     <span>53.4275° N · 14.4711° E</span>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">Wyznacz trasę <b aria-hidden="true">↗</b></a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">Wyznacz trasę <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                 </div>
             </div>
         </div>
@@ -397,10 +407,10 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
 <nav class="hg-mobile-actions" aria-label="Szybki kontakt">
     <a href="tel:+48605088065">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4.5C3.7 3 3 3.7 3 4.5 3 13.6 10.4 21 19.5 21c.8 0 1.5-.7 1.5-1.5V17l-4-1-1.2 2a15 15 0 0 1-9.8-9.8L8 7 7 3Z"/></svg>
+        <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Zadzwoń
     </a>
-    <a href="#wycena">Bezpłatna wycena <span aria-hidden="true">↗</span></a>
+    <a href="#wycena">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 </nav>
 
 <?php get_footer(); ?>
