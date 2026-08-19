@@ -40,11 +40,11 @@ get_header();
                 </p>
 
                 <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li>🔹 <strong>Głęboki Połysk (Gloss)</strong> – efekt świeżo wylanego lakieru o lustrzanej głębi.</li>
-                    <li>🔹 <strong>Aksamitna Satyna (Satin)</strong> – jedwabisty połysk na przetłoczeniach, ulubiony wybór dla aut luksusowych.</li>
-                    <li>🔹 <strong>Surowy Mat (Matte)</strong> – rasowy, sportowy wygląd wyróżniający auto na szosie.</li>
-                    <li>🔹 <strong>Carbon 3D &amp; Monza</strong> – wyczuwalna struktura włókna węglowego na dach, maskę lub lusterka.</li>
-                    <li>🔹 <strong>Kameleon &amp; Satin Shimmer</strong> – zmysłowa zmiana barwy w zależności od kąta padania światła.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Głęboki Połysk (Gloss)</strong> – efekt świeżo wylanego lakieru o lustrzanej głębi.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Aksamitna Satyna (Satin)</strong> – jedwabisty połysk na przetłoczeniach, ulubiony wybór dla aut luksusowych.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Surowy Mat (Matte)</strong> – rasowy, sportowy wygląd wyróżniający auto na szosie.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Carbon 3D &amp; Monza</strong> – wyczuwalna struktura włókna węglowego na dach, maskę lub lusterka.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Kameleon &amp; Satin Shimmer</strong> – zmysłowa zmiana barwy w zależności od kąta padania światła.</li>
                 </ul>
 
                 <div class="hg-editorial-highlight-box" style="--card-accent: #25aae1;">
@@ -83,7 +83,7 @@ get_header();
 
                 <!-- CALL CTA BUTTON -->
                 <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #25aae1; color: #000000; border: 2px solid #25aae1; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
-                    📞 ZADZWOŃ I ZAPYTAJ O WYCENĘ &rarr;
+                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ZADZWOŃ I ZAPYTAJ O WYCENĘ <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
                 </a>
             </div>
 

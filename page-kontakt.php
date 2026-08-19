@@ -30,7 +30,7 @@ get_header();
 
                 <div style="display: flex; flex-direction: column; gap: 1.8rem; color: #ffffff;">
                     <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                        <span style="font-size: 1.5rem;">📍</span>
+                        <span style="font-size: 1.35rem; color: #25aae1; display: inline-flex; flex: 0 0 auto; line-height: 1;"><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
                         <div>
                             <span style="color: #25aae1; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; letter-spacing: 0.08em;">Adres Pracowni:</span>
                             <strong style="font-size: 1.15rem; color: #ffffff; display: block; line-height: 1.4;">ul. Podmiejska 4, 72-006 Mierzyn / Szczecin</strong>
@@ -38,7 +38,7 @@ get_header();
                     </div>
 
                     <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                        <span style="font-size: 1.5rem;">📞</span>
+                        <span style="font-size: 1.35rem; color: #25aae1; display: inline-flex; flex: 0 0 auto; line-height: 1;"><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
                         <div>
                             <span style="color: #25aae1; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; letter-spacing: 0.08em;">Infolinia Telefoniczna:</span>
                             <strong style="font-size: 1.25rem; color: #00c2ff; display: block; line-height: 1.4;">
@@ -48,7 +48,7 @@ get_header();
                     </div>
 
                     <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                        <span style="font-size: 1.5rem;">✉️</span>
+                        <span style="font-size: 1.35rem; color: #25aae1; display: inline-flex; flex: 0 0 auto; line-height: 1;"><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
                         <div>
                             <span style="color: #25aae1; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; letter-spacing: 0.08em;">Adres E-mail:</span>
                             <strong style="font-size: 1.15rem; color: #00c2ff; display: block; line-height: 1.4;">
@@ -58,7 +58,7 @@ get_header();
                     </div>
 
                     <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                        <span style="font-size: 1.5rem;">⏰</span>
+                        <span style="font-size: 1.35rem; color: #25aae1; display: inline-flex; flex: 0 0 auto; line-height: 1;"><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v5l3.5 2"/></svg></span>
                         <div>
                             <span style="color: #25aae1; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.2rem; letter-spacing: 0.08em;">Godziny Otwarcia Studio:</span>
                             <strong style="font-size: 1.05rem; color: #ffffff; display: block; line-height: 1.4;">Poniedziałek - Piątek: 08:00 - 17:00<br><span style="color: #94a3b8; font-weight: 600;">Sobota: na zapisy telefoniczne</span></strong>

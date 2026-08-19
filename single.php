@@ -20,7 +20,7 @@ get_header();
                         <?php echo get_the_category_list(', '); ?>
                     </span>
                     <span style="color: #94a3b8; font-size: 0.88rem; font-weight: 700; text-transform: uppercase;">
-                        📅 <?php echo get_the_date('d.m.Y'); ?>
+                        <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.95em; color: #25aae1;"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 9.5h18"/></svg> <?php echo get_the_date('d.m.Y'); ?>
                     </span>
                 </div>
 

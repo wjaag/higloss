@@ -34,9 +34,9 @@ get_header();
                 Dane osobowe (imię, numer telefonu, adres e-mail, dane pojazdu) przekazywane przez formularze kontaktowe oraz kalkulatory wycen przetwarzane są wyłącznie w celach:
             </p>
             <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                <li>🔹 Udzielenia odpowiedzi na przesłane zapytanie ofertowe (art. 6 ust. 1 lit. b RODO).</li>
-                <li>🔹 Przygotowania indywidualnej kalkulacji kosztów oklejania lub zabezpieczenia PPF.</li>
-                <li>🔹 Realizacji usługi oraz wystawienia dokumentów księgowych/gwarancyjnych.</li>
+                <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> Udzielenia odpowiedzi na przesłane zapytanie ofertowe (art. 6 ust. 1 lit. b RODO).</li>
+                <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> Przygotowania indywidualnej kalkulacji kosztów oklejania lub zabezpieczenia PPF.</li>
+                <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> Realizacji usługi oraz wystawienia dokumentów księgowych/gwarancyjnych.</li>
             </ul>
 
             <h2 class="hg-editorial-title" style="margin-top: 2.5rem;">3. Pliki Cookies (Ciasteczka)</h2>

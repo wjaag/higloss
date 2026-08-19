@@ -40,9 +40,9 @@ get_header();
                 </p>
 
                 <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li>🚐 <strong>DHL Courier:</strong> Stałe oklejanie floty ponad 40 pojazdów dostawczych.</li>
-                    <li>🚐 <strong>Warta &amp; Poczta Polska:</strong> Projekty reklamowe i branding aut służbowych.</li>
-                    <li>🚐 <strong>Lokalne MŚP:</strong> Kompleksowa grafika od banerów po całościowe oklejenie vana.</li>
+                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.15em; color: #ff9900;"><rect x="1.5" y="4" width="14" height="12" rx="1"/><path d="M16 8h4l3 3.5V16h-7V8Z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18.5" cy="19" r="1.8"/></svg> <strong>DHL Courier:</strong> Stałe oklejanie floty ponad 40 pojazdów dostawczych.</li>
+                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.15em; color: #ff9900;"><rect x="1.5" y="4" width="14" height="12" rx="1"/><path d="M16 8h4l3 3.5V16h-7V8Z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18.5" cy="19" r="1.8"/></svg> <strong>Warta &amp; Poczta Polska:</strong> Projekty reklamowe i branding aut służbowych.</li>
+                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.15em; color: #ff9900;"><rect x="1.5" y="4" width="14" height="12" rx="1"/><path d="M16 8h4l3 3.5V16h-7V8Z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18.5" cy="19" r="1.8"/></svg> <strong>Lokalne MŚP:</strong> Kompleksowa grafika od banerów po całościowe oklejenie vana.</li>
                 </ul>
 
                 <div class="hg-editorial-highlight-box" style="--card-accent: #ff9900; background: rgba(255, 153, 0, 0.1);">
@@ -76,7 +76,7 @@ get_header();
 
                 <!-- CALL CTA BUTTON -->
                 <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #ff9900; color: #000000; border: 2px solid #ff9900; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
-                    🚐 ZADZWOŃ: 605 088 065 &rarr;
+                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ZADZWOŃ: 605 088 065 <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
                 </a>
             </div>
 

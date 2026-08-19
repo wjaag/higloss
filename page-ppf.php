@@ -44,9 +44,9 @@ get_header();
                 </h3>
 
                 <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li>🛡️ <strong>Pakiet Przód (Full Front):</strong> Zabezpieczenie najsilniej narażonych elementów: maski, przedniego zderzaka, reflektorów, błotników i lusterek.</li>
-                    <li>🛡️ <strong>Pakiet Całe Auto (Full Body):</strong> 100% pełna ochrona wszystkich elementów lakierowanych nadwozia.</li>
-                    <li>🛡️ <strong>Pakiet Strefy Rys:</strong> Ochrona wnęk klamek, progów wejściowych, rantów drzwi oraz progu załadunkowego bagażnika.</li>
+                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.05em; color: #10b981;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> <strong>Pakiet Przód (Full Front):</strong> Zabezpieczenie najsilniej narażonych elementów: maski, przedniego zderzaka, reflektorów, błotników i lusterek.</li>
+                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.05em; color: #10b981;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> <strong>Pakiet Całe Auto (Full Body):</strong> 100% pełna ochrona wszystkich elementów lakierowanych nadwozia.</li>
+                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.05em; color: #10b981;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> <strong>Pakiet Strefy Rys:</strong> Ochrona wnęk klamek, progów wejściowych, rantów drzwi oraz progu załadunkowego bagażnika.</li>
                 </ul>
 
                 <div class="hg-editorial-highlight-box" style="--card-accent: #10b981; background: rgba(16, 185, 129, 0.1);">
@@ -85,7 +85,7 @@ get_header();
 
                 <!-- CALL CTA BUTTON -->
                 <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #10b981; color: #000000; border: 2px solid #10b981; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
-                    🛡️ ZADZWOŃ: 605 088 065 &rarr;
+                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ZADZWOŃ: 605 088 065 <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
                 </a>
             </div>
 

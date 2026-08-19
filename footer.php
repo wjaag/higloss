@@ -28,6 +28,15 @@ $footer_section_url = static function ($section) use ($is_landing) {
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.2l.8-4h-4V9c0-.7.3-1 1-1Z" class="hg-icon-fill"/></svg>
                     </a>
                 </div>
+                <a class="hg-google-proof hg-google-proof--mini" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
+                    <span class="hg-google-proof-star" aria-hidden="true">
+                        <svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24"><path d="m12 2.6 2.92 5.98 6.58.94-4.77 4.63 1.14 6.55L12 17.5l-5.87 3.2 1.14-6.55L2.5 9.52l6.58-.94L12 2.6Z"/></svg>
+                    </span>
+                    <span class="hg-google-proof-copy">
+                        <small>Opinie naszych klientów</small>
+                        <strong>Wysoki ranking w Google</strong>
+                    </span>
+                </a>
             </div>
 
             <div class="hg-footer-column">
@@ -43,13 +52,13 @@ $footer_section_url = static function ($section) use ($is_landing) {
                 <a href="tel:+48605088065">+48&nbsp;605&nbsp;088&nbsp;065</a>
                 <a href="tel:+48664129023">+48&nbsp;664&nbsp;129&nbsp;023</a>
                 <a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">Podmiejska 4, Mierzyn ↗</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">Podmiejska 4, Mierzyn <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </div>
 
             <div class="hg-footer-column hg-footer-cta">
                 <p>Twój projekt</p>
                 <span>Masz pomysł? Sprawdźmy, jak możemy go zrealizować.</span>
-                <a href="<?php echo esc_url($footer_section_url('wycena')); ?>" class="hg-text-link">Bezpłatna wycena <b aria-hidden="true">↗</b></a>
+                <a href="<?php echo esc_url($footer_section_url('wycena')); ?>" class="hg-text-link">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </div>
         </div>
 

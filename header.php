@@ -54,7 +54,7 @@ $section_url = static function ($section) use ($is_landing) {
             <a href="<?php echo esc_url($section_url('o-nas')); ?>" class="hg-nav-link">O nas</a>
             <a href="<?php echo esc_url($section_url('proces')); ?>" class="hg-nav-link">Proces</a>
             <a href="<?php echo esc_url($section_url('kontakt')); ?>" class="hg-nav-link">Kontakt</a>
-            <a href="<?php echo esc_url($section_url('wycena')); ?>" class="hg-nav-cta">Bezpłatna wycena <span aria-hidden="true">↗</span></a>
+            <a href="<?php echo esc_url($section_url('wycena')); ?>" class="hg-nav-cta">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 
             <div class="hg-nav-socials" role="group" aria-label="Media społecznościowe">
                 <a href="https://www.instagram.com/higlossdesign/" target="_blank" rel="noopener noreferrer" aria-label="Instagram HI-GLOSS DESIGN">
