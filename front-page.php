@@ -211,8 +211,49 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     <p class="hg-kicker">04 · Wybrane realizacje</p>
                     <h2 id="portfolio-title">Samochody mówią<br><span>za nas.</span></h2>
                 </div>
-                <p>Każdy projekt ma inny cel, ale ten sam standard wykonania. Zobacz zmianę koloru, ochronę PPF i identyfikację flotową w naszym wydaniu.</p>
+                <p>Każdy projekt ma inny cel, ale ten sam bezkompromisowy standard wykonania. Zobacz zmianę koloru foliami premium, bezbarwną ochronę PPF i identyfikację flotową.</p>
             </header>
+
+            <!-- INTERACTIVE BEFORE/AFTER SLIDER TEASER -->
+            <div class="hg-ba-section hg-reveal" style="margin-bottom: 2.5rem; padding: 2rem; border-radius: 0;">
+                <div class="hg-ba-header">
+                    <div>
+                        <span style="font-size: 0.72rem; font-weight: 800; color: var(--hg-blue); text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 0.3rem;">
+                            EFEKT PRZED I PO · PRZECIĄGNIJ SUWAK
+                        </span>
+                        <h3 style="font-size: 1.4rem;">Metamorfoza: <span>BMW M4 Satin Nero</span></h3>
+                    </div>
+                    <p style="font-size: 0.85rem;">Porównaj seryjny lakier fabryczny z efektem całościowego oklejenia folią Avery Dennison Satin Black i pełnym dechromingiem.</p>
+                </div>
+                <div class="hg-ba-slider-container" style="max-height: 440px;">
+                    <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_before_stock_paint.jpg'); ?>" alt="BMW M4 przed oklejeniem" class="hg-ba-img">
+                    <span class="hg-ba-badge hg-ba-badge-before">PRZED: Lakier seryjny</span>
+                    <div class="hg-ba-after-wrapper">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.jpg'); ?>" alt="BMW M4 po oklejeniu" class="hg-ba-img">
+                        <span class="hg-ba-badge hg-ba-badge-after">PO: Avery Satin Nero Wrap</span>
+                        <div class="hg-ba-handle" aria-hidden="true">&harr;</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY FILTER PILLS -->
+            <div class="hg-gallery-filter-wrap hg-reveal" role="group" aria-label="Filtry portfolio">
+                <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
+                    <span>Wszystkie</span>
+                </button>
+                <button type="button" class="hg-gallery-btn" data-filter="zmiana-koloru" aria-pressed="false">
+                    <span>Zmiana Koloru</span>
+                </button>
+                <button type="button" class="hg-gallery-btn" data-filter="ppf" aria-pressed="false">
+                    <span>Ochrona PPF</span>
+                </button>
+                <button type="button" class="hg-gallery-btn" data-filter="reklama" aria-pressed="false">
+                    <span>Floty &amp; Reklama</span>
+                </button>
+                <button type="button" class="hg-gallery-btn" data-filter="detailing" aria-pressed="false">
+                    <span>Detailing</span>
+                </button>
+            </div>
 
             <div class="hg-work-grid">
                 <?php
@@ -228,13 +269,12 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $projects->the_post();
                         $service = get_post_meta(get_the_ID(), '_higloss_service_type', true);
                         $model = get_post_meta(get_the_ID(), '_higloss_car_model', true);
+                        $terms = get_the_terms(get_the_ID(), 'kategoria_realizacji');
+                        $cat_slug = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
+                        $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.jpg';
                         ?>
-                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail('large', array('loading' => 'lazy', 'alt' => get_the_title())); ?>
-                            <?php else : ?>
-                                <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile3_galeria.jpg'); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy">
-                            <?php endif; ?>
+                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model ? $model . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
+                            <img src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy">
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $projects->current_post + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($service ?: 'Realizacja HI-GLOSS'); ?></span>
@@ -246,15 +286,16 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     wp_reset_postdata();
                 else :
                     $fallback_projects = array(
-                        array('ai_oferta_zmiana_koloru.jpg', 'Zmiana koloru', 'Indywidualny charakter', 'Połysk · Satyna · Mat'),
-                        array('ai_oferta_ppf.jpg', 'Folia ochronna PPF', 'Ochrona bez kompromisów', 'Full Front · Full Body'),
-                        array('ai_oferta_reklama.jpg', 'Branding flot', 'Mobilna identyfikacja', 'Projekt · Druk · Montaż'),
-                        array('ai_oferta_detailing.jpg', 'Detailing', 'Perfekcyjne wykończenie', 'Szyby · Dechroming'),
-                        array('ai_tile3_galeria.jpg', 'Studio HI-GLOSS', 'Projekty z charakterem', 'Szczecin · Mierzyn'),
+                        array('gallery_bmw_m4_satin_black.jpg', 'Zmiana koloru', 'BMW M4 Coupe — Satin Nero', 'Folia Avery SWF · Satyna · Szczecin', 'zmiana-koloru'),
+                        array('gallery_porsche_gt3_green.jpg', 'Zmiana koloru', 'Porsche 911 GT3 RS — Racing Green', 'Inozetek / 3M 2080 · Satynowa zieleń', 'zmiana-koloru'),
+                        array('gallery_audi_rs6_blue.jpg', 'Zmiana koloru', 'Audi RS6 Avant — Miami Blue', '3M 2080 Gloss + Dechroming Black Optics', 'zmiana-koloru'),
+                        array('gallery_ppf_application.jpg', 'Folia ochronna PPF', 'Full Front PPF — Samoregeneracja', 'STEK DYNOshield 180µm · 10 lat gwarancji', 'ppf'),
+                        array('gallery_fleet_commercial.jpg', 'Branding flot', 'Flota DHL Express — 40 Aut', 'Projekt · Druk UV · Aplikacja seryjna', 'reklama'),
+                        array('ai_oferta_detailing.jpg', 'Detailing & Detale', 'Dechroming & Przyciemnianie Szyb', 'Shadow Line Gloss Black · Atest Ceramika', 'detailing'),
                     );
                     foreach ($fallback_projects as $index => $project) :
                         ?>
-                        <a class="hg-work-card hg-reveal" href="#wycena">
+                        <a class="hg-work-card hg-reveal" href="<?php echo esc_url(home_url('/galeria')); ?>" data-category="<?php echo esc_attr($project[4]); ?>" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" data-lightbox-title="<?php echo esc_attr($project[2]); ?>" data-lightbox-meta="<?php echo esc_attr($project[1] . ' · ' . $project[3]); ?>">
                             <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" alt="<?php echo esc_attr($project[2]); ?>" width="1408" height="768" loading="lazy">
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></span>
@@ -266,6 +307,12 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     endforeach;
                 endif;
                 ?>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;" class="hg-reveal">
+                <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-btn hg-btn-outline" style="padding: 0.95rem 2.2rem; font-weight: 800; font-size: 0.9rem;">
+                    Zobacz pełną galerię realizacji &rarr;
+                </a>
             </div>
         </div>
     </section>

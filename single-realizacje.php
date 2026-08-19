@@ -42,14 +42,18 @@ get_header();
                     </h3>
 
                     <div class="hg-grid hg-grid-3" style="gap: 1.5rem;">
-                        <?php foreach ($gallery_ids as $img_id) : 
+                        <?php foreach ($gallery_ids as $index => $img_id) : 
                             $img_url = wp_get_attachment_image_url($img_id, 'full');
                             $img_thumb = wp_get_attachment_image_url($img_id, 'large');
                             if ($img_url) :
                         ?>
-                            <a href="<?php echo esc_url($img_url); ?>" target="_blank" style="display: block; border: 1px solid rgba(255,255,255,0.18); overflow: hidden; height: 260px; position: relative; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='#25aae1'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)'">
-                                <img src="<?php echo esc_url($img_thumb); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1.0)'">
-                            </a>
+                            <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($img_url); ?>" data-lightbox-title="<?php the_title_attribute(); ?> (Ujęcie <?php echo esc_attr($index + 1); ?>)" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_type ?: 'Realizacja')); ?>" style="height: 240px; border: 1px solid var(--hg-line);">
+                                <img src="<?php echo esc_url($img_thumb); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div class="hg-gallery-vignette"></div>
+                                <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
+                                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+                                </button>
+                            </div>
                         <?php endif; endforeach; ?>
                     </div>
                 </div>
