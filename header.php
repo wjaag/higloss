@@ -8,6 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <?php wp_head(); ?>
+    <!-- Inline fallback prevents stale or blocked stylesheets on the staging host. -->
+    <style id="higloss-inline-fallback">
+        <?php
+        $inline_css_files = array(
+            HIGLOSS_THEME_DIR . '/assets/css/main.css',
+            HIGLOSS_THEME_DIR . '/assets/css/landing.css',
+        );
+        foreach ($inline_css_files as $inline_css_file) {
+            if (file_exists($inline_css_file) && is_readable($inline_css_file)) {
+                $inline_css = file_get_contents($inline_css_file);
+                echo str_replace('../images/', HIGLOSS_THEME_URI . '/assets/images/', $inline_css); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+        }
+        ?>
+    </style>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>

@@ -37,27 +37,33 @@ function higloss_theme_setup() {
 add_action('after_setup_theme', 'higloss_theme_setup');
 
 /**
- * Enqueue Scripts and Styles
+ * Enqueue scripts and styles with file-based cache busting.
  */
 function higloss_enqueue_assets() {
-    // Fonts: Montserrat & Plus Jakarta Sans
     wp_enqueue_style('higloss-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap', array(), null);
 
-    // Core theme CSS and the one-page design layer.
-    wp_enqueue_style('higloss-style', get_stylesheet_uri(), array(), HIGLOSS_VERSION);
-    wp_enqueue_style('higloss-main-css', HIGLOSS_THEME_URI . '/assets/css/main.css', array('higloss-style'), HIGLOSS_VERSION);
-    wp_enqueue_style('higloss-landing-css', HIGLOSS_THEME_URI . '/assets/css/landing.css', array('higloss-main-css'), HIGLOSS_VERSION);
+    $style_path   = HIGLOSS_THEME_DIR . '/style.css';
+    $main_path    = HIGLOSS_THEME_DIR . '/assets/css/main.css';
+    $landing_path = HIGLOSS_THEME_DIR . '/assets/css/landing.css';
+    $js_path      = HIGLOSS_THEME_DIR . '/assets/js/main.js';
 
-    // Main JavaScript
-    wp_enqueue_script('higloss-main-js', HIGLOSS_THEME_URI . '/assets/js/main.js', array(), HIGLOSS_VERSION, true);
+    $style_ver   = file_exists($style_path) ? filemtime($style_path) : HIGLOSS_VERSION;
+    $main_ver    = file_exists($main_path) ? filemtime($main_path) : HIGLOSS_VERSION;
+    $landing_ver = file_exists($landing_path) ? filemtime($landing_path) : HIGLOSS_VERSION;
+    $js_ver      = file_exists($js_path) ? filemtime($js_path) : HIGLOSS_VERSION;
 
-    // Pass AJAX URL to JS
+    wp_enqueue_style('higloss-style', get_stylesheet_uri(), array(), $style_ver);
+    wp_enqueue_style('higloss-main-css', HIGLOSS_THEME_URI . '/assets/css/main.css', array('higloss-style'), $main_ver);
+    wp_enqueue_style('higloss-landing-css', HIGLOSS_THEME_URI . '/assets/css/landing.css', array('higloss-main-css'), $landing_ver);
+
+    wp_enqueue_script('higloss-main-js', HIGLOSS_THEME_URI . '/assets/js/main.js', array(), $js_ver, true);
+
     wp_localize_script('higloss-main-js', 'higlossData', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
         'nonce'   => wp_create_nonce('higloss_nonce')
     ));
 }
-add_action('wp_enqueue_scripts', 'higloss_enqueue_assets');
+add_action('wp_enqueue_scripts', 'higloss_enqueue_assets', 99);
 
 /**
  * Register Custom Post Type: Realizacje (Portfolio / Projects)
