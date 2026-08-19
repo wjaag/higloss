@@ -1,5 +1,5 @@
 /**
- * HI-GLOSS DESIGN — landing interactions.
+ * HI-GLOSS DESIGN — landing interactions & advanced gallery features.
  */
 
 document.documentElement.classList.add('hg-js');
@@ -178,34 +178,249 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* Legacy before/after slider support for older templates. */
-    const sliderBox = document.getElementById('hgBeforeAfterSlider');
-    if (sliderBox) {
-        const afterLayer = sliderBox.querySelector('.hg-slider-after');
-        const handle = sliderBox.querySelector('.hg-slider-handle');
-        let isDragging = false;
+    /* ==========================================
+       Gallery Category Filtering
+       ========================================== */
+    function initGalleryFilter() {
+        const filterBtns = document.querySelectorAll('.hg-gallery-btn[data-filter]');
+        const galleryCards = document.querySelectorAll('.hg-gallery-card, .hg-work-card');
 
-        function updateSliderPosition(clientX) {
-            const rect = sliderBox.getBoundingClientRect();
-            const position = Math.min(Math.max(clientX - rect.left, 0), rect.width);
-            const percentage = (position / rect.width) * 100;
-            afterLayer.style.width = percentage + '%';
-            handle.style.left = percentage + '%';
-        }
+        if (!filterBtns.length || !galleryCards.length) return;
 
-        sliderBox.addEventListener('pointerdown', function (event) {
-            isDragging = true;
-            sliderBox.setPointerCapture(event.pointerId);
-            updateSliderPosition(event.clientX);
-        });
-        sliderBox.addEventListener('pointermove', function (event) {
-            if (isDragging) updateSliderPosition(event.clientX);
-        });
-        sliderBox.addEventListener('pointerup', function () {
-            isDragging = false;
-        });
-        sliderBox.addEventListener('pointercancel', function () {
-            isDragging = false;
+        filterBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const filter = this.getAttribute('data-filter');
+
+                // Update button active states
+                filterBtns.forEach(function (b) {
+                    const isActive = b === btn;
+                    b.classList.toggle('is-active', isActive);
+                    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                // Filter cards with smooth fade
+                galleryCards.forEach(function (card) {
+                    const cardCat = card.getAttribute('data-category') || '';
+                    const match = filter === 'all' || cardCat.indexOf(filter) !== -1;
+
+                    if (match) {
+                        card.classList.remove('is-hidden');
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.96)';
+                        setTimeout(function () {
+                            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 20);
+                    } else {
+                        card.classList.add('is-hidden');
+                    }
+                });
+            });
         });
     }
+    initGalleryFilter();
+
+    /* ==========================================
+       Universal Interactive Before / After Sliders
+       ========================================== */
+    function initBeforeAfterSliders() {
+        const sliders = document.querySelectorAll('.hg-ba-slider-container, #hgBeforeAfterSlider');
+        sliders.forEach(function (sliderBox) {
+            const afterWrapper = sliderBox.querySelector('.hg-ba-after-wrapper, .hg-slider-after');
+            const handle = sliderBox.querySelector('.hg-ba-handle, .hg-slider-handle');
+            if (!afterWrapper || !handle) return;
+
+            let isDragging = false;
+
+            function updatePosition(clientX) {
+                const rect = sliderBox.getBoundingClientRect();
+                const offsetX = clientX - rect.left;
+                const percent = Math.min(Math.max((offsetX / rect.width) * 100, 0), 100);
+                afterWrapper.style.width = percent + '%';
+                handle.style.left = percent + '%';
+            }
+
+            function onPointerDown(e) {
+                isDragging = true;
+                sliderBox.setPointerCapture(e.pointerId);
+                updatePosition(e.clientX);
+            }
+
+            function onPointerMove(e) {
+                if (!isDragging) return;
+                updatePosition(e.clientX);
+            }
+
+            function onPointerUp(e) {
+                if (isDragging) {
+                    isDragging = false;
+                    try { sliderBox.releasePointerCapture(e.pointerId); } catch (err) {}
+                }
+            }
+
+            sliderBox.addEventListener('pointerdown', onPointerDown);
+            sliderBox.addEventListener('pointermove', onPointerMove);
+            sliderBox.addEventListener('pointerup', onPointerUp);
+            sliderBox.addEventListener('pointercancel', onPointerUp);
+
+            // Accessibility with arrow keys
+            sliderBox.setAttribute('tabindex', '0');
+            sliderBox.setAttribute('role', 'slider');
+            sliderBox.setAttribute('aria-label', 'Suwak porównania Przed i Po metamorfozie');
+            sliderBox.addEventListener('keydown', function (e) {
+                const currentWidth = parseFloat(afterWrapper.style.width) || 50;
+                if (e.key === 'ArrowLeft') {
+                    const newPos = Math.max(currentWidth - 5, 0);
+                    afterWrapper.style.width = newPos + '%';
+                    handle.style.left = newPos + '%';
+                    e.preventDefault();
+                } else if (e.key === 'ArrowRight') {
+                    const newPos = Math.min(currentWidth + 5, 100);
+                    afterWrapper.style.width = newPos + '%';
+                    handle.style.left = newPos + '%';
+                    e.preventDefault();
+                }
+            });
+        });
+    }
+    initBeforeAfterSliders();
+
+    /* ==========================================
+       Automotive Lightbox Gallery
+       ========================================== */
+    function initLightbox() {
+        let lightbox = document.getElementById('hgLightboxModal');
+        if (!lightbox) {
+            lightbox = document.createElement('div');
+            lightbox.id = 'hgLightboxModal';
+            lightbox.className = 'hg-lightbox';
+            lightbox.setAttribute('role', 'dialog');
+            lightbox.setAttribute('aria-modal', 'true');
+            lightbox.setAttribute('aria-label', 'Podgląd zdjęcia realizacji HI-GLOSS DESIGN');
+            lightbox.innerHTML = `
+                <div class="hg-lightbox-topbar">
+                    <span class="hg-lightbox-counter" id="hgLightboxCounter">01 / 01</span>
+                    <button type="button" class="hg-lightbox-close" id="hgLightboxClose" aria-label="Zamknij podgląd">&times;</button>
+                </div>
+                <div class="hg-lightbox-main">
+                    <button type="button" class="hg-lightbox-nav hg-lightbox-prev" id="hgLightboxPrev" aria-label="Poprzednie zdjęcie">&#10094;</button>
+                    <div class="hg-lightbox-img-wrap">
+                        <img src="" alt="" class="hg-lightbox-img" id="hgLightboxImg">
+                    </div>
+                    <button type="button" class="hg-lightbox-nav hg-lightbox-next" id="hgLightboxNext" aria-label="Następne zdjęcie">&#10095;</button>
+                </div>
+                <div class="hg-lightbox-bottom">
+                    <div class="hg-lightbox-info">
+                        <h4 id="hgLightboxTitle">Realizacja HI-GLOSS DESIGN</h4>
+                        <p id="hgLightboxMeta">Szczecin / Mierzyn</p>
+                    </div>
+                    <a href="#wycena" class="hg-lightbox-cta" id="hgLightboxCta">Wyceń podobny projekt &rarr;</a>
+                </div>
+            `;
+            document.body.appendChild(lightbox);
+        }
+
+        const imgEl = document.getElementById('hgLightboxImg');
+        const titleEl = document.getElementById('hgLightboxTitle');
+        const metaEl = document.getElementById('hgLightboxMeta');
+        const counterEl = document.getElementById('hgLightboxCounter');
+        const closeBtn = document.getElementById('hgLightboxClose');
+        const prevBtn = document.getElementById('hgLightboxPrev');
+        const nextBtn = document.getElementById('hgLightboxNext');
+        const ctaBtn = document.getElementById('hgLightboxCta');
+
+        let currentGalleryItems = [];
+        let currentIndex = 0;
+
+        function getVisibleGalleryItems() {
+            const triggers = Array.from(document.querySelectorAll('[data-lightbox-img]'));
+            return triggers.filter(function (el) {
+                const card = el.closest('.hg-gallery-card, .hg-work-card');
+                return !card || !card.classList.contains('is-hidden');
+            });
+        }
+
+        function openLightboxAt(index) {
+            currentGalleryItems = getVisibleGalleryItems();
+            if (!currentGalleryItems.length) return;
+
+            if (index < 0) index = currentGalleryItems.length - 1;
+            if (index >= currentGalleryItems.length) index = 0;
+            currentIndex = index;
+
+            const target = currentGalleryItems[currentIndex];
+            const imgSrc = target.getAttribute('data-lightbox-img') || target.getAttribute('src');
+            const title = target.getAttribute('data-lightbox-title') || target.getAttribute('alt') || 'Realizacja HI-GLOSS DESIGN';
+            const meta = target.getAttribute('data-lightbox-meta') || 'Car wrapping · Folie PPF · Mierzyn';
+            const quoteLink = target.getAttribute('data-lightbox-link') || '#wycena';
+
+            imgEl.src = imgSrc;
+            imgEl.alt = title;
+            titleEl.textContent = title;
+            metaEl.textContent = meta;
+            counterEl.textContent = (currentIndex + 1 < 10 ? '0' : '') + (currentIndex + 1) + ' / ' + (currentGalleryItems.length < 10 ? '0' : '') + currentGalleryItems.length;
+
+            if (ctaBtn) {
+                ctaBtn.href = quoteLink;
+                ctaBtn.onclick = function () { closeLightbox(); };
+            }
+
+            lightbox.classList.add('is-open');
+            document.body.classList.add('lightbox-open');
+            closeBtn.focus();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('is-open');
+            document.body.classList.remove('lightbox-open');
+        }
+
+        function nextItem() { openLightboxAt(currentIndex + 1); }
+        function prevItem() { openLightboxAt(currentIndex - 1); }
+
+        document.addEventListener('click', function (e) {
+            const trigger = e.target.closest('[data-lightbox-img]');
+            if (trigger) {
+                e.preventDefault();
+                const visible = getVisibleGalleryItems();
+                const idx = visible.indexOf(trigger);
+                openLightboxAt(idx !== -1 ? idx : 0);
+            }
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if (prevBtn) prevBtn.addEventListener('click', prevItem);
+        if (nextBtn) nextBtn.addEventListener('click', nextItem);
+
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox || e.target.classList.contains('hg-lightbox-main')) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (!lightbox.classList.contains('is-open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextItem();
+            if (e.key === 'ArrowLeft') prevItem();
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', function (e) {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchEndX - touchStartX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) prevItem();
+                else nextItem();
+            }
+        }, { passive: true });
+    }
+    initLightbox();
 });
