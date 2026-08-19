@@ -336,6 +336,17 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         <div><span>Godziny</span><p>Pon.–Pt. 08:00–17:00<br>Sobota: po umówieniu</p></div>
                     </div>
 
+                    <a class="hg-google-proof" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
+                        <span class="hg-google-proof-star" aria-hidden="true">
+                            <svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24"><path d="m12 2.6 2.92 5.98 6.58.94-4.77 4.63 1.14 6.55L12 17.5l-5.87 3.2 1.14-6.55L2.5 9.52l6.58-.94L12 2.6Z"/></svg>
+                        </span>
+                        <span class="hg-google-proof-copy">
+                            <small>Opinie naszych klientów</small>
+                            <strong>Wysoki ranking w Google</strong>
+                        </span>
+                        <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                    </a>
+
                     <div class="hg-contact-socials">
                         <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="hg-icon-fill"/></svg>

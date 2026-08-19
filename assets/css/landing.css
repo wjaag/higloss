@@ -403,6 +403,7 @@ body:not(.home) .hg-header {
 .hg-contact-phone:hover .hg-ui-icon--arrow-ne,
 .hg-map-caption a:hover .hg-ui-icon--arrow-ne,
 .hg-work-card:hover .hg-ui-icon--arrow-ne,
+.hg-google-proof:hover .hg-ui-icon--arrow-ne,
 .hg-mobile-actions a:hover .hg-ui-icon--arrow-ne,
 .hg-footer a:hover .hg-ui-icon--arrow-ne {
   transform: translate(2px, -2px);
@@ -1860,6 +1861,100 @@ body:not(.home) .hg-header {
   font-weight: 700;
 }
 
+/* Google ranking proof */
+.hg-google-proof {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.5rem;
+  padding: 0.95rem 1.1rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--hg-line);
+  color: #fff;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.hg-google-proof:hover {
+  background: rgba(244, 201, 79, 0.06);
+  border-color: rgba(244, 201, 79, 0.42);
+}
+
+.hg-google-proof-star {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  background: rgba(244, 201, 79, 0.1);
+  border: 1px solid rgba(244, 201, 79, 0.45);
+  color: #f4c94f;
+}
+
+.hg-google-proof-star .hg-ui-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.hg-google-proof-copy {
+  min-width: 0;
+}
+
+.hg-google-proof-copy small {
+  display: block;
+  color: #6b7789;
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hg-google-proof-copy strong {
+  display: block;
+  margin-top: 0.28rem;
+  color: #fff;
+  font-family: var(--hg-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.hg-google-proof > .hg-ui-icon {
+  color: #f4c94f;
+}
+
+/* Compact variant for the footer */
+.hg-google-proof--mini {
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 0.7rem;
+  max-width: 300px;
+  margin-top: 1.4rem;
+  padding: 0.7rem 0.85rem;
+}
+
+.hg-google-proof--mini .hg-google-proof-star {
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  border-color: rgba(244, 201, 79, 0.35);
+}
+
+.hg-google-proof--mini .hg-google-proof-star .hg-ui-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.hg-google-proof--mini .hg-google-proof-copy small {
+  font-size: 0.5rem;
+}
+
+.hg-google-proof--mini .hg-google-proof-copy strong {
+  margin-top: 0.18rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
 /* Mobile action bar */
 .hg-mobile-actions {
   display: none;
@@ -2324,6 +2419,10 @@ body:not(.home) .hg-footer-main {
   }
 
   .hg-history {
+    margin-top: 2rem;
+  }
+
+  .hg-google-proof {
     margin-top: 2rem;
   }
 
