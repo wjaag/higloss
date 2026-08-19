@@ -1,39 +1,46 @@
-# Hi-Gloss Design 2026 - WordPress Theme
+# HI-GLOSS DESIGN — WordPress Theme 3.0
 
-Ultra-nowoczesny, dedykowany motyw WordPress stworzony dla studia car wrappingu, folii ochronnych PPF oraz reklamy mobilnej **Hi-Gloss Design** w Szczecinie i Mierzynie.
+Dedykowany, jednopłaszczyznowy motyw dla studia car wrappingu **HI-GLOSS DESIGN** w Szczecinie i Mierzynie.
 
-## 🚀 Cechy Motywu 2026
+## Landing page
 
-- **Design System**: Dark Luxury Carbon (`#090C12`) z elektrycznymi błękitami (`#00C2FF`) i efektem Glassmorphism.
-- **Interaktywny Before/After Slider**: Porównanie lakieru seryjnego z folią satynową / PPF.
-- **Wirtualny Próbnik Wykończeń Folii**: Podgląd efektów Połysk, Satyna Black, Carbon 3D, Kameleon, Nardo Mat.
-- **3-Krokowy Kalkulator Wyceny Online**: Szacowanie kosztów + automatyczne zapytanie AJAX na e-mail biura.
-- **Portfolio z Filtrowaniem**: Podział na Zmiana Koloru, Bezbarwne PPF, Reklama & Floty.
-- **SEO Schema.org (AutoBodyShop / LocalBusiness)**: Automatyczne mikrodane JSON-LD wspierające pozycjonowanie w Google.
-- **Mobile Action Bar**: Pływający pasek akcji z szybkim dzwonieniem i nawigacją dla smartfonów.
+Strona główna składa informacje z dotychczasowych podstron w jeden, spójny lejek:
 
-## 📁 Struktura Plików
+1. pełnoekranowy hero z głównym CTA,
+2. oferta: zmiana koloru, PPF, branding flot, szyby/dechroming/detailing,
+3. prezentacja studia i przewag,
+4. czteroetapowy proces współpracy,
+5. dynamiczne portfolio z CPT `realizacje`,
+6. FAQ,
+7. dane kontaktowe, mapa i formularz bezpłatnej wyceny.
 
+Nawigacja prowadzi do sekcji strony głównej. Stare podstrony i pojedyncze realizacje pozostają dostępne, więc istniejące adresy i treści SEO nie są usuwane.
+
+## Najważniejsze elementy
+
+- responsywny design od 320 px do szerokich ekranów,
+- dostępna nawigacja mobilna, skip-link i widoczne focus states,
+- obsługa `prefers-reduced-motion`,
+- linki i ikony Instagram/Facebook,
+- mobilny pasek „Zadzwoń / Bezpłatna wycena”,
+- formularz AJAX zabezpieczony nonce i honeypotem,
+- dynamiczne realizacje z danymi pojazdu i usługi,
+- Schema.org `AutoBodyShop` z katalogiem usług i profilami social,
+- lokalne obrazy z lazy loadingiem (poza hero),
+- statyczny podgląd w `landing-preview.html`.
+
+## Struktura
+
+```text
+front-page.php             # produkcyjny landing WordPress
+header.php / footer.php    # one-page navigation i rozbudowana stopka
+assets/css/main.css        # style bazowe i zgodność starych szablonów
+assets/css/landing.css     # design system i pełny landing
+assets/js/main.js          # menu, reveal, aktywne sekcje, FAQ i formularz
+functions.php              # assety, CPT, AJAX, Schema.org
+landing-preview.html       # podgląd bez instalacji WordPressa
 ```
-higloss/
-├── assets/
-│   ├── css/main.css       # Główne style CSS (Glassmorphism, Grid, Slider, Calculator)
-│   └── js/main.js         # Logika Vanilla JS dla suwaka, kalkulatora i filtrów
-├── .github/workflows/
-│   └── deploy.yml         # Automated GitHub Actions FTP Deployment to InfinityFree
-├── style.css              # Nagłówek motywu WordPress i zmienne CSS
-├── functions.php          # CPT Realizacje, rejestracja menu, AJAX Quote handler, Schema.org
-├── header.php             # Pływająca nawigacja z blurem i logo SVG
-├── footer.php             # Stopka z danymi teleadresowymi Mierzyna i Mobile Action Bar
-├── front-page.php         # Dedykowany Landing Page 2026
-├── page.php               # Domyślny szablon strony
-├── single-realizacje.php  # Szablon pojedynczego wpisu realizacji
-└── landing-preview.html   # Statyczny podgląd HTML
-```
 
-## ⚙️ Wdrażanie (GitHub Actions)
+## Deployment
 
-Motyw posiada skonfigurowany plik CI/CD w `.github/workflows/deploy.yml`, który przy każdym `git push` na gałąź `main` automatycznie publikuje najnowsze pliki na serwer FTP.
-
----
-© 2026 Hi-Gloss Design Szczecin. Wszelkie prawa zastrzeżone.
+Workflow `.github/workflows/deploy.yml` publikuje wyłącznie push na `main`. Gałęzie testowe nie uruchamiają automatycznego wdrożenia produkcyjnego.

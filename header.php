@@ -3,18 +3,23 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#05070b">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
-    <!-- INLINE CRITICAL THEME STYLES TO GUARANTEE PERFECT VISUAL PARITY ON STAGING -->
-    <style>
-        <?php 
-        $css_file = HIGLOSS_THEME_DIR . '/assets/css/main.css';
-        if (file_exists($css_file)) {
-            $css_content = file_get_contents($css_file);
-            echo str_replace('../images/', HIGLOSS_THEME_URI . '/assets/images/', $css_content);
+    <!-- Inline fallback prevents stale or blocked stylesheets on the staging host. -->
+    <style id="higloss-inline-fallback">
+        <?php
+        $inline_css_files = array(
+            HIGLOSS_THEME_DIR . '/assets/css/main.css',
+            HIGLOSS_THEME_DIR . '/assets/css/landing.css',
+        );
+        foreach ($inline_css_files as $inline_css_file) {
+            if (file_exists($inline_css_file) && is_readable($inline_css_file)) {
+                $inline_css = file_get_contents($inline_css_file);
+                echo str_replace('../images/', HIGLOSS_THEME_URI . '/assets/images/', $inline_css); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
         }
         ?>
     </style>
@@ -22,30 +27,47 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<!-- Header Navbar -->
-<header class="hg-header">
+<?php
+$is_landing = is_front_page();
+$section_url = static function ($section) use ($is_landing) {
+    return $is_landing ? '#' . $section : home_url('/#' . $section);
+};
+?>
+
+<?php if ($is_landing) : ?>
+    <a class="hg-skip-link" href="#main-content"><?php esc_html_e('Przejdź do treści', 'higloss2026'); ?></a>
+<?php endif; ?>
+
+<header class="hg-header" id="siteHeader">
     <div class="hg-container hg-header-inner">
-        <!-- Official Logo Image + Brand Title & Subtitle -->
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" style="display: flex; align-items: center; gap: 0.85rem;">
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS" class="hg-logo-standalone">
-            <div style="display: flex; flex-direction: column; line-height: 1.1; text-align: left;">
-                <span style="font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.15rem; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase;">HI-GLOSSDESIGN</span>
-                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.72rem; color: #94a3b8; margin-top: 2px;">Całościowe oklejanie pojazdów</span>
-            </div>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" aria-label="HI-GLOSS DESIGN — strona główna">
+            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="" class="hg-logo-standalone" width="52" height="52">
+            <span class="hg-brand-copy">
+                <strong>HI-GLOSS<span>DESIGN</span></strong>
+                <small>Car wrapping studio</small>
+            </span>
         </a>
 
-        <!-- Navigation Menu -->
-        <nav class="hg-nav-menu" id="hgNavMenu">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-nav-link">HOME</a>
-            <a href="<?php echo esc_url(home_url('/oferta')); ?>" class="hg-nav-link">OFERTA</a>
-            <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-nav-link">GALERIA</a>
-            <a href="<?php echo esc_url(home_url('/o-firmie')); ?>" class="hg-nav-link">O FIRMIE</a>
-            <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-nav-link">KONTAKT</a>
+        <nav class="hg-nav-menu" id="hgNavMenu" aria-label="Nawigacja główna">
+            <a href="<?php echo esc_url($section_url('oferta')); ?>" class="hg-nav-link">Oferta</a>
+            <a href="<?php echo esc_url($section_url('realizacje')); ?>" class="hg-nav-link">Realizacje</a>
+            <a href="<?php echo esc_url($section_url('o-nas')); ?>" class="hg-nav-link">O nas</a>
+            <a href="<?php echo esc_url($section_url('proces')); ?>" class="hg-nav-link">Proces</a>
+            <a href="<?php echo esc_url($section_url('kontakt')); ?>" class="hg-nav-link">Kontakt</a>
+            <a href="<?php echo esc_url($section_url('wycena')); ?>" class="hg-nav-cta">Bezpłatna wycena <span aria-hidden="true">↗</span></a>
+
+            <div class="hg-nav-socials" role="group" aria-label="Media społecznościowe">
+                <a href="https://www.instagram.com/higlossdesign/" target="_blank" rel="noopener noreferrer" aria-label="Instagram HI-GLOSS DESIGN">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="hg-icon-fill"/></svg>
+                </a>
+                <a href="https://www.facebook.com/Hi-gloss-design-Szczecin-239982882747453/" target="_blank" rel="noopener noreferrer" aria-label="Facebook HI-GLOSS DESIGN">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.2l.8-4h-4V9c0-.7.3-1 1-1Z" class="hg-icon-fill"/></svg>
+                </a>
+            </div>
         </nav>
 
-        <!-- Burger Toggle for Mobile -->
-        <button class="hg-burger-btn" id="hgNavToggle" aria-label="Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <button class="hg-burger-btn" id="hgNavToggle" type="button" aria-label="Otwórz menu" aria-controls="hgNavMenu" aria-expanded="false">
+            <span></span><span></span><span></span>
         </button>
     </div>
 </header>
