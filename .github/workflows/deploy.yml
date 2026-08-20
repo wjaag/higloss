@@ -21,7 +21,7 @@ jobs:
             set ftp:ssl-allow no;
             set ftp:passive-mode true;
             open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' '${{ secrets.FTP_SERVER }}';
-            mirror -R --verbose --no-perms ./ '${{ secrets.FTP_SERVER_DIR || '/htdocs/wp-content/themes/higloss/' }}' \
+            mirror -R --verbose --no-perms --delete ./ '${{ secrets.FTP_SERVER_DIR || '/htdocs/wp-content/themes/higloss/' }}' \
               --exclude-glob .git/ \
               --exclude-glob .github/ \
               --exclude-glob README.md \
