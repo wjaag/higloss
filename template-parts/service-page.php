@@ -18,22 +18,22 @@ $catalog   = array(
     'zmiana-koloru' => array(
         'kicker' => 'Car wrapping',
         'title'  => 'Całościowa zmiana koloru',
-        'img'    => 'ai_oferta_zmiana_koloru.jpg',
+        'img'    => 'ai_oferta_zmiana_koloru.webp',
     ),
     'ppf'           => array(
         'kicker' => 'Paint Protection Film',
         'title'  => 'Bezbarwne folie PPF',
-        'img'    => 'ai_oferta_ppf.jpg',
+        'img'    => 'ai_oferta_ppf.webp',
     ),
     'reklama'       => array(
         'kicker' => 'Fleet branding',
         'title'  => 'Reklama i branding flot',
-        'img'    => 'ai_oferta_reklama.jpg',
+        'img'    => 'ai_oferta_reklama.webp',
     ),
     'detailing'     => array(
         'kicker' => 'Finishing touch',
         'title'  => 'Szyby, dechroming i detailing',
-        'img'    => 'ai_oferta_detailing.jpg',
+        'img'    => 'ai_oferta_detailing.webp',
     ),
 );
 $icons = array(

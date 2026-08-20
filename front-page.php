@@ -14,7 +14,9 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>"
+            srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-1366.webp'); ?> 1366w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-1920.webp'); ?> 1920w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-2560.webp'); ?> 2560w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?> 2816w"
+            sizes="100vw" alt="" width="2816" height="1536" fetchpriority="high">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
 
@@ -80,7 +82,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             <div class="hg-service-grid">
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Samochód po całościowej zmianie koloru folią" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-480.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-768.webp'); ?> 768w" sizes="(max-width: 768px) 92vw, 400px" alt="Samochód po całościowej zmianie koloru folią" width="768" height="419" loading="lazy" decoding="async">
                         <span>01</span>
                         <p>Car wrapping</p>
                     </div>
@@ -155,7 +157,9 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
     <section class="hg-feature-split" id="o-nas" aria-labelledby="about-title">
         <div class="hg-feature-media hg-reveal">
-            <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>" alt="Studio HI-GLOSS DESIGN — praca nad samochodem" width="1408" height="768" loading="lazy">
+            <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>"
+                srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-1366.webp'); ?> 1366w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-1920.webp'); ?> 1920w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-2560.webp'); ?> 2560w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?> 2816w"
+                sizes="(max-width: 900px) 100vw, 55vw" alt="Studio HI-GLOSS DESIGN — praca nad samochodem" width="2816" height="1536" loading="lazy" decoding="async">
             <div class="hg-feature-label"><span>HI-GLOSS STUDIO</span> Szczecin · Mierzyn</div>
         </div>
         <div class="hg-feature-copy">
