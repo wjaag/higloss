@@ -65,8 +65,8 @@ $footer_section_url = static function ($section) use ($is_landing) {
         <div class="hg-footer-bottom">
             <p>&copy; <?php echo esc_html(date('Y')); ?> HI-GLOSS DESIGN. Wszelkie prawa zastrzeżone.</p>
             <p class="hg-footer-meta">
-                <a href="mailto:wjag@onet.pl">Design &amp; code by WJAG</a>
                 <a href="<?php echo esc_url(home_url('/polityka-prywatnosci')); ?>">Polityka prywatności i RODO</a>
+                <a href="mailto:wjag@onet.pl">Design &amp; code by WJAG</a>
             </p>
         </div>
     </div>
