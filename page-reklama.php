@@ -5,84 +5,85 @@
  * @package HiGloss2026
  */
 
+$hg_service = array(
+    'slug'              => 'reklama',
+    'eyebrow'           => 'Fleet branding · Szczecin / Mierzyn',
+    'title_html'        => 'Flota, która<br><span>pracuje na markę.</span>',
+    'lead'              => 'Projekt, druk i aplikacja pod jednym dachem. Od jednego auta firmowego po powtarzalne wdrożenia flotowe — grafika, która jeździ za Ciebie po Szczecinie i regionie.',
+    'hero_image'        => 'ai_oferta_reklama.jpg',
+    'cta_primary'       => 'Wyceń branding floty',
+    'proof'             => array(
+        array('40+', 'aut we flocie<br>DHL Courier'),
+        array('1', 'dach — druk<br>i ploter'),
+        array('15', 'lat obsługi<br>firm'),
+    ),
+    'materials_label'   => 'Nośniki, na których drukujemy i oklejamy',
+    'materials'         => array('ORACAL <b>970</b>', '3M <b>IJ</b>', 'AVERY', 'HEXIS', 'Laminat <b>UV</b>'),
+    'intro_image'       => 'gallery_fleet_commercial.jpg',
+    'intro_image_alt'   => 'Branding floty pojazdów dostawczych',
+    'intro_label'       => array('FLEET STUDIO', 'Szczecin · Mierzyn'),
+    'intro_kicker'      => '01 · Reklama mobilna',
+    'intro_title_html'  => 'Grafika, która<br><span>jedzie do klienta.</span>',
+    'intro_lead'        => 'Samochód firmowy generuje tysiące kontaktów wzrokowych dziennie. Dobrze zaprojektowana i trwale zaaplikowana grafika pracuje dłużej niż jakikolwiek billboard.',
+    'intro_copy'        => array(
+        'W Mierzynie mamy kompletne zaplecze: wielkoformatowe drukarki i precyzyjne plotery tnące. Projektujemy, drukujemy na foliach polimerowych i wylewanych z laminatem UV, a następnie aplikujemy w ogrzewanej hali.',
+        'Obsługiwaliśmy rebranding i stałą grafikę flot m.in. <strong>DHL Courier (40+ pojazdów)</strong>, Warty, Poczty Polskiej i lokalnych MŚP — od banerów po całościowe oklejenie vana.',
+    ),
+    'specs'             => array(
+        'Zaplecze'      => 'Druk i ploter na miejscu',
+        'Doświadczenie' => 'DHL · Warta · MŚP',
+        'Format'        => 'Osobowe i dostawcze',
+        'Proces'        => 'Projekt + druk + montaż',
+        'Trwałość'      => 'Laminat UV, myjnie OK',
+    ),
+    'highlight'         => array(
+        'title' => 'Od pliku do floty',
+        'text'  => 'Nie oddajemy projektu „gdzieś dalej”. Grafika, druk i aplikacja dzieją się tu — dzięki czemu kolory, pasowanie i terminy są pod kontrolą.',
+    ),
+    'packages_kicker'   => '02 · Zakres',
+    'packages_title_html' => 'Jedno auto<br><span>albo czterdzieści.</span>',
+    'packages_lead'     => 'Ten sam rygor jakości — niezależnie, czy oklejamy first car właściciela, czy seryjną dostawę kurierską.',
+    'packages'          => array(
+        array(
+            'icon'  => 'pen',
+            'title' => 'Projekt graficzny',
+            'text'  => 'Identyfikacja na bryłę konkretnego modelu. Czytelna z 20 metrów, zgodna z brandbookiem, gotowa do druku.',
+        ),
+        array(
+            'icon'  => 'layers',
+            'title' => 'Druk i ploter',
+            'text'  => 'Wielki format, precyzyjne cięcie, laminat UV. Folie dobieramy do lakieru, kształtu auta i warunków eksploatacji.',
+        ),
+        array(
+            'icon'  => 'car',
+            'title' => 'Aplikacja seryjna',
+            'text'  => 'Powtarzalny montaż na flocie. Harmonogram, dokumentacja i jednolity efekt na każdym pojeździe.',
+        ),
+    ),
+    'works_kicker'      => '03 · Floty',
+    'works_title_html'  => 'Marki, które<br><span>nam zaufały.</span>',
+    'works_lead'        => 'Seryjne oklejanie, trwałe folie i aplikacja odporna na myjnie ciśnieniowe.',
+    'works'             => array(
+        array('img' => 'gallery_fleet_commercial.jpg', 'before' => 'gallery_fleet_before.jpg', 'meta' => 'Branding flot', 'title' => 'Flota DHL Courier', 'sub' => '40 aut · druk UV · seryjna aplikacja'),
+        array('img' => 'ai_oferta_reklama.jpg', 'before' => 'gallery_fleet_before.jpg', 'meta' => 'Reklama mobilna', 'title' => 'Branding dostawczy', 'sub' => 'Projekt · druk · montaż'),
+        array('img' => 'ai_tile4_kontakt.jpg', 'before' => '', 'meta' => 'Studio', 'title' => 'Zaplecze w Mierzynie', 'sub' => 'Drukarki i plotery na miejscu'),
+    ),
+    'ticker'            => array('Wyróżnij markę', 'Flota', 'Druk UV', 'Aplikacja'),
+    'cta_band_kicker'   => 'Nowa identyfikacja albo kolejne auta do floty?',
+    'cta_band_title'    => 'Zrobimy projekt, druk i montaż u nas.',
+    'faq_kicker'        => '04 · Floty — pytania',
+    'faq'               => array(
+        array('q' => 'Czy projektujecie grafikę od zera?', 'a' => 'Tak. Możemy wyjść od brandbooka albo przygotować kompletny projekt pod konkretny model auta — z makietami i akceptacją przed drukiem.'),
+        array('q' => 'Ile trwa oklejenie jednego vana?', 'a' => 'Po akceptacji projektu druk i aplikacja zajmują zwykle 2–4 dni, w zależności od zakresu (pasy, pół-wrap, full wrap) i liczby pojazdów w serii.'),
+        array('q' => 'Czy folia wytrzyma myjnię i sezon zimowy?', 'a' => 'Stosujemy folie polimerowe i wylewane z laminatem UV. Prawidłowo zaaplikowana grafika znosi myjnie ciśnieniowe, sól i słońce przez lata.'),
+        array('q' => 'Obsługujecie floty poza Szczecinem?', 'a' => 'Tak. Studio jest w Mierzynie, ale regularnie oklejamy pojazdy z całego regionu. Przy większych seriach ustalamy harmonogram odbiorów.'),
+        array('q' => 'Co potrzebujecie do wyceny?', 'a' => 'Model i liczba aut, zakres (np. boki + tył albo całość) oraz pliki identyfikacji, jeśli są. Na tej podstawie przygotujemy wycenę projektu, druku i montażu.'),
+    ),
+    'form_service'      => 'Reklama i branding floty',
+    'quote_kicker'      => '05 · Wycena floty',
+    'quote_lead'        => 'Podaj liczbę i typ pojazdów oraz zakres grafiki. Wrócimy z propozycją projektu, druku i montażu.',
+);
+
 get_header();
-?>
-
-<main style="padding: 7.5rem 0 4rem; flex: 1;">
-    <div class="hg-container">
-        
-        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #ff9900; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_reklama.jpg'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge" style="color: #ff9900; border-color: #ff9900;">REKLAMA MOBILNA &amp; BRANDING FLOT</span>
-                <h1 class="hg-subpage-banner-title">
-                    OKLEJANIE <span style="color: #ff9900;">REKLAMOWE &amp; FLOTY</span>
-                </h1>
-            </div>
-        </div>
-
-        <!-- 2-COLUMN EDITORIAL CONTENT GRID WITH EXPANDED SEO CONTENT -->
-        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 4rem;">
-            
-            <!-- LEFT COLUMN: PROMINENT EXPANDED SEO DESCRIPTION CARD -->
-            <div class="hg-editorial-card" style="--card-accent: #ff9900;">
-                <h2 class="hg-editorial-title" style="border-color: #ff9900;">
-                    Mobilna Reklama Samochodowa w Szczecinie
-                </h2>
-
-                <p class="hg-editorial-paragraph">
-                    Grafika na pojazdach to najskuteczniejsza i najbardziej dochodowa forma mobilnej reklamy wizualnej. Samochód firmowy codziennie generuje tysiące kontaktów wzrokowych z potencjalnymi klientami na ulicach Szczecina i regionu.
-                </p>
-
-                <p class="hg-editorial-paragraph">
-                    W studio **HI-GLOSS DESIGN** posiadamy kompletne zaplecze techniczne pod jednym dachem w Mierzynie: wielkoformatowe drukarki ekologiczne oraz precyzyjne plotery tnące. Braliśmy udział w rebrandingu i stałej obsłudze flot takich korporacji jak:
-                </p>
-
-                <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.15em; color: #ff9900;"><rect x="1.5" y="4" width="14" height="12" rx="1"/><path d="M16 8h4l3 3.5V16h-7V8Z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18.5" cy="19" r="1.8"/></svg> <strong>DHL Courier:</strong> Stałe oklejanie floty ponad 40 pojazdów dostawczych.</li>
-                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.15em; color: #ff9900;"><rect x="1.5" y="4" width="14" height="12" rx="1"/><path d="M16 8h4l3 3.5V16h-7V8Z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18.5" cy="19" r="1.8"/></svg> <strong>Warta &amp; Poczta Polska:</strong> Projekty reklamowe i branding aut służbowych.</li>
-                    <li><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 1.15em; color: #ff9900;"><rect x="1.5" y="4" width="14" height="12" rx="1"/><path d="M16 8h4l3 3.5V16h-7V8Z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18.5" cy="19" r="1.8"/></svg> <strong>Lokalne MŚP:</strong> Kompleksowa grafika od banerów po całościowe oklejenie vana.</li>
-                </ul>
-
-                <div class="hg-editorial-highlight-box" style="--card-accent: #ff9900; background: rgba(255, 153, 0, 0.1);">
-                    <strong style="color: #ff9900; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Od Projektu Do Aplikacji:</strong>
-                    <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">Tworzymy dedykowane projekty graficzne, drukujemy na trwałych foliach polimerowych i wylewanych z laminatem UV oraz nakładamy folie w ogrzewanej hali.</span>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN: STICKY SPECS & CALL CTA CARD -->
-            <div class="hg-specs-cta-card" style="--card-accent: #ff9900;">
-                <h3 class="hg-specs-title" style="border-color: #ff9900;">
-                    SPECYFIKACJA FLOTOWA
-                </h3>
-
-                <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">
-                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
-                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Zaplecze:</span>
-                        <strong style="color: #ff9900; font-size: 1rem;">Druk i Ploter na Miejscu</strong>
-                    </div>
-
-                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
-                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Doświadczenie:</span>
-                        <strong style="color: #ff9900; font-size: 1rem;">DHL (40 aut) / Warta</strong>
-                    </div>
-
-                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
-                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Format:</span>
-                        <strong style="color: #ffffff; font-size: 1rem;">Osobowe &amp; Dostawcze</strong>
-                    </div>
-                </div>
-
-                <!-- CALL CTA BUTTON -->
-                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #ff9900; color: #000000; border: 2px solid #ff9900; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ZADZWOŃ: 605 088 065 <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-                </a>
-            </div>
-
-        </div>
-
-    </div>
-</main>
-
-<?php get_footer(); ?>
+include get_template_directory() . '/template-parts/service-page.php';
+get_footer();

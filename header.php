@@ -34,9 +34,7 @@ $section_url = static function ($section) use ($is_landing) {
 };
 ?>
 
-<?php if ($is_landing) : ?>
-    <a class="hg-skip-link" href="#main-content"><?php esc_html_e('Przejdź do treści', 'higloss2026'); ?></a>
-<?php endif; ?>
+<a class="hg-skip-link" href="#main-content"><?php esc_html_e('Przejdź do treści', 'higloss2026'); ?></a>
 
 <header class="hg-header" id="siteHeader">
     <div class="hg-container hg-header-inner">

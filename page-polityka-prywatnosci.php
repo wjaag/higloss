@@ -6,57 +6,50 @@
  */
 
 get_header();
+$theme_uri = HIGLOSS_THEME_URI;
 ?>
 
-<main style="padding: 7.5rem 0 5rem; flex: 1;">
-    <div class="hg-container">
-
-        <!-- COMPACT HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile2_oferta.jpg'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">DANE OSOBOWE &amp; COOKIES</span>
-                <h1 class="hg-subpage-banner-title">
-                    POLITYKA <span style="color: #25aae1;">PRYWATNOŚCI &amp; RODO</span>
-                </h1>
+<main id="main-content" class="hg-landing">
+    <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.jpg'); ?>" alt="" width="1408" height="768" fetchpriority="high">
+        <div class="hg-hero-shade"></div>
+        <div class="hg-hero-grid" aria-hidden="true"></div>
+        <div class="hg-container hg-hero-inner">
+            <div class="hg-hero-content">
+                <p class="hg-eyebrow hg-reveal"><span></span> Dane osobowe i cookies</p>
+                <h1 id="hero-title" class="hg-hero-title hg-reveal">Polityka<br><span>prywatności.</span></h1>
+                <p class="hg-hero-lead hg-reveal">Jak przetwarzamy dane z formularza wyceny, kontaktów telefonicznych i plików cookies.</p>
             </div>
         </div>
+    </section>
 
-        <div class="hg-editorial-card" style="max-width: 950px; margin: 0 auto;">
-            
-            <h2 class="hg-editorial-title">1. Administrator Danych Osobowych</h2>
-            <p class="hg-editorial-paragraph">
-                Administratorem Danych Osobowych zbieranych za pośrednictwem serwisu internetowego jest firma **HI-GLOSS DESIGN** z siedzibą przy **ul. Podmiejskiej 4, 72-006 Mierzyn / Szczecin**, e-mail: **biuro@hi-glossdesign.pl**, tel: **605 088 065 / 664 129 023**.
-            </p>
+    <section class="hg-section">
+        <div class="hg-container">
+            <article class="hg-legal hg-reveal">
+                <h2>1. Administrator danych osobowych</h2>
+                <p>Administratorem danych zbieranych za pośrednictwem serwisu jest HI-GLOSS DESIGN, ul. Podmiejska 4, 72-006 Mierzyn / Szczecin, e-mail: <a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a>, tel. <a href="tel:+48605088065">605 088 065</a> / <a href="tel:+48664129023">664 129 023</a>.</p>
 
-            <h2 class="hg-editorial-title" style="margin-top: 2.5rem;">2. Cel i Podstawa Prawna Przetwarzania Danych</h2>
-            <p class="hg-editorial-paragraph">
-                Dane osobowe (imię, numer telefonu, adres e-mail, dane pojazdu) przekazywane przez formularze kontaktowe oraz kalkulatory wycen przetwarzane są wyłącznie w celach:
-            </p>
-            <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> Udzielenia odpowiedzi na przesłane zapytanie ofertowe (art. 6 ust. 1 lit. b RODO).</li>
-                <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> Przygotowania indywidualnej kalkulacji kosztów oklejania lub zabezpieczenia PPF.</li>
-                <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> Realizacji usługi oraz wystawienia dokumentów księgowych/gwarancyjnych.</li>
-            </ul>
+                <h2>2. Cel i podstawa prawna przetwarzania</h2>
+                <p>Dane osobowe (imię, numer telefonu, adres e-mail, dane pojazdu) przekazywane przez formularze kontaktowe przetwarzane są wyłącznie w celach:</p>
+                <ul>
+                    <li>udzielenia odpowiedzi na zapytanie ofertowe (art. 6 ust. 1 lit. b RODO),</li>
+                    <li>przygotowania indywidualnej kalkulacji oklejania lub zabezpieczenia PPF,</li>
+                    <li>realizacji usługi oraz wystawienia dokumentów księgowych i gwarancyjnych.</li>
+                </ul>
 
-            <h2 class="hg-editorial-title" style="margin-top: 2.5rem;">3. Pliki Cookies (Ciasteczka)</h2>
-            <p class="hg-editorial-paragraph">
-                Serwis wykorzystuje pliki cookies w celu zapewnienia prawidłowego działania strony, zapamiętywania preferencji użytkownika oraz w celach analitycznych (Google Analytics). Użytkownik ma możliwość w każdej chwili zmienić ustawienia dotyczące plików cookies w swojej przeglądarce internetowej.
-            </p>
+                <h2>3. Pliki cookies</h2>
+                <p>Serwis wykorzystuje pliki cookies w celu zapewnienia prawidłowego działania strony, zapamiętywania preferencji oraz w celach analitycznych. Ustawienia cookies można w każdej chwili zmienić w przeglądarce.</p>
 
-            <h2 class="hg-editorial-title" style="margin-top: 2.5rem;">4. Prawa Użytkownika</h2>
-            <p class="hg-editorial-paragraph">
-                Każdej osobie, której dane dotyczą, przysługuje prawo dostępu do treści swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych oraz prawo wniesienia sprzeciwu. W celu realizacji swoich praw skontaktuj się z nami pod adresem: **biuro@hi-glossdesign.pl**.
-            </p>
+                <h2>4. Prawa użytkownika</h2>
+                <p>Przysługuje prawo dostępu do treści swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia oraz wniesienia sprzeciwu. W celu realizacji praw napisz na <a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a>.</p>
 
-            <div class="hg-editorial-highlight-box" style="margin-top: 2.5rem;">
-                <strong style="color: #25aae1; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem;">Gwarancja Bezpieczeństwa:</strong>
-                <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">Twoje dane nie są udostępniane osobom trzecim ani firmom zewnętrznym w celach marketingowych. Dbam o najwyższy standard ochrony prywatności naszych klientów.</span>
-            </div>
-
+                <div class="hg-svc-note">
+                    <strong>Gwarancja bezpieczeństwa</strong>
+                    <p>Twoje dane nie są udostępniane osobom trzecim w celach marketingowych. Dbamy o standard ochrony prywatności naszych klientów.</p>
+                </div>
+            </article>
         </div>
-
-    </div>
+    </section>
 </main>
 
 <?php get_footer(); ?>
