@@ -66,7 +66,7 @@ $footer_section_url = static function ($section) use ($is_landing) {
             <p>&copy; <?php echo esc_html(date('Y')); ?> HI-GLOSS DESIGN. Wszelkie prawa zastrzeżone.</p>
             <p class="hg-footer-meta">
                 <a href="<?php echo esc_url(home_url('/polityka-prywatnosci')); ?>">Polityka prywatności i RODO</a>
-                Realizacja: <a href="mailto:wjag@onet.pl">Wojciech Jagodzinski</a>
+                <span>Realizacja: <a href="mailto:wjag@onet.pl">Wojciech Jagodzinski</a></span>
             </p>
         </div>
     </div>
