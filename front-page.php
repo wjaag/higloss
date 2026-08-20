@@ -214,25 +214,6 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <p>Każdy projekt ma inny cel, ale ten sam bezkompromisowy standard wykonania. Zobacz zmianę koloru foliami premium, bezbarwną ochronę PPF i identyfikację flotową.</p>
             </header>
 
-            <!-- CATEGORY FILTER PILLS -->
-            <div class="hg-gallery-filter-wrap hg-reveal" role="group" aria-label="Filtry portfolio">
-                <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
-                    <span>Wszystkie</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="zmiana-koloru" aria-pressed="false">
-                    <span>Zmiana Koloru</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="ppf" aria-pressed="false">
-                    <span>Ochrona PPF</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="reklama" aria-pressed="false">
-                    <span>Floty &amp; Reklama</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="detailing" aria-pressed="false">
-                    <span>Detailing</span>
-                </button>
-            </div>
-
             <div class="hg-work-grid">
                 <?php
                 $projects = new WP_Query(array(
