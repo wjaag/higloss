@@ -30,25 +30,6 @@ $theme_uri = get_template_directory_uri();
             </div>
         </div>
 
-        <!-- CATEGORY FILTERS -->
-        <div class="hg-gallery-filter-wrap" role="group" aria-label="Filtry kategorii realizacji">
-            <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
-                <span>Wszystkie</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="zmiana-koloru" aria-pressed="false">
-                <span>Zmiana Koloru</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="ppf" aria-pressed="false">
-                <span>Ochrona PPF</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="reklama" aria-pressed="false">
-                <span>Floty i Reklama</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="detailing" aria-pressed="false">
-                <span>Detailing</span>
-            </button>
-        </div>
-
         <?php if (have_posts()) : ?>
             <div class="hg-gallery-grid">
                 <?php while (have_posts()) : the_post(); 
