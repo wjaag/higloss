@@ -214,28 +214,6 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <p>Każdy projekt ma inny cel, ale ten sam bezkompromisowy standard wykonania. Zobacz zmianę koloru foliami premium, bezbarwną ochronę PPF i identyfikację flotową.</p>
             </header>
 
-            <!-- INTERACTIVE BEFORE/AFTER SLIDER TEASER -->
-            <div class="hg-ba-section hg-reveal" style="margin-bottom: 2.5rem; padding: 2rem; border-radius: 0;">
-                <div class="hg-ba-header">
-                    <div>
-                        <span style="font-size: 0.72rem; font-weight: 800; color: var(--hg-blue); text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 0.3rem;">
-                            EFEKT PRZED I PO · PRZECIĄGNIJ SUWAK
-                        </span>
-                        <h3 style="font-size: 1.4rem;">Metamorfoza: <span>BMW M4 Satin Nero</span></h3>
-                    </div>
-                    <p style="font-size: 0.85rem;">Porównaj seryjny lakier fabryczny z efektem całościowego oklejenia folią Avery Dennison Satin Black i pełnym dechromingiem.</p>
-                </div>
-                <div class="hg-ba-slider-container" style="max-height: 440px;">
-                    <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_before_stock_paint.jpg'); ?>" alt="BMW M4 przed oklejeniem" class="hg-ba-img">
-                    <span class="hg-ba-badge hg-ba-badge-before">PRZED: Lakier seryjny</span>
-                    <div class="hg-ba-after-wrapper">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.jpg'); ?>" alt="BMW M4 po oklejeniu" class="hg-ba-img">
-                        <span class="hg-ba-badge hg-ba-badge-after">PO: Avery Satin Nero Wrap</span>
-                        <div class="hg-ba-handle" aria-hidden="true">&harr;</div>
-                    </div>
-                </div>
-            </div>
-
             <!-- CATEGORY FILTER PILLS -->
             <div class="hg-gallery-filter-wrap hg-reveal" role="group" aria-label="Filtry portfolio">
                 <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
@@ -272,8 +250,20 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $terms = get_the_terms(get_the_ID(), 'kategoria_realizacji');
                         $cat_slug = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
                         $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.jpg';
+                        $before_image_map = array(
+                            'gallery_bmw_m4_satin_black.jpg' => 'gallery_before_stock_paint.jpg',
+                            'gallery_porsche_gt3_green.jpg'  => 'gallery_porsche_gt3_before.jpg',
+                            'gallery_audi_rs6_blue.jpg'      => 'gallery_audi_rs6_before.jpg',
+                            'gallery_mercedes_g63_matt.jpg'  => 'gallery_mercedes_g63_before.jpg',
+                            'gallery_ppf_application.jpg'    => 'gallery_ppf_application_before.jpg',
+                            'ai_oferta_ppf.jpg'              => 'ai_oferta_ppf_before.jpg',
+                            'gallery_fleet_commercial.jpg'   => 'gallery_fleet_before.jpg',
+                            'ai_oferta_detailing.jpg'        => 'ai_oferta_detailing_before.jpg',
+                        );
+                        $thumb_basename = basename(parse_url($thumb, PHP_URL_PATH));
+                        $before_url     = isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '';
                         ?>
-                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model ? $model . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
+                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model ? $model . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
                             <img src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy">
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $projects->current_post + 1)); ?></span>
@@ -294,8 +284,17 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         array('ai_oferta_detailing.jpg', 'Detailing & Detale', 'Dechroming & Przyciemnianie Szyb', 'Shadow Line Gloss Black · Atest Ceramika', 'detailing'),
                     );
                     foreach ($fallback_projects as $index => $project) :
+                        $before_map = array(
+                            'gallery_bmw_m4_satin_black.jpg' => 'gallery_before_stock_paint.jpg',
+                            'gallery_porsche_gt3_green.jpg'  => 'gallery_porsche_gt3_before.jpg',
+                            'gallery_audi_rs6_blue.jpg'      => 'gallery_audi_rs6_before.jpg',
+                            'gallery_ppf_application.jpg'    => 'gallery_ppf_application_before.jpg',
+                            'gallery_fleet_commercial.jpg'   => 'gallery_fleet_before.jpg',
+                            'ai_oferta_detailing.jpg'        => 'ai_oferta_detailing_before.jpg',
+                        );
+                        $before_src = isset($before_map[$project[0]]) ? $theme_uri . '/assets/images/' . $before_map[$project[0]] : '';
                         ?>
-                        <a class="hg-work-card hg-reveal" href="<?php echo esc_url(home_url('/galeria')); ?>" data-category="<?php echo esc_attr($project[4]); ?>" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" data-lightbox-title="<?php echo esc_attr($project[2]); ?>" data-lightbox-meta="<?php echo esc_attr($project[1] . ' · ' . $project[3]); ?>">
+                        <a class="hg-work-card hg-reveal" href="<?php echo esc_url(home_url('/galeria')); ?>" data-category="<?php echo esc_attr($project[4]); ?>" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" data-lightbox-before="<?php echo $before_src ? esc_url($before_src) : ''; ?>" data-lightbox-title="<?php echo esc_attr($project[2]); ?>" data-lightbox-meta="<?php echo esc_attr($project[1] . ' · ' . $project[3]); ?>">
                             <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" alt="<?php echo esc_attr($project[2]); ?>" width="1408" height="768" loading="lazy">
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></span>

@@ -222,71 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initGalleryFilter();
 
     /* ==========================================
-       Universal Interactive Before / After Sliders
-       ========================================== */
-    function initBeforeAfterSliders() {
-        const sliders = document.querySelectorAll('.hg-ba-slider-container, #hgBeforeAfterSlider');
-        sliders.forEach(function (sliderBox) {
-            const afterWrapper = sliderBox.querySelector('.hg-ba-after-wrapper, .hg-slider-after');
-            const handle = sliderBox.querySelector('.hg-ba-handle, .hg-slider-handle');
-            if (!afterWrapper || !handle) return;
-
-            let isDragging = false;
-
-            function updatePosition(clientX) {
-                const rect = sliderBox.getBoundingClientRect();
-                const offsetX = clientX - rect.left;
-                const percent = Math.min(Math.max((offsetX / rect.width) * 100, 0), 100);
-                afterWrapper.style.width = percent + '%';
-                handle.style.left = percent + '%';
-            }
-
-            function onPointerDown(e) {
-                isDragging = true;
-                sliderBox.setPointerCapture(e.pointerId);
-                updatePosition(e.clientX);
-            }
-
-            function onPointerMove(e) {
-                if (!isDragging) return;
-                updatePosition(e.clientX);
-            }
-
-            function onPointerUp(e) {
-                if (isDragging) {
-                    isDragging = false;
-                    try { sliderBox.releasePointerCapture(e.pointerId); } catch (err) {}
-                }
-            }
-
-            sliderBox.addEventListener('pointerdown', onPointerDown);
-            sliderBox.addEventListener('pointermove', onPointerMove);
-            sliderBox.addEventListener('pointerup', onPointerUp);
-            sliderBox.addEventListener('pointercancel', onPointerUp);
-
-            // Accessibility with arrow keys
-            sliderBox.setAttribute('tabindex', '0');
-            sliderBox.setAttribute('role', 'slider');
-            sliderBox.setAttribute('aria-label', 'Suwak porównania Przed i Po metamorfozie');
-            sliderBox.addEventListener('keydown', function (e) {
-                const currentWidth = parseFloat(afterWrapper.style.width) || 50;
-                if (e.key === 'ArrowLeft') {
-                    const newPos = Math.max(currentWidth - 5, 0);
-                    afterWrapper.style.width = newPos + '%';
-                    handle.style.left = newPos + '%';
-                    e.preventDefault();
-                } else if (e.key === 'ArrowRight') {
-                    const newPos = Math.min(currentWidth + 5, 100);
-                    afterWrapper.style.width = newPos + '%';
-                    handle.style.left = newPos + '%';
-                    e.preventDefault();
-                }
-            });
-        });
-    }
-    initBeforeAfterSliders();
-
-    /* ==========================================
        Automotive Lightbox Gallery
        ========================================== */
     function initLightbox() {
@@ -297,18 +232,28 @@ document.addEventListener('DOMContentLoaded', function () {
             lightbox.className = 'hg-lightbox';
             lightbox.setAttribute('role', 'dialog');
             lightbox.setAttribute('aria-modal', 'true');
-            lightbox.setAttribute('aria-label', 'Podgląd zdjęcia realizacji HI-GLOSS DESIGN');
+            lightbox.setAttribute('aria-label', 'Podgląd realizacji HI-GLOSS DESIGN — zdjęcie przed i po');
             lightbox.innerHTML = `
                 <div class="hg-lightbox-topbar">
                     <span class="hg-lightbox-counter" id="hgLightboxCounter">01 / 01</span>
                     <button type="button" class="hg-lightbox-close" id="hgLightboxClose" aria-label="Zamknij podgląd">&times;</button>
                 </div>
                 <div class="hg-lightbox-main">
-                    <button type="button" class="hg-lightbox-nav hg-lightbox-prev" id="hgLightboxPrev" aria-label="Poprzednie zdjęcie">&#10094;</button>
+                    <button type="button" class="hg-lightbox-nav hg-lightbox-prev" id="hgLightboxPrev" aria-label="Poprzednia realizacja">&#10094;</button>
                     <div class="hg-lightbox-img-wrap">
-                        <img src="" alt="" class="hg-lightbox-img" id="hgLightboxImg">
+                        <div class="hg-lightbox-pair" id="hgLightboxPair">
+                            <figure class="hg-lightbox-side hg-lightbox-before">
+                                <img src="" alt="" class="hg-lightbox-img" id="hgLightboxBeforeImg">
+                                <figcaption>PRZED</figcaption>
+                            </figure>
+                            <span class="hg-lightbox-vs" aria-hidden="true">&#8594;</span>
+                            <figure class="hg-lightbox-side hg-lightbox-after">
+                                <img src="" alt="" class="hg-lightbox-img" id="hgLightboxImg">
+                                <figcaption>PO</figcaption>
+                            </figure>
+                        </div>
                     </div>
-                    <button type="button" class="hg-lightbox-nav hg-lightbox-next" id="hgLightboxNext" aria-label="Następne zdjęcie">&#10095;</button>
+                    <button type="button" class="hg-lightbox-nav hg-lightbox-next" id="hgLightboxNext" aria-label="Następna realizacja">&#10095;</button>
                 </div>
                 <div class="hg-lightbox-bottom">
                     <div class="hg-lightbox-info">
@@ -322,6 +267,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const imgEl = document.getElementById('hgLightboxImg');
+        const beforeImgEl = document.getElementById('hgLightboxBeforeImg');
+        const pairEl = document.getElementById('hgLightboxPair');
         const titleEl = document.getElementById('hgLightboxTitle');
         const metaEl = document.getElementById('hgLightboxMeta');
         const counterEl = document.getElementById('hgLightboxCounter');
@@ -351,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const target = currentGalleryItems[currentIndex];
             const imgSrc = target.getAttribute('data-lightbox-img') || target.getAttribute('src');
+            const beforeSrc = target.getAttribute('data-lightbox-before') || '';
             const title = target.getAttribute('data-lightbox-title') || target.getAttribute('alt') || 'Realizacja HI-GLOSS DESIGN';
             const meta = target.getAttribute('data-lightbox-meta') || 'Car wrapping · Folie PPF · Mierzyn';
             const quoteLink = target.getAttribute('data-lightbox-link') || '#wycena';
@@ -360,6 +308,16 @@ document.addEventListener('DOMContentLoaded', function () {
             titleEl.textContent = title;
             metaEl.textContent = meta;
             counterEl.textContent = (currentIndex + 1 < 10 ? '0' : '') + (currentIndex + 1) + ' / ' + (currentGalleryItems.length < 10 ? '0' : '') + currentGalleryItems.length;
+
+            if (beforeSrc) {
+                beforeImgEl.src = beforeSrc;
+                beforeImgEl.alt = 'Przed realizacją: ' + title;
+                pairEl.classList.add('has-before');
+            } else {
+                beforeImgEl.removeAttribute('src');
+                beforeImgEl.removeAttribute('alt');
+                pairEl.classList.remove('has-before');
+            }
 
             if (ctaBtn) {
                 ctaBtn.href = quoteLink;
