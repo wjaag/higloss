@@ -232,14 +232,14 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $cat_slug = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
                         $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp';
                         $before_image_map = array(
-                            'gallery_bmw_m4_satin_black.jpg' => 'gallery_before_stock_paint.jpg',
-                            'gallery_porsche_gt3_green.jpg'  => 'gallery_porsche_gt3_before.jpg',
-                            'gallery_audi_rs6_blue.jpg'      => 'gallery_audi_rs6_before.jpg',
-                            'gallery_mercedes_g63_matt.jpg'  => 'gallery_mercedes_g63_before.jpg',
-                            'gallery_ppf_application.jpg'    => 'gallery_ppf_application_before.jpg',
-                            'ai_oferta_ppf.jpg'              => 'ai_oferta_ppf_before.jpg',
-                            'gallery_fleet_commercial.jpg'   => 'gallery_fleet_before.jpg',
-                            'ai_oferta_detailing.jpg'        => 'ai_oferta_detailing_before.jpg',
+                            'gallery_bmw_m4_satin_black.webp' => 'gallery_before_stock_paint.webp',
+                            'gallery_porsche_gt3_green.webp'  => 'gallery_porsche_gt3_before.webp',
+                            'gallery_audi_rs6_blue.webp'      => 'gallery_audi_rs6_before.webp',
+                            'gallery_mercedes_g63_matt.webp'  => 'gallery_mercedes_g63_before.webp',
+                            'gallery_ppf_application.webp'    => 'gallery_ppf_application_before.webp',
+                            'ai_oferta_ppf.webp'              => 'ai_oferta_ppf_before.webp',
+                            'gallery_fleet_commercial.webp'   => 'gallery_fleet_before.webp',
+                            'ai_oferta_detailing.webp'        => 'ai_oferta_detailing_before.webp',
                         );
                         $thumb_basename = basename(parse_url($thumb, PHP_URL_PATH));
                         $before_url     = isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '';
@@ -257,21 +257,21 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     wp_reset_postdata();
                 else :
                     $fallback_projects = array(
-                        array('gallery_bmw_m4_satin_black.jpg', 'Zmiana koloru', 'BMW M4 Coupe — Satin Nero', 'Folia Avery SWF · Satyna · Szczecin', 'zmiana-koloru'),
-                        array('gallery_porsche_gt3_green.jpg', 'Zmiana koloru', 'Porsche 911 GT3 RS — Racing Green', 'Inozetek / 3M 2080 · Satynowa zieleń', 'zmiana-koloru'),
-                        array('gallery_audi_rs6_blue.jpg', 'Zmiana koloru', 'Audi RS6 Avant — Miami Blue', '3M 2080 Gloss + Dechroming Black Optics', 'zmiana-koloru'),
-                        array('gallery_ppf_application.jpg', 'Folia ochronna PPF', 'Full Front PPF — Samoregeneracja', 'STEK DYNOshield 180µm · 10 lat gwarancji', 'ppf'),
-                        array('gallery_fleet_commercial.jpg', 'Branding flot', 'Flota DHL Express — 40 Aut', 'Projekt · Druk UV · Aplikacja seryjna', 'reklama'),
-                        array('ai_oferta_detailing.jpg', 'Detailing & Detale', 'Dechroming & Przyciemnianie Szyb', 'Shadow Line Gloss Black · Atest Ceramika', 'detailing'),
+                        array('gallery_bmw_m4_satin_black.webp', 'Zmiana koloru', 'BMW M4 Coupe — Satin Nero', 'Folia Avery SWF · Satyna · Szczecin', 'zmiana-koloru'),
+                        array('gallery_porsche_gt3_green.webp', 'Zmiana koloru', 'Porsche 911 GT3 RS — Racing Green', 'Inozetek / 3M 2080 · Satynowa zieleń', 'zmiana-koloru'),
+                        array('gallery_audi_rs6_blue.webp', 'Zmiana koloru', 'Audi RS6 Avant — Miami Blue', '3M 2080 Gloss + Dechroming Black Optics', 'zmiana-koloru'),
+                        array('gallery_ppf_application.webp', 'Folia ochronna PPF', 'Full Front PPF — Samoregeneracja', 'STEK DYNOshield 180µm · 10 lat gwarancji', 'ppf'),
+                        array('gallery_fleet_commercial.webp', 'Branding flot', 'Flota DHL Express — 40 Aut', 'Projekt · Druk UV · Aplikacja seryjna', 'reklama'),
+                        array('ai_oferta_detailing.webp', 'Detailing & Detale', 'Dechroming & Przyciemnianie Szyb', 'Shadow Line Gloss Black · Atest Ceramika', 'detailing'),
                     );
                     foreach ($fallback_projects as $index => $project) :
                         $before_map = array(
-                            'gallery_bmw_m4_satin_black.jpg' => 'gallery_before_stock_paint.jpg',
-                            'gallery_porsche_gt3_green.jpg'  => 'gallery_porsche_gt3_before.jpg',
-                            'gallery_audi_rs6_blue.jpg'      => 'gallery_audi_rs6_before.jpg',
-                            'gallery_ppf_application.jpg'    => 'gallery_ppf_application_before.jpg',
-                            'gallery_fleet_commercial.jpg'   => 'gallery_fleet_before.jpg',
-                            'ai_oferta_detailing.jpg'        => 'ai_oferta_detailing_before.jpg',
+                            'gallery_bmw_m4_satin_black.webp' => 'gallery_before_stock_paint.webp',
+                            'gallery_porsche_gt3_green.webp'  => 'gallery_porsche_gt3_before.webp',
+                            'gallery_audi_rs6_blue.webp'      => 'gallery_audi_rs6_before.webp',
+                            'gallery_ppf_application.webp'    => 'gallery_ppf_application_before.webp',
+                            'gallery_fleet_commercial.webp'   => 'gallery_fleet_before.webp',
+                            'ai_oferta_detailing.webp'        => 'ai_oferta_detailing_before.webp',
                         );
                         $before_src = isset($before_map[$project[0]]) ? $theme_uri . '/assets/images/' . $before_map[$project[0]] : '';
                         ?>
