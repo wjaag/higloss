@@ -5,85 +5,78 @@
  * @package HiGloss2026
  */
 
-$hg_service = array(
-    'slug'              => 'detailing',
-    'eyebrow'           => 'Szyby · Dechroming · Detale · Szczecin',
-    'title_html'        => 'Detale, które<br><span>domykają auto.</span>',
-    'lead'              => 'Przyciemnianie szyb atestowanymi foliami, sportowy Shadow Line i oklejanie wnętrza. Precyzja, której nie widać z daleka — i która robi różnicę z bliska.',
-    'hero_image'        => 'ai_oferta_detailing.jpg',
-    'cta_primary'       => 'Zaplanuj zakres prac',
-    'proof'             => array(
-        array('99%', 'redukcji<br>promieni UV'),
-        array('1', 'dzień<br>typowego zakresu'),
-        array('ISiC', 'atest<br>na szyby'),
-    ),
-    'materials_label'   => 'Folie i wykończenia detali',
-    'materials'         => array('3M <b>2080</b>', 'CERAMIC <b>IR</b>', 'SHADOW <b>LINE</b>', 'GLOSS', 'SATIN'),
-    'intro_image'       => 'ai_oferta_detailing.jpg',
-    'intro_image_alt'   => 'Dechroming i przyciemnianie szyb',
-    'intro_label'       => array('DETAIL STUDIO', 'Szczecin · Mierzyn'),
-    'intro_kicker'      => '01 · Finishing touch',
-    'intro_title_html'  => 'Czerń, cień<br><span>i komfort.</span>',
-    'intro_lead'        => 'Przyciemniamy szyby atestowanymi foliami ceramicznymi i piecowymi. Redukujemy nagrzewanie, blokujemy do 99% UV i dodajemy prywatności — legalnie.',
-    'intro_copy'        => array(
-        'Robimy też <strong>dechroming (Shadow Line)</strong> — oklejamy chromowane listwy wokół szyb, grill, lusterka i dyfuzory na wysoki połysk albo głęboką satynową czerń. Auto staje się spokojniejsze i bardziej sportowe.',
-        'Na wybraną usługę przyciemniania wydajemy atest Instytutu Szkła i Ceramiki. Spokój na przeglądzie i kontroli — w standardzie.',
-    ),
-    'specs'             => array(
-        'Szyby'        => 'Folie ceramiczne z atestem',
-        'Dechroming'   => 'Shadow Line gloss / satin',
-        'Czas usługi'  => 'Zwykle 1 dzień',
-        'Ochrona UV'   => 'Do 99%',
-        'Wnętrze'      => 'Oklejanie detali i paneli',
-    ),
-    'highlight'         => array(
-        'title' => 'Atest ISiC w cenie spokoju',
-        'text'  => 'Na przyciemnianie szyb wydajemy oficjalny atest homologacyjny. Legalność nie jest dodatkiem — jest częścią usługi.',
-    ),
-    'packages_kicker'   => '02 · Zakres',
-    'packages_title_html' => 'Szyby, czerń<br><span>i wnętrze.</span>',
-    'packages_lead'     => 'Możesz zamówić jedną usługę albo zestawić je z wrappingiem i PPF. Wszystko robimy w tej samej hali.',
-    'packages'          => array(
-        array(
-            'icon'  => 'sun',
-            'title' => 'Przyciemnianie szyb',
-            'text'  => 'Folie ceramiczne i piecowe z filtrem IR. Mniej żaru w kabinie, więcej prywatności, atest ISiC.',
-        ),
-        array(
-            'icon'  => 'pen',
-            'title' => 'Dechroming',
-            'text'  => 'Listwy, grill, lusterka, dyfuzor. Połysk albo satyna — Shadow Line, który spina całą sylwetkę.',
-        ),
-        array(
-            'icon'  => 'layers',
-            'title' => 'Wnętrze i detale',
-            'text'  => 'Oklejanie paneli, pian, lusterek wewnętrznych. Spójny charakter kabiny z resztą projektu.',
-        ),
-    ),
-    'works_kicker'      => '03 · Detale',
-    'works_title_html'  => 'Czerń, która<br><span>porządkuje bryłę.</span>',
-    'works_lead'        => 'Dechroming i szyby często zamykają większy projekt wrappingu. Zdarza się, że są jedyną zmianą — i wystarczą.',
-    'works'             => array(
-        array('img' => 'ai_oferta_detailing.jpg', 'before' => 'ai_oferta_detailing_before.jpg', 'meta' => 'Detailing & detale', 'title' => 'Dechroming & szyby', 'sub' => 'Shadow Line · atest ceramika'),
-        array('img' => 'gallery_audi_rs6_blue.jpg', 'before' => 'gallery_audi_rs6_before.jpg', 'meta' => 'Black Optics', 'title' => 'Audi RS6 Avant', 'sub' => 'Dechroming + wrapping'),
-        array('img' => 'gallery_bmw_m4_satin_black.jpg', 'before' => 'gallery_before_stock_paint.jpg', 'meta' => 'Detale', 'title' => 'BMW M4 Coupe', 'sub' => 'Listwy i klamki w jednym tonie'),
-    ),
-    'ticker'            => array('Shadow Line', 'Szyby', 'Atest', 'Detale'),
-    'cta_band_kicker'   => 'Chcesz przyciemnić szyby albo zgasić chrom?',
-    'cta_band_title'    => 'Zrobimy to w jeden dzień — z atestem.',
-    'faq_kicker'        => '04 · Pytania',
-    'faq'               => array(
-        array('q' => 'Czy przyciemnianie szyb jest legalne?', 'a' => 'Tak, przy zachowaniu wymaganych wartości przepuszczalności i z atestem. Na wybraną usługę wydajemy atest ISiC, który okazujesz na przeglądzie i kontroli.'),
-        array('q' => 'Ile trwa dechroming?', 'a' => 'Typowy zakres (listwy okienne, lusterka) zamykamy w jeden dzień roboczy. Większy Shadow Line z grillem i dyfuzorem ustalamy indywidualnie.'),
-        array('q' => 'Połysk czy satyna na listwach?', 'a' => 'Połysk jest bliższy lakierowi piano black, satyna — nowszym pakietom Shadow Line. Dobieramy do reszty auta i ewentualnej folii na nadwoziu.'),
-        array('q' => 'Czy folia na szybach redukuje ciepło?', 'a' => 'Folie ceramiczne z filtrem IR wyraźnie ograniczają nagrzewanie kabiny i blokują do 99% UV. To nie tylko wygląd — to komfort jazdy latem.'),
-        array('q' => 'Da się połączyć z wrappingiem?', 'a' => 'Tak. Najczęściej dechroming i szyby zamykają zmianę koloru albo PPF. Robimy to w tej samej pracowni, w spójnym terminie.'),
-    ),
-    'form_service'      => 'Przyciemnianie szyb / dechroming',
-    'quote_kicker'      => '05 · Wycena detali',
-    'quote_lead'        => 'Napisz model auta i zakres: szyby, listwy, grill, wnętrze. Wrócimy z wyceną i terminem.',
-);
-
 get_header();
-include get_template_directory() . '/template-parts/service-page.php';
-get_footer();
+?>
+
+<main style="padding: 7.5rem 0 4rem; flex: 1;">
+    <div class="hg-container">
+        
+        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #ff0055; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>');">
+            <div class="hg-subpage-banner-vignette"></div>
+            <div class="hg-subpage-banner-content">
+                <span class="hg-subpage-banner-badge" style="color: #ff0055; border-color: #ff0055;">PRZYCIEMNIANIE SZYB &amp; DECHROMING SZCZECIN</span>
+                <h1 class="hg-subpage-banner-title">
+                    DETAILING &amp; <span style="color: #ff0055;">PRZYCIEMNIANIE SZYB</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- 2-COLUMN EDITORIAL CONTENT GRID WITH EXPANDED SEO CONTENT -->
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 4rem;">
+            
+            <!-- LEFT COLUMN: PROMINENT EXPANDED SEO DESCRIPTION CARD -->
+            <div class="hg-editorial-card" style="--card-accent: #ff0055;">
+                <h2 class="hg-editorial-title">
+                    Szyby i dechroming
+                </h2>
+
+                <p class="hg-editorial-paragraph">
+                    Oferujemy profesjonalne przyciemnianie szyb samochodowych atestowanymi foliami ceramicznymi i piecowymi. Folia redukuje nagrzewanie się wnętrza pojazdu w upalne dni, blokuje do 99% szkodliwego promieniowania UV oraz zapewnia prywatność i bezpieczeństwo pasażerów.
+                </p>
+
+                <p class="hg-editorial-paragraph">
+                    Specjalizujemy się także w usłudze <strong>Dechromingu (Shadow Line)</strong> – oklejaniu chromowanych listew wokół szyb, grilla, lusterek i dyfuzorów na wysoki połysk lub głęboką satynową czerń. Zmienia to wygląd każdego auta na bardziej sportowy i drapieżny.
+                </p>
+
+                <div class="hg-editorial-highlight-box" style="--card-accent: #ff0055; background: rgba(255, 0, 85, 0.1);">
+                    <strong style="color: #ff0055; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Atest Instytutu Szkła i Ceramiki (ISiC):</strong>
+                    <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">Na wybraną usługę przyciemniania szyb wydajemy oficjalny atest homologacyjny, gwarantujący 100% legalności i spokój podczas przeglądów i kontroli drogowych.</span>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: STICKY SPECS & CALL CTA CARD -->
+            <div class="hg-specs-cta-card" style="--card-accent: #ff0055;">
+                <h3 class="hg-specs-title" style="border-color: #ff0055;">
+                    SPECYFIKACJA DETAILINGU
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Szyby:</span>
+                        <strong style="color: #ff0055; font-size: 1rem;">Folie Ceramiczne z Atestem</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Dechroming:</span>
+                        <strong style="color: #ff0055; font-size: 1rem;">Shadow Line Black Gloss/Satin</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Czas Usługi:</span>
+                        <strong style="color: #ffffff; font-size: 1rem;">1 Dzień Roboczy</strong>
+                    </div>
+                </div>
+
+                <!-- CALL CTA BUTTON -->
+                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #ff0055; color: #ffffff; border: 2px solid #ff0055; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
+                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ZADZWOŃ: 605 088 065 <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<?php get_footer(); ?>

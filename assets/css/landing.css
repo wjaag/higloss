@@ -3449,3 +3449,17 @@ body:not(.home) .hg-footer-main {
 .hg-accordion details > div {
   overflow: hidden;
 }
+
+/* Subpage card headings: no caps, no stroke, no 3D shadow. */
+.hg-editorial-title,
+.hg-specs-title,
+.hg-editorial-title span,
+.hg-specs-title span {
+  color: #f7fafc !important;
+  text-transform: none !important;
+  letter-spacing: -0.04em !important;
+  line-height: 1.2 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  paint-order: normal;
+}

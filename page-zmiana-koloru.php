@@ -5,95 +5,91 @@
  * @package HiGloss2026
  */
 
-$hg_service = array(
-    'slug'              => 'zmiana-koloru',
-    'eyebrow'           => 'Car wrapping · Szczecin / Mierzyn',
-    'title_html'        => 'Nowy kolor.<br><span>Ten sam lakier.</span>',
-    'lead'              => 'Całościowe oklejanie foliami wylewanymi premium — odwracalna alternatywa dla lakierowania. Połysk, satyna, mat, carbon i kameleon. Auta, motocykle i łodzie.',
-    'hero_image'        => 'ai_oferta_zmiana_koloru.jpg',
-    'cta_primary'       => 'Zapytaj o zmianę koloru',
-    'proof'             => array(
-        array('3–5', 'dni<br>realizacji'),
-        array('5–7', 'lat gwarancji<br>producenta'),
-        array('15', 'lat praktyki<br>w studio'),
-    ),
-    'materials_label'   => 'Folie wylewane, na których pracujemy',
-    'materials'         => array('3M <b>2080</b>', 'AVERY <b>DENNISON</b>', 'HEXIS', 'KPMF', 'ORACAL', 'INOZETEK'),
-    'intro_image'       => 'gallery_bmw_m4_satin_black.jpg',
-    'intro_image_alt'   => 'BMW M4 po całościowej zmianie koloru',
-    'intro_label'       => array('WRAP STUDIO', 'Szczecin · Mierzyn'),
-    'intro_kicker'      => '01 · Zmiana koloru',
-    'intro_title_html'  => 'Sztuka oklejania<br><span>w Mierzynie.</span>',
-    'intro_lead'        => 'HI-GLOSS DESIGN specjalizuje się w całościowym oklejaniu samochodów foliami wylewanymi. Szybka zmiana charakteru auta — bez trwałego lakierowania.',
-    'intro_copy'        => array(
-        'Oklejamy samochody osobowe, sportowe, limuzyny, motocykle i łodzie. Pracujemy wyłącznie na certyfikowanych foliach: <strong>3M 2080, Avery Dennison Supreme, Hexis Skintac, KPMF i Oracal</strong>.',
-        'Przed aplikacją demontujemy klamki, lampy, zderzaki i lusterka, gdy projekt tego wymaga. Folia jest zawijana głęboko do wnętrza elementu — bez odklejających się krawędzi. W cenie wykonujemy też drobne przygotowanie lakieru.',
-    ),
-    'specs'             => array(
-        'Czas realizacji' => '3–5 dni roboczych',
-        'Gwarancja'       => '5–7 lat producenta',
-        'Folie'           => '3M 2080 / Avery Supreme',
-        'Aplikacja'       => 'Ogrzewana hala, Mierzyn',
-        'Zakres'          => 'Auta · motocykle · łodzie',
-    ),
-    'highlight'         => array(
-        'title' => 'Detal i demontaż jak w lakierni',
-        'text'  => 'Krawędzie zawijamy, nie obcinamy na styk. Tam, gdzie trzeba, przygotowujemy lakier — bo końcowy efekt nie może być dziełem przypadku.',
-    ),
-    'packages_kicker'   => '02 · Zakres prac',
-    'packages_title_html' => 'Od koncepcji<br><span>do krawędzi.</span>',
-    'packages_lead'     => 'Pełna zmiana koloru, akcenty i ochrona newralgicznych stref. Jeden zespół, jedna hala, jeden standard.',
-    'packages'          => array(
-        array(
-            'icon'  => 'layers',
-            'title' => 'Całe nadwozie',
-            'text'  => 'Kompletna zmiana koloru z demontażem i zawinięciem krawędzi. Efekt bliski nowemu lakierowi — w pełni odwracalny.',
-        ),
-        array(
-            'icon'  => 'pen',
-            'title' => 'Akcenty i dach',
-            'text'  => 'Dach, lusterka, spoilery, progi i detale. Subtelna zmiana charakteru albo sportowy kontrast do reszty auta.',
-        ),
-        array(
-            'icon'  => 'shield',
-            'title' => 'Kolor + PPF',
-            'text'  => 'Folia kolorowa na karoserii i bezbarwna ochrona na froncie. Wygląd, którego chcesz — i tarcza, której lakier potrzebuje.',
-        ),
-    ),
-    'chips_kicker'      => '03 · Wykończenia',
-    'chips_title_html'  => 'Faktura, która<br><span>zmienia auto.</span>',
-    'chips_lead'        => 'Dobieramy nie tylko kolor. Połysk, satyna, mat, struktura i kameleon — każdy daje inny charakter w ruchu i na parkingu.',
-    'chips'             => array(
-        array('title' => 'Głęboki połysk', 'text' => 'Efekt świeżo wylanego lakieru o lustrzanej głębi. Najbliżej fabrycznego high-gloss.'),
-        array('title' => 'Aksamitna satyna', 'text' => 'Jedwabisty połysk na przetłoczeniach. Ulubiony wybór aut luksusowych i GT.'),
-        array('title' => 'Surowy mat', 'text' => 'Rasowy, sportowy wygląd. Zero refleksów, maksimum obecności na drodze.'),
-        array('title' => 'Carbon 3D & Monza', 'text' => 'Wyczuwalna struktura włókna na dach, maskę, lusterka albo wybrane panele.'),
-        array('title' => 'Kameleon', 'text' => 'Barwa zmienia się z kątem światła. Dla projektów, które mają się wyróżniać.'),
-    ),
-    'works_kicker'      => '04 · Realizacje',
-    'works_title_html'  => 'Kolor, który<br><span>zostaje w pamięci.</span>',
-    'works_lead'        => 'BMW, Porsche, Audi — ten sam rygor krawędzi i dobór folii do bryły auta.',
-    'works'             => array(
-        array('img' => 'gallery_bmw_m4_satin_black.jpg', 'before' => 'gallery_before_stock_paint.jpg', 'meta' => 'Zmiana koloru', 'title' => 'BMW M4 Coupe', 'sub' => 'Avery Satin Nero · Dechroming'),
-        array('img' => 'gallery_porsche_gt3_green.jpg', 'before' => 'gallery_porsche_gt3_before.jpg', 'meta' => 'Zmiana koloru', 'title' => 'Porsche 911 GT3 RS', 'sub' => 'British Racing Green satyna'),
-        array('img' => 'gallery_audi_rs6_blue.jpg', 'before' => 'gallery_audi_rs6_before.jpg', 'meta' => 'Zmiana koloru', 'title' => 'Audi RS6 Avant', 'sub' => 'Gloss Miami Blue + Black Optics'),
-    ),
-    'ticker'            => array('Zmień kolor', 'Satyna', 'Połysk', 'Mat', 'Kameleon'),
-    'cta_band_kicker'   => 'Widzisz już ten kolor na swoim aucie?',
-    'cta_band_title'    => 'Sprawdźmy folię, termin i zakres.',
-    'faq_kicker'        => '05 · Pytania o wrapping',
-    'faq'               => array(
-        array('q' => 'Czy folia do zmiany koloru chroni lakier?', 'a' => 'Stanowi dodatkową warstwę i ogranicza drobne uszkodzenia, jednak do ochrony przed kamieniami i głębszymi zarysowaniami przeznaczona jest grubsza, poliuretanowa folia PPF.'),
-        array('q' => 'Jak długo trwa oklejenie całego auta?', 'a' => 'Standardowa zmiana koloru zajmuje 3–5 dni roboczych. Termin zależy od wielkości auta, zakresu demontażu i wybranego materiału.'),
-        array('q' => 'Czy folię można później bezpiecznie usunąć?', 'a' => 'Tak. Prawidłowo zaaplikowana folia renomowanego producenta schodzi bez naruszania fabrycznego lakieru, o ile lakier był w dobrym stanie i nie był naprawiany niezgodnie ze sztuką.'),
-        array('q' => 'Jakie wykończenie wybrać?', 'a' => 'Połysk jest najbliższy lakierowi, satyna dodaje szlachetności, mat — ostrości. Na konsultacji pokażemy próbki na Twoim kolorze bazowym i w świetle dziennym.'),
-        array('q' => 'Czy oklejacie też motocykle i łodzie?', 'a' => 'Tak. Pracujemy na samochodach, motocyklach i łodziach motorowych — w tej samej ogrzewanej hali i na tych samych systemach folii.'),
-    ),
-    'form_service'      => 'Całościowa zmiana koloru',
-    'quote_kicker'      => '06 · Wycena koloru',
-    'quote_lead'        => 'Napisz markę, model i kierunek koloru albo faktury. Wrócimy z propozycją folii i terminem.',
-);
-
 get_header();
-include get_template_directory() . '/template-parts/service-page.php';
-get_footer();
+?>
+
+<main style="padding: 7.5rem 0 4rem; flex: 1;">
+    <div class="hg-container">
+        
+        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru.jpg'); ?>');">
+            <div class="hg-subpage-banner-vignette"></div>
+            <div class="hg-subpage-banner-content">
+                <span class="hg-subpage-banner-badge">CAR WRAPPING &amp; TUNING OPTYCZNY SZCZECIN - MIERZYN</span>
+                <h1 class="hg-subpage-banner-title">
+                    CAŁOŚCIOWA <span style="color: #25aae1;">ZMIANA KOLORU AUTA</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- 2-COLUMN EDITORIAL CONTENT GRID WITH EXPANDED SEO CONTENT -->
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 3.5rem;">
+            
+            <!-- LEFT COLUMN: PROMINENT EXPANDED SEO DESCRIPTION CARD -->
+            <div class="hg-editorial-card" style="--card-accent: #25aae1;">
+                <h2 class="hg-editorial-title">
+                    Sztuka zmiany koloru
+                </h2>
+
+                <p class="hg-editorial-paragraph">
+                    Firma <strong>HI-GLOSS DESIGN</strong> ze Szczecina i Mierzyna specjalizuje się w profesjonalnym, całościowym oklejaniu samochodów foliami wylewanymi premium. Oklejanie aut to najnowocześniejsza, w pełni odwracalna metoda pozwalająca na szybką zmianę koloru karoserii bez konieczności kosztownego i trwałego lakierowania pojazdu.
+                </p>
+
+                <p class="hg-editorial-paragraph">
+                    Oklejamy samochody osobowe, sportowe, limuzyny, motocykle oraz łodzie motorowe. W naszej pracy wykorzystujemy wyłącznie certyfikowane folie wylewane uznanych marek światowych: <strong>3M 2080 Series, Avery Dennison Supreme Wrapping Film, Hexis Skintac, KPMF oraz Oracal</strong>. Oferujemy nieograniczony wybór wykończeń:
+                </p>
+
+                <ul style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Głęboki Połysk (Gloss)</strong> – efekt świeżo wylanego lakieru o lustrzanej głębi.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Aksamitna Satyna (Satin)</strong> – jedwabisty połysk na przetłoczeniach, ulubiony wybór dla aut luksusowych.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Surowy Mat (Matte)</strong> – rasowy, sportowy wygląd wyróżniający auto na szosie.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Carbon 3D &amp; Monza</strong> – wyczuwalna struktura włókna węglowego na dach, maskę lub lusterka.</li>
+                    <li><svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 0.55em; color: #25aae1;"><path d="M12 5l7 7-7 7-7-7 7-7Z"/></svg> <strong>Kameleon &amp; Satin Shimmer</strong> – zmysłowa zmiana barwy w zależności od kąta padania światła.</li>
+                </ul>
+
+                <div class="hg-editorial-highlight-box" style="--card-accent: #25aae1;">
+                    <strong style="color: #25aae1; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">Dbałość O Każdy Detal &amp; Demontaż Elementów:</strong>
+                    <span style="color: #ffffff; font-size: 0.98rem; line-height: 1.65; display: block;">W celu uzyskania perfekcyjnego efektu fabrycznego, przed aplikacją folii demontujemy klamki, lampy, zderzaki oraz lusterka. Folia zawijana jest głęboko do wnętrza elementu, co eliminuje ryzyko jakiegokolwiek odklejania krawędzi. Co więcej – wykonujemy też drobne naprawy blacharsko-lakiernicze przygotowujące lakier w cenie usługi!</span>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: STICKY SPECS & CALL CTA CARD -->
+            <div class="hg-specs-cta-card" style="--card-accent: #25aae1;">
+                <h3 class="hg-specs-title">
+                    Specyfikacja
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Czas Realizacji:</span>
+                        <strong style="color: #25aae1; font-size: 1rem;">3 - 5 Dni Roboczych</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Gwarancja:</span>
+                        <strong style="color: #25aae1; font-size: 1rem;">5 - 7 Lat Producenta</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Używane Folie:</span>
+                        <strong style="color: #ffffff; font-size: 1rem;">3M 2080 / Avery Supreme</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                        <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Aplikacja:</span>
+                        <strong style="color: #ffffff; font-size: 1rem;">Ogrzewana Hala Mierzyn</strong>
+                    </div>
+                </div>
+
+                <!-- CALL CTA BUTTON -->
+                <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn" style="background: #25aae1; color: #000000; border: 2px solid #25aae1; width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 900; text-align: center; padding: 1.1rem;">
+                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> ZADZWOŃ I ZAPYTAJ O WYCENĘ <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<?php get_footer(); ?>
