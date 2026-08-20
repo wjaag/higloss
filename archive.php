@@ -12,7 +12,7 @@ get_header();
     <div class="hg-container">
 
         <!-- COMPACT HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile2_oferta.jpg'); ?>');">
+        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile2_oferta.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
                 <span class="hg-subpage-banner-badge">ARCHIWUM STUDIO HI-GLOSS</span>

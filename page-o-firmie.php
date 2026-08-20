@@ -11,7 +11,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.jpg'); ?>" alt="" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>" alt="" width="1408" height="768" fetchpriority="high">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
         <div class="hg-container hg-hero-inner">
@@ -34,7 +34,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
     <section class="hg-feature-split" id="o-nas" aria-labelledby="about-title">
         <div class="hg-feature-media hg-reveal">
-            <img src="<?php echo esc_url($theme_uri . '/assets/images/historia_firmy.png'); ?>" alt="Studio HI-GLOSS DESIGN — praca nad samochodem" width="1408" height="768" loading="lazy">
+            <img src="<?php echo esc_url($theme_uri . '/assets/images/historia_firmy.webp'); ?>" alt="Studio HI-GLOSS DESIGN — praca nad samochodem" width="1408" height="768" loading="lazy">
             <div class="hg-feature-label"><span>HI-GLOSS STUDIO</span> Szczecin · Mierzyn</div>
         </div>
         <div class="hg-feature-copy">

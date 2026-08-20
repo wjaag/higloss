@@ -12,7 +12,7 @@ get_header();
     <div class="hg-container">
         
         <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.jpg'); ?>');">
+        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
                 <span class="hg-subpage-banner-badge" style="color: #10b981; border-color: #10b981;">PAINT PROTECTION FILM (PPF) SZCZECIN - MIERZYN</span>

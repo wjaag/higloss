@@ -12,7 +12,7 @@ get_header();
     <div class="hg-container">
         
         <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #ff0055; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.jpg'); ?>');">
+        <div class="hg-subpage-image-banner" style="--banner-accent: #ff0055; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_detailing.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
                 <span class="hg-subpage-banner-badge" style="color: #ff0055; border-color: #ff0055;">PRZYCIEMNIANIE SZYB &amp; DECHROMING SZCZECIN</span>

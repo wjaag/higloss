@@ -13,7 +13,7 @@ $theme_uri = get_template_directory_uri();
     <div class="hg-container">
 
         <!-- COMPACT HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji.png'); ?>');">
+        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
                 <span class="hg-subpage-banner-badge">PORTFOLIO STUDIO SZCZECIN &bull; MIERZYN</span>
@@ -40,7 +40,7 @@ $theme_uri = get_template_directory_uri();
                     $finish_type = get_post_meta(get_the_ID(), '_higloss_finish_type', true);
                     $terms       = get_the_terms(get_the_ID(), 'kategoria_realizacji');
                     $cat_slug    = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
-                    $thumb_url   = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.jpg';
+                    $thumb_url   = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp';
                 ?>
                     <article class="hg-gallery-card" data-category="<?php echo esc_attr($cat_slug); ?>">
                         <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
