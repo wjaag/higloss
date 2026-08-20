@@ -1794,6 +1794,13 @@ body:not(.home) .hg-header {
   letter-spacing: 0.04em;
 }
 
+.hg-footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.5rem;
+}
+
 .hg-footer-bottom a:hover {
   color: var(--hg-blue-light);
 }
