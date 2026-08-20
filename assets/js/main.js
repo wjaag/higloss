@@ -555,4 +555,40 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
     }
     initLightbox();
+
+    /* ==========================================
+       Background preloader for lightbox images
+       (idle-time, one at a time — makes opening
+       the lightbox and the Przed/Po switch instant)
+       ========================================== */
+    function initGalleryPreloader() {
+        const onIdle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1500); };
+        onIdle(function () {
+            const seen = new Set();
+            const queue = [];
+            document.querySelectorAll('[data-lightbox-img]').forEach(function (el) {
+                const main = el.getAttribute('data-lightbox-img');
+                const before = el.getAttribute('data-lightbox-before');
+                [main, before].forEach(function (url) {
+                    if (url && !seen.has(url)) {
+                        seen.add(url);
+                        queue.push(url);
+                    }
+                });
+            });
+            let index = 0;
+            function step() {
+                if (index >= queue.length) return;
+                const img = new Image();
+                img.decoding = 'async';
+                img.onload = img.onerror = function () {
+                    index += 1;
+                    setTimeout(step, 220);
+                };
+                img.src = queue[index];
+            }
+            step();
+        });
+    }
+    initGalleryPreloader();
 });

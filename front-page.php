@@ -276,7 +276,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $before_src = isset($before_map[$project[0]]) ? $theme_uri . '/assets/images/' . $before_map[$project[0]] : '';
                         ?>
                         <a class="hg-work-card hg-reveal" href="<?php echo esc_url(home_url('/galeria')); ?>" data-category="<?php echo esc_attr($project[4]); ?>" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" data-lightbox-before="<?php echo $before_src ? esc_url($before_src) : ''; ?>" data-lightbox-title="<?php echo esc_attr($project[2]); ?>" data-lightbox-meta="<?php echo esc_attr($project[1] . ' · ' . $project[3]); ?>">
-                            <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" alt="<?php echo esc_attr($project[2]); ?>" width="1408" height="768" loading="lazy">
+                            <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/' . str_replace('.webp', '-480.webp', $project[0])); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/' . str_replace('.webp', '-768.webp', $project[0])); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" alt="<?php echo esc_attr($project[2]); ?>" width="1408" height="768" loading="lazy" decoding="async">
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($project[1]); ?></span>

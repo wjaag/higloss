@@ -160,7 +160,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 1: BMW M4 -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_before_stock_paint.webp'); ?>" data-lightbox-title="BMW M4 Coupe — Satin Nero Wrap &amp; Dechroming" data-lightbox-meta="BMW M4 Coupe &bull; Całościowa zmiana koloru folią Avery Dennison &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?>" alt="BMW M4 Coupe — Satin Black" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?>" alt="BMW M4 Coupe — Satin Black" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
@@ -194,7 +194,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 2: PORSCHE GT3 RS -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_before.webp'); ?>" data-lightbox-title="Porsche 911 GT3 RS — Satin Racing Green" data-lightbox-meta="Porsche 911 GT3 RS &bull; Zmiana koloru Inozetek / 3M 2080 &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?>" alt="Porsche 911 GT3 RS" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?>" alt="Porsche 911 GT3 RS" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
@@ -228,7 +228,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 3: AUDI RS6 -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_before.webp'); ?>" data-lightbox-title="Audi RS6 Avant — Gloss Miami Blue + Black Optics" data-lightbox-meta="Audi RS6 Avant &bull; Gloss Miami Blue Wrap &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?>" alt="Audi RS6 Avant — Gloss Miami Blue" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?>" alt="Audi RS6 Avant — Gloss Miami Blue" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
@@ -262,7 +262,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 4: MERCEDES G63 AMG -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_before.webp'); ?>" data-lightbox-title="Mercedes-AMG G63 — Matte Dark Charcoal" data-lightbox-meta="Mercedes-AMG G63 &bull; Matowa zmiana koloru Hexis Skintac &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?>" alt="Mercedes-AMG G63" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?>" alt="Mercedes-AMG G63" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
@@ -296,7 +296,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 5: PORSCHE PPF APPLICATION -->
                 <article class="hg-gallery-card" data-category="ppf">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application_before.webp'); ?>" data-lightbox-title="Zabezpieczenie Foliami PPF — Full Front Package" data-lightbox-meta="Folia Ochronna PPF 180µm &bull; Samoregeneracja lakieru &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>" alt="Aplikacja folii ochronnej PPF" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>" alt="Aplikacja folii ochronnej PPF" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-ppf">Ochrona PPF</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
@@ -330,7 +330,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 6: PORSCHE PANAMERA PPF -->
                 <article class="hg-gallery-card" data-category="ppf">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf_before.webp'); ?>" data-lightbox-title="Porsche Panamera Turbo — Full Body PPF" data-lightbox-meta="Porsche Panamera Turbo &bull; Kompletna ochrona nadwozia folią bezbarwną &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Porsche Panamera — Full Body PPF" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Porsche Panamera — Full Body PPF" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-ppf">Ochrona PPF</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
@@ -364,7 +364,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 7: FLEET DHL COMMERCIAL -->
                 <article class="hg-gallery-card" data-category="reklama">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_before.webp'); ?>" data-lightbox-title="Oklejanie Floty Kurierskiej — DHL Courier Szczecin" data-lightbox-meta="Branding Floty &bull; 40 pojazdów dostawczych &bull; Projekt, druk i aplikacja w Mierzynie" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?>" alt="Branding floty pojazdów DHL" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?>" alt="Branding floty pojazdów DHL" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-reklama">Floty &amp; Reklama</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
@@ -398,7 +398,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- CARD 8: DETAILING & DECHROMING -->
                 <article class="hg-gallery-card" data-category="detailing">
                     <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing_before.webp'); ?>" data-lightbox-title="Detailing &amp; Dechroming — Shadow Line Studio" data-lightbox-meta="Dechroming listew &bull; Przyciemnianie szyb &bull; Powłoki ceramiczne" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" alt="Detailing i Dechroming" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" alt="Detailing i Dechroming" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-detailing">Detailing &amp; Detale</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
