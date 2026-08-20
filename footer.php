@@ -69,6 +69,14 @@ $footer_section_url = static function ($section) use ($is_landing) {
     </div>
 </footer>
 
+<nav class="hg-mobile-actions" aria-label="Szybki kontakt">
+    <a href="tel:+48605088065">
+        <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Zadzwoń
+    </a>
+    <a href="<?php echo esc_url(home_url('/#wycena')); ?>">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</nav>
+
 <?php wp_footer(); ?>
 </body>
 </html>

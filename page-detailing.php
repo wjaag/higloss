@@ -27,8 +27,8 @@ get_header();
             
             <!-- LEFT COLUMN: PROMINENT EXPANDED SEO DESCRIPTION CARD -->
             <div class="hg-editorial-card" style="--card-accent: #ff0055;">
-                <h2 class="hg-editorial-title" style="border-color: #ff0055;">
-                    Przyciemnianie Szyb &amp; Dechroming w Mierzynie
+                <h2 class="hg-editorial-title">
+                    Szyby i dechroming
                 </h2>
 
                 <p class="hg-editorial-paragraph">

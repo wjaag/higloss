@@ -92,7 +92,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <li><span>Gwarancja producenta</span><strong>5–7 lat</strong></li>
                             <li><span>Materiały</span><strong>3M / Avery / Hexis</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Zapytaj o zmianę koloru <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                        <a href="<?php echo esc_url(home_url('/zmiana-koloru')); ?>" class="hg-text-link">Poznaj zmianę koloru <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
@@ -110,7 +110,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <li><span>Trwałość</span><strong>8–10 lat</strong></li>
                             <li><span>Pakiety</span><strong>Strefy / Full Front / Full Body</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Dobierz pakiet ochronny <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                        <a href="<?php echo esc_url(home_url('/ppf')); ?>" class="hg-text-link">Poznaj ochronę PPF <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
@@ -128,7 +128,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             <li><span>Zaplecze</span><strong>Drukarki i plotery na miejscu</strong></li>
                             <li><span>Doświadczenie</span><strong>DHL / Warta / MŚP</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Wyceń branding floty <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                        <a href="<?php echo esc_url(home_url('/reklama')); ?>" class="hg-text-link">Poznaj branding flot <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
@@ -461,13 +461,5 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
         </div>
     </section>
 </main>
-
-<nav class="hg-mobile-actions" aria-label="Szybki kontakt">
-    <a href="tel:+48605088065">
-        <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 7.18 2 2 0 0 1 4.11 5h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Zadzwoń
-    </a>
-    <a href="#wycena">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-</nav>
 
 <?php get_footer(); ?>

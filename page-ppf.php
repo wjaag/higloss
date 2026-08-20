@@ -27,8 +27,8 @@ get_header();
             
             <!-- LEFT COLUMN: PROMINENT EXPANDED SEO DESCRIPTION CARD -->
             <div class="hg-editorial-card" style="--card-accent: #10b981;">
-                <h2 class="hg-editorial-title" style="border-color: #10b981;">
-                    Niewidzialna Ochrona Lakieru PPF w Szczecinie
+                <h2 class="hg-editorial-title">
+                    Niewidzialna ochrona lakieru
                 </h2>
 
                 <p class="hg-editorial-paragraph">
@@ -57,8 +57,8 @@ get_header();
 
             <!-- RIGHT COLUMN: STICKY SPECS & CALL CTA CARD -->
             <div class="hg-specs-cta-card" style="--card-accent: #10b981;">
-                <h3 class="hg-specs-title" style="border-color: #10b981;">
-                    SPECYFIKACJA PPF
+                <h3 class="hg-specs-title">
+                    Specyfikacja
                 </h3>
 
                 <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">

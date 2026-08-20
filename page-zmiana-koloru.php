@@ -28,7 +28,7 @@ get_header();
             <!-- LEFT COLUMN: PROMINENT EXPANDED SEO DESCRIPTION CARD -->
             <div class="hg-editorial-card" style="--card-accent: #25aae1;">
                 <h2 class="hg-editorial-title">
-                    Sztuka Zmiany Koloru Auta w Szczecinie i Mierzynie
+                    Sztuka zmiany koloru
                 </h2>
 
                 <p class="hg-editorial-paragraph">
@@ -56,7 +56,7 @@ get_header();
             <!-- RIGHT COLUMN: STICKY SPECS & CALL CTA CARD -->
             <div class="hg-specs-cta-card" style="--card-accent: #25aae1;">
                 <h3 class="hg-specs-title">
-                    SPECYFIKACJA USŁUGI
+                    Specyfikacja
                 </h3>
 
                 <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">
