@@ -1512,7 +1512,6 @@ body:not(.home) .hg-header {
 .hg-quote-form select,
 .hg-quote-form textarea {
   width: 100%;
-  min-height: 52px;
   padding: 0.85rem 0.95rem;
   background: rgba(3, 5, 8, 0.45);
   border: 1px solid var(--hg-line-strong);
@@ -1522,6 +1521,11 @@ body:not(.home) .hg-header {
   font-weight: 500;
   line-height: 1.5;
   transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.hg-quote-form input:not([type="checkbox"]),
+.hg-quote-form select {
+  height: 52px;
 }
 
 .hg-quote-form textarea {
@@ -1548,13 +1552,29 @@ body:not(.home) .hg-header {
 
 .hg-quote-form select {
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, #8290a2 50%), linear-gradient(135deg, #8290a2 50%, transparent 50%);
-  background-position: calc(100% - 18px) 22px, calc(100% - 13px) 22px;
+  -webkit-appearance: none;
+  padding-right: 2.75rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23838fa1' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5.5 9 6.5 6.5L18.5 9'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
   background-repeat: no-repeat;
-  background-size: 5px 5px, 5px 5px;
+  background-size: 13px;
+}
+
+.hg-quote-form select:hover:not(:focus) {
+  border-color: rgba(37, 170, 225, 0.45);
+}
+
+.hg-quote-form select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2325aae1' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5.5 9 6.5 6.5L18.5 9'/%3E%3C/svg%3E");
+}
+
+.hg-quote-form select:required:invalid {
+  color: #586476;
 }
 
 .hg-quote-form select option {
+  padding: 0.45rem 0.75rem;
   background: #0a0e15;
   color: #fff;
 }
