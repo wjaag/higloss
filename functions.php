@@ -393,6 +393,14 @@ function higloss_handle_quote_calculator() {
 
     $headers = array('Content-Type: text/plain; charset=UTF-8', 'From: Hi-Gloss Website <noreply@hi-glossdesign.pl>');
 
+    // Let staff reply straight to the customer from any mail client or phone.
+    if (!empty($email)) {
+        $reply_name = str_replace(array('"', "\r", "\n", ','), '', (string) $name);
+        $headers[]  = '' !== $reply_name
+            ? sprintf('Reply-To: %s <%s>', $reply_name, $email)
+            : sprintf('Reply-To: %s', $email);
+    }
+
     $sent = wp_mail($to, $subject, $body, $headers);
 
     if ($sent) {
