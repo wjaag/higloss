@@ -2076,6 +2076,16 @@ body:not(.home) .hg-footer-main {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.hg-service-page .hg-process-grid h3,
+.hg-process-grid--3 h3 {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  text-transform: none;
+  text-wrap: balance;
+}
+
 .hg-svc-chips {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -2094,10 +2104,12 @@ body:not(.home) .hg-footer-main {
   margin: 0 0 0.75rem;
   color: #fff;
   font-family: var(--hg-heading);
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  text-transform: none;
+  text-wrap: balance;
 }
 
 .hg-svc-chips p {
