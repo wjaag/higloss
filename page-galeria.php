@@ -69,30 +69,6 @@ $theme_uri = get_template_directory_uri();
             </div>
         </div>
 
-        <!-- CATEGORY FILTERS -->
-        <div class="hg-gallery-filter-wrap" role="group" aria-label="Filtry kategorii realizacji">
-            <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
-                <span>Wszystkie</span>
-                <span class="hg-gallery-btn-count">8</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="zmiana-koloru" aria-pressed="false">
-                <span>Zmiana Koloru</span>
-                <span class="hg-gallery-btn-count">4</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="ppf" aria-pressed="false">
-                <span>Ochrona PPF</span>
-                <span class="hg-gallery-btn-count">2</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="reklama" aria-pressed="false">
-                <span>Floty i Reklama</span>
-                <span class="hg-gallery-btn-count">1</span>
-            </button>
-            <button type="button" class="hg-gallery-btn" data-filter="detailing" aria-pressed="false">
-                <span>Detailing &amp; Detale</span>
-                <span class="hg-gallery-btn-count">1</span>
-            </button>
-        </div>
-
         <?php
         $args = array(
             'post_type'      => 'realizacje',
