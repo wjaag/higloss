@@ -45,7 +45,7 @@ $theme_uri = HIGLOSS_THEME_URI;
             <div class="hg-service-grid">
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-480.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-768.webp'); ?> 768w" sizes="(max-width: 768px) 92vw, 400px" alt="Samochód po całościowej zmianie koloru folią" width="768" height="419" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Samochód po całościowej zmianie koloru folią" width="1408" height="768" loading="lazy">
                         <span>01</span>
                         <p>Car wrapping</p>
                     </div>

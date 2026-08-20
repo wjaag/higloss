@@ -11,9 +11,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>"
-            srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-1366.webp'); ?> 1366w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-1920.webp'); ?> 1920w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-2560.webp'); ?> 2560w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?> 2816w"
-            sizes="100vw" alt="" width="2816" height="1536" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>" alt="" width="1408" height="768" fetchpriority="high">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
         <div class="hg-container hg-hero-inner">
