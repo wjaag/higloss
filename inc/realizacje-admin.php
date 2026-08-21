@@ -10,14 +10,12 @@
  *   PO synchronizowane z obrazkiem wyrożniajacym (boczny panel WP ukryty),
  *   PRZED = pole meta _higloss_before_image z pickerem media library
  * - posprzatane pudelka boczne (domyslnie ukryte: wyciag, slug, custom fields itd.)
- * - galeria ujec jako dopracowany postbox pod edytorem
  * - miniatury PO / PRZED w listingu realizacji
  * - higloss_model_in_title() — helper frontowy: true, gdy tytul zawiera marke/model
  *   (skiny kart i baneru ukrywaja wtedy zduplikowany dopisek z modelem)
  *
  * Klucze meta zgodne ze starszymi wersjami: _higloss_car_model, _higloss_service_type,
- * _higloss_film_used, _higloss_execution_time, _higloss_finish_type, _higloss_gallery_images,
- * _higloss_before_image.
+ * _higloss_film_used, _higloss_execution_time, _higloss_finish_type, _higloss_before_image.
  */
 
 if (!defined('ABSPATH')) {
@@ -37,7 +35,7 @@ function higloss_render_creator_banner($post) {
         <img src="<?php echo esc_url($logo); ?>" alt="" class="hg-admin-hero-logo">
         <div class="hg-admin-hero-text">
             <strong>HI-GLOSS DESIGN · kreator realizacji</strong>
-            <span>Wypelnij kroki po kolei: <em>1</em> specyfikacja auta — tytul podpowie sie sam &rarr; <em>2</em> zdjecia PRZED i PO &rarr; <em>3</em> opis, kategoria i galeria ujec &rarr; <em>4</em> „Opublikuj". Opis pod edytorem zasila SEO strony realizacji.</span>
+            <span>Wypelnij kroki po kolei: <em>1</em> specyfikacja auta — tytul podpowie sie sam &rarr; <em>2</em> zdjecia PRZED i PO &rarr; <em>3</em> opis i kategoria &rarr; <em>4</em> „Opublikuj". Opis pod edytorem zasila SEO strony realizacji.</span>
         </div>
     </div>
     <?php
@@ -136,41 +134,13 @@ function higloss_render_specyfikacja_panel($post) {
 add_action('edit_form_after_title', 'higloss_render_specyfikacja_panel', 5);
 
 /* ---------------------------------------------------------------------------
- * Postbox: galeria ujec dodatkowych (pod edytorem)
+ * Porzadki w metaboksach — boczny panel "Obrazek wyrozniajacy" znika,
+ * bo PO wybiera sie w panelu glownym pod tytulem
  * ------------------------------------------------------------------------- */
 function higloss_add_realizacje_metaboxes() {
-    add_meta_box(
-        'higloss_realizacja_gallery',
-        __('Galeria ujęć dodatkowych (opcjonalnie)', 'higloss'),
-        'higloss_render_gallery_metabox',
-        'realizacje',
-        'normal',
-        'default'
-    );
-
-    // Boczny panel "Obrazek wyrozniajacy" znika — PO wybiera sie w panelu glownym
     remove_meta_box('postimagediv', 'realizacje', 'side');
 }
 add_action('do_meta_boxes', 'higloss_add_realizacje_metaboxes');
-
-function higloss_render_gallery_metabox($post) {
-    $gallery_images = get_post_meta($post->ID, '_higloss_gallery_images', true);
-    ?>
-    <p class="description">
-        Dodatkowe ujecia pojazdu (przod, tyl, bok, detale) — siatka na stronie realizacji.
-        To <strong>nie</strong> jest zdjecie PRZED ani PO — te ustawiasz w panelu pod tytulem.
-    </p>
-
-    <input type="hidden" name="higloss_gallery_images" id="higloss_gallery_images" value="<?php echo esc_attr($gallery_images); ?>">
-
-    <div class="hg-admin-actions" style="margin-top:10px">
-        <button type="button" class="button button-primary" id="higloss_upload_gallery_btn">Dodaj / edytuj ujecia&hellip;</button>
-        <button type="button" class="button button-link-delete" id="higloss_clear_gallery_btn">Wyczysc galerie</button>
-    </div>
-
-    <div id="higloss_gallery_preview" class="hg-admin-gallery"></div>
-    <?php
-}
 
 /* ---------------------------------------------------------------------------
  * Zapis meta
@@ -219,15 +189,6 @@ function higloss_save_realizacje_meta($post_id) {
         }
     }
 
-    // Galeria ujec dodatkowych
-    if (isset($_POST['higloss_gallery_images'])) {
-        $ids = array_filter(array_map('absint', explode(',', sanitize_text_field(wp_unslash($_POST['higloss_gallery_images'])))));
-        if ($ids) {
-            update_post_meta($post_id, '_higloss_gallery_images', implode(',', $ids));
-        } else {
-            delete_post_meta($post_id, '_higloss_gallery_images');
-        }
-    }
 }
 add_action('save_post_realizacje', 'higloss_save_realizacje_meta');
 
@@ -292,14 +253,14 @@ function higloss_realizacje_admin_assets($hook) {
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/js/admin-realizacje.js',
         array('jquery', 'media-editor'),
-        '1.2',
+        '1.3',
         true
     );
     wp_enqueue_style(
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/css/admin-realizacje.css',
         array(),
-        '1.2'
+        '1.3'
     );
 }
 add_action('admin_enqueue_scripts', 'higloss_realizacje_admin_assets');

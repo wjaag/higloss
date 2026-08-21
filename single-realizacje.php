@@ -19,8 +19,6 @@ get_header();
             $film_used   = get_post_meta(get_the_ID(), '_higloss_film_used', true);
             $exec_time   = get_post_meta(get_the_ID(), '_higloss_execution_time', true);
             $finish_type = get_post_meta(get_the_ID(), '_higloss_finish_type', true);
-            $gallery_raw = get_post_meta(get_the_ID(), '_higloss_gallery_images', true);
-            $gallery_ids = array_filter(explode(',', $gallery_raw));
             $before_id   = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
         ?>
 
@@ -67,31 +65,6 @@ get_header();
                                 <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
                             </button>
                         </div>
-                    </div>
-                </div>
-            <?php endif; ?>
-
-            <!-- MULTI-PHOTO GALLERY GRID (IF ADDED IN ADMIN) -->
-            <?php if (!empty($gallery_ids)) : ?>
-                <div style="margin-bottom: 3.5rem;">
-                    <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: #ffffff; text-transform: uppercase; margin-bottom: 1.25rem; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.6rem;">
-                        <span style="color: #25aae1; display: inline-flex; line-height: 1;"><svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg></span> GALERIA ZDJĘĆ PROJEKTU (<?php echo count($gallery_ids); ?> UJĘCIA)
-                    </h3>
-
-                    <div class="hg-grid hg-grid-3" style="gap: 1.5rem;">
-                        <?php foreach ($gallery_ids as $index => $img_id) : 
-                            $img_url = wp_get_attachment_image_url($img_id, 'full');
-                            $img_thumb = wp_get_attachment_image_url($img_id, 'large');
-                            if ($img_url) :
-                        ?>
-                            <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($img_url); ?>" data-lightbox-title="<?php the_title_attribute(); ?> (Ujęcie <?php echo esc_attr($index + 1); ?>)" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_type ?: 'Realizacja')); ?>" style="height: 240px; border: 1px solid var(--hg-line);">
-                                <img src="<?php echo esc_url($img_thumb); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;">
-                                <div class="hg-gallery-vignette"></div>
-                                <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
-                                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
-                                </button>
-                            </div>
-                        <?php endif; endforeach; ?>
                     </div>
                 </div>
             <?php endif; ?>
