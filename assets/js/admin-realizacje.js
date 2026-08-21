@@ -3,6 +3,38 @@
 
     $(function () {
 
+        /* ---------- Zdjęcie PO (pojedyncze, synchronizowane z obrazkiem wyróżniającym) ---------- */
+        var afterFrame = null;
+
+        $('#higloss_after_select').on('click', function (e) {
+            e.preventDefault();
+            if (afterFrame) {
+                afterFrame.open();
+                return;
+            }
+            afterFrame = wp.media({
+                title: 'Wybierz zdjęcie PO (główne)',
+                button: { text: 'Użyj jako PO' },
+                multiple: false,
+                library: { type: 'image' }
+            });
+            afterFrame.on('select', function () {
+                var att = afterFrame.state().get('selection').first().toJSON();
+                $('#higloss_after_image').val(att.id);
+                var url = (att.sizes && att.sizes.medium) ? att.sizes.medium.url : att.url;
+                $('#higloss_after_preview').html('<img src="' + url + '" alt="">');
+                $('#higloss_after_remove').show();
+            });
+            afterFrame.open();
+        });
+
+        $('#higloss_after_remove').on('click', function (e) {
+            e.preventDefault();
+            $('#higloss_after_image').val('');
+            $('#higloss_after_preview').html('<span class="hg-admin-empty hg-admin-empty--warn">Brak zdjęcia PO — realizacja pokaże obraz zastępczy.</span>');
+            $(this).hide();
+        });
+
         /* ---------- Zdjęcie PRZED (pojedyncze) ---------- */
         var beforeFrame = null;
 

@@ -1,0 +1,233 @@
+/* ==========================================================================
+   HI-GLOSS — ekran "kreatora realizacji" (tylko CPT realizacje)
+   ========================================================================== */
+
+/* Pasek naglowka kreatora */
+.hg-admin-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 8px 0 20px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #0b1116 0%, #12212c 100%);
+  border-left: 4px solid #25aae1;
+  border-radius: 4px;
+}
+.hg-admin-hero-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  flex: none;
+}
+.hg-admin-hero-text strong {
+  display: block;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.hg-admin-hero-text span {
+  color: #9fb3c8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.hg-admin-hero-text em {
+  font-style: normal;
+  color: #25aae1;
+  font-weight: 700;
+}
+
+/* Pole tytulu — wieksze, "projektowe" */
+.post-type-realizacje #titlewrap #title {
+  height: 54px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-color: #c3c4c7;
+}
+.post-type-realizacje #titlewrap #title:focus {
+  border-color: #25aae1;
+  box-shadow: 0 0 0 1px #25aae1;
+}
+
+/* Panel zdjec PRZED / PO — karta pod tytulem */
+.hg-admin-photos {
+  margin: 18px 0 22px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #dcdcde;
+  border-top: 3px solid #25aae1;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.hg-admin-photos-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f1;
+}
+.hg-admin-photos-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1d2327;
+}
+.hg-admin-photos-sub {
+  color: #787c82;
+  font-size: 12.5px;
+}
+
+/* Dwa pickery obok siebie */
+.hg-admin-duo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+.hg-admin-pick {
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  padding: 14px;
+  background: #fbfbfc;
+}
+.hg-admin-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 13.5px;
+  margin: 0 0 10px;
+  color: #1d2327;
+}
+.hg-admin-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0b1116;
+  color: #25aae1;
+  font-size: 13px;
+  font-weight: 800;
+  flex: none;
+}
+.hg-admin-preview {
+  margin: 0 0 12px;
+  min-height: 150px;
+  border: 2px dashed #c3c4c7;
+  border-radius: 4px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.hg-admin-pick:hover .hg-admin-preview {
+  border-color: #25aae1;
+}
+.hg-admin-preview img {
+  max-width: 100%;
+  max-height: 220px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hg-admin-empty {
+  color: #787c82;
+  font-style: italic;
+  padding: 14px;
+  text-align: center;
+  font-size: 13px;
+}
+.hg-admin-empty--warn {
+  color: #b32d2e;
+  font-style: normal;
+  font-weight: 600;
+}
+.hg-admin-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.hg-admin-actions .button-hero {
+  min-height: 40px;
+  font-weight: 600;
+}
+
+/* Postboxy — subtelny akcent firmowy */
+.post-type-realizacje #poststuff .postbox > .postbox-header {
+  border-top: 3px solid #0b1116;
+}
+.post-type-realizacje #poststuff .postbox > .postbox-header .hndle {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Specyfikacja — siatka pol */
+.hg-admin-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 4px 16px;
+}
+.hg-admin-field label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12.5px;
+}
+.hg-admin-field input {
+  width: 100%;
+}
+
+/* Galeria ujec */
+.hg-admin-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  min-height: 64px;
+  padding: 12px;
+  border: 2px dashed #c3c4c7;
+  border-radius: 4px;
+  background: #f6f7f7;
+}
+.hg-admin-gallery .hg-gal-item {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border: 2px solid #25aae1;
+  border-radius: 3px;
+}
+.hg-admin-gallery .hg-gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hg-admin-gallery .hg-gal-remove {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: #d63638;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 20px;
+  padding: 0;
+}
+.hg-admin-gallery .hg-gal-remove:hover {
+  background: #b32d2e;
+}
