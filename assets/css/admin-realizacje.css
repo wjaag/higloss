@@ -52,6 +52,26 @@
   box-shadow: 0 0 0 1px #25aae1;
 }
 
+/* Panel SPECYFIKACJA — karta bezposrednio pod tytulem */
+.hg-admin-specspanel {
+  margin: 18px 0 0;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #dcdcde;
+  border-top: 3px solid #0b1116;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.hg-admin-specspanel .hg-admin-specs input {
+  padding: 8px 10px;
+  border-radius: 3px;
+}
+.hg-admin-specspanel .hg-admin-specs input:focus {
+  border-color: #25aae1;
+  box-shadow: 0 0 0 1px #25aae1;
+  outline: none;
+}
+
 /* Panel zdjec PRZED / PO — karta pod tytulem */
 .hg-admin-photos {
   margin: 18px 0 22px;

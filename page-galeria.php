@@ -86,6 +86,8 @@ $theme_uri = get_template_directory_uri();
                 <?php while ($realizacje_query->have_posts()) : $realizacje_query->the_post(); 
                     $service_tag = get_post_meta(get_the_ID(), '_higloss_service_type', true);
                     $car_model   = get_post_meta(get_the_ID(), '_higloss_car_model', true);
+                    // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach
+                    $model_label = (!empty($car_model) && ! higloss_model_in_title($car_model)) ? $car_model : '';
                     $film_used   = get_post_meta(get_the_ID(), '_higloss_film_used', true);
                     $exec_time   = get_post_meta(get_the_ID(), '_higloss_execution_time', true);
                     $finish_type = get_post_meta(get_the_ID(), '_higloss_finish_type', true);
@@ -107,7 +109,7 @@ $theme_uri = get_template_directory_uri();
                     $before_url      = $before_meta_id ? wp_get_attachment_image_url($before_meta_id, 'full') : (isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '');
                 ?>
                     <article class="hg-gallery-card" data-category="<?php echo esc_attr($cat_slug); ?>">
-                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
                             <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
                             <div class="hg-gallery-vignette"></div>
                             <span class="hg-gallery-cat-pill cat-<?php echo esc_attr($cat_slug); ?>">
@@ -121,9 +123,12 @@ $theme_uri = get_template_directory_uri();
                         <div class="hg-gallery-content">
                             <div>
                                 <h2 class="hg-gallery-title"><?php the_title(); ?></h2>
+                                <?php $card_desc = !empty($model_label) ? esc_html($model_label) : wp_trim_words(get_the_excerpt(), 12, '...'); ?>
+                                <?php if (trim($card_desc)) : ?>
                                 <p class="hg-gallery-desc">
-                                    <?php echo !empty($car_model) ? esc_html($car_model) : wp_trim_words(get_the_excerpt(), 12, '...'); ?>
+                                    <?php echo $card_desc; ?>
                                 </p>
+                                <?php endif; ?>
                             </div>
 
                             <div>
@@ -140,7 +145,7 @@ $theme_uri = get_template_directory_uri();
                                 </div>
 
                                 <div class="hg-gallery-actions">
-                                    <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>">
+                                    <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>">
                                         <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg> Przed / Po
                                     </button>
                                     <a href="<?php the_permalink(); ?>" class="hg-gallery-card-btn btn-primary">

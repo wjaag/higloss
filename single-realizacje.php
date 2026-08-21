@@ -14,6 +14,8 @@ get_header();
         <?php while (have_posts()) : the_post(); 
             $car_model   = get_post_meta(get_the_ID(), '_higloss_car_model', true);
             $service_type= get_post_meta(get_the_ID(), '_higloss_service_type', true);
+            // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach
+            $model_label = (!empty($car_model) && ! higloss_model_in_title($car_model)) ? $car_model : '';
             $film_used   = get_post_meta(get_the_ID(), '_higloss_film_used', true);
             $exec_time   = get_post_meta(get_the_ID(), '_higloss_execution_time', true);
             $finish_type = get_post_meta(get_the_ID(), '_higloss_finish_type', true);
@@ -27,7 +29,7 @@ get_header();
                 <div class="hg-subpage-banner-vignette"></div>
                 <div class="hg-subpage-banner-content">
                     <span class="hg-subpage-banner-badge">
-                        <?php echo !empty($car_model) ? esc_html($car_model) : 'REALIZACJA HI-GLOSS DESIGN'; ?>
+                        <?php echo !empty($model_label) ? esc_html($model_label) : 'REALIZACJA HI-GLOSS DESIGN'; ?>
                     </span>
                     <h1 class="hg-subpage-banner-title">
                         <?php the_title(); ?>
@@ -48,7 +50,7 @@ get_header();
                     </h3>
 
                     <div class="hg-grid hg-grid-2" style="gap: 1.5rem;">
-                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($before_full); ?>" data-lightbox-title="PRZED — <?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr($car_model ?: 'Realizacja HI-GLOSS'); ?>" style="height: 320px; border: 1px solid var(--hg-line);">
+                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($before_full); ?>" data-lightbox-title="PRZED — <?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr($model_label ?: 'Realizacja HI-GLOSS'); ?>" style="height: 320px; border: 1px solid var(--hg-line);">
                             <img src="<?php echo esc_url($before_large); ?>" alt="PRZED — <?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;">
                             <span style="position: absolute; top: 12px; left: 12px; z-index: 3; background: rgba(0,0,0,0.72); border: 1px solid rgba(255,255,255,0.35); color: #ffffff; padding: 0.35rem 0.8rem; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;">Przed</span>
                             <div class="hg-gallery-vignette"></div>
@@ -57,7 +59,7 @@ get_header();
                             </button>
                         </div>
 
-                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($after_full); ?>" data-lightbox-before="<?php echo esc_url($before_full); ?>" data-lightbox-title="PO — <?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_type ?: 'Realizacja HI-GLOSS')); ?>" style="height: 320px; border: 1px solid var(--hg-line);">
+                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($after_full); ?>" data-lightbox-before="<?php echo esc_url($before_full); ?>" data-lightbox-title="PO — <?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_type ?: 'Realizacja HI-GLOSS')); ?>" style="height: 320px; border: 1px solid var(--hg-line);">
                             <img src="<?php echo esc_url($after_large); ?>" alt="PO — <?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;">
                             <span style="position: absolute; top: 12px; left: 12px; z-index: 3; background: #25aae1; color: #04121d; padding: 0.35rem 0.8rem; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;">Po</span>
                             <div class="hg-gallery-vignette"></div>
@@ -82,7 +84,7 @@ get_header();
                             $img_thumb = wp_get_attachment_image_url($img_id, 'large');
                             if ($img_url) :
                         ?>
-                            <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($img_url); ?>" data-lightbox-title="<?php the_title_attribute(); ?> (Ujęcie <?php echo esc_attr($index + 1); ?>)" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_type ?: 'Realizacja')); ?>" style="height: 240px; border: 1px solid var(--hg-line);">
+                            <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($img_url); ?>" data-lightbox-title="<?php the_title_attribute(); ?> (Ujęcie <?php echo esc_attr($index + 1); ?>)" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_type ?: 'Realizacja')); ?>" style="height: 240px; border: 1px solid var(--hg-line);">
                                 <img src="<?php echo esc_url($img_thumb); ?>" alt="<?php the_title_attribute(); ?>" style="width: 100%; height: 100%; object-fit: cover;">
                                 <div class="hg-gallery-vignette"></div>
                                 <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">

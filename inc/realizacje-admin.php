@@ -4,12 +4,16 @@
  *
  * Zamiast typowego ekranu dodawania wpisu:
  * - pasek naglowka z logo i prowadzeniem krok-po-kroku (edit_form_top)
- * - panel zdjec PRZED / PO bezposrednio pod tytulem (edit_form_after_title),
+ * - panel SPECYFIKACJA bezposrednio pod tytulem (edit_form_after_title, priorytet 5)
+ *   — pola marka/model + usluga podpowiadaja tytul automatycznie (JS)
+ * - panel zdjec PRZED / PO (edit_form_after_title, priorytet 10),
  *   PO synchronizowane z obrazkiem wyrożniajacym (boczny panel WP ukryty),
  *   PRZED = pole meta _higloss_before_image z pickerem media library
  * - posprzatane pudelka boczne (domyslnie ukryte: wyciag, slug, custom fields itd.)
- * - specyfikacja i galeria ujec jako dopracowane postboxy
+ * - galeria ujec jako dopracowany postbox pod edytorem
  * - miniatury PO / PRZED w listingu realizacji
+ * - higloss_model_in_title() — helper frontowy: true, gdy tytul zawiera marke/model
+ *   (skiny kart i baneru ukrywaja wtedy zduplikowany dopisek z modelem)
  *
  * Klucze meta zgodne ze starszymi wersjami: _higloss_car_model, _higloss_service_type,
  * _higloss_film_used, _higloss_execution_time, _higloss_finish_type, _higloss_gallery_images,
@@ -33,7 +37,7 @@ function higloss_render_creator_banner($post) {
         <img src="<?php echo esc_url($logo); ?>" alt="" class="hg-admin-hero-logo">
         <div class="hg-admin-hero-text">
             <strong>HI-GLOSS DESIGN · kreator realizacji</strong>
-            <span>Wypelnij kroki po kolei: <em>1</em> tytul projektu &rarr; <em>2</em> zdjecia PRZED i PO &rarr; <em>3</em> specyfikacja i kategoria &rarr; <em>4</em> „Opublikuj". Opis pod edytorem zasila SEO strony realizacji.</span>
+            <span>Wypelnij kroki po kolei: <em>1</em> specyfikacja auta — tytul podpowie sie sam &rarr; <em>2</em> zdjecia PRZED i PO &rarr; <em>3</em> opis, kategoria i galeria ujec &rarr; <em>4</em> „Opublikuj". Opis pod edytorem zasila SEO strony realizacji.</span>
         </div>
     </div>
     <?php
@@ -93,21 +97,48 @@ function higloss_render_zdjecia_panel($post) {
     </div>
     <?php
 }
-add_action('edit_form_after_title', 'higloss_render_zdjecia_panel');
+add_action('edit_form_after_title', 'higloss_render_zdjecia_panel', 10);
 
 /* ---------------------------------------------------------------------------
- * Postboxy: specyfikacja + galeria ujec dodatkowych
+ * Panel SPECYFIKACJA — bezposrednio pod tytulem, nad zdjeciami
+ * ------------------------------------------------------------------------- */
+function higloss_render_specyfikacja_panel($post) {
+    if (!$post || 'realizacje' !== $post->post_type) {
+        return;
+    }
+    $fields = array(
+        'higloss_car_model'       => array('Marka i model auta',     'np. Audi A7 Sportback'),
+        'higloss_service_type'    => array('Wykonana usługa',         'np. Całościowa zmiana koloru'),
+        'higloss_film_used'       => array('Użyta folia / materiał',  'np. 3M 2080 Gloss Blue'),
+        'higloss_execution_time'  => array('Czas realizacji',         'np. 4 dni robocze'),
+        'higloss_finish_type'     => array('Wykończenie powierzchni', 'np. Głęboki połysk / satyna'),
+    );
+    ?>
+    <div class="hg-admin-specspanel">
+        <div class="hg-admin-photos-head">
+            <span class="hg-admin-photos-title">Specyfikacja realizacji</span>
+            <span class="hg-admin-photos-sub">Pola „Marka i model" + „Wykonana usługa" same podpowiadają tytuł (pole nad tym panelem) — możesz go dowolnie poprawić, podpowiedź nie nadpisze Twojej wersji.</span>
+        </div>
+        <div class="hg-admin-specs">
+            <?php foreach ($fields as $name => $cfg) :
+                $value = get_post_meta($post->ID, '_' . $name, true);
+            ?>
+            <p class="hg-admin-field">
+                <label for="<?php echo esc_attr($name); ?>"><?php echo esc_html($cfg[0]); ?></label>
+                <input type="text" id="<?php echo esc_attr($name); ?>" name="<?php echo esc_attr($name); ?>"
+                       value="<?php echo esc_attr($value); ?>" placeholder="<?php echo esc_attr($cfg[1]); ?>">
+            </p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php
+}
+add_action('edit_form_after_title', 'higloss_render_specyfikacja_panel', 5);
+
+/* ---------------------------------------------------------------------------
+ * Postbox: galeria ujec dodatkowych (pod edytorem)
  * ------------------------------------------------------------------------- */
 function higloss_add_realizacje_metaboxes() {
-    add_meta_box(
-        'higloss_realizacja_specs',
-        __('Specyfikacja realizacji', 'higloss'),
-        'higloss_render_specs_metabox',
-        'realizacje',
-        'normal',
-        'high'
-    );
-
     add_meta_box(
         'higloss_realizacja_gallery',
         __('Galeria ujęć dodatkowych (opcjonalnie)', 'higloss'),
@@ -121,29 +152,6 @@ function higloss_add_realizacje_metaboxes() {
     remove_meta_box('postimagediv', 'realizacje', 'side');
 }
 add_action('do_meta_boxes', 'higloss_add_realizacje_metaboxes');
-
-function higloss_render_specs_metabox($post) {
-    $fields = array(
-        'higloss_car_model'       => array('Marka i model auta',     'np. Audi A7 Sportback'),
-        'higloss_service_type'    => array('Wykonana usługa',         'np. Całościowa zmiana koloru'),
-        'higloss_film_used'       => array('Użyta folia / materiał',  'np. 3M 2080 Gloss Blue'),
-        'higloss_execution_time'  => array('Czas realizacji',         'np. 4 dni robocze'),
-        'higloss_finish_type'     => array('Wykończenie powierzchni', 'np. Głęboki połysk / satyna'),
-    );
-    ?>
-    <div class="hg-admin-specs">
-        <?php foreach ($fields as $name => $cfg) :
-            $value = get_post_meta($post->ID, '_' . $name, true);
-        ?>
-        <p class="hg-admin-field">
-            <label for="<?php echo esc_attr($name); ?>"><?php echo esc_html($cfg[0]); ?></label>
-            <input type="text" id="<?php echo esc_attr($name); ?>" name="<?php echo esc_attr($name); ?>"
-                   value="<?php echo esc_attr($value); ?>" placeholder="<?php echo esc_attr($cfg[1]); ?>">
-        </p>
-        <?php endforeach; ?>
-    </div>
-    <?php
-}
 
 function higloss_render_gallery_metabox($post) {
     $gallery_images = get_post_meta($post->ID, '_higloss_gallery_images', true);
@@ -234,6 +242,22 @@ function higloss_realizacja_title_placeholder($text, $post) {
 }
 add_filter('enter_title_here', 'higloss_realizacja_title_placeholder', 10, 2);
 
+/* ---------------------------------------------------------------------------
+ * Helper frontowy: czy tytul realizacji juz zawiera marke/model?
+ * Gdy tak — karty i banery nie powtarzaja modelu w dopiskach.
+ * ------------------------------------------------------------------------- */
+function higloss_model_in_title($model) {
+    $model = trim((string) $model);
+    if ('' === $model) {
+        return false;
+    }
+    $title = get_the_title();
+    if ('' === $title) {
+        return false;
+    }
+    return mb_stripos($title, $model) !== false;
+}
+
 function higloss_realizacje_hidden_boxes($hidden, $screen) {
     if ($screen && 'realizacje' === $screen->post_type && 'post' === $screen->base) {
         $hidden = array_unique(array_merge((array) $hidden, array(
@@ -268,14 +292,14 @@ function higloss_realizacje_admin_assets($hook) {
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/js/admin-realizacje.js',
         array('jquery', 'media-editor'),
-        '1.1',
+        '1.2',
         true
     );
     wp_enqueue_style(
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/css/admin-realizacje.css',
         array(),
-        '1.1'
+        '1.2'
     );
 }
 add_action('admin_enqueue_scripts', 'higloss_realizacje_admin_assets');

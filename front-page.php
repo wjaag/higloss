@@ -228,6 +228,8 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $projects->the_post();
                         $service = get_post_meta(get_the_ID(), '_higloss_service_type', true);
                         $model = get_post_meta(get_the_ID(), '_higloss_car_model', true);
+                        // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach
+                        $model_label = ($model && ! higloss_model_in_title($model)) ? $model : '';
                         $terms = get_the_terms(get_the_ID(), 'kategoria_realizacji');
                         $cat_slug = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
                         $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp';
@@ -245,12 +247,12 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $before_meta_id = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
                         $before_url     = $before_meta_id ? wp_get_attachment_image_url($before_meta_id, 'full') : (isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '');
                         ?>
-                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model ? $model . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
+                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
                             <img src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy">
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $projects->current_post + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($service ?: 'Realizacja HI-GLOSS'); ?></span>
-                            <span class="hg-work-title"><strong><?php the_title(); ?></strong><?php if ($model) : ?><small><?php echo esc_html($model); ?></small><?php endif; ?></span>
+                            <span class="hg-work-title"><strong><?php the_title(); ?></strong><?php if ($model_label) : ?><small><?php echo esc_html($model_label); ?></small><?php endif; ?></span>
                             <span class="hg-work-arrow" aria-hidden="true"><svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
                         </a>
                         <?php

@@ -139,5 +139,45 @@
                 renderGallery();
             }
         });
+
+        /* ---------- Auto-podpowiedź tytułu z pól specyfikacji ----------
+         * Marka/model + wykonana usługa składają propozycję tytułu, np.
+         * „BMW X5 — całościowa zmiana koloru". Podpowiedź uzupełnia pole
+         * tylko dopóki jest puste albo równe poprzedniej podpowiedzi —
+         * ręcznie poprawiony tytuł nigdy nie jest nadpisywany.
+         */
+        var $title = $('#title');
+        var lastSuggestion = '';
+
+        function buildTitleSuggestion() {
+            var model   = ($('#higloss_car_model').val() || '').trim();
+            var service = ($('#higloss_service_type').val() || '').trim();
+
+            if (model && service) {
+                service = service.charAt(0).toLowerCase() + service.slice(1);
+                return model + ' — ' + service;
+            }
+            if (model) {
+                return model;
+            }
+            if (service) {
+                return service.charAt(0).toUpperCase() + service.slice(1);
+            }
+            return '';
+        }
+
+        function maybeSuggestTitle() {
+            var suggestion = buildTitleSuggestion();
+            if (!suggestion) {
+                return;
+            }
+            var current = ($title.val() || '').trim();
+            if (current === '' || current === lastSuggestion) {
+                $title.val(suggestion).trigger('input');
+            }
+            lastSuggestion = suggestion;
+        }
+
+        $('#higloss_car_model, #higloss_service_type').on('input change', maybeSuggestTitle);
     });
 })(jQuery);
