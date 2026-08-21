@@ -242,7 +242,8 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                             'ai_oferta_detailing.webp'        => 'ai_oferta_detailing_before.webp',
                         );
                         $thumb_basename = basename(parse_url($thumb, PHP_URL_PATH));
-                        $before_url     = isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '';
+                        $before_meta_id = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
+                        $before_url     = $before_meta_id ? wp_get_attachment_image_url($before_meta_id, 'full') : (isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '');
                         ?>
                         <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model ? $model . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
                             <img src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy">

@@ -102,8 +102,9 @@ $theme_uri = get_template_directory_uri();
                         'gallery_fleet_commercial.webp'   => 'gallery_fleet_before.webp',
                         'ai_oferta_detailing.webp'        => 'ai_oferta_detailing_before.webp',
                     );
-                    $thumb_basename = basename(parse_url($thumb_url, PHP_URL_PATH));
-                    $before_url     = isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '';
+                    $thumb_basename  = basename(parse_url($thumb_url, PHP_URL_PATH));
+                    $before_meta_id  = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
+                    $before_url      = $before_meta_id ? wp_get_attachment_image_url($before_meta_id, 'full') : (isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '');
                 ?>
                     <article class="hg-gallery-card" data-category="<?php echo esc_attr($cat_slug); ?>">
                         <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
