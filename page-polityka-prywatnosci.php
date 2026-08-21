@@ -11,7 +11,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.jpg'); ?>" alt="" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.webp'); ?>" alt="" width="1408" height="768" fetchpriority="high">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
         <div class="hg-container hg-hero-inner">

@@ -84,18 +84,18 @@ $service_options  = array(
                 </div>
                 <form class="hg-quote-form" id="hgQuoteForm" novalidate>
                     <div class="hg-form-row">
-                        <label>Imię i nazwisko
+                        <label><span>Imię i nazwisko</span>
                             <input type="text" name="name" autocomplete="name" placeholder="Jan Kowalski">
                         </label>
-                        <label>Numer telefonu <em>*</em>
+                        <label><span>Numer telefonu <em>*</em></span>
                             <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="600 000 000" required>
                         </label>
                     </div>
                     <div class="hg-form-row">
-                        <label>Adres e-mail
+                        <label><span>Adres e-mail</span>
                             <input type="email" name="email" autocomplete="email" placeholder="jan@email.pl">
                         </label>
-                        <label>Interesująca usługa <em>*</em>
+                        <label><span>Interesująca usługa <em>*</em></span>
                             <select name="service" required>
                                 <option value="">Wybierz usługę</option>
                                 <?php foreach ($service_options as $value => $label) : ?>
@@ -104,7 +104,7 @@ $service_options  = array(
                             </select>
                         </label>
                     </div>
-                    <label>Auto i oczekiwany efekt
+                    <label><span>Auto i oczekiwany efekt</span>
                         <textarea name="notes" rows="4" placeholder="Marka, model, rocznik i krótki opis projektu..."></textarea>
                     </label>
                     <input type="text" name="website" class="hg-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">

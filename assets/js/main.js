@@ -179,6 +179,180 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==========================================
+       Custom styled dropdowns for the quote form
+       (native <select> stays as the data source)
+       ========================================== */
+    function initCustomSelects() {
+        document.querySelectorAll('.hg-quote-form select').forEach(function (select) {
+            if (select.dataset.hgSelectReady) return;
+            select.dataset.hgSelectReady = '1';
+            select.classList.add('hg-select-source');
+
+            const options = Array.prototype.slice.call(select.options);
+            const placeholderOption = options.find(function (o) { return o.value === ''; });
+            const placeholder = placeholderOption ? placeholderOption.textContent.trim() : 'Wybierz…';
+            const labelText = select.closest('label') ? select.closest('label').querySelector('span') : null;
+
+            const wrap = document.createElement('div');
+            wrap.className = 'hg-select';
+            wrap.innerHTML =
+                '<button type="button" class="hg-select-toggle" aria-haspopup="listbox" aria-expanded="false">' +
+                    '<span class="hg-select-value"></span>' +
+                    '<svg class="hg-select-chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 9 6.5 6.5L18.5 9"/></svg>' +
+                '</button>' +
+                '<ul class="hg-select-list" role="listbox" tabindex="-1"></ul>';
+            if (labelText) {
+                wrap.querySelector('.hg-select-toggle').setAttribute('aria-label', labelText.textContent.trim());
+            }
+            select.after(wrap);
+
+            const toggle = wrap.querySelector('.hg-select-toggle');
+            const valueEl = wrap.querySelector('.hg-select-value');
+            const list = wrap.querySelector('.hg-select-list');
+            const optionEls = [];
+
+            options.forEach(function (option) {
+                if (option.value === '') return;
+                const li = document.createElement('li');
+                li.className = 'hg-select-option';
+                li.setAttribute('role', 'option');
+                li.setAttribute('aria-selected', 'false');
+                li.dataset.value = option.value;
+                li.textContent = option.textContent.trim();
+                list.appendChild(li);
+                optionEls.push(li);
+            });
+
+            let isOpen = false;
+            let activeIndex = -1;
+            let typeahead = '';
+            let typeaheadTimer = null;
+
+            function syncUI() {
+                const current = select.value;
+                const selected = select.options[select.selectedIndex];
+                valueEl.textContent = current && selected ? selected.textContent.trim() : placeholder;
+                wrap.classList.toggle('is-placeholder', !current);
+                optionEls.forEach(function (li) {
+                    li.setAttribute('aria-selected', li.dataset.value === current ? 'true' : 'false');
+                });
+            }
+
+            function setActive(index) {
+                activeIndex = Math.max(-1, Math.min(optionEls.length - 1, index));
+                optionEls.forEach(function (el, i) {
+                    el.classList.toggle('is-active', i === activeIndex);
+                });
+                if (activeIndex >= 0) {
+                    optionEls[activeIndex].scrollIntoView({ block: 'nearest' });
+                }
+            }
+
+            function open() {
+                if (isOpen) return;
+                isOpen = true;
+                wrap.classList.add('is-open');
+                toggle.setAttribute('aria-expanded', 'true');
+                const selectedIndex = optionEls.findIndex(function (el) {
+                    return el.getAttribute('aria-selected') === 'true';
+                });
+                setActive(selectedIndex >= 0 ? selectedIndex : (activeIndex >= 0 ? activeIndex : 0));
+            }
+
+            function close(refocus) {
+                if (!isOpen) return;
+                isOpen = false;
+                wrap.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                if (refocus) toggle.focus();
+            }
+
+            function commit(el) {
+                select.value = el.dataset.value;
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+                select.removeAttribute('aria-invalid');
+                toggle.classList.remove('is-invalid');
+                syncUI();
+                close(true);
+            }
+
+            toggle.addEventListener('click', function () {
+                isOpen ? close() : open();
+            });
+
+            optionEls.forEach(function (li, i) {
+                li.addEventListener('click', function () { commit(li); });
+                li.addEventListener('mousemove', function () { setActive(i); });
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!wrap.contains(event.target)) close();
+            });
+
+            wrap.addEventListener('keydown', function (event) {
+                const max = optionEls.length - 1;
+                if (max < 0) return;
+                switch (event.key) {
+                    case 'Enter':
+                    case ' ':
+                        event.preventDefault();
+                        if (!isOpen) { open(); }
+                        else if (activeIndex >= 0) { commit(optionEls[activeIndex]); }
+                        else { commit(optionEls[0]); }
+                        break;
+                    case 'ArrowDown':
+                        event.preventDefault();
+                        if (!isOpen) open();
+                        setActive(activeIndex < 0 ? 0 : Math.min(activeIndex + 1, max));
+                        break;
+                    case 'ArrowUp':
+                        event.preventDefault();
+                        if (!isOpen) { open(); setActive(max); }
+                        else { setActive(activeIndex <= 0 ? 0 : activeIndex - 1); }
+                        break;
+                    case 'Home':
+                        if (isOpen) { event.preventDefault(); setActive(0); }
+                        break;
+                    case 'End':
+                        if (isOpen) { event.preventDefault(); setActive(max); }
+                        break;
+                    case 'Escape':
+                        if (isOpen) { event.preventDefault(); close(true); }
+                        break;
+                    case 'Tab':
+                        close();
+                        break;
+                    default:
+                        if (event.key.length === 1 && /\S/.test(event.key)) {
+                            typeahead += event.key.toLowerCase();
+                            clearTimeout(typeaheadTimer);
+                            typeaheadTimer = setTimeout(function () { typeahead = ''; }, 600);
+                            const found = optionEls.findIndex(function (el) {
+                                return el.textContent.trim().toLowerCase().startsWith(typeahead);
+                            });
+                            if (found >= 0) {
+                                if (!isOpen) { commit(optionEls[found]); }
+                                else { setActive(found); }
+                            }
+                        }
+                }
+            });
+
+            // Mirror the form validator's error state from the hidden native select.
+            new MutationObserver(function () {
+                toggle.classList.toggle('is-invalid', select.getAttribute('aria-invalid') === 'true');
+            }).observe(select, { attributes: true, attributeFilter: ['aria-invalid'] });
+
+            syncUI();
+            select.addEventListener('change', syncUI);
+            if (select.form) {
+                select.form.addEventListener('reset', function () { setTimeout(syncUI, 0); });
+            }
+        });
+    }
+    initCustomSelects();
+
+    /* ==========================================
        Gallery Category Filtering
        ========================================== */
     function initGalleryFilter() {
@@ -381,4 +555,40 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
     }
     initLightbox();
+
+    /* ==========================================
+       Background preloader for lightbox images
+       (idle-time, one at a time — makes opening
+       the lightbox and the Przed/Po switch instant)
+       ========================================== */
+    function initGalleryPreloader() {
+        const onIdle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1500); };
+        onIdle(function () {
+            const seen = new Set();
+            const queue = [];
+            document.querySelectorAll('[data-lightbox-img]').forEach(function (el) {
+                const main = el.getAttribute('data-lightbox-img');
+                const before = el.getAttribute('data-lightbox-before');
+                [main, before].forEach(function (url) {
+                    if (url && !seen.has(url)) {
+                        seen.add(url);
+                        queue.push(url);
+                    }
+                });
+            });
+            let index = 0;
+            function step() {
+                if (index >= queue.length) return;
+                const img = new Image();
+                img.decoding = 'async';
+                img.onload = img.onerror = function () {
+                    index += 1;
+                    setTimeout(step, 220);
+                };
+                img.src = queue[index];
+            }
+            step();
+        });
+    }
+    initGalleryPreloader();
 });
