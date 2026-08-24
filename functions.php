@@ -137,6 +137,11 @@ require_once get_template_directory() . '/inc/realizacje-admin.php';
 require_once get_template_directory() . '/inc/bootstrap-pages.php';
 
 /**
+ * Wysyłka SMTP przez stałe z wp-config.php (patrz inc/mailer.php)
+ */
+require_once get_template_directory() . '/inc/mailer.php';
+
+/**
  * Handle AJAX Quote Calculation / Contact Form Submission
  */
 function higloss_handle_quote_calculator() {
@@ -167,7 +172,8 @@ function higloss_handle_quote_calculator() {
         wp_send_json_error(array('message' => 'Podaj poprawny adres e-mail.'));
     }
 
-    $to = get_option('admin_email', 'biuro@hi-glossdesign.pl');
+    // Zapytania z formularza zawsze leca na skrzynke biura (stala ewentualnie w wp-config.php)
+    $to = defined('HIGLOSS_QUOTE_TO') ? HIGLOSS_QUOTE_TO : 'biuro@hi-glossdesign.pl';
     $subject = 'Nowe zapytanie ze strony Hi-Gloss Design: ' . $service;
     
     $body  = "Nowe Zapytanie o Wycenę:\n\n";
@@ -187,7 +193,8 @@ function higloss_handle_quote_calculator() {
     $body .= "Auto i opis projektu: " . $notes . "\n\n";
     $body .= "---\nWysłano z formularza Hi-Gloss Design 2026";
 
-    $headers = array('Content-Type: text/plain; charset=UTF-8', 'From: Hi-Gloss Website <noreply@hi-glossdesign.pl>');
+    // Nadawce ustawia inc/mailer.php (SMTP) albo WordPress domyslnie — nie wymuszamy naglowka From
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
 
     // Let staff reply straight to the customer from any mail client or phone.
     if (!empty($email)) {
@@ -237,7 +244,7 @@ function higloss_render_schema_markup() {
             array(
                 "@type" => "OpeningHoursSpecification",
                 "dayOfWeek" => array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"),
-                "opens" => "08:00",
+                "opens" => "09:00",
                 "closes" => "17:00"
             )
         ),

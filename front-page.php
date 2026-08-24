@@ -362,7 +362,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     <div class="hg-contact-details">
                         <div><span>Studio</span><a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">ul. Podmiejska 4<br>72-006 Mierzyn / Szczecin</a></div>
                         <div><span>E-mail</span><a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a></div>
-                        <div><span>Godziny</span><p>Pon.–Pt. 08:00–17:00<br>Sobota: po umówieniu</p></div>
+                        <div><span>Godziny</span><p>Pon.–Pt. 09:00–17:00<br>Sobota: po umówieniu</p></div>
                     </div>
 
                     <a class="hg-google-proof" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
