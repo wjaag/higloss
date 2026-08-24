@@ -17,9 +17,8 @@ jobs:
       - name: 📂 Mirror motywu przez FTPS (LFTP)
         run: |
           sudo apt-get update && sudo apt-get install -y lftp
-          lftp -c "
-            set ssl:verify-certificate no;
-            set ftp:ssl-allow yes;
+          lftp -c
+            set ftp:ssl-allow no;
             set ftp:passive-mode true;
             open -u '${{ secrets.FTP_PROD_USERNAME }}','${{ secrets.FTP_PROD_PASSWORD }}' '${{ secrets.FTP_PROD_SERVER }}';
             mirror -R --verbose --no-perms --delete ./ '${{ secrets.FTP_PROD_SERVER_DIR || '/public_html/wp/wp-content/themes/higloss/' }}' \
