@@ -268,3 +268,16 @@ function higloss_render_schema_markup() {
     echo '<script type="application/ld+json">' . json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
 }
 add_action('wp_head', 'higloss_render_schema_markup');
+
+/**
+ * robots.txt — adres mapy strony, zeby robot Google znalazl mapę nawet bez Search Console.
+ * Dziala dla wirtualnego robots.txt generowanego przez WordPress
+ * (gdy w katalogu public_html nie ma fizycznego pliku robots.txt).
+ */
+add_filter('robots_txt', 'higloss_robots_txt_sitemap', 10, 2);
+function higloss_robots_txt_sitemap($output, $public) {
+    if ('0' !== (string) $public) {
+        $output .= "\nSitemap: " . esc_url(home_url('/wp-sitemap.xml')) . "\n";
+    }
+    return $output;
+}
