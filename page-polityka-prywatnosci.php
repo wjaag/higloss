@@ -27,7 +27,7 @@ $theme_uri = HIGLOSS_THEME_URI;
         <div class="hg-container">
             <article class="hg-legal hg-reveal">
                 <h2>1. Administrator danych osobowych</h2>
-                <p>Administratorem danych zbieranych za pośrednictwem serwisu jest HI-GLOSS DESIGN, ul. Podmiejska 4, 72-006 Mierzyn / Szczecin, e-mail: <a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a>, tel. <a href="tel:+48605088065">605 088 065</a> / <a href="tel:+48664129023">664 129 023</a>.</p>
+                <p>Administratorem danych zbieranych za pośrednictwem serwisu jest HI-GLOSS DESIGN, ul. Podmiejska 4, 72-006 Mierzyn / Szczecin, e-mail: <a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a>, tel. <a href="tel:+48605088065">605 088 065</a>.</p>
 
                 <h2>2. Cel i podstawa prawna przetwarzania</h2>
                 <p>Dane osobowe (imię, numer telefonu, adres e-mail, dane pojazdu) przekazywane przez formularze kontaktowe przetwarzane są wyłącznie w celach:</p>
