@@ -281,3 +281,78 @@ function higloss_robots_txt_sitemap($output, $public) {
     }
     return $output;
 }
+
+/**
+ * Meta description + Open Graph — per strona, bez wtyczki SEO.
+ * Opisy kuratowane pod frazy z mapy SEO (seo-migration/PLAN-WDROZENIA.md);
+ * podstrony bez dopisku dostaja opis domyslny, realizacje — opis z tresci/specyfikacji.
+ */
+add_action('wp_head', 'higloss_render_seo_meta', 1);
+function higloss_render_seo_meta() {
+    $default_desc = 'HI-GLOSS DESIGN — studio całościowej zmiany koloru auta folią i bezbarwnych folii ochronnych PPF. Demontaż z procedurami fabrycznymi, folie premium. Szczecin / Mierzyn. Bezpłatna wycena.';
+
+    $page_desc = array(
+        'oferta'                => 'Oferta studia HI-GLOSS DESIGN: zmiana koloru auta folią, bezbarwne folie ochronne PPF, oklejanie reklamowe flot, przyciemnianie szyb, dechroming i detailing. Szczecin / Mierzyn.',
+        'zmiana-koloru'         => 'Całościowa zmiana koloru auta foliami premium 3M, Avery Dennison i Inozetek. Demontaż klamek i zderzaków, efekt lakieru fabrycznego, gwarancja na folię. Szczecin / Mierzyn — bezpłatna wycena.',
+        'ppf'                   => 'Bezbarwne folie ochronne PPF: ochrona lakieru przed odpryskami, zarysowaniami i solą drogową. Pakiety od stref newralgicznych po całe auto. HI-GLOSS DESIGN — Szczecin / Mierzyn.',
+        'reklama'               => 'Oklejanie reklamowe aut i flot firmowych: projekt, druk wielkoformatowy i aplikacja. Branding, który sprzedaje w ruchu. HI-GLOSS DESIGN — Szczecin / Mierzyn — bezpłatna wycena.',
+        'detailing'             => 'Usługi dodatkowe: przyciemnianie szyb, dechroming, detailing, powłoki ochronne i naprawy folii. HI-GLOSS DESIGN — studio w Szczecinie / Mierzynie.',
+        'galeria'               => 'Galeria realizacji HI-GLOSS DESIGN: metamorfozy aut folią, folie ochronne PPF i branding flot — zdjęcia PRZED i PO ze studia w Szczecinie / Mierzynie.',
+        'o-firmie'              => 'HI-GLOSS DESIGN — studio oklejania pojazdów z Mierzyna k. Szczecina. Procedury fabryczne, ogrzewana hala, folie premium. Poznaj naszą historię i standardy pracy.',
+        'kontakt'               => 'Kontakt z HI-GLOSS DESIGN: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00. Bezpłatna wycena.',
+        'polityka-prywatnosci'  => 'Polityka prywatności serwisu HI-GLOSS DESIGN — zasady przetwarzania danych osobowych zgodnie z RODO.',
+    );
+
+    $description = $default_desc;
+    $title       = wp_get_document_title();
+    $url         = home_url('/');
+    $type        = 'website';
+    $image       = get_template_directory_uri() . '/screenshot.jpg';
+
+    if (is_singular()) {
+        global $post;
+        $type = ('realizacje' === get_post_type($post)) ? 'article' : 'website';
+        $url  = get_permalink($post);
+
+        if (is_page($post) && isset($page_desc[$post->post_name])) {
+            $description = $page_desc[$post->post_name];
+        } elseif ('realizacje' === get_post_type($post)) {
+            $service = get_post_meta($post->ID, '_higloss_service_type', true);
+            $model   = get_post_meta($post->ID, '_higloss_car_model', true);
+            $lead    = trim(($model ? $model . ' — ' : '') . ($service ? $service : 'realizacja studia oklejania pojazdów'));
+            $description = sprintf('Realizacja HI-GLOSS DESIGN: %s. Zobacz efekt PRZED i PO oraz specyfikację projektu ze studia w Szczecinie / Mierzynie.', $lead);
+            if (has_excerpt($post)) {
+                $description = wp_strip_all_tags(get_the_excerpt($post), true);
+            } elseif (!empty($post->post_content)) {
+                $description = wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
+            }
+        } elseif (has_excerpt($post)) {
+            $description = wp_strip_all_tags(get_the_excerpt($post), true);
+        } elseif (!empty($post->post_content)) {
+            $description = wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
+        }
+
+        if (has_post_thumbnail($post)) {
+            $thumb = get_the_post_thumbnail_url($post, 'large');
+            if ($thumb) {
+                $image = $thumb;
+            }
+        }
+    } elseif (is_post_type_archive('realizacje')) {
+        $description = $page_desc['galeria'];
+        $url         = get_post_type_archive_link('realizacje');
+    } elseif (is_search()) {
+        $description = 'Wyniki wyszukiwania w serwisie HI-GLOSS DESIGN.';
+    }
+    ?>
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:type" content="<?php echo esc_attr($type); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:url" content="<?php echo esc_url($url); ?>">
+    <meta property="og:site_name" content="HI-GLOSS DESIGN">
+    <meta property="og:image" content="<?php echo esc_url($image); ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <?php
+}
