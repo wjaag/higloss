@@ -66,10 +66,98 @@
   padding: 8px 10px;
   border-radius: 3px;
 }
-.hg-admin-specspanel .hg-admin-specs input:focus {
+.hg-admin-specspanel .hg-admin-specs input:focus,
+.hg-admin-specspanel .hg-admin-specs select:focus {
   border-color: #25aae1;
   box-shadow: 0 0 0 1px #25aae1;
   outline: none;
+}
+.hg-admin-specspanel .hg-admin-specs select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 3px;
+}
+.hg-field-hint {
+  display: block;
+  margin-top: 3px;
+  color: #787c82;
+  font-size: 12px;
+}
+
+/* Pigulki kategorii — kolory identyczne jak pilli na frontach */
+.hg-admin-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f0f0f1;
+}
+.hg-cat-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: 2px solid #dcdcde;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #3c434a;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+}
+.hg-cat-pill:hover {
+  border-color: #8c8f94;
+}
+.hg-cat-pill input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.hg-cat-pill.hg-cat-zmiana-koloru.is-active {
+  border-color: #25aae1;
+  background: #eef8fd;
+  color: #0c6f96;
+}
+.hg-cat-pill.hg-cat-ppf.is-active {
+  border-color: #10b981;
+  background: #ecfdf5;
+  color: #047857;
+}
+.hg-cat-pill.hg-cat-reklama.is-active {
+  border-color: #f59e0b;
+  background: #fffbeb;
+  color: #b45309;
+}
+.hg-cat-pill.hg-cat-detailing.is-active {
+  border-color: #8b5cf6;
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+.hg-cat-pill.hg-cat-ogolna.is-active {
+  border-color: #64748b;
+  background: #f8fafc;
+  color: #334155;
+}
+
+/* Grupy pol warunkowych */
+.hg-field-group {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #dcdcde;
+}
+.hg-group-title {
+  margin: 0 0 10px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #787c82;
+}
+.hg-admin-specs--common {
+  padding-bottom: 2px;
 }
 
 /* Panel zdjec PRZED / PO — karta pod tytulem */

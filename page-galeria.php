@@ -88,11 +88,14 @@ $theme_uri = get_template_directory_uri();
                     $car_model   = get_post_meta(get_the_ID(), '_higloss_car_model', true);
                     // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach
                     $model_label = (!empty($car_model) && ! higloss_model_in_title($car_model)) ? $car_model : '';
-                    $film_used   = get_post_meta(get_the_ID(), '_higloss_film_used', true);
-                    $exec_time   = get_post_meta(get_the_ID(), '_higloss_execution_time', true);
-                    $finish_type = get_post_meta(get_the_ID(), '_higloss_finish_type', true);
                     $terms       = get_the_terms(get_the_ID(), 'kategoria_realizacji');
                     $cat_slug    = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
+                    $cat_name    = ($terms && !is_wp_error($terms)) ? $terms[0]->name : '';
+                    // Chipy z centralnego configu: max. 3 pierwsze wypelnione pola (short-label)
+                    $spec_chips  = array_slice(array_values(array_filter(
+                        higloss_get_realizacja_specs(get_the_ID()),
+                        static function ($spec) { return '' !== $spec['chip']; }
+                    )), 0, 3);
                     $thumb_url   = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp';
                     $before_image_map = array(
                         'gallery_bmw_m4_satin_black.webp' => 'gallery_before_stock_paint.webp',
@@ -113,7 +116,7 @@ $theme_uri = get_template_directory_uri();
                             <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
                             <div class="hg-gallery-vignette"></div>
                             <span class="hg-gallery-cat-pill cat-<?php echo esc_attr($cat_slug); ?>">
-                                <?php echo !empty($service_tag) ? esc_html($service_tag) : 'REALIZACJA'; ?>
+                                <?php echo !empty($cat_name) ? esc_html($cat_name) : (!empty($service_tag) ? esc_html($service_tag) : 'REALIZACJA'); ?>
                             </span>
                             <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
                                 <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
@@ -132,17 +135,13 @@ $theme_uri = get_template_directory_uri();
                             </div>
 
                             <div>
+                                <?php if (!empty($spec_chips)) : ?>
                                 <div class="hg-gallery-specs-row">
-                                    <?php if (!empty($film_used)) : ?>
-                                        <span class="hg-gallery-spec-item">Folia: <strong><?php echo esc_html($film_used); ?></strong></span>
-                                    <?php endif; ?>
-                                    <?php if (!empty($exec_time)) : ?>
-                                        <span class="hg-gallery-spec-item">Czas: <strong><?php echo esc_html($exec_time); ?></strong></span>
-                                    <?php endif; ?>
-                                    <?php if (!empty($finish_type)) : ?>
-                                        <span class="hg-gallery-spec-item">Efekt: <strong><?php echo esc_html($finish_type); ?></strong></span>
-                                    <?php endif; ?>
+                                    <?php foreach ($spec_chips as $chip) : ?>
+                                        <span class="hg-gallery-spec-item"><?php echo esc_html($chip['chip']); ?>: <strong><?php echo esc_html($chip['value']); ?></strong></span>
+                                    <?php endforeach; ?>
                                 </div>
+                                <?php endif; ?>
 
                                 <div class="hg-gallery-actions">
                                     <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>">

@@ -5,7 +5,8 @@
  * Zamiast typowego ekranu dodawania wpisu:
  * - pasek naglowka z logo i prowadzeniem krok-po-kroku (edit_form_top)
  * - panel SPECYFIKACJA bezposrednio pod tytulem (edit_form_after_title, priorytet 5)
- *   — pola marka/model + usluga podpowiadaja tytul automatycznie (JS)
+ *   — pigułki kategorii (te same kolory co front) + pola warunkowe z configu
+ *   inc/realizacje-fields.php; marka/model + usluga podpowiadaja tytul (JS)
  * - panel zdjec PRZED / PO (edit_form_after_title, priorytet 10),
  *   PO synchronizowane z obrazkiem wyrożniajacym (boczny panel WP ukryty),
  *   PRZED = pole meta _higloss_before_image z pickerem media library
@@ -35,7 +36,7 @@ function higloss_render_creator_banner($post) {
         <img src="<?php echo esc_url($logo); ?>" alt="" class="hg-admin-hero-logo">
         <div class="hg-admin-hero-text">
             <strong>HI-GLOSS DESIGN · kreator realizacji</strong>
-            <span>Wypelnij kroki po kolei: <em>1</em> specyfikacja auta — tytul podpowie sie sam &rarr; <em>2</em> zdjecia PRZED i PO &rarr; <em>3</em> opis i kategoria &rarr; <em>4</em> „Opublikuj". Opis pod edytorem zasila SEO strony realizacji.</span>
+            <span>Wypelnij kroki po kolei: <em>1</em> kategoria i pola specyfikacji — dopasują i podpowiedzą tytul &rarr; <em>2</em> zdjecia PRZED i PO &rarr; <em>3</em> opis &rarr; <em>4</em> „Opublikuj". Opis pod edytorem zasila SEO strony realizacji.</span>
         </div>
     </div>
     <?php
@@ -104,34 +105,77 @@ function higloss_render_specyfikacja_panel($post) {
     if (!$post || 'realizacje' !== $post->post_type) {
         return;
     }
-    $fields = array(
-        'higloss_car_model'       => array('Marka i model auta',     'np. Audi A7 Sportback'),
-        'higloss_service_type'    => array('Wykonana usługa',         'np. Całościowa zmiana koloru'),
-        'higloss_film_used'       => array('Użyta folia / materiał',  'np. 3M 2080 Gloss Blue'),
-        'higloss_execution_time'  => array('Czas realizacji',         'np. 4 dni robocze'),
-        'higloss_finish_type'     => array('Wykończenie powierzchni', 'np. Głęboki połysk / satyna'),
-    );
+    $config     = higloss_realizacje_fields_config();
+    $categories = higloss_realizacje_categories();
+    $term       = higloss_realizacja_term($post->ID);
+    $current    = $term ? $term->slug : '';
     ?>
     <div class="hg-admin-specspanel">
         <div class="hg-admin-photos-head">
             <span class="hg-admin-photos-title">Specyfikacja realizacji</span>
-            <span class="hg-admin-photos-sub">Pola „Marka i model" + „Wykonana usługa" same podpowiadają tytuł (pole nad tym panelem) — możesz go dowolnie poprawić, podpowiedź nie nadpisze Twojej wersji.</span>
+            <span class="hg-admin-photos-sub">Wybierz kategorię — pola dopasują się same. „Marka i model" + „Wykonana usługa" podpowiadają tytuł nad panelem.</span>
         </div>
-        <div class="hg-admin-specs">
-            <?php foreach ($fields as $name => $cfg) :
-                $value = get_post_meta($post->ID, '_' . $name, true);
-            ?>
-            <p class="hg-admin-field">
-                <label for="<?php echo esc_attr($name); ?>"><?php echo esc_html($cfg[0]); ?></label>
-                <input type="text" id="<?php echo esc_attr($name); ?>" name="<?php echo esc_attr($name); ?>"
-                       value="<?php echo esc_attr($value); ?>" placeholder="<?php echo esc_attr($cfg[1]); ?>">
-            </p>
+
+        <div class="hg-admin-cats" role="radiogroup" aria-label="Kategoria realizacji">
+            <?php foreach ($categories as $slug => $name) : ?>
+            <label class="hg-cat-pill hg-cat-<?php echo esc_attr($slug); echo $current === $slug ? ' is-active' : ''; ?>">
+                <input type="radio" name="hg_kategoria" value="<?php echo esc_attr($slug); ?>" <?php checked($current, $slug); ?>>
+                <?php echo esc_html($name); ?>
+            </label>
             <?php endforeach; ?>
+            <label class="hg-cat-pill hg-cat-ogolna<?php echo '' === $current ? ' is-active' : ''; ?>">
+                <input type="radio" name="hg_kategoria" value="" <?php checked($current, ''); ?>>
+                Inne / ogólne
+            </label>
         </div>
+
+        <div class="hg-admin-specs hg-admin-specs--common">
+            <?php foreach ($config['common'] as $key => $def) {
+                higloss_render_spec_field_input($key, $def, $post->ID);
+            } ?>
+        </div>
+
+        <?php foreach ($config['groups'] as $slug => $fields) : ?>
+        <div class="hg-field-group" data-cat="<?php echo esc_attr($slug); ?>">
+            <p class="hg-group-title">
+                <?php echo esc_html('ogolna' === $slug ? 'Specyfikacja — układ ogólny' : 'Specyfikacja — ' . (isset($categories[$slug]) ? $categories[$slug] : $slug)); ?>
+            </p>
+            <div class="hg-admin-specs">
+                <?php foreach ($fields as $key => $def) {
+                    higloss_render_spec_field_input($key, $def, $post->ID);
+                } ?>
+            </div>
+        </div>
+        <?php endforeach; ?>
     </div>
     <?php
 }
 add_action('edit_form_after_title', 'higloss_render_specyfikacja_panel', 5);
+
+/* Pojedyncze pole specyfikacji (text/select) wg definicji z configu */
+function higloss_render_spec_field_input($key, $def, $post_id) {
+    $name  = ltrim($key, '_');
+    $value = get_post_meta($post_id, $key, true);
+    ?>
+    <p class="hg-admin-field">
+        <label for="<?php echo esc_attr($name); ?>"><?php echo esc_html($def['label']); ?></label>
+        <?php if ('select' === ($def['type'] ?? 'text')) : ?>
+            <select id="<?php echo esc_attr($name); ?>" name="<?php echo esc_attr($name); ?>">
+                <option value="">— wybierz —</option>
+                <?php foreach ((array) $def['options'] as $option) : ?>
+                    <option value="<?php echo esc_attr($option); ?>" <?php selected($value, $option); ?>><?php echo esc_html($option); ?></option>
+                <?php endforeach; ?>
+            </select>
+        <?php else : ?>
+            <input type="text" id="<?php echo esc_attr($name); ?>" name="<?php echo esc_attr($name); ?>"
+                   value="<?php echo esc_attr($value); ?>" placeholder="<?php echo esc_attr($def['placeholder'] ?? ''); ?>">
+        <?php endif; ?>
+        <?php if (!empty($def['hint'])) : ?>
+            <span class="hg-field-hint"><?php echo esc_html($def['hint']); ?></span>
+        <?php endif; ?>
+    </p>
+    <?php
+}
 
 /* ---------------------------------------------------------------------------
  * Porzadki w metaboksach — boczny panel "Obrazek wyrozniajacy" znika,
@@ -139,6 +183,8 @@ add_action('edit_form_after_title', 'higloss_render_specyfikacja_panel', 5);
  * ------------------------------------------------------------------------- */
 function higloss_add_realizacje_metaboxes() {
     remove_meta_box('postimagediv', 'realizacje', 'side');
+    // Boczny box taksonomii znika — kategorie wybiera sie pigułkami w panelu specyfikacji
+    remove_meta_box('kategoria_realizacidiv', 'realizacje', 'side');
 }
 add_action('do_meta_boxes', 'higloss_add_realizacje_metaboxes');
 
@@ -156,16 +202,34 @@ function higloss_save_realizacje_meta($post_id) {
         return;
     }
 
-    $text_fields = array(
-        'higloss_car_model'      => '_higloss_car_model',
-        'higloss_service_type'   => '_higloss_service_type',
-        'higloss_film_used'      => '_higloss_film_used',
-        'higloss_execution_time' => '_higloss_execution_time',
-        'higloss_finish_type'    => '_higloss_finish_type',
-    );
-    foreach ($text_fields as $post_key => $meta_key) {
-        if (isset($_POST[$post_key])) {
-            update_post_meta($post_id, $meta_key, sanitize_text_field(wp_unslash($_POST[$post_key])));
+    // Kategoria realizacji (pigułki z panelu specyfikacji) — zawsze dokladnie jedna
+    if (isset($_POST['hg_kategoria'])) {
+        $slug = sanitize_key(wp_unslash($_POST['hg_kategoria']));
+        if ('' === $slug) {
+            wp_set_post_terms($post_id, array(), 'kategoria_realizacji', false);
+        } else {
+            $term = get_term_by('slug', $slug, 'kategoria_realizacji');
+            if ($term) {
+                wp_set_post_terms($post_id, array((int) $term->term_id), 'kategoria_realizacji', false);
+            }
+        }
+    }
+
+    // Pola specyfikacji wg centralnego configu; brak pola w $_POST = bez zmian
+    // (ukryte grupy maja inputy disabled, wiec dane innych kategorii nigdy nie znikaja)
+    foreach (higloss_all_realizacja_field_keys() as $meta_key => $def) {
+        $post_key = ltrim($meta_key, '_');
+        if (!isset($_POST[$post_key])) {
+            continue;
+        }
+        $value = sanitize_text_field(wp_unslash($_POST[$post_key]));
+        if ('select' === ($def['type'] ?? 'text') && '' !== $value && !in_array($value, (array) $def['options'], true)) {
+            $value = ''; // wartosc spoza whitelisty odrzucamy
+        }
+        if ('' === $value) {
+            delete_post_meta($post_id, $meta_key);
+        } else {
+            update_post_meta($post_id, $meta_key, $value);
         }
     }
 
@@ -253,14 +317,14 @@ function higloss_realizacje_admin_assets($hook) {
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/js/admin-realizacje.js',
         array('jquery', 'media-editor'),
-        '1.3',
+        '1.4',
         true
     );
     wp_enqueue_style(
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/css/admin-realizacje.css',
         array(),
-        '1.3'
+        '1.4'
     );
 }
 add_action('admin_enqueue_scripts', 'higloss_realizacje_admin_assets');

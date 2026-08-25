@@ -16,9 +16,7 @@ get_header();
             $service_type= get_post_meta(get_the_ID(), '_higloss_service_type', true);
             // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach
             $model_label = (!empty($car_model) && ! higloss_model_in_title($car_model)) ? $car_model : '';
-            $film_used   = get_post_meta(get_the_ID(), '_higloss_film_used', true);
-            $exec_time   = get_post_meta(get_the_ID(), '_higloss_execution_time', true);
-            $finish_type = get_post_meta(get_the_ID(), '_higloss_finish_type', true);
+            $spec_rows   = higloss_get_realizacja_specs(get_the_ID());
             $before_id   = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
         ?>
 
@@ -99,37 +97,20 @@ get_header();
                     </h3>
 
                     <div style="display: flex; flex-direction: column; gap: 1.2rem; color: #ffffff; margin-bottom: 2rem;">
+                        <?php if (empty($spec_rows)) : ?>
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
                             <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Pojazd:</span>
-                            <strong style="color: #25aae1; font-size: 1rem;"><?php echo !empty($car_model) ? esc_html($car_model) : esc_html(get_the_title()); ?></strong>
+                            <strong style="color: #25aae1; font-size: 1rem;"><?php echo esc_html(get_the_title()); ?></strong>
                         </div>
-
-                        <?php if (!empty($service_type)) : ?>
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
-                            <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Usługa:</span>
-                            <strong style="color: #ffffff; font-size: 1rem;"><?php echo esc_html($service_type); ?></strong>
+                        <?php else : ?>
+                        <?php foreach ($spec_rows as $row) :
+                            $accent = ('_higloss_film_used' === $row['key']) ? '#25aae1' : '#ffffff';
+                        ?>
+                        <div style="display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
+                            <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; flex: none;"><?php echo esc_html($row['label']); ?>:</span>
+                            <strong style="color: <?php echo esc_attr($accent); ?>; font-size: 1rem; text-align: right;"><?php echo esc_html($row['value']); ?></strong>
                         </div>
-                        <?php endif; ?>
-
-                        <?php if (!empty($film_used)) : ?>
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
-                            <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Folia / Materiał:</span>
-                            <strong style="color: #25aae1; font-size: 1rem;"><?php echo esc_html($film_used); ?></strong>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php if (!empty($exec_time)) : ?>
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
-                            <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Czas Usługi:</span>
-                            <strong style="color: #ffffff; font-size: 1rem;"><?php echo esc_html($exec_time); ?></strong>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php if (!empty($finish_type)) : ?>
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
-                            <span style="color: #94a3b8; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Wykończenie:</span>
-                            <strong style="color: #ffffff; font-size: 1rem;"><?php echo esc_html($finish_type); ?></strong>
-                        </div>
+                        <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
 

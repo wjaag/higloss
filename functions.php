@@ -127,6 +127,11 @@ function higloss_register_cpt_realizacje() {
 add_action('init', 'higloss_register_cpt_realizacje');
 
 /**
+ * Realizacje — centralny config pól specyfikacji per kategoria (współdzielony: admin + front)
+ */
+require_once get_template_directory() . '/inc/realizacje-fields.php';
+
+/**
  * Realizacje - panel admina (metaboxy na głównym planie: PRZED/PO, specyfikacja, galeria)
  */
 require_once get_template_directory() . '/inc/realizacje-admin.php';

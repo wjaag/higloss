@@ -67,6 +67,27 @@
             $(this).hide();
         });
 
+        /* ---------- Pola warunkowe wg kategorii ----------
+         * Wybor pigułki przełącza widoczną grupę pól. Inputy ukrytych grup
+         * dostają disabled — nie lecą w $_POST, więc serwer ich nie nadpisuje.
+         */
+        var $specGroups = $('.hg-field-group');
+
+        function syncSpecGroups() {
+            var cat = $('input[name="hg_kategoria"]:checked').val() || 'ogolna';
+            $specGroups.each(function () {
+                var $group = $(this);
+                var show = $group.attr('data-cat') === cat;
+                $group.toggle(show);
+                $group.find(':input').prop('disabled', !show);
+            });
+            $('.hg-cat-pill').removeClass('is-active');
+            $('input[name="hg_kategoria"]:checked').closest('.hg-cat-pill').addClass('is-active');
+        }
+
+        $(document).on('change', 'input[name="hg_kategoria"]', syncSpecGroups);
+        syncSpecGroups();
+
         /* ---------- Auto-podpowiedź tytułu z pól specyfikacji ----------
          * Marka/model + wykonana usługa składają propozycję tytułu, np.
          * „BMW X5 — całościowa zmiana koloru". Podpowiedź uzupełnia pole
