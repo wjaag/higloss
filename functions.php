@@ -122,6 +122,9 @@ function higloss_register_cpt_realizacje() {
         'query_var'         => true,
         'rewrite'           => array('slug' => 'kategoria-realizacji'),
         'show_in_rest'      => false,
+        // Boczny box kategorii w edytorze wylaczony — wybor przez pigułki
+        // w panelu SPECYFIKACJA (inc/realizacje-admin.php)
+        'meta_box_cb'       => false,
     ));
 }
 add_action('init', 'higloss_register_cpt_realizacje');
