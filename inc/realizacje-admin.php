@@ -317,14 +317,14 @@ function higloss_realizacje_admin_assets($hook) {
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/js/admin-realizacje.js',
         array('jquery', 'media-editor'),
-        '1.4',
+        '1.5',
         true
     );
     wp_enqueue_style(
         'higloss-admin-realizacje',
         get_template_directory_uri() . '/assets/css/admin-realizacje.css',
         array(),
-        '1.4'
+        '1.5'
     );
 }
 add_action('admin_enqueue_scripts', 'higloss_realizacje_admin_assets');
