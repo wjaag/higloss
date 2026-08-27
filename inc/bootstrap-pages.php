@@ -151,7 +151,7 @@ function higloss_bootstrap_proces_page() {
         return;
     }
     $new_id = wp_insert_post(array(
-        'post_title'   => 'Proces',
+        'post_title'   => 'Proces realizacji',
         'post_name'    => 'proces',
         'post_status'  => 'publish',
         'post_type'    => 'page',
@@ -165,10 +165,32 @@ function higloss_bootstrap_proces_page() {
 add_action('init', 'higloss_bootstrap_proces_page', 28);
 
 /**
+ * Bootstrap v3b — tytul strony /proces: "Proces" -> "Proces realizacji"
+ * (mocniejszy <title> pod SEO; slug i szablon bez zmian).
+ */
+function higloss_bootstrap_proces_title() {
+    if (get_option('higloss_proces_v')) {
+        return;
+    }
+    $proces_page = get_page_by_path('proces');
+    if ($proces_page && 'Proces' === $proces_page->post_title) {
+        wp_update_post(array(
+            'ID'         => (int) $proces_page->ID,
+            'post_title' => 'Proces realizacji',
+        ));
+    }
+    if ($proces_page && !get_post_meta($proces_page->ID, '_wp_page_template', true)) {
+        update_post_meta($proces_page->ID, '_wp_page_template', 'page-proces.php');
+    }
+    update_option('higloss_proces_v', 2);
+}
+add_action('init', 'higloss_bootstrap_proces_title', 33);
+
+/**
  * Bootstrap v2 — Poradnik (blog SEO).
  *
  * Jednorazowa migracja (flaga higloss_poradnik_seeded): tworzy strone
- * "Poradnik" (/poradnik), ustawia ja jako strone wpisow (Ustawienia ->
+ * "Pytania" (/pytania), ustawia ja jako strone wpisow (Ustawienia ->
  * Czytanie) i publikuje pakiet artykulow long-tail z inc/poradnik-articles.php.
  * Idempotentna: istniejace strony wpisy (po slugu) nie sa nadpisywane.
  * Odpala sie na pierwszym zaladowaniu strony po wgraniu nowej wersji motywu.
@@ -178,12 +200,12 @@ function higloss_bootstrap_poradnik() {
         return;
     }
 
-    // 1. Strona /poradnik + przypisanie jako strona wpisow
-    $poradnik_page = get_page_by_path('poradnik');
+    // 1. Strona /pytania + przypisanie jako strona wpisow
+    $poradnik_page = get_page_by_path('pytania');
     if (!$poradnik_page) {
         $poradnik_id = wp_insert_post(array(
-            'post_title'   => 'Poradnik',
-            'post_name'    => 'poradnik',
+            'post_title'   => 'Pytania',
+            'post_name'    => 'pytania',
             'post_status'  => 'publish',
             'post_type'    => 'page',
             'post_content' => '',
@@ -196,10 +218,10 @@ function higloss_bootstrap_poradnik() {
         update_option('page_for_posts', (int) $poradnik_id);
     }
 
-    // 2. Kategoria Poradnik
-    $cat = term_exists('poradnik', 'category');
+    // 2. Kategoria Pytania
+    $cat = term_exists('pytania', 'category');
     if (!$cat) {
-        $cat = wp_insert_term('Poradnik', 'category', array('slug' => 'poradnik'));
+        $cat = wp_insert_term('Pytania', 'category', array('slug' => 'pytania'));
     }
     $cat_id = (is_array($cat) && !is_wp_error($cat)) ? (int) $cat['term_id'] : 0;
 
@@ -247,8 +269,8 @@ function higloss_poradnik_admin_notice() {
     ?>
     <div class="notice notice-success is-dismissible">
         <p>
-            <strong>Poradnik gotowy.</strong>
-            Utworzyliśmy stronę <a href="<?php echo esc_url(home_url('/poradnik/')); ?>">/poradnik</a>
+            <strong>Sekcja pytań gotowa.</strong>
+            Utworzyliśmy stronę <a href="<?php echo esc_url(home_url('/pytania/')); ?>">/pytania</a>
             (Ustawienia → Czytanie → Strona z wpisami) i opublikowaliśmy <?php echo (int) $created; ?>
             artykułów SEO (Wpisy → Wszystkie wpisy). Możesz je dowolnie edytować.
         </p>
@@ -256,3 +278,28 @@ function higloss_poradnik_admin_notice() {
     <?php
 }
 add_action('admin_notices', 'higloss_poradnik_admin_notice');
+
+/**
+ * Bootstrap v4 — rebrand sekcji Poradnik -> Pytania (strona + kategoria).
+ * Jednorazowa migracja dla istniejacych instalacji; WordPress sam ustawia
+ * 301 ze starego sluga strony (mechanizm wp_old_slug_redirect).
+ */
+function higloss_bootstrap_pytania_rename() {
+    if (get_option('higloss_pytania_v')) {
+        return;
+    }
+    $old_page = get_page_by_path('poradnik');
+    if ($old_page) {
+        wp_update_post(array(
+            'ID'         => (int) $old_page->ID,
+            'post_name'  => 'pytania',
+            'post_title' => 'Pytania',
+        ));
+    }
+    $old_term = get_term_by('slug', 'poradnik', 'category');
+    if ($old_term && !is_wp_error($old_term)) {
+        wp_update_term((int) $old_term->term_id, 'category', array('name' => 'Pytania', 'slug' => 'pytania'));
+    }
+    update_option('higloss_pytania_v', 2);
+}
+add_action('init', 'higloss_bootstrap_pytania_rename', 32);

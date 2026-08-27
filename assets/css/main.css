@@ -657,3 +657,59 @@ body.admin-bar .hg-header {
 }
 .hg-poradnik-pagination .page-numbers:hover { border-color: rgba(37,170,225,0.45); color: #25aae1; }
 .hg-poradnik-pagination .page-numbers.current { background: #25aae1; border-color: #25aae1; color: #07090e; }
+
+/* ==========================================================
+   PROCES — karty etapowe z panelem bocznym (page-proces.php)
+   ========================================================== */
+.hg-step-card {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 1.8rem;
+  align-items: start;
+  padding: 2rem 2.2rem !important;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.hg-step-card + .hg-step-card { margin-top: 1.2rem; }
+.hg-step-card:hover { border-color: rgba(37, 170, 225, 0.45) !important; transform: translateY(-2px); }
+.hg-step-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+.hg-step-num {
+  font-family: var(--hg-heading, 'Montserrat', sans-serif);
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(37, 170, 225, 0.9);
+  letter-spacing: -0.03em;
+}
+.hg-step-title {
+  font-family: var(--hg-heading, 'Montserrat', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.7rem;
+}
+.hg-step-text {
+  color: #cbd5e1;
+  font-size: 0.97rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.hg-step-text strong { color: #ffffff; }
+.hg-step-text a { color: #25aae1; font-weight: 700; }
+.hg-step-aside {
+  border-left: 2px solid rgba(37, 170, 225, 0.35);
+  padding-left: 1.3rem;
+  padding-top: 0.2rem;
+}
+.hg-step-aside .hg-gallery-specs-row { flex-direction: column; align-items: flex-start; gap: 0.55rem; }
+@media (max-width: 900px) {
+  .hg-step-card { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.6rem 1.4rem !important; }
+  .hg-step-aside { border-left: 0; border-top: 2px solid rgba(37, 170, 225, 0.35); padding-left: 0; padding-top: 1.1rem; }
+  .hg-step-num { font-size: 2.1rem; }
+}

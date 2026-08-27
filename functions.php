@@ -303,7 +303,7 @@ function higloss_render_seo_meta() {
         'o-firmie'              => 'HI-GLOSS DESIGN — studio oklejania pojazdów z Mierzyna k. Szczecina. Procedury fabryczne, ogrzewana hala, folie premium. Poznaj naszą historię i standardy pracy.',
         'kontakt'               => 'Kontakt z HI-GLOSS DESIGN: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00. Bezpłatna wycena.',
         'polityka-prywatnosci'  => 'Polityka prywatności serwisu HI-GLOSS DESIGN — zasady przetwarzania danych osobowych zgodnie z RODO.',
-        'poradnik'              => 'Poradnik HI-GLOSS DESIGN: cennik zmiany koloru auta folią, PPF czy ceramika, przepisy o przyciemnianiu szyb, pielęgnacja folii. Wiedza ze studia w Szczecinie / Mierzynie.',
+        'pytania'               => 'Pytania i odpowiedzi HI-GLOSS DESIGN: cennik zmiany koloru auta folią, PPF czy ceramika, przepisy o przyciemnianiu szyb, pielęgnacja folii. Rzetelna wiedza ze studia w Szczecinie / Mierzynie.',
         'proces'                => 'Jak wygląda oklejenie auta w HI-GLOSS DESIGN: wycena do 24 h, demontaż wg procedur fabrycznych, aplikacja w ogrzewanej hali, auto gotowe w 3–5 dni. Proces krok po kroku — Szczecin / Mierzyn.',
     );
 
@@ -343,8 +343,8 @@ function higloss_render_seo_meta() {
             }
         }
     } elseif (is_home()) {
-        // Strona wpisow = /poradnik (Ustawienia -> Czytanie)
-        $description = $page_desc['poradnik'];
+        // Strona wpisow = /pytania (Ustawienia -> Czytanie)
+        $description = $page_desc['pytania'];
         $posts_page  = (int) get_option('page_for_posts');
         $url         = $posts_page ? get_permalink($posts_page) : home_url('/');
     } elseif (is_post_type_archive('realizacje')) {
@@ -429,7 +429,7 @@ function higloss_render_breadcrumb_schema() {
         $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Galeria realizacji', 'item' => home_url('/galeria/'));
         $position = 3;
     } elseif ('post' === get_post_type()) {
-        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Poradnik', 'item' => home_url('/poradnik/'));
+        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Pytania', 'item' => home_url('/pytania/'));
         $position = 3;
     } else {
         $position = 2;

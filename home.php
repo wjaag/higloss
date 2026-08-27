@@ -20,12 +20,12 @@ $theme_uri = get_template_directory_uri();
         <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">PORADNIK EKSPERTA &bull; OKLEJANIE &bull; PPF &bull; DETAILING</span>
+                <span class="hg-subpage-banner-badge">ODPOWIEDZI EKSPERTA &bull; OKLEJANIE &bull; PPF &bull; DETAILING</span>
                 <h1 class="hg-subpage-banner-title">
-                    PORADNIK <span style="color: #25aae1;">HI-GLOSS</span>
+                    PYTANIA <span style="color: #25aae1;">I ODPOWIEDZI</span>
                 </h1>
                 <p style="color: #cbd5e1; max-width: 640px; margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.6;">
-                    Rzetelna wiedza o foliach bez marketingowej wody: cenniki, przepisy, pielęgnacja i technologia. Piszemy o tym, co robimy codziennie w naszym studiu pod Szczecinem.
+                    Rzetelne odpowiedzi na pytania, które słyszymy codziennie w studiu: cenniki, przepisy, pielęgnacja i technologia. Bez marketingowej wody — piszemy o tym, co robimy pod Szczecinem.
                 </p>
             </div>
         </div>
