@@ -30,7 +30,7 @@
             <a href="<?php echo esc_url(home_url('/galeria/')); ?>" class="hg-nav-link">Realizacje</a>
             <a href="<?php echo esc_url(home_url('/poradnik/')); ?>" class="hg-nav-link">Poradnik</a>
             <a href="<?php echo esc_url(home_url('/o-firmie/')); ?>" class="hg-nav-link">O nas</a>
-            <a href="<?php echo esc_url(home_url('/#proces')); ?>" class="hg-nav-link">Proces</a>
+            <a href="<?php echo esc_url(home_url('/proces/')); ?>" class="hg-nav-link">Proces</a>
             <a href="<?php echo esc_url(home_url('/kontakt/')); ?>" class="hg-nav-link">Kontakt</a>
             <a href="<?php echo esc_url(home_url('/#wycena')); ?>" class="hg-nav-cta">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 

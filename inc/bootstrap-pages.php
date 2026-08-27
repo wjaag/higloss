@@ -134,6 +134,37 @@ function higloss_bootstrap_admin_notice() {
 add_action('admin_notices', 'higloss_bootstrap_admin_notice');
 
 /**
+ * Bootstrap v3 — strona Proces (/proces) z szablonem page-proces.php.
+ * Jednorazowa, idempotentna po slugu; odpala sie na pierwszym
+ * zaladowaniu strony po wgraniu nowej wersji motywu.
+ */
+function higloss_bootstrap_proces_page() {
+    if (get_option('higloss_proces_seeded')) {
+        return;
+    }
+    $existing = get_page_by_path('proces');
+    if ($existing) {
+        if (!get_post_meta($existing->ID, '_wp_page_template', true)) {
+            update_post_meta($existing->ID, '_wp_page_template', 'page-proces.php');
+        }
+        update_option('higloss_proces_seeded', 1);
+        return;
+    }
+    $new_id = wp_insert_post(array(
+        'post_title'   => 'Proces',
+        'post_name'    => 'proces',
+        'post_status'  => 'publish',
+        'post_type'    => 'page',
+        'post_content' => '',
+    ));
+    if ($new_id && !is_wp_error($new_id)) {
+        update_post_meta($new_id, '_wp_page_template', 'page-proces.php');
+        update_option('higloss_proces_seeded', 1);
+    }
+}
+add_action('init', 'higloss_bootstrap_proces_page', 28);
+
+/**
  * Bootstrap v2 — Poradnik (blog SEO).
  *
  * Jednorazowa migracja (flaga higloss_poradnik_seeded): tworzy strone

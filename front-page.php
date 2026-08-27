@@ -201,6 +201,9 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <li class="hg-reveal"><span>03</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 18.5 9.5M3 21l3.5-1 12-12a2.8 2.8 0 0 0-4-4l-12 12L3 21Z"/><path d="m13 6 4 4"/></svg></div><h3>Przygotowanie i aplikacja</h3><p>Myjemy, dekontaminujemy i przygotowujemy powierzchnię. Aplikujemy folię w kontrolowanych warunkach.</p></li>
                 <li class="hg-reveal"><span>04</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Kontrola i odbiór</h3><p>Sprawdzamy każdy detal, omawiamy pielęgnację i przekazujemy gotowy pojazd wraz z zaleceniami.</p></li>
             </ol>
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="<?php echo esc_url(home_url('/proces/')); ?>" class="hg-gallery-card-btn btn-primary">Pełny proces krok po kroku &rarr;</a>
+            </p>
         </div>
     </section>
 

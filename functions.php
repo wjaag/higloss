@@ -304,6 +304,7 @@ function higloss_render_seo_meta() {
         'kontakt'               => 'Kontakt z HI-GLOSS DESIGN: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00. Bezpłatna wycena.',
         'polityka-prywatnosci'  => 'Polityka prywatności serwisu HI-GLOSS DESIGN — zasady przetwarzania danych osobowych zgodnie z RODO.',
         'poradnik'              => 'Poradnik HI-GLOSS DESIGN: cennik zmiany koloru auta folią, PPF czy ceramika, przepisy o przyciemnianiu szyb, pielęgnacja folii. Wiedza ze studia w Szczecinie / Mierzynie.',
+        'proces'                => 'Jak wygląda oklejenie auta w HI-GLOSS DESIGN: wycena do 24 h, demontaż wg procedur fabrycznych, aplikacja w ogrzewanej hali, auto gotowe w 3–5 dni. Proces krok po kroku — Szczecin / Mierzyn.',
     );
 
     $description = $default_desc;
