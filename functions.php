@@ -352,3 +352,73 @@ function higloss_render_seo_meta() {
     <meta name="twitter:card" content="summary_large_image">
     <?php
 }
+
+/**
+ * Auto-alt dla obrazkow z biblioteki: pusty alt -> tytul realizacji rodzica
+ * (klient wgrywa zdjecia bez opisow, front sam opisze je dla SEO/dostepnosci).
+ */
+add_filter('wp_get_attachment_image_attributes', 'higloss_auto_image_alt', 10, 2);
+function higloss_auto_image_alt($attr, $attachment) {
+    if (!empty($attr['alt'])) {
+        return $attr;
+    }
+    if (!empty($attachment->post_parent)) {
+        $parent_type = get_post_type($attachment->post_parent);
+        if ('realizacje' === $parent_type) {
+            $attr['alt'] = sprintf('Realizacja HI-GLOSS DESIGN: %s', get_the_title($attachment->post_parent));
+            return $attr;
+        }
+    }
+    $attr['alt'] = get_the_title($attachment);
+    return $attr;
+}
+
+/**
+ * Schema FAQPage dla sekcji FAQ strony glownej (pytania rozwijane w SERP Google).
+ * Tresc 1:1 z widocznym akordeonem w front-page.php — wymog Google.
+ */
+add_action('wp_head', 'higloss_render_faq_schema');
+function higloss_render_faq_schema() {
+    if (!is_front_page()) {
+        return;
+    }
+    $faq = array(
+        array('Czy folia do zmiany koloru chroni lakier?', 'Folia zmieniająca kolor stanowi dodatkową warstwę i ogranicza drobne uszkodzenia eksploatacyjne, jednak do ochrony przed kamieniami i głębszymi zarysowaniami przeznaczona jest grubsza, poliuretanowa folia PPF.'),
+        array('Jak długo trwa oklejenie całego auta?', 'Standardowa zmiana koloru zajmuje zwykle 3–5 dni roboczych. Dokładny termin zależy od wielkości i konstrukcji auta, zakresu demontażu oraz wybranego materiału.'),
+        array('Czy folię można później bezpiecznie usunąć?', 'Tak. Prawidłowo zaaplikowana folia renomowanego producenta może zostać profesjonalnie usunięta bez naruszania fabrycznego lakieru, o ile lakier był wcześniej w dobrym stanie i nie był naprawiany niezgodnie ze sztuką.'),
+        array('Jaki pakiet PPF wybrać?', 'Do jazdy miejskiej często wystarcza ochrona stref najbardziej narażonych. Przy częstych trasach rekomendujemy Full Front, a dla nowych, sportowych i kolekcjonerskich aut — zabezpieczenie Full Body.'),
+        array('Co jest potrzebne do przygotowania wyceny?', 'Podaj markę, model i rocznik auta, interesującą Cię usługę oraz oczekiwany efekt. Zdjęcia i informacja o stanie lakieru pomogą nam przygotować bardziej precyzyjną propozycję.'),
+    );
+    $entities = array();
+    foreach ($faq as $pair) {
+        $entities[] = array(
+            '@type'          => 'Question',
+            'name'           => $pair[0],
+            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $pair[1]),
+        );
+    }
+    $schema = array('@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $entities);
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * Schema BreadcrumbList: realizacje (Glowna > Galeria > realizacja) oraz podstrony.
+ */
+add_action('wp_head', 'higloss_render_breadcrumb_schema');
+function higloss_render_breadcrumb_schema() {
+    if (!is_singular() || is_front_page()) {
+        return;
+    }
+    $items = array(
+        array('@type' => 'ListItem', 'position' => 1, 'name' => 'Strona główna', 'item' => home_url('/')),
+    );
+    if ('realizacje' === get_post_type()) {
+        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Galeria realizacji', 'item' => home_url('/galeria/'));
+        $position = 3;
+    } else {
+        $position = 2;
+    }
+    $items[] = array('@type' => 'ListItem', 'position' => $position, 'name' => get_the_title());
+    $schema = array('@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $items);
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}

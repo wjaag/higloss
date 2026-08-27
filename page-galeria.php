@@ -113,7 +113,19 @@ $theme_uri = get_template_directory_uri();
                 ?>
                     <article class="hg-gallery-card" data-category="<?php echo esc_attr($cat_slug); ?>">
                         <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                            <?php
+                            $thumb_id = get_post_thumbnail_id(get_the_ID());
+                            if ($thumb_id) :
+                                echo wp_get_attachment_image($thumb_id, 'large', false, array(
+                                    'alt'      => get_the_title(),
+                                    'loading'  => 'lazy',
+                                    'decoding' => 'async',
+                                    'sizes'    => '(max-width: 900px) 92vw, 420px',
+                                ));
+                            else :
+                            ?>
                             <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
+                            <?php endif; ?>
                             <div class="hg-gallery-vignette"></div>
                             <span class="hg-gallery-cat-pill cat-<?php echo esc_attr($cat_slug); ?>">
                                 <?php echo !empty($cat_name) ? esc_html($cat_name) : (!empty($service_tag) ? esc_html($service_tag) : 'REALIZACJA'); ?>

@@ -28,7 +28,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <p class="hg-hero-lead hg-reveal">Całościowe oklejanie pojazdów, bezbarwne folie ochronne PPF i branding flot. Precyzyjna aplikacja, materiały premium i efekt dopracowany w każdym detalu.</p>
                 <div class="hg-hero-actions hg-reveal">
                     <a href="#wycena" class="hg-btn hg-btn-primary">Wyceń swój projekt <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    <a href="#realizacje" class="hg-btn hg-btn-ghost">Zobacz realizacje <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
+                    <a href="<?php echo esc_url(home_url('/galeria/')); ?>" class="hg-btn hg-btn-ghost">Zobacz realizacje <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
                 </div>
             </div>
 
@@ -248,7 +248,19 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $before_url     = $before_meta_id ? wp_get_attachment_image_url($before_meta_id, 'full') : (isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '');
                         ?>
                         <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
+                            <?php
+                            $thumb_id = get_post_thumbnail_id(get_the_ID());
+                            if ($thumb_id) :
+                                echo wp_get_attachment_image($thumb_id, 'large', false, array(
+                                    'alt'      => get_the_title(),
+                                    'loading'  => 'lazy',
+                                    'decoding' => 'async',
+                                    'sizes'    => '(max-width: 900px) 92vw, 640px',
+                                ));
+                            else :
+                            ?>
                             <img src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy">
+                            <?php endif; ?>
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $projects->current_post + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($service ?: 'Realizacja HI-GLOSS'); ?></span>

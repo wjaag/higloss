@@ -41,10 +41,10 @@ $footer_section_url = static function ($section) use ($is_landing) {
 
             <div class="hg-footer-column">
                 <p>Na skróty</p>
-                <a href="<?php echo esc_url($footer_section_url('oferta')); ?>">Oferta</a>
-                <a href="<?php echo esc_url($footer_section_url('realizacje')); ?>">Realizacje</a>
-                <a href="<?php echo esc_url($footer_section_url('o-nas')); ?>">O nas</a>
-                <a href="<?php echo esc_url($footer_section_url('proces')); ?>">Jak pracujemy</a>
+                <a href="<?php echo esc_url(home_url('/oferta/')); ?>">Oferta</a>
+                <a href="<?php echo esc_url(home_url('/galeria/')); ?>">Realizacje</a>
+                <a href="<?php echo esc_url(home_url('/o-firmie/')); ?>">O nas</a>
+                <a href="<?php echo esc_url(home_url('/#proces')); ?>">Jak pracujemy</a>
             </div>
 
             <div class="hg-footer-column">
