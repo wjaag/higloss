@@ -25,8 +25,8 @@ $theme_uri = HIGLOSS_THEME_URI;
                 </div>
             </div>
             <div class="hg-hero-proof hg-reveal" role="group" aria-label="Dane kontaktu">
-                <div><strong>08–17</strong><span>poniedziałek<br>– piątek</span></div>
-                <div><strong>2</strong><span>numery<br>bezpośrednie</span></div>
+                <div><strong>09–17</strong><span>poniedziałek<br>– piątek</span></div>
+                <div><strong>500+</strong><span>oklejonych<br>pojazdów</span></div>
                 <div><strong>15</strong><span>min z centrum<br>Szczecina</span></div>
             </div>
         </div>
