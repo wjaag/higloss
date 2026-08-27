@@ -282,15 +282,65 @@ function higloss_poradnik_admin_notice() {
     ?>
     <div class="notice notice-success is-dismissible">
         <p>
-            <strong>Sekcja pytań gotowa.</strong>
-            Utworzyliśmy stronę <a href="<?php echo esc_url(home_url('/pytania/')); ?>">/pytania</a>
-            (Ustawienia → Czytanie → Strona z wpisami) i opublikowaliśmy <?php echo (int) $created; ?>
+            <strong>Sekcja FAQ gotowa.</strong>
+            Utworzyliśmy stronę <a href="<?php echo esc_url(home_url('/faq/')); ?>">/faq</a>
+            i opublikowaliśmy <?php echo (int) $created; ?>
             artykułów SEO (Wpisy → Wszystkie wpisy). Możesz je dowolnie edytować.
         </p>
     </div>
     <?php
 }
 add_action('admin_notices', 'higloss_poradnik_admin_notice');
+
+/**
+ * Bootstrap v5 — przejscie z /pytania na dedykowana strone /faq.
+ * Przenosi wstep (tresc strony) na nowa strone FAQ, odlacza /pytania od
+ * ustawien "strona wpisow" i usuwa ja definitywnie. Bez przekierowan:
+ * adres byl swiezy i niezindeksowany. Kategoria "Pytania" zostaje.
+ */
+function higloss_bootstrap_faq_page() {
+    if (get_option('higloss_faq_seeded')) {
+        return;
+    }
+
+    $old_page    = get_page_by_path('pytania');
+    $old_content = $old_page ? (string) $old_page->post_content : '';
+
+    $faq_page = get_page_by_path('faq');
+    if (!$faq_page) {
+        $faq_id = wp_insert_post(array(
+            'post_title'   => 'FAQ',
+            'post_name'    => 'faq',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_content' => $old_content,
+        ));
+    } else {
+        $faq_id = (int) $faq_page->ID;
+        if ($old_content && !trim((string) $faq_page->post_content)) {
+            wp_update_post(array('ID' => $faq_id, 'post_content' => $old_content));
+        }
+    }
+
+    if (!$faq_id || is_wp_error($faq_id)) {
+        return; // nastepny request sprobuje ponownie
+    }
+
+    update_post_meta($faq_id, '_wp_page_template', 'page-faq.php');
+
+    // Odlaczenie /pytania od "strony wpisow" (hub obsluguje teraz szablon page-faq.php)
+    if ($old_page && (int) get_option('page_for_posts') === (int) $old_page->ID) {
+        update_option('page_for_posts', 0);
+    }
+
+    // Czyste usuniecie starej strony (bez kosza)
+    if ($old_page) {
+        wp_delete_post((int) $old_page->ID, true);
+    }
+
+    update_option('higloss_faq_seeded', 1);
+}
+add_action('init', 'higloss_bootstrap_faq_page', 35);
 
 /**
  * Bootstrap v4 — rebrand sekcji Poradnik -> Pytania (strona + kategoria).

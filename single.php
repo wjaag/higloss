@@ -21,7 +21,7 @@ get_header();
                 <nav aria-label="Okruszki" style="margin-bottom: 1.5rem; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8;">
                     <a href="<?php echo esc_url(home_url('/')); ?>" style="color: #94a3b8; text-decoration: none;">Strona główna</a>
                     <span style="color: #25aae1; margin: 0 0.4rem;">&raquo;</span>
-                    <a href="<?php echo esc_url(home_url('/pytania/')); ?>" style="color: #94a3b8; text-decoration: none;">Pytania</a>
+                    <a href="<?php echo esc_url(home_url('/faq/')); ?>" style="color: #94a3b8; text-decoration: none;">FAQ</a>
                     <span style="color: #25aae1; margin: 0 0.4rem;">&raquo;</span>
                     <span style="color: #cbd5e1;"><?php echo esc_html(wp_trim_words(get_the_title(), 6, '...')); ?></span>
                 </nav>
