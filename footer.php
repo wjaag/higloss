@@ -43,6 +43,7 @@ $footer_section_url = static function ($section) use ($is_landing) {
                 <p>Na skróty</p>
                 <a href="<?php echo esc_url(home_url('/oferta/')); ?>">Oferta</a>
                 <a href="<?php echo esc_url(home_url('/galeria/')); ?>">Realizacje</a>
+                <a href="<?php echo esc_url(home_url('/poradnik/')); ?>">Poradnik</a>
                 <a href="<?php echo esc_url(home_url('/o-firmie/')); ?>">O nas</a>
                 <a href="<?php echo esc_url(home_url('/#proces')); ?>">Jak pracujemy</a>
             </div>

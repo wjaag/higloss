@@ -600,3 +600,60 @@ body.admin-bar .hg-header {
     font-size: 1.45rem !important;
   }
 }
+
+/* ==========================================================
+   PORADNIK — typografia treści artykułów (single.php / .hg-post-content)
+   ========================================================== */
+.hg-post-content > *:first-child { margin-top: 0; }
+.hg-post-content h2 {
+  font-family: var(--hg-heading, 'Montserrat', sans-serif);
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  font-weight: 900; color: #ffffff; text-transform: uppercase;
+  letter-spacing: -0.01em; line-height: 1.25;
+  margin: 2.4rem 0 1rem; padding-left: 0.9rem;
+  border-left: 4px solid #25aae1;
+}
+.hg-post-content h3 {
+  font-family: var(--hg-heading, 'Montserrat', sans-serif);
+  font-size: 1.2rem; font-weight: 800; color: #25aae1;
+  text-transform: uppercase; margin: 2rem 0 0.8rem;
+}
+.hg-post-content p { margin: 0 0 1.15rem; }
+.hg-post-content a { color: #25aae1; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; transition: color .25s ease; }
+.hg-post-content a:hover { color: #6ec9ef; }
+.hg-post-content strong { color: #ffffff; font-weight: 800; }
+.hg-post-content em { color: #94a3b8; }
+.hg-post-content ul, .hg-post-content ol { margin: 0 0 1.3rem 1.4rem; padding: 0; }
+.hg-post-content li { margin-bottom: 0.55rem; padding-left: 0.35rem; }
+.hg-post-content ul li::marker { color: #25aae1; }
+.hg-post-content table {
+  width: 100%; border-collapse: collapse; margin: 1.4rem 0 1.8rem;
+  font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.12);
+}
+.hg-post-content th, .hg-post-content td { padding: 0.75rem 0.9rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.10); }
+.hg-post-content thead th {
+  background: rgba(37,170,225,0.12); color: #25aae1;
+  font-family: var(--hg-heading, 'Montserrat', sans-serif);
+  font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.hg-post-content tbody tr:hover { background: rgba(37,170,225,0.05); }
+.hg-post-content blockquote {
+  margin: 1.6rem 0; padding: 1rem 1.4rem;
+  border-left: 4px solid #25aae1; background: rgba(37,170,225,0.07);
+  color: #cbd5e1; font-style: italic;
+}
+@media (max-width: 640px) {
+  .hg-post-content { font-size: 1rem; }
+  .hg-post-content table { font-size: 0.85rem; }
+  .hg-post-content th, .hg-post-content td { padding: 0.55rem 0.6rem; }
+}
+/* Paginacja Poradnika (the_posts_pagination) */
+.hg-poradnik-pagination .nav-links { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.hg-poradnik-pagination .page-numbers {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2.6rem; padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.14); color: #cbd5e1;
+  font-weight: 700; text-decoration: none; transition: all .25s ease; background: rgba(16,21,34,0.6);
+}
+.hg-poradnik-pagination .page-numbers:hover { border-color: rgba(37,170,225,0.45); color: #25aae1; }
+.hg-poradnik-pagination .page-numbers.current { background: #25aae1; border-color: #25aae1; color: #07090e; }

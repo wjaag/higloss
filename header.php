@@ -28,6 +28,7 @@
         <nav class="hg-nav-menu" id="hgNavMenu" aria-label="Nawigacja główna">
             <a href="<?php echo esc_url(home_url('/oferta/')); ?>" class="hg-nav-link">Oferta</a>
             <a href="<?php echo esc_url(home_url('/galeria/')); ?>" class="hg-nav-link">Realizacje</a>
+            <a href="<?php echo esc_url(home_url('/poradnik/')); ?>" class="hg-nav-link">Poradnik</a>
             <a href="<?php echo esc_url(home_url('/o-firmie/')); ?>" class="hg-nav-link">O nas</a>
             <a href="<?php echo esc_url(home_url('/#proces')); ?>" class="hg-nav-link">Proces</a>
             <a href="<?php echo esc_url(home_url('/kontakt/')); ?>" class="hg-nav-link">Kontakt</a>

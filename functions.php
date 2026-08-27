@@ -140,6 +140,12 @@ require_once get_template_directory() . '/inc/realizacje-fields.php';
 require_once get_template_directory() . '/inc/realizacje-admin.php';
 
 /**
+ * Poradnik — definicje artykulow SEO + helpery (obrazki, czas czytania)
+ * (wymagany PRZED bootstrap-pages.php: bootstrap v2 publikuje te artykuły)
+ */
+require_once get_template_directory() . '/inc/poradnik-articles.php';
+
+/**
  * Bootstrap stron przy aktywacji motywu (wdrożenie na czysty WordPress)
  */
 require_once get_template_directory() . '/inc/bootstrap-pages.php';
@@ -297,6 +303,7 @@ function higloss_render_seo_meta() {
         'o-firmie'              => 'HI-GLOSS DESIGN — studio oklejania pojazdów z Mierzyna k. Szczecina. Procedury fabryczne, ogrzewana hala, folie premium. Poznaj naszą historię i standardy pracy.',
         'kontakt'               => 'Kontakt z HI-GLOSS DESIGN: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00. Bezpłatna wycena.',
         'polityka-prywatnosci'  => 'Polityka prywatności serwisu HI-GLOSS DESIGN — zasady przetwarzania danych osobowych zgodnie z RODO.',
+        'poradnik'              => 'Poradnik HI-GLOSS DESIGN: cennik zmiany koloru auta folią, PPF czy ceramika, przepisy o przyciemnianiu szyb, pielęgnacja folii. Wiedza ze studia w Szczecinie / Mierzynie.',
     );
 
     $description = $default_desc;
@@ -307,7 +314,7 @@ function higloss_render_seo_meta() {
 
     if (is_singular()) {
         global $post;
-        $type = ('realizacje' === get_post_type($post)) ? 'article' : 'website';
+        $type = in_array(get_post_type($post), array('realizacje', 'post'), true) ? 'article' : 'website';
         $url  = get_permalink($post);
 
         if (is_page($post) && isset($page_desc[$post->post_name])) {
@@ -334,6 +341,11 @@ function higloss_render_seo_meta() {
                 $image = $thumb;
             }
         }
+    } elseif (is_home()) {
+        // Strona wpisow = /poradnik (Ustawienia -> Czytanie)
+        $description = $page_desc['poradnik'];
+        $posts_page  = (int) get_option('page_for_posts');
+        $url         = $posts_page ? get_permalink($posts_page) : home_url('/');
     } elseif (is_post_type_archive('realizacje')) {
         $description = $page_desc['galeria'];
         $url         = get_post_type_archive_link('realizacje');
@@ -414,6 +426,9 @@ function higloss_render_breadcrumb_schema() {
     );
     if ('realizacje' === get_post_type()) {
         $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Galeria realizacji', 'item' => home_url('/galeria/'));
+        $position = 3;
+    } elseif ('post' === get_post_type()) {
+        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Poradnik', 'item' => home_url('/poradnik/'));
         $position = 3;
     } else {
         $position = 2;

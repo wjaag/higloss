@@ -132,3 +132,96 @@ function higloss_bootstrap_admin_notice() {
     <?php
 }
 add_action('admin_notices', 'higloss_bootstrap_admin_notice');
+
+/**
+ * Bootstrap v2 — Poradnik (blog SEO).
+ *
+ * Jednorazowa migracja (flaga higloss_poradnik_seeded): tworzy strone
+ * "Poradnik" (/poradnik), ustawia ja jako strone wpisow (Ustawienia ->
+ * Czytanie) i publikuje pakiet artykulow long-tail z inc/poradnik-articles.php.
+ * Idempotentna: istniejace strony wpisy (po slugu) nie sa nadpisywane.
+ * Odpala sie na pierwszym zaladowaniu strony po wgraniu nowej wersji motywu.
+ */
+function higloss_bootstrap_poradnik() {
+    if (get_option('higloss_poradnik_seeded')) {
+        return;
+    }
+
+    // 1. Strona /poradnik + przypisanie jako strona wpisow
+    $poradnik_page = get_page_by_path('poradnik');
+    if (!$poradnik_page) {
+        $poradnik_id = wp_insert_post(array(
+            'post_title'   => 'Poradnik',
+            'post_name'    => 'poradnik',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_content' => '',
+        ));
+    } else {
+        $poradnik_id = (int) $poradnik_page->ID;
+    }
+
+    if ($poradnik_id && !is_wp_error($poradnik_id) && !(int) get_option('page_for_posts')) {
+        update_option('page_for_posts', (int) $poradnik_id);
+    }
+
+    // 2. Kategoria Poradnik
+    $cat = term_exists('poradnik', 'category');
+    if (!$cat) {
+        $cat = wp_insert_term('Poradnik', 'category', array('slug' => 'poradnik'));
+    }
+    $cat_id = (is_array($cat) && !is_wp_error($cat)) ? (int) $cat['term_id'] : 0;
+
+    // 3. Artykuły startowe (daty rozłożone co 2 dni wstecz — naturalna chronologia)
+    $articles = function_exists('higloss_poradnik_articles') ? higloss_poradnik_articles() : array();
+    $created  = 0;
+    $total    = count($articles);
+
+    foreach (array_reverse($articles) as $i => $article) {
+        $existing = get_page_by_path($article['slug'], OBJECT, 'post');
+        if ($existing) {
+            continue; // juz jest (np. po edycji/re-imporcie) — nie ruszamy
+        }
+        $days_back = ($total - 1 - $i) * 2;
+        $new_post  = wp_insert_post(array(
+            'post_title'    => $article['title'],
+            'post_name'     => $article['slug'],
+            'post_status'   => 'publish',
+            'post_type'     => 'post',
+            'post_excerpt'  => $article['excerpt'],
+            'post_content'  => $article['content'],
+            'post_date'     => gmdate('Y-m-d H:i:s', strtotime("-{$days_back} days")),
+            'post_date_gmt' => gmdate('Y-m-d H:i:s', strtotime("-{$days_back} days")),
+            'post_category' => $cat_id ? array($cat_id) : array(),
+        ));
+        if ($new_post && !is_wp_error($new_post)) {
+            $created++;
+        }
+    }
+
+    update_option('higloss_poradnik_seeded', 1);
+    set_transient('higloss_poradnik_notice', $created, 10 * MINUTE_IN_SECONDS);
+}
+add_action('init', 'higloss_bootstrap_poradnik', 30);
+
+/**
+ * Komunikat w kokpicie po jednorazowej publikacji artykulow Poradnika.
+ */
+function higloss_poradnik_admin_notice() {
+    $created = get_transient('higloss_poradnik_notice');
+    if (false === $created || !current_user_can('manage_options')) {
+        return;
+    }
+    delete_transient('higloss_poradnik_notice');
+    ?>
+    <div class="notice notice-success is-dismissible">
+        <p>
+            <strong>Poradnik gotowy.</strong>
+            Utworzyliśmy stronę <a href="<?php echo esc_url(home_url('/poradnik/')); ?>">/poradnik</a>
+            (Ustawienia → Czytanie → Strona z wpisami) i opublikowaliśmy <?php echo (int) $created; ?>
+            artykułów SEO (Wpisy → Wszystkie wpisy). Możesz je dowolnie edytować.
+        </p>
+    </div>
+    <?php
+}
+add_action('admin_notices', 'higloss_poradnik_admin_notice');
