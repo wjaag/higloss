@@ -663,14 +663,30 @@ body.admin-bar .hg-header {
    ========================================================== */
 .hg-step-card {
   display: grid;
-  grid-template-columns: 1fr 250px;
+  grid-template-columns: 220px 1fr 240px;
   gap: 1.8rem;
-  align-items: start;
+  align-items: stretch;
   padding: 2rem 2.2rem !important;
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 .hg-step-card + .hg-step-card { margin-top: 1.2rem; }
 .hg-step-card:hover { border-color: rgba(37, 170, 225, 0.45) !important; transform: translateY(-2px); }
+.hg-step-media {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(37, 170, 225, 0.25);
+  background: #020407;
+  min-height: 100%;
+}
+.hg-step-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hg-step-card:hover .hg-step-media img { transform: scale(1.04); }
 .hg-step-head {
   display: flex;
   align-items: center;
@@ -710,6 +726,8 @@ body.admin-bar .hg-header {
 .hg-step-aside .hg-gallery-specs-row { flex-direction: column; align-items: flex-start; gap: 0.55rem; }
 @media (max-width: 900px) {
   .hg-step-card { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.6rem 1.4rem !important; }
+  .hg-step-media { order: -1; max-height: 240px; }
+  .hg-step-media img { min-height: 200px; max-height: 240px; }
   .hg-step-aside { border-left: 0; border-top: 2px solid rgba(37, 170, 225, 0.35); padding-left: 0; padding-top: 1.1rem; }
   .hg-step-num { font-size: 2.1rem; }
 }

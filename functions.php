@@ -40,7 +40,7 @@ add_action('after_setup_theme', 'higloss_theme_setup');
  * Enqueue scripts and styles with file-based cache busting.
  */
 function higloss_enqueue_assets() {
-    wp_enqueue_style('higloss-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap', array(), null);
+    // Google Fonts laduje sie asynchronicznie — patrz higloss_fonts_async() nizej
 
     $style_path   = HIGLOSS_THEME_DIR . '/style.css';
     $main_path    = HIGLOSS_THEME_DIR . '/assets/css/main.css';
@@ -64,6 +64,49 @@ function higloss_enqueue_assets() {
     ));
 }
 add_action('wp_enqueue_scripts', 'higloss_enqueue_assets', 99);
+
+/**
+ * WYDAJNOSC (PageSpeed mobile) — 3 elementy:
+ * 1) Google Fonts bez blokowania renderowania (preload + media="print"),
+ *    przy okazji 7 plikow krojec zamiast 9 (odpada ~40 KB transferu)
+ * 2) lzejszy <head>: bez emoji-skryptu, oembed-discovery, RSD, generator itd.
+ * 3) preload obrazka LCP na stronie glownej + dequeue CSS blokow (theme nie uzywa Gutenberga)
+ */
+add_action('wp_head', 'higloss_fonts_async', 1);
+function higloss_fonts_async() {
+    $fonts = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap';
+    echo '<link rel="preload" as="style" href="' . esc_url($fonts) . '">' . "\n";
+    echo '<link rel="stylesheet" href="' . esc_url($fonts) . '" media="print" onload="this.media=\'all\'">' . "\n";
+    echo '<noscript><link rel="stylesheet" href="' . esc_url($fonts) . '"></noscript>' . "\n";
+}
+
+add_action('wp_head', 'higloss_preload_lcp_image', 2);
+function higloss_preload_lcp_image() {
+    if (is_front_page()) {
+        echo '<link rel="preload" as="image" href="' . HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru.webp" fetchpriority="high">' . "\n";
+    }
+}
+
+// Mniej smieci w <head> (kazdy bajt i zadanie wazne na mobile)
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'rest_output_link_wp_head');
+remove_action('wp_head', 'wp_oembed_add_discovery_links');
+remove_action('template_redirect', 'rest_output_link_header', 11);
+
+add_action('wp_enqueue_scripts', 'higloss_trim_wp_assets', 100);
+function higloss_trim_wp_assets() {
+    // Zadne strony nie uzywa embedow (YouTube/WordPress) ani edytora blokow
+    wp_deregister_script('wp-embed');
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('classic-theme-styles');
+    wp_dequeue_style('global-styles');
+}
 
 /**
  * Register Custom Post Type: Realizacje (Portfolio / Projects)

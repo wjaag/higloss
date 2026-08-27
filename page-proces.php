@@ -29,16 +29,6 @@ $theme_uri = get_template_directory_uri();
             </div>
         </div>
 
-        <!-- HARMONOGRAM W LICZBACH -->
-        <div class="hg-editorial-card" style="padding: 1.7rem 2rem; margin-top: 1.5rem;">
-            <div class="hg-gallery-specs-row" style="justify-content: center; row-gap: 0.7rem;">
-                <span class="hg-gallery-spec-item">Odpowiedź na zapytanie: <strong>do 24 h</strong></span>
-                <span class="hg-gallery-spec-item">Przygotowanie auta: <strong>1 dzień</strong></span>
-                <span class="hg-gallery-spec-item">Aplikacja folii: <strong>2–4 dni</strong></span>
-                <span class="hg-gallery-spec-item">Całkowity czas: <strong>3–5 dni</strong></span>
-            </div>
-        </div>
-
         <!-- 6 ETAPÓW -->
         <section style="margin-top: 3rem;" aria-labelledby="proces-kroki">
             <header class="hg-section-heading hg-reveal" style="margin-bottom: 1.8rem;">
@@ -50,6 +40,7 @@ $theme_uri = get_template_directory_uri();
             </header>
 
             <article class="hg-editorial-card hg-step-card hg-reveal">
+                <figure class="hg-step-media"><img src="<?php echo esc_url($theme_uri . '/assets/images/proces_krok1.webp'); ?>" alt="Wycena zmiany koloru auta przez telefon — doradztwo studio HI-GLOSS" loading="lazy" decoding="async" width="640" height="400"></figure>
                 <div>
                     <div class="hg-step-head">
                         <span class="hg-step-num">01</span>
@@ -68,6 +59,7 @@ $theme_uri = get_template_directory_uri();
             </article>
 
             <article class="hg-editorial-card hg-step-card hg-reveal">
+                <figure class="hg-step-media"><img src="<?php echo esc_url($theme_uri . '/assets/images/proces_krok2.webp'); ?>" alt="Wzornik folii do zmiany koloru auta — dobór materiału 3M, Avery Dennison, Inozetek" loading="lazy" decoding="async" width="640" height="400"></figure>
                 <div>
                     <div class="hg-step-head">
                         <span class="hg-step-num">02</span>
@@ -86,6 +78,7 @@ $theme_uri = get_template_directory_uri();
             </article>
 
             <article class="hg-editorial-card hg-step-card hg-reveal">
+                <figure class="hg-step-media"><img src="<?php echo esc_url($theme_uri . '/assets/images/proces_krok3.webp'); ?>" alt="Ręczne mycie i dekontaminacja lakieru przed oklejeniem auta folią" loading="lazy" decoding="async" width="640" height="400"></figure>
                 <div>
                     <div class="hg-step-head">
                         <span class="hg-step-num">03</span>
@@ -104,6 +97,7 @@ $theme_uri = get_template_directory_uri();
             </article>
 
             <article class="hg-editorial-card hg-step-card hg-reveal">
+                <figure class="hg-step-media"><img src="<?php echo esc_url($theme_uri . '/assets/images/proces_krok4.webp'); ?>" alt="Demontaż klamek i listew wg procedur fabrycznych podczas oklejania auta" loading="lazy" decoding="async" width="640" height="400"></figure>
                 <div>
                     <div class="hg-step-head">
                         <span class="hg-step-num">04</span>
@@ -122,6 +116,7 @@ $theme_uri = get_template_directory_uri();
             </article>
 
             <article class="hg-editorial-card hg-step-card hg-reveal">
+                <figure class="hg-step-media"><img src="<?php echo esc_url($theme_uri . '/assets/images/proces_krok5.webp'); ?>" alt="Aplikacja folii winylowej w ogrzewanej hali — dwóch aplikatorów przy aucie" loading="lazy" decoding="async" width="640" height="400"></figure>
                 <div>
                     <div class="hg-step-head">
                         <span class="hg-step-num">05</span>
@@ -140,6 +135,7 @@ $theme_uri = get_template_directory_uri();
             </article>
 
             <article class="hg-editorial-card hg-step-card hg-reveal">
+                <figure class="hg-step-media"><img src="<?php echo esc_url($theme_uri . '/assets/images/proces_krok6.webp'); ?>" alt="Kontrola jakości folii pod światłem inspekcyjnym po oklejeniu auta" loading="lazy" decoding="async" width="640" height="400"></figure>
                 <div>
                     <div class="hg-step-head">
                         <span class="hg-step-num">06</span>
