@@ -265,6 +265,177 @@ function higloss_poradnik_articles() {
 <p>Chcesz policzyć to dla swojego auta? Zostaw zapytanie przez <a href="/#wycena">formularz bezpłatnej wyceny</a> albo zadzwoń pod <strong>605 088 065</strong>. Zobacz też realne metamorfozy w naszej <a href="/galeria/">galerii realizacji</a>.</p>
 ',
         ),
+        // ---------------------------------------------------------- 6 — FOLIA A LAKIER (MIT)
+        array(
+            'title'   => 'Czy folia niszczy lakier? Prawda i mity o oklejaniu auta',
+            'slug'    => 'czy-folia-niszczy-lakier',
+            'image'   => 'gallery_before_stock_paint.webp',
+            'excerpt' => 'Krótko: nie — profesjonalnie założona folia premium lakier CHRONI, a po jej zdjęciu auto wygląda jak nowe. Mity biorą się z tanich folii i nieudolnego demontażu. Wyjaśniamy, kiedy faktycznie jest ryzyko.',
+            'content' => '
+<h2>Skąd w ogóle wziął się ten mit?</h2>
+<p>To najczęstsze pytanie osób, które przed oklejeniem obejrzały jeden za dużo filmik na YouTube. Mit ma trzy źródła i żadne z nich nie dotyczy profesjonalnej realizacji na dobrej folii:</p>
+<ul>
+<li><strong>Tanie folie kalendrowane</strong> z agresywnym, „marketowym" klejem — potrafią rozwarstwić się przy demontażu i zostawić twardy osad.</li>
+<li><strong>Nieprofesjonalny demontaż</strong> — zrywanie folii „na sucho", na mrozie, pod ostrym kątem. Dobry aplikator zdejmuje folię z podgrzewaniem i pod właściwym kątem, bez śladów.</li>
+<li><strong>Lakier naprawiany niezgodnie ze sztuką</strong> — słabo związane powłoki wtórne (tzw. „malowany po wypadku") potrafią odejść razem z folią. To nie wina folii, tylko słabego lakieru pod spodem.</li>
+</ul>
+
+<h2>Prawda: folia lakier chroni</h2>
+<p>Folia premium (3M, Avery Dennison, Inozetek) ma kleje projektowane na lata eksploatacji i czysty demontaż. Przez cały czas eksploatacji osłania fabryczny lakier przed:</p>
+<ul>
+<li>mikrorysami i osadami (owady, sok drzewny, ptasie odchody),</li>
+<li>blaknięciem od UV,</li>
+<li>drobnymi odpryskami i piaskiem z drogi.</li>
+</ul>
+<p>Efekt: po 5–7 latach zdejmujesz folię i odkrywasz lakier w stanie lepszym, niż miałoby auto, które te lata jeździło „gołe". W krajach zachodnich folia to standard ochrony wartości auta — szczególnie leasingowych i premium.</p>
+
+<h2>Kiedy faktycznie odradzamy oklejanie?</h2>
+<ul>
+<li>świeżo po naprawie lakierniczej (lakier musi dojrzeć min. 30 dni),</li>
+<li>korozja lub odchodzący lakier na elemencie — najpierw blacharka,</li>
+<li>słabo wykonana powłoka wtórna z przeszłości (sprawdzamy to przy oględzinach i mówimy wprost).</li>
+</ul>
+<p>Dlatego każdą realizację zaczynamy od <a href="/proces/">oględzin lakieru w naszym procesie</a>. Chcesz zobaczyć, jak wygląda demontaż? Mamy o tym artykuł: <a href="/demontaz-folii-z-auta/">czy można zdjąć folię samemu</a>. Pytania o Twoje auto? <strong>605 088 065</strong>.</p>
+',
+        ),
+
+        // ---------------------------------------------------------- 7 — CENNIK PPF
+        array(
+            'title'   => 'Ile kosztuje folia PPF na auto? Cennik pakietów 2026',
+            'slug'    => 'ile-kosztuje-folia-ppf-cennik',
+            'image'   => 'ai_oferta_ppf.webp',
+            'excerpt' => 'Ochrona stref newralgicznych od ok. 1 500 zł, pakiet Full Front 5 000–9 000 zł, całe auto w PPF od ok. 15 000 zł. Rozpisujemy cennik pakietów PPF i co dokładnie dostajesz w każdej kwocie.',
+            'content' => '
+<h2>Pakiety PPF — cennik orientacyjny (2026)</h2>
+<p>Folię ochronną PPF wyceniamy w pakietach, bo różne auta i style jazdy potrzebują różnego poziomu ochrony. Ceny dla folii premium klasy STEK DYNOshield / XPEL z 10-letnią gwarancją:</p>
+<table>
+<thead><tr><th>Pakiet</th><th>Zakres</th><th>Cena orientacyjna</th></tr></thead>
+<tbody>
+<tr><td>Strefy newralgiczne</td><td>krawędzie klamek, wnęki klamek, progi, krawędź maski, lustra</td><td>od 1 500 zł</td></tr>
+<tr><td>Full Front</td><td>zderzak, maska, błotniki, reflektory, lustra, słupki A</td><td>5 000 – 9 000 zł</td></tr>
+<tr><td>Full Front + strefy ładunkowe</td><td>Full Front + krawędź bagażnika, progi, wnęki</td><td>6 500 – 11 000 zł</td></tr>
+<tr><td>Full Body</td><td>100% powierzchni lakierniczej</td><td>od 15 000 zł</td></tr>
+</tbody>
+</table>
+<p><em>Zależne od wielkości auta i kształtu zderzaka; dokładną kalkulację robimy bezpłatnie po poznaniu modelu.</em></p>
+
+<h2>Dlaczego PPF tyle kosztuje?</h2>
+<p>To najczęstsze pytanie po wycenie — uczciwie odpowiadamy: materiał to gruba (ok. 190 µm) warstwa poliuretanu z klejem klasy medycznej i powłoką samoregenerującą, a aplikacja całego auta to 3–4 dni pracy dwóch osób w hali z kontrolowaną temperaturą. W cenie: mycie, dekontaminacja, demontaż, szablony dedykowane modelowi i 10 lat gwarancji producenta na żółknięcie, pękanie i odklejanie.</p>
+
+<h2>Który pakiet wybrać?</h2>
+<ul>
+<li><strong>Miasto, garaż, mało tras:</strong> strefy newralgiczne — odpryski od drzwi na parkingu i piach na progach.</li>
+<li><strong>Dużo autostrady:</strong> Full Front — 80% odprysków ląduje na masce i zderzaku.</li>
+<li><strong>Auto nowe, sportowe, kolekcjonerskie:</strong> Full Body — ochrona wartości przy odsprzedaży.</li>
+</ul>
+<p>Porównanie z powłoką ceramiczną (tańszą, ale nie chroniącą mechanicznie) znajdziesz w artykule <a href="/folia-ppf-czy-powloka-ceramiczna/">PPF czy ceramika</a>. Pakiety dopasowujemy na miejscu — <a href="/ppf/">zobacz ofertę PPF</a> lub zadzwoń: <strong>605 088 065</strong>.</p>
+',
+        ),
+
+        // ---------------------------------------------------------- 8 — MAT / SATYNA / POŁYSK
+        array(
+            'title'   => 'Folia matowa, satyna czy połysk — jakie wykończenie wybrać na auto?',
+            'slug'    => 'folia-matowa-satyna-czy-polysk',
+            'image'   => 'gallery_porsche_gt3_green.webp',
+            'excerpt' => 'Połysk wygląda jak fabryczny lakier, mat krzyczy indywidualnością, satyna to złoty środek. Porównujemy wygląd, pielęgnację, cenę i to, do jakich aut pasuje każde wykończenie folii.',
+            'content' => '
+<h2>Trzy wykończenia, trzy charaktery</h2>
+<p>Kolor to dopiero połowa decyzji — drugą jest wykończenie, które kompletnie zmienia odbiór tego samego auta. Pracujemy codziennie na wszystkich trzech, więc porównanie z praktyki, nie z katalogu:</p>
+
+<h2>Wysoki połysk (Gloss)</h2>
+<ul>
+<li><strong>Wygląd:</strong> najbardziej „lakierniczy" — świeci, odbija, podkreśla przetłoczenia. Z daleka nieodróżnialny od dobrego lakieru.</li>
+<li><strong>Pielęgnacja:</strong> najłatwiejsza, jak zwykły lakier; można nakładać ceramikę.</li>
+<li><strong>Minus:</strong> rysy i hologramy myjni widać szybciej niż na matach.</li>
+<li><strong>Dla kogo:</strong> każdy — kolory premium, auta eleganckie i sportowe.</li>
+</ul>
+
+<h2>Mat (Matte)</h2>
+<ul>
+<li><strong>Wygląd:</strong> pochłania światło, auta wyglądają „płasko" i agresywnie; mocno eksponuje bryłę nadwozia.</li>
+<li><strong>Pielęgnacja:</strong> wymaga dyscypliny — żadnych wosków na połysk, produkty dedykowane matowi; zalana smuga paliwa czy ptasie odchody trzeba zmywać od razu.</li>
+<li><strong>Minus:</strong> ewentualne uszkodzenie trudniej „wypolerować" niż gloss.</li>
+<li><strong>Dla kogo:</strong> auta muskularne (AMG, M, RS, pick-upy), projekty „stealth".</li>
+</ul>
+
+<h2>Satyna (Satin) — złoty środek</h2>
+<ul>
+<li><strong>Wygląd:</strong> półmat z aksamitnym refleksem — „jedwab" na aucie; mniej krzykliwy niż mat, bardziej oryginalny niż gloss.</li>
+<li><strong>Pielęgnacja:</strong> wybacza więcej niż mat, rozmazywać można łagodnie.</li>
+<li><strong>Dla kogo:</strong> właściwie każdy model — to dziś najbezpieczniejsza „premium" decyzja po latach.</li>
+</ul>
+
+<h2>A cena? Różnica wynosi zwykle 0–15%</h2>
+<p>W foliach premium mat/satyna/gloss kosztują niemal tyle samo; droższe są wykończenia specjalne (struktura, flip-color, tekstury). Dokładne różnice rozbijamy w artykule <a href="/ile-kosztuje-zmiana-koloru-auta-folia/">ile kosztuje zmiana koloru auta</a>.</p>
+<p>Nie wiesz, co wybrać? Mamy pełne wzorniki 3M, Avery i Inozetek — na żywo różnica robi się oczywista w 10 minut. Umów ogląd próbek: <strong>605 088 065</strong> lub <a href="/zmiana-koloru/">zobacz usługę zmiany koloru</a>.</p>
+',
+        ),
+
+        // ---------------------------------------------------------- 9 — TRWAŁOŚĆ FOLII
+        array(
+            'title'   => 'Jak długo trzyma się folia na aucie? Trwałość, gwarancja i kiedy wymiana',
+            'slug'    => 'jak-dlugo-trzyma-sie-folia',
+            'image'   => 'galeria_realizacji.webp',
+            'excerpt' => 'Folia kolorowa premium trzyma się 5–8 lat (gwarancja do 7 lat), PPF do 10 lat. Co realnie skraca życie folii — myjnie automatyczne, sól i brak pielęgnacji — i jak je wydłużyć do maksimum.',
+            'content' => '
+<h2>Krótka odpowiedź: 5–8 lat dla kolorowej, 10 dla PPF</h2>
+<p>Renomowane folie do zmiany koloru (3M 2080, Avery Dennison SWF) mają gwarancję producenta do <strong>7 lat</strong>, a realna żywotność estetyczna to <strong>5–8 lat</strong> typowej eksploatacji. Folia ochronna PPF klasy STEK / XPEL — <strong>10 lat gwarancji</strong> i podobna trwałość praktyczna.</p>
+
+<h2>Co realnie skraca życie folii (wg naszych obserwacji)</h2>
+<ul>
+<li><strong>myjnie automatyczne</strong> — szczotki matowią powierzchnię i podważają krawędzie (mycie ręczne to podstawa);</li>
+<li>wielomiesięczna stagnacja z osadami organicznymi (ptasie odchody, owady) — ślady po kwaśnych plamach bywają trwałe;</li>
+<li>ciągłe parkowanie na pełnym słońcu przy ciemnych kolorach bez pielęgnacji (UV robi swoje rokami);</li>
+<li>sól drogowa zbierająca się tygodniami na progach;</li>
+<li>próby „polerowania" folii agresywnymi pastami.</li>
+</ul>
+
+<h2>Jak wydłużyć życie folii do maksimum?</h2>
+<ul>
+<li>Mycie ręczne, kosmetyki pH-neutralne, osuszanie miękką mikrofibrą.</li>
+<li>Owady i ptasie odchody zdejmuj w ciągu 1–2 dni.</li>
+<li>Na folię (kolorową i PPF) możesz dołożyć <strong>powłokę ceramiczną</strong> — hydrofobowość ogromnie ułatwia utrzymanie (na maty — wyłącznie produkty dedykowane matom).</li>
+<li>Zimą płucz progi i nadkola przy każdej okazji.</li>
+</ul>
+<p>Pierwszy tydzień po aplikacji jest kluczowy — zbieramy wszystkie zasady w artykule <a href="/pielegnacja-folii-po-oklejeniu/">pierwsze 7 dni po oklejeniu</a>.</p>
+
+<h2>Kiedy folię wymienić?</h2>
+<p>Gdy kolor wyraźnie zmatowiał, krawędzie zaczęły się podwijać, albo… gdy znudził Ci się kolor — to najczęstszy powód zgłoszeń. Demontaż robi się szybko, a pod spodem lakier wygląda lepiej niż u „nieoklejonych" aut. Harmonogram demontażu opisujemy tutaj: <a href="/demontaz-folii-z-auta/">jak zdjąć folię z auta</a>. Pytania? <strong>605 088 065</strong>.</p>
+',
+        ),
+
+        // ---------------------------------------------------------- 10 — DEMONTAŻ FOLII
+        array(
+            'title'   => 'Czy można zdjąć folię z auta samemu? Demontaż folii krok po kroku i koszty',
+            'slug'    => 'demontaz-folii-z-auta',
+            'image'   => 'gallery_ppf_application_before.webp',
+            'excerpt' => 'Da się zdjąć folię samemu, ale tylko przy dobrej pogodzie, podgrzewaniu i cierpliwości — inaczej zostanie klej lub oderwie się słaby lakier. Pokazujemy procedurę i kiedy bezwzględnie jedź do studia.',
+            'content' => '
+<h2>Da się? Da się. Czy warto samemu? To zależy.</h2>
+<p>Folia premium jest projektowana na „czysty demontaż" — słynne hasło producentów to prawda, ale pod warunkami: temperatura, technika i zdrowy fabryczny lakier pod spodem. Rozpisujemy, jak to wygląda uczciwie.</p>
+
+<h2>Profesjonalna procedura demontażu</h2>
+<ul>
+<li><strong>Podgrzanie folii</strong> do ok. 40–60 °C (pistolety na gorące powietrze / nagrzewnica) — klej robi się elastyczny.</li>
+<li><strong>Zrywanie pod ostrym kątem „przez siebie"</strong>, powoli, równym ruchem — nigdy szarpnięciem do góry.</li>
+<li>Usunięcie resztek kleju specjalnym środkiem (jeśli folia schodzi czysto — jest to minimalne).</li>
+<li>Mycie i inspekcja lakieru przy świetle kontrolnym.</li>
+</ul>
+<p>Cały sedan: 4–8 roboczogodzin dla doświadczonej osoby. Dla laika: weekend i kilka pułapek.</p>
+
+<h2>Kiedy demontaż samemu grozi katastrofą?</h2>
+<ul>
+<li><strong>folia leży 6+ lat lub jest tania/marketowa</strong> — staje się krucha, schodzi płatkami, zostaje cementowy klej (i godziny szorowania),</li>
+<li>lakier wcześniej <strong>naprawiany / domalowany</strong> — słabo związana powłoka wtórna potrafi odejść razem z folią,</li>
+<li>folia na matowanej powłodze lub laminatach specjalnych — łatwo o zarysowania,</li>
+<li>zima i zimny garaż — zdejmować folię trzeba w cieple.</li>
+</ul>
+
+<h2>Ile kosztuje demontaż u profesjonalisty?</h2>
+<p>Demontaż folii dobrej jakości założonej przez studio to zwykle <strong>kilka setek złotych za cały samochód</strong> (dokładniej: orientacyjnie 500–1 500 zł zależnie od wielkości i stanu folii, przy kleju „cementowym" po tanich foliach — wycena indywidualna). Przy kolejnej zmianie koloru u nas demontaż starej folii wliczamy do wyceny nowej realizacji — <a href="/#wycena">zostaw zapytanie</a>.</p>
+<p>Podsumowanie: świeża, dobra folia + ciepłe pomieszczenie + cierpliwość = demontaż DIY wykonalny. W każdym innym scenariuszu oszczędność rzędu kilkuset złotych nie rekompensuje ryzyka. Lakier pod folią po latach? Dzięki ochronie bywa lepszy niż fabrycznie — więcej w artykule <a href="/czy-folia-niszczy-lakier/">czy folia niszczy lakier</a>.</p>
+',
+        ),
     );
 }
 

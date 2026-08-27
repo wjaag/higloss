@@ -30,6 +30,19 @@ $theme_uri = get_template_directory_uri();
             </div>
         </div>
 
+        <?php
+        // Tresc strony "Pytania" (pole tresci w WP-Admin) — blok SEO nad lista
+        $posts_page_id = (int) get_option('page_for_posts');
+        $intro_html    = $posts_page_id ? trim((string) get_post_field('post_content', $posts_page_id)) : '';
+        if ('' !== $intro_html) :
+        ?>
+        <div class="hg-editorial-card hg-post-content" style="padding: 2rem 2.2rem; margin-top: 1.5rem; font-size: 1.02rem;">
+            <?php echo apply_filters('the_content', $intro_html); ?>
+        </div>
+        <?php endif; ?>
+
+        <div style="margin-top: 2.5rem;"></div>
+
         <?php if (have_posts()) : ?>
 
             <!-- SIATKA ARTYKULOW -->

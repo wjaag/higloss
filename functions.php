@@ -458,6 +458,44 @@ function higloss_render_faq_schema() {
 }
 
 /**
+ * Schema Article JSON-LD dla artykulow Pytan (lepsza prezencja w SERP:
+ * data, autor, obrazek — sygnaly rich result dla Google).
+ */
+add_action('wp_head', 'higloss_render_article_schema');
+function higloss_render_article_schema() {
+    if (!is_singular('post')) {
+        return;
+    }
+    global $post;
+    $description = has_excerpt($post)
+        ? wp_strip_all_tags(get_the_excerpt($post), true)
+        : wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
+    $schema = array(
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Article',
+        'headline'    => get_the_title($post),
+        'description' => $description,
+        'image'       => higloss_poradnik_image($post->ID),
+        'datePublished' => get_the_date('c', $post),
+        'dateModified'  => get_the_modified_date('c', $post),
+        'inLanguage'  => 'pl-PL',
+        'author'      => array(
+            '@type' => 'Organization',
+            'name'  => 'HI-GLOSS DESIGN',
+            'url'   => 'https://www.hi-glossdesign.pl',
+            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.png'),
+        ),
+        'publisher'   => array(
+            '@type' => 'Organization',
+            'name'  => 'HI-GLOSS DESIGN',
+            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.png'),
+        ),
+        'mainEntityOfPage' => array('@type' => 'WebPage', '@id' => get_permalink($post)),
+    );
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
  * Schema BreadcrumbList: realizacje (Glowna > Galeria > realizacja) oraz podstrony.
  */
 add_action('wp_head', 'higloss_render_breadcrumb_schema');

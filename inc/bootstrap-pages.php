@@ -196,7 +196,8 @@ add_action('init', 'higloss_bootstrap_proces_title', 33);
  * Odpala sie na pierwszym zaladowaniu strony po wgraniu nowej wersji motywu.
  */
 function higloss_bootstrap_poradnik() {
-    if (get_option('higloss_poradnik_seeded')) {
+    // v2: dociaga 5 NOWYCH artykulow (starsze slugi sa pomijane) + wstep na strone Pytania
+    if ((int) get_option('higloss_poradnik_seeded') >= 2) {
         return;
     }
 
@@ -216,6 +217,18 @@ function higloss_bootstrap_poradnik() {
 
     if ($poradnik_id && !is_wp_error($poradnik_id) && !(int) get_option('page_for_posts')) {
         update_option('page_for_posts', (int) $poradnik_id);
+    }
+
+    // 1b. Wstep SEO na strone Pytania (widoczny nad lista artykulow; edytowalny w WP-Admin)
+    $intro_content = '
+<h2>Masz pytanie o folię na auto? Tu znajdziesz konkretną odpowiedź</h2>
+<p>Codziennie rozmawiamy z właścicielami aut ze Szczecina i okolic o tych samych tematach: ile kosztuje zmiana koloru folią, czy PPF chroni lepiej niż ceramika, co wolno przy przyciemnianiu szyb i jak długo wytrzymuje folia na aucie. Zamiast odpowiadać skrótem — rozpisaliśmy te tematy rzetelnie, z cenami, procedurami i przykładami z naszego studia.</p>
+<p>Zacznij od artykułów poniżej. Jeśli nie znajdziesz odpowiedzi na swoje pytanie, zadzwoń pod <strong>605 088 065</strong> albo zostaw zapytanie w <a href="/#wycena">bezpłatnym formularzu wyceny</a>. Możesz też podejrzeć efekty naszej pracy w <a href="/galeria/">galerii realizacji</a> i poznać <a href="/proces/">proces oklejania krok po kroku</a>.</p>';
+    if ($poradnik_id && !is_wp_error($poradnik_id) && !trim((string) get_post_field('post_content', $poradnik_id))) {
+        wp_update_post(array(
+            'ID'           => (int) $poradnik_id,
+            'post_content' => $intro_content,
+        ));
     }
 
     // 2. Kategoria Pytania
@@ -252,7 +265,7 @@ function higloss_bootstrap_poradnik() {
         }
     }
 
-    update_option('higloss_poradnik_seeded', 1);
+    update_option('higloss_poradnik_seeded', 2);
     set_transient('higloss_poradnik_notice', $created, 10 * MINUTE_IN_SECONDS);
 }
 add_action('init', 'higloss_bootstrap_poradnik', 30);
