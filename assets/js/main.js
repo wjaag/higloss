@@ -591,4 +591,66 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     initGalleryPreloader();
+
+    /* ==========================================
+       Cookie consent (RODO) — zapis w localStorage,
+       brak trackerów na stronie = zero skryptów do bramkowania.
+       Zgoda wystawiona na <html data-consent> pod przyszłe narzędzia.
+       ========================================== */
+    const cookieBanner = document.getElementById('hgCookies');
+    const cookieOpeners = document.querySelectorAll('#hgCookiesOpen');
+    const consentKey = 'hg_cookie_consent';
+
+    function hgGetConsent() {
+        try {
+            const parsed = JSON.parse(localStorage.getItem(consentKey) || 'null');
+            return parsed && parsed.choice ? parsed : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function hgShowCookies() {
+        if (!cookieBanner) {
+            return;
+        }
+        cookieBanner.hidden = false;
+        requestAnimationFrame(function () {
+            cookieBanner.classList.add('is-visible');
+        });
+    }
+
+    if (cookieBanner) {
+        const stored = hgGetConsent();
+        if (stored) {
+            document.documentElement.dataset.consent = stored.choice;
+        } else {
+            hgShowCookies();
+        }
+        cookieBanner.querySelectorAll('[data-consent]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const choice = btn.getAttribute('data-consent') === 'all' ? 'all' : 'essential';
+                try {
+                    localStorage.setItem(consentKey, JSON.stringify({ choice: choice, at: new Date().toISOString() }));
+                } catch (e) {
+                    /* tryb prywatny — zgoda działa do zamknięcia karty */
+                }
+                document.documentElement.dataset.consent = choice;
+                cookieBanner.classList.remove('is-visible');
+                setTimeout(function () {
+                    cookieBanner.hidden = true;
+                }, 450);
+            });
+        });
+    }
+
+    cookieOpeners.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            try {
+                localStorage.removeItem(consentKey);
+            } catch (e) { /* noop */ }
+            hgShowCookies();
+        });
+    });
 });

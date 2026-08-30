@@ -66,6 +66,7 @@ $footer_section_url = static function ($section) use ($is_landing) {
             <p>&copy; <?php echo esc_html(date('Y')); ?> HI-GLOSS DESIGN. Wszelkie prawa zastrzeżone.</p>
             <p class="hg-footer-meta">
                 <a href="<?php echo esc_url(home_url('/polityka-prywatnosci')); ?>">Polityka prywatności i RODO</a>
+                <a href="#" id="hgCookiesOpen">Ustawienia cookies</a>
                 <span>Realizacja: <a href="mailto:wjag@onet.pl">Wojciech Jagodzinski</a></span>
             </p>
         </div>
@@ -79,6 +80,19 @@ $footer_section_url = static function ($section) use ($is_landing) {
     </a>
     <a href="<?php echo esc_url(home_url('/#wycena')); ?>">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 </nav>
+
+<div class="hg-cookies" id="hgCookies" role="dialog" aria-live="polite" aria-label="Zgoda na pliki cookies" hidden>
+    <div class="hg-cookies-inner">
+        <div class="hg-cookies-text">
+            <strong>Ta strona używa plików cookies</strong>
+            <p>Niezbędne cookies zapewniają poprawne i bezpieczne działanie strony — są zawsze włączone. Pozostałe (analityczne) uruchamiamy wyłącznie za Twoją zgodą. Szczegóły znajdziesz w <a href="<?php echo esc_url(home_url('/polityka-prywatnosci/')); ?>">polityce prywatności</a>.</p>
+        </div>
+        <div class="hg-cookies-actions">
+            <button type="button" class="hg-btn hg-btn-primary" data-consent="all">Akceptuję wszystkie</button>
+            <button type="button" class="hg-btn hg-btn-ghost" data-consent="essential">Tylko niezbędne</button>
+        </div>
+    </div>
+</div>
 
 <?php wp_footer(); ?>
 </body>
