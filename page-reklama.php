@@ -80,10 +80,12 @@ get_header();
                 </a>
             </div>
 
+            <!-- PRZYKLAD REALIZACJI TEJ USLUGI (pod SPECYFIKACJA) -->
+            <?php get_template_part('template-parts/service-realizacje'); ?>
+
         </div>
 
     </div>
-<?php get_template_part('template-parts/service-realizacje'); ?>
 <?php get_template_part('template-parts/service-faq'); ?>
 <?php get_template_part('template-parts/service-xlinks'); ?>
 

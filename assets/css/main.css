@@ -1056,3 +1056,33 @@ body.admin-bar .hg-header {
 .hg-gallery-filter-wrap {
     scroll-margin-top: 6.5rem;
 }
+
+/* ===== Pojedynczy kafelek realizacji pod SPECYFIKACJA (strony uslug) ===== */
+.hg-svc-real-single {
+    display: block;
+    margin-top: 1.6rem;
+    --svc-accent: #25aae1;
+}
+
+.hg-svc-real-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(148, 163, 184, 0.5);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hg-svc-real-more svg {
+    width: 0.85em;
+    height: 0.85em;
+}
+
+.hg-svc-real-more:hover {
+    color: var(--svc-accent);
+    border-bottom-color: var(--svc-accent);
+}
