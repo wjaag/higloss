@@ -194,6 +194,11 @@ require_once get_template_directory() . '/inc/poradnik-articles.php';
 require_once get_template_directory() . '/inc/image-sitemap.php';
 
 /**
+ * Hurtowe metadane mediów realizacji (jednorazowa migracja, option-gated).
+ */
+require_once get_template_directory() . '/inc/media-seo.php';
+
+/**
  * Bootstrap stron przy aktywacji motywu (wdrożenie na czysty WordPress)
  */
 require_once get_template_directory() . '/inc/bootstrap-pages.php';
