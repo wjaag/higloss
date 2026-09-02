@@ -126,6 +126,34 @@ get_header();
 
             </div>
 
+            <!-- DYSKRETNE LINKOWANIE WEWNETRZNE: realizacja -> strona uslugi + poradnik FAQ -->
+            <?php
+            $_rel_ctx  = strtolower(get_the_title() . ' ' . $service_type);
+            $_rel_page = null;
+            $_rel_faq  = null;
+            if (preg_match('/ppf|ochron/i', $_rel_ctx)) {
+                $_rel_page = array('/ppf/', 'Zobacz usługę: bezbarwne folie ochronne PPF');
+                $_rel_faq  = array('/ile-kosztuje-folia-ppf-cennik/', 'Ile kosztuje folia PPF — cennik');
+            } elseif (preg_match('/reklam|brand/i', $_rel_ctx)) {
+                $_rel_page = array('/reklama/', 'Zobacz usługę: reklama i branding flot');
+                $_rel_faq  = array('/jak-dlugo-trzyma-sie-folia/', 'Jak długo trzyma się folia na aucie?');
+            } elseif (preg_match('/szyb|dechrom|detailing|lamp|przyciemn/i', $_rel_ctx)) {
+                $_rel_page = array('/detailing/', 'Zobacz usługę: szyby, dechroming i detailing');
+                $_rel_faq  = array('/przyciemnianie-szyb-przepisy/', 'Przyciemnianie szyb — co mówią przepisy');
+            } elseif (preg_match('/zmiana|kolor|mat|satyna|połysk|paski|dach|grafik|motyw/i', $_rel_ctx)) {
+                $_rel_page = array('/zmiana-koloru/', 'Zobacz usługę: zmiana koloru auta folią');
+                $_rel_faq  = array('/ile-kosztuje-zmiana-koloru-auta-folia/', 'Ile kosztuje zmiana koloru auta folią?');
+            }
+            if ($_rel_page) :
+            ?>
+            <p class="hg-xlinks">
+                <span class="hg-xlinks-label">Powiązane:</span>
+                <a href="<?php echo esc_url($_rel_page[0]); ?>"><?php echo esc_html($_rel_page[1]); ?></a>
+                <span class="hg-xlinks-sep" aria-hidden="true">·</span>
+                <a href="<?php echo esc_url($_rel_faq[0]); ?>"><?php echo esc_html($_rel_faq[1]); ?></a>
+            </p>
+            <?php endif; ?>
+
         <?php endwhile; ?>
 
     </div>

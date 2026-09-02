@@ -403,6 +403,9 @@ function higloss_render_seo_meta() {
         $description = 'Wyniki wyszukiwania w serwisie HI-GLOSS DESIGN.';
     }
     ?>
+    <?php if (!is_search() && !is_404()) : ?>
+    <link rel="canonical" href="<?php echo esc_url($url); ?>">
+    <?php endif; ?>
     <meta name="description" content="<?php echo esc_attr($description); ?>">
     <meta property="og:locale" content="pl_PL">
     <meta property="og:type" content="<?php echo esc_attr($type); ?>">

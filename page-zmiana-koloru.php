@@ -91,6 +91,7 @@ get_header();
 
     </div>
 <?php get_template_part('template-parts/service-faq'); ?>
+<?php get_template_part('template-parts/service-xlinks'); ?>
 
 </main>
 

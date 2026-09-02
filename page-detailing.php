@@ -76,8 +76,56 @@ get_header();
 
         </div>
 
+        <!-- ROZSZERZONA TREŚĆ SEO: szyby / dechroming / detailing -->
+        <div class="hg-editorial-card" style="--card-accent: #ff0055; margin-bottom: 2.8rem;">
+            <h2 class="hg-editorial-title">
+                Przyciemnianie szyb — skutecznie i zgodnie z przepisami
+            </h2>
+
+            <p class="hg-editorial-paragraph">
+                Montujemy dwie klasy folii przyciemniających: <strong>ceramiczne</strong> (najwyższa redukcja nagrzewania wnętrza, pełna neutralność dla elektroniki i sygnału GPS) oraz <strong>piecowe</strong> (ekonomiczna, trwała barwa). Obie blokują do 99% promieniowania UV, chroniąc tapicerkę przed blaknięciem, a pasażerom zapewniając prywatność.
+            </p>
+
+            <p class="hg-editorial-paragraph">
+                Szyby tylne i boczne tylne można przyciemniać bez ograniczeń — to tutaj najczęściej trafiają folie <strong>5%, 15% lub 35%</strong>. Przednia szyba czołowa i przednie szyby boczne mają wymogi przepuszczalności światła (odpowiednio min. 75% i 70%), dlatego na przód dobieramy wyłącznie jasne folie z homologacją albo szczerze odradzamy aplikację. Na życzenie domykamy usługę atestem, więc kontrola drogowa czy przegląd nie są problemem. Granice prawa i pomiary opisujemy szerzej w poradniku: <a href="/przyciemnianie-szyb-przepisy/">przyciemnianie szyb — co mówią przepisy</a>.
+            </p>
+        </div>
+
+        <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 4rem;">
+
+            <div class="hg-editorial-card" style="--card-accent: #ff0055;">
+                <h3 class="hg-editorial-title">
+                    Dechroming, detale i dodatki nadwozia
+                </h3>
+
+                <p class="hg-editorial-paragraph">
+                    Usługa <strong>Shadow Line</strong> to oklejenie chromowanych listew wokół szyb, grilla, emblematów i progów folią w połysku, satynie lub czarnym macie — szybka, w pełni odwracalna zmiana charakteru auta. Popularne dodatki to także przyciemnianie lamp foliami Light i Dark Smoke, paski na masce oraz dach i lusterka w kolorze kontrastowym.
+                </p>
+
+                <p class="hg-editorial-paragraph">
+                    Zobacz przykłady z naszej hali: <a href="/realizacja/mercedes-glk-przyciemnianie-lamp-i-dechroming-grila/">Mercedes GLK — przyciemnianie lamp i dechroming grila</a> oraz <a href="/realizacja/dodge-charger-paski-na-masce/">Dodge Charger — paski na masce</a>. Orientacyjny koszt mniejszych detali, jak dach czy lusterka, znajdziesz w artykule <a href="/ile-kosztuje-oklejenie-dachu-auta-folia/">ile kosztuje oklejenie dachu folią</a>.
+                </p>
+            </div>
+
+            <div class="hg-editorial-card" style="--card-accent: #ff0055;">
+                <h3 class="hg-editorial-title">
+                    Detailing i przygotowanie lakieru pod folię
+                </h3>
+
+                <p class="hg-editorial-paragraph">
+                    Rzetelne przygotowanie to podstawa trwałej aplikacji: mycie z dekontaminacją, glinkowanie, usuwanie smoły i jednoetapowa korekta lakieru. Na życzenie zabezpieczamy lakier lub wnętrze powłoką ochronną. To samo przygotowanie wykonujemy przed każdym montażem <a href="/ppf/">bezbarwnej folii ochronnej PPF</a> oraz <a href="/zmiana-koloru/">całościowej zmiany koloru auta</a> — dlatego folia trzyma lata bez podpływania krawędzi.
+                </p>
+
+                <p class="hg-editorial-paragraph">
+                    Jak dbać o auto po montażu folii, podpowiadamy w poradniku: <a href="/pielegnacja-folii-po-oklejeniu/">pielęgnacja folii po oklejeniu</a>. Drobiazgowy zakres prac omówimy telefonicznie — jeden dzień roboczy wystarcza na większość usług z tej strony.
+                </p>
+            </div>
+
+        </div>
+
     </div>
 <?php get_template_part('template-parts/service-faq'); ?>
+<?php get_template_part('template-parts/service-xlinks'); ?>
 
 </main>
 
