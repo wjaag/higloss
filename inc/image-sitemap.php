@@ -144,10 +144,58 @@ function higloss_render_image_sitemap() {
 }
 
 /**
- * Dopisuje mape obrazkow do robots.txt (obok glownej mapy WP).
+ * Dopisuje mape obrazkow do robots.txt (obok glownej mapy WP)
+ * oraz jawnie otwiera serwis na boty AI/LLM (AEO — Google i tak dalej chodzi).
  */
 add_filter('robots_txt', 'higloss_image_sitemap_robots');
 function higloss_image_sitemap_robots($output) {
-    $output .= "\nSitemap: " . esc_url(home_url('/wp-sitemap-images.xml')) . "\n";
+    $output .= "\n# Podsumowanie serwisu dla LLM: " . esc_url(home_url('/llms.txt')) . "\n";
+    $output .= "\n# Boty AI / LLM — dostęp otwarty\n";
+    foreach (array('GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'PerplexityBot', 'Google-Extended') as $ai_agent) {
+        $output .= "User-agent: {$ai_agent}\nAllow: /\n\n";
+    }
+    $output .= "Sitemap: " . esc_url(home_url('/wp-sitemap-images.xml')) . "\n";
     return $output;
+}
+
+/**
+ * /llms.txt — zwarta mapa serwisu po markdownie dla crawlerow AI
+ * (konwencja llms.txt; Google/AI Overviews coraz mocniej stawiaja na czytelne zrodla).
+ */
+add_action('template_redirect', 'higloss_render_llms_txt', 0);
+function higloss_render_llms_txt() {
+    $path = isset($_SERVER['REQUEST_URI']) ? strtok(wp_unslash($_SERVER['REQUEST_URI']), '?') : '/';
+    if (rtrim($path, '/') !== '/llms.txt') {
+        return;
+    }
+
+    $home = 'https://hi-glossdesign.pl';
+    $out  = "# HI-GLOSS DESIGN\n\n";
+    $out .= "> Studio oklejania pojazdów (Szczecin / Mierzyn, woj. zachodniopomorskie): całościowa zmiana koloru auta folią, bezbarwne folie ochronne PPF, oklejanie reklamowe i branding flot, przyciemnianie szyb, dechroming i detailing. Ogrzewana pracownia, materiały 3M / Avery Dennison / Hexis / XPEL.\n";
+    $out .= "> Kontakt: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, 72-006 Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00.\n\n";
+
+    $out .= "## Usługi\n\n";
+    $out .= "- [Całościowa zmiana koloru auta folią]({$home}/zmiana-koloru/): folie premium z demontażem detali (klamki, lampy, zderzaki), gwarancja 5–7 lat, realizacja 3–5 dni.\n";
+    $out .= "- [Bezbarwne folie ochronne PPF]({$home}/ppf/): poliuretanowa ochrona lakieru 140–200 μm, pakiety Strefy / Full Front / Full Body, samoregeneracja rys, 8–10 lat trwałości.\n";
+    $out .= "- [Reklama i branding flot]({$home}/reklama/): projekt, druk wielkoformatowy i aplikacja grafiki na auta firmowe; doświadczenie flotowe (m.in. DHL).\n";
+    $out .= "- [Szyby, dechroming i detailing]({$home}/detailing/): przyciemnianie szyb foliami z atestem, Shadow Line, przyciemnianie lamp, paski, przygotowanie lakieru pod folię.\n\n";
+
+    $out .= "## Cenniki i poradniki\n\n";
+    if (function_exists('higloss_poradnik_articles')) {
+        foreach (higloss_poradnik_articles() as $article) {
+            $out .= sprintf("- [%s]({$home}/%s/)%s\n", $article['title'], $article['slug'], !empty($article['excerpt']) ? ': ' . wp_strip_all_tags($article['excerpt']) : '');
+        }
+    }
+
+    $out .= "\n## Realizacje i firma\n\n";
+    $out .= "- [Galeria realizacji]({$home}/galeria/): portfolio metamorfoz PRZED/PO z opisami i foliami.\n";
+    $out .= "- [Proces pracy]({$home}/proces/): wycena do 24 h, demontaż wg procedur, aplikacja w ogrzewanej hali.\n";
+    $out .= "- [O nas]({$home}/o-firmie/): 15 lat doświadczenia, własne zaplecze druku i ploterów.\n";
+    $out .= "- [Kontakt i dojazd]({$home}/kontakt/) | [FAQ]({$home}/faq/)\n";
+
+    status_header(200);
+    header('Content-Type: text/plain; charset=utf-8');
+    header('X-Robots-Tag: noindex', true);
+    echo $out; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- celowo czysty markdown
+    exit;
 }

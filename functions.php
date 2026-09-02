@@ -291,8 +291,8 @@ function higloss_render_schema_markup() {
         "@type" => "AutoBodyShop",
         "name" => "HI-GLOSS DESIGN - Oklejanie Samochodów & PPF Szczecin",
         "image" => HIGLOSS_THEME_URI . "/assets/images/logo.png",
-        "@id" => "https://www.hi-glossdesign.pl/#organization",
-        "url" => "https://www.hi-glossdesign.pl",
+        "@id" => "https://hi-glossdesign.pl/#organization",
+        "url" => "https://hi-glossdesign.pl",
         "telephone" => "+48605088065",
         "priceRange" => "$$$",
         "address" => array(
@@ -323,10 +323,10 @@ function higloss_render_schema_markup() {
             "@type" => "OfferCatalog",
             "name" => "Usługi HI-GLOSS DESIGN",
             "itemListElement" => array(
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Całościowa zmiana koloru auta")),
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Bezbarwne folie ochronne PPF")),
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Oklejanie reklamowe i branding flot")),
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Przyciemnianie szyb i dechroming"))
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Całościowa zmiana koloru auta", "url" => "https://hi-glossdesign.pl/zmiana-koloru/")),
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Bezbarwne folie ochronne PPF", "url" => "https://hi-glossdesign.pl/ppf/")),
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Oklejanie reklamowe i branding flot", "url" => "https://hi-glossdesign.pl/reklama/")),
+                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Przyciemnianie szyb i dechroming", "url" => "https://hi-glossdesign.pl/detailing/"))
             )
         ),
         "description" => "Profesjonalne studio całościowego oklejania pojazdów, zmiany koloru auta foliami premium oraz bezbarwnych folii ochronnych PPF w Szczecinie i Mierzynie."
@@ -366,6 +366,8 @@ function higloss_render_seo_meta() {
     $url         = home_url('/');
     $type        = 'website';
     $image       = get_template_directory_uri() . '/screenshot.jpg';
+    $pub_time    = '';
+    $mod_time    = '';
 
     if (is_singular()) {
         global $post;
@@ -396,6 +398,12 @@ function higloss_render_seo_meta() {
                 $image = $thumb;
             }
         }
+
+        // Daty publikacji/modyfikacji w OG — sygnal swiezosci tresci dla AI i Google
+        if (in_array(get_post_type($post), array('realizacje', 'post'), true)) {
+            $pub_time = get_post_time('c', true, $post);
+            $mod_time = get_post_modified_time('c', true, $post);
+        }
     } elseif (is_home()) {
         // Archiwum wpisow (gdy ktos ustawi strone wpisow) — fallback na FAQ
         $description = $page_desc['faq'];
@@ -419,6 +427,10 @@ function higloss_render_seo_meta() {
     <meta property="og:url" content="<?php echo esc_url($url); ?>">
     <meta property="og:site_name" content="HI-GLOSS DESIGN">
     <meta property="og:image" content="<?php echo esc_url($image); ?>">
+    <?php if ($pub_time) : ?>
+    <meta property="article:published_time" content="<?php echo esc_attr($pub_time); ?>">
+    <meta property="article:modified_time" content="<?php echo esc_attr($mod_time); ?>">
+    <?php endif; ?>
     <meta name="twitter:card" content="summary_large_image">
     <?php
 }
