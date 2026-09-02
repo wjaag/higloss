@@ -366,3 +366,39 @@ function higloss_bootstrap_pytania_rename() {
     update_option('higloss_pytania_v', 2);
 }
 add_action('init', 'higloss_bootstrap_pytania_rename', 32);
+
+/**
+ * Migracja: synchronizacja artykulow poradnika (doklada NOWE pozycje na dzialajacej stronie).
+ * Poczatkowa migracja v2 byla jednorazowa (higloss_poradnik_seeded) — ta co
+ * uruchomienie sprawdza braki wg sluga. Bezwzglednie idempotentna.
+ * UWAGA przy dodawaniu kolejnych artykulow: podbij wartosc opcji higloss_poradnik_v.
+ */
+function higloss_bootstrap_poradnik_sync() {
+    if ((int) get_option('higloss_poradnik_v') >= 2) {
+        return;
+    }
+    $articles = function_exists('higloss_poradnik_articles') ? higloss_poradnik_articles() : array();
+    $cat      = get_term_by('slug', 'pytania', 'category');
+    $cat_id   = $cat && !is_wp_error($cat) ? (int) $cat->term_id : 0;
+    $created  = 0;
+    foreach ($articles as $article) {
+        if (get_page_by_path($article['slug'], OBJECT, 'post')) {
+            continue; // juz istnieje — zostawiamy wersje z WP-Admin nietknieta
+        }
+        $new_post = wp_insert_post(array(
+            'post_title'    => $article['title'],
+            'post_name'     => $article['slug'],
+            'post_status'   => 'publish',
+            'post_type'     => 'post',
+            'post_excerpt'  => $article['excerpt'],
+            'post_content'  => $article['content'],
+            'post_category' => $cat_id ? array($cat_id) : array(),
+        ));
+        if ($new_post && !is_wp_error($new_post)) {
+            $created++;
+        }
+    }
+    update_option('higloss_poradnik_v', 2);
+    set_transient('higloss_poradnik_notice', $created, 10 * MINUTE_IN_SECONDS);
+}
+add_action('init', 'higloss_bootstrap_poradnik_sync', 33);

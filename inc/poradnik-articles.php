@@ -436,6 +436,64 @@ function higloss_poradnik_articles() {
 <p>Podsumowanie: świeża, dobra folia + ciepłe pomieszczenie + cierpliwość = demontaż DIY wykonalny. W każdym innym scenariuszu oszczędność rzędu kilkuset złotych nie rekompensuje ryzyka. Lakier pod folią po latach? Dzięki ochronie bywa lepszy niż fabrycznie — więcej w artykule <a href="/czy-folia-niszczy-lakier/">czy folia niszczy lakier</a>.</p>
 ',
         ),
+
+        // ---------------------------------------------------------- 11 — OKLEJANIE DACHU I ELEMENTÓW (cennik)
+        array(
+            'title'   => 'Ile kosztuje oklejenie dachu auta folią? Cennik dachu, lusterek i detali',
+            'slug'    => 'ile-kosztuje-oklejenie-dachu-auta-folia',
+            'image'   => 'oklejanie_dachu.webp',
+            'excerpt' => 'Oklejenie dachu folią kosztuje orientacyjnie 700–1 500 zł, para lusterek 250–400 zł, a typowy pakiet detali zamyka się w ok. 2 000 zł. Sprawdź cennik, zakres prac i kiedy oklejanie elementów się opłaca.',
+            'content' => '
+<h2>Ile kosztuje oklejenie dachu auta folią?</h2>
+<p>Krótka odpowiedź, której szukasz: <strong>za oklejenie dachu folią zapłacisz u nas orientacyjnie 700–1 500 zł</strong>. To najpopularniejsza usługa „elementowa" w naszym studiu — robi wielką różnicę wizualną przy ułamku kosztu pełnej zmiany koloru. Ostateczna cena zależy od wielkości dachu, konstrukcji auta (panorama, antena, relingi) i wybranego wykończenia folii.</p>
+
+<h2>Cennik oklejania elementów — orientacyjnie (2026)</h2>
+<table>
+<thead><tr><th>Element</th><th>Cena orientacyjna</th><th>Czas pracy</th></tr></thead>
+<tbody>
+<tr><td>Dach — sedan / kombi / hatchback</td><td>700 – 1 200 zł</td><td>2–4 h</td></tr>
+<tr><td>Dach — SUV / auto z panoramą</td><td>900 – 1 500 zł</td><td>3–5 h</td></tr>
+<tr><td>Lusterka (para)</td><td>250 – 400 zł</td><td>ok. 1 h</td></tr>
+<tr><td>Relingi dachowe (para)</td><td>150 – 300 zł</td><td>ok. 1 h</td></tr>
+<tr><td>Maska (sam element)</td><td>900 – 1 800 zł</td><td>3–4 h</td></tr>
+<tr><td>Listwy, spoilery, małe detale</td><td>od 150 zł / szt.</td><td>0,5–1 h</td></tr>
+</tbody>
+</table>
+<p><em>Kwoty orientacyjne dla regionu Szczecina. Dokładną wycenę przygotowujemy bezpłatnie po obejrzeniu auta lub na podstawie zdjęć.</em></p>
+
+<h2>Co dokładnie dostajesz w tej cenie?</h2>
+<ul>
+<li>mycie, dekontaminację i odtłuszczenie powierzchni przed aplikacją,</li>
+<li>demontaż anteny i — w razie potrzeby — relingów lub innych elementów,</li>
+<li>folię premium (3M 2080 / Avery Dennison SWF) z gwarancją producenta,</li>
+<li>aplikację z zawinięciem krawędzi pod uszczelki — bez „obcinanek" widocznych z bliska,</li>
+<li>kontrolę jakości po związaniu kleju. Na usługę odstawiasz auto zwykle na 1 dzień.</li>
+</ul>
+
+<h2>Dlaczego dach okleja się tak często?</h2>
+<ul>
+<li><strong>Efekt „panoramy"</strong> — dach w głębokim czarnym połysku (gloss black) optycznie odmładza auto i dodaje sportowego charakteru, nawet gdy reszta koloru zostaje fabryczna.</li>
+<li><strong>Ochrona</strong> — dach to element najmocniej narażony na promieniowanie UV, ptasie odchody i osady. Folia przejmuje to na siebie zamiast lakieru.</li>
+<li><strong>Koszty</strong> — lakierowanie samego dachu kosztuje orientacyjnie 2 500–5 000 zł i jest nieodwracalne. Folia jest kilka razy tańsza i schodzi bez śladu.</li>
+<li><strong>Leasing i odsprzedaż</strong> — przed zwrotem auta czy sprzedażą folię na dachu po prostu demontujemy.</li>
+</ul>
+
+<h2>Zwykły dach a dach panoramiczny — jak to wygląda w praktyce</h2>
+<p>Przy <strong>zwykłym dachu blaszanym</strong> oklejamy całą powierzchnię — demontujemy antenę (także „płetwę rekina", jeśli konstrukcja na to pozwala) i zawijamy folię pod uszczelki szyb oraz klapy. Przy <strong>dachu panoramicznym</strong> folia trafia głównie na obramowanie szyby i ślepe fragmenty — tu kluczowa jest precyzja przy krawędziach i umiar z nagrzewaniem, by nie przeciążyć szkła. Oba warianty robimy na co dzień; różnicują głównie czas pracy, stąd widełki w cenniku.</p>
+
+<h2>Jaką folię wybrać na dach?</h2>
+<p>Zdecydowany numer jeden to <strong>czarny połysk</strong> — najwierniej imituje wygląd przeszklonego dachu. Na drugim miejscu satyna i mat, a dla fanów struktur — carbon 3D. Uwaga praktyczna: dach to element poziomy, zbierający całe słońce, więc <strong>stosujemy tu wyłącznie folie premium</strong> — tanie folie kolorowe na poziomych powierzchniach blakną i pękają już po 1–2 sezonach. O różnicach wykończeń piszemy szerzej w artykule <a href="/folia-matowa-satyna-czy-polysk/">folia matowa, satyna czy połysk</a>.</p>
+
+<h2>Ile trzyma się folia na dachu i jak o nią dbać?</h2>
+<p>Równie dobrze jak na reszcie auta: <strong>5–7 lat</strong> przy foliach premium, pod warunkiem ręcznego mycia i unikania szczotek automatycznych (dach ma w myjniach najgorzej). Szczegóły w poradniku <a href="/pielegnacja-folii-po-oklejeniu/">pielęgnacja folii po oklejeniu</a>. A gdy przyjdzie czas zmiany — demontaż jest szybki i bez śladu (<a href="/demontaz-folii-z-auta/">jak wygląda demontaż folii</a>).</p>
+
+<h2>Kiedy odradzamy oklejanie dachu?</h2>
+<p>Uczciwie: gdy lakier dachu jest w złym stanie — łuszczy się, ma przebarwienia po rdzy lub był nieudolnie naprawiany. Folia nie naprawia podkładu, tylko go obnaża (<a href="/czy-folia-niszczy-lakier/">więcej o folii a stanie lakieru</a>). W takiej sytuacji najpierw proponujemy przygotowanie powierzchni — przy drobnych naprawach robimy to na miejscu.</p>
+
+<h2>Jak wycenić oklejenie dachu w Twoim aucie?</h2>
+<p>Wystarczy marka, model, rocznik i zdjęcie dachu (najlepiej z góry i zbliżenie na antenę/relingi) — prześlij przez <a href="/#wycena">formularz wyceny</a> albo zadzwoń pod <strong>605 088 065</strong>. Na miejscu w Mierzynie pod Szczecinem (ul. Podmiejska 4) pokażemy wzorniki kolorów i wykończeń. Jeśli rozważasz coś więcej niż detale, sprawdź też <a href="/zmiana-koloru/">całościową zmianę koloru auta</a> i <a href="/ile-kosztuje-zmiana-koloru-auta-folia/">cennik zmiany koloru całego auta</a>.</p>
+',
+        ),
     );
 }
 

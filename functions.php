@@ -534,6 +534,35 @@ function higloss_render_service_faq_schema() {
 }
 
 /**
+ * Przekierowania 301 starych artykulow Joomla pod /o-firmie/<id>-<slug>.
+ * Warstwa PHP (WordPress) — dziala bez dostepu do .htaccess. Zapalany dopiero
+ * dla adresow konczacych sie 404, wiec nie rusza poprawnych tras. Po wdrozeniu
+ * bloku 3b w .htaccess reguly Apache odpalaja sie pierwsze — brak konfliktu.
+ */
+add_action('template_redirect', 'higloss_legacy_ofirmie_redirects', 1);
+function higloss_legacy_ofirmie_redirects() {
+    if (!is_404()) {
+        return;
+    }
+    $path = isset($_SERVER['REQUEST_URI']) ? wp_parse_url(esc_url_raw(wp_unslash($_SERVER['REQUEST_URI'])), PHP_URL_PATH) : '';
+    if (!$path || strpos($path, '/o-firmie/') !== 0) {
+        return;
+    }
+    $target = '/o-firmie/';
+    if (preg_match('#^/o-firmie/\d+-zmiana-koloru#', $path)) {
+        $target = '/zmiana-koloru/';
+    } elseif (preg_match('#^/o-firmie/\d+-(ppf|folie-ochronne|bezbarwn)#', $path)) {
+        $target = '/ppf/';
+    } elseif (preg_match('#^/o-firmie/\d+-(oklej|reklam|flot)#', $path)) {
+        $target = '/reklama/';
+    } elseif (preg_match('#^/o-firmie/\d+-(szyb|dechrom|detailing|uslugi)#', $path)) {
+        $target = '/detailing/';
+    }
+    wp_safe_redirect(home_url($target), 301);
+    exit;
+}
+
+/**
  * Schema Article JSON-LD dla artykulow Pytan (lepsza prezencja w SERP:
  * data, autor, obrazek — sygnaly rich result dla Google).
  */
