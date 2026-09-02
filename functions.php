@@ -189,6 +189,11 @@ require_once get_template_directory() . '/inc/realizacje-admin.php';
 require_once get_template_directory() . '/inc/poradnik-articles.php';
 
 /**
+ * Mapa obrazkow dla Google (image sitemap): /wp-sitemap-images.xml
+ */
+require_once get_template_directory() . '/inc/image-sitemap.php';
+
+/**
  * Bootstrap stron przy aktywacji motywu (wdrożenie na czysty WordPress)
  */
 require_once get_template_directory() . '/inc/bootstrap-pages.php';
@@ -447,6 +452,77 @@ function higloss_render_faq_schema() {
     );
     $entities = array();
     foreach ($faq as $pair) {
+        $entities[] = array(
+            '@type'          => 'Question',
+            'name'           => $pair[0],
+            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $pair[1]),
+        );
+    }
+    $schema = array('@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $entities);
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * Pytania FAQ dla stron uslug (zmiana koloru / PPF / reklama / detailing).
+ * JEDYNE ZRODLO PRAWDY: te same dane renderuja widoczny akordeon
+ * (template-parts/service-faq.php) i schema FAQPage — Google wymaga zgodnosci 1:1.
+ */
+function higloss_service_faqs($slug) {
+    $all = array(
+        'zmiana-koloru' => array(
+            'title' => 'Najczęstsze pytania o zmianę koloru folią',
+            'items' => array(
+                array('Ile kosztuje całkowita zmiana koloru auta folią?', 'Orientacyjnie od ok. 5 500 zł za auto kompaktowe do ok. 11 000 zł za dużego SUV-a. Ostateczna cena zależy od wielkości auta, zakresu demontażu, stanu lakieru i wybranej folii — dokładną wycenę przygotowujemy bezpłatnie po obejrzeniu auta.'),
+                array('Ile trwa oklejenie całego auta?', 'Standardowo 3–5 dni roboczych. Dokładny termin zależy od wielkości i konstrukcji auta, zakresu demontażu oraz wybranego materiału.'),
+                array('Czy przed oklejeniem demontujecie elementy?', 'Tak. Klamki, lampy, zderzaki i lusterka demontujemy zgodnie z procedurami fabrycznymi — folia zawijana jest głęboko do wnętrza elementu, więc krawędzie się nie odklejają. Demontaż jest zawarty w wycenie usługi.'),
+                array('Czy folię da się później bezpiecznie zdjąć?', 'Tak — profesjonalnie założona folia premium schodzi bez naruszenia fabrycznego lakieru, o ile był on wcześniej w dobrym stanie i nie był naprawiany niezgodnie ze sztuką.'),
+            ),
+        ),
+        'ppf' => array(
+            'title' => 'Najczęstsze pytania o folie ochronne PPF',
+            'items' => array(
+                array('Ile kosztuje folia ochronna PPF?', 'Ochrona stref newralgicznych od ok. 1 500 zł, pakiet Full Front 5 000–9 000 zł, a zabezpieczenie całego auta od ok. 15 000 zł. Wycenę zawsze dopasowujemy do auta i sposobu jego użytkowania.'),
+                array('Czy folię PPF widać na lakierze?', 'Prawie wcale — poliuretanowa folia jest transparentna i wielowarstwowa, a jej warstwa wierzchnia regeneruje mikrorysy pod wpływem ciepła (słońce, ciepła woda).'),
+                array('Który pakiet PPF będzie najlepszy dla mnie?', 'Do jazdy głównie po mieście zwykle wystarcza ochrona stref najbardziej narażonych na odpryski. Jeśli jeździsz dużo w trasie, rekomendujemy pakiet Full Front, a do nowego, sportowego lub kolekcjonerskiego auta — Full Body.'),
+                array('Ile lat wytrzymuje folia PPF?', '8–10 lat przy poprawnej pielęgnacji. Na wybrane folie oferujemy gwarancję do 10 lat.'),
+            ),
+        ),
+        'reklama' => array(
+            'title' => 'Najczęstsze pytania o oklejanie reklamowe',
+            'items' => array(
+                array('Czy projekt graficzny jest po Waszej stronie?', 'Tak — prowadzimy pełny proces: projekt, druk wielkoformatowy i aplikację wykonujemy na miejscu, we własnym zapleczu. Możesz też dostarczyć gotowy projekt do realizacji.'),
+                array('Ile kosztuje oklejenie auta firmowego?', 'Od prostych naklejek na drzwi po pełne oklejenie reklamowe — cena zależy od zakresu grafiki, liczby aut i zastosowanych materiałów. Wycena jest bezpłatna, wystarczy krótki opis potrzeb.'),
+                array('Jak długo trwa realizacja?', 'Pojedyncze auto to zwykle 1–2 dni robocze po akceptacji projektu. Większe floty planujemy cyklami, tak aby auta były wyłączone z pracy możliwie krótko.'),
+                array('Czy oklejenie reklamowe da się zdjąć np. po leasingu?', 'Tak — profesjonalny demontaż nie pozostawia śladów na lakierze i przywraca auto do stanu sprzed oklejenia.'),
+            ),
+        ),
+        'detailing' => array(
+            'title' => 'Najczęstsze pytania o szyby i detailing',
+            'items' => array(
+                array('Czy przyciemnianie przednich szyb jest legalne?', 'Przednia szyba musi przepuszczać minimum 75% światła, a przednie boczne minimum 70%. Tylne szyby boczne i tylną szybę możesz przyciemnić dowolnie — doradzimy rozwiązanie w pełni zgodne z przepisami.'),
+                array('Czy stosujecie folie z atestem?', 'Tak — pracujemy wyłącznie na atestowanych foliach renomowanych producentów i do każdej realizacji wydajemy potwierdzenie zastosowanego materiału.'),
+                array('Co to jest dechroming?', 'Oklejanie fabrycznie chromowanych listew i ozdobników folią w kolorze czarnego połysku lub satyny (tzw. Shadow Line) — szybki sposób na sportowy charakter auta bez wymiany elementów.'),
+                array('Ile trwa przyciemnianie szyb?', 'Standardowa usługa zajmuje zwykle 1 dzień — auto odstawiasz rano, a odbierasz po południu.'),
+            ),
+        ),
+    );
+    return isset($all[$slug]) ? $all[$slug] : null;
+}
+
+/**
+ * Schema FAQPage dla stron uslug (rozwijane pytania w SERP Google).
+ */
+add_action('wp_head', 'higloss_render_service_faq_schema');
+function higloss_render_service_faq_schema() {
+    if (!is_page(array('zmiana-koloru', 'ppf', 'reklama', 'detailing'))) {
+        return;
+    }
+    $faq = higloss_service_faqs(get_post_field('post_name', get_queried_object_id()));
+    if (empty($faq['items'])) {
+        return;
+    }
+    $entities = array();
+    foreach ($faq['items'] as $pair) {
         $entities[] = array(
             '@type'          => 'Question',
             'name'           => $pair[0],
