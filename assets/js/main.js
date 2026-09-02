@@ -361,37 +361,58 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!filterBtns.length || !galleryCards.length) return;
 
+        function applyFilter(filter, pressedBtn) {
+            // Update button active states
+            filterBtns.forEach(function (b) {
+                const isActive = b === pressedBtn;
+                b.classList.toggle('is-active', isActive);
+                b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            // Filter cards with smooth fade
+            galleryCards.forEach(function (card) {
+                const cardCat = card.getAttribute('data-category') || '';
+                const match = filter === 'all' || cardCat.indexOf(filter) !== -1;
+
+                if (match) {
+                    card.classList.remove('is-hidden');
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.96)';
+                    setTimeout(function () {
+                        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 20);
+                } else {
+                    card.classList.add('is-hidden');
+                }
+            });
+        }
+
         filterBtns.forEach(function (btn) {
             btn.addEventListener('click', function () {
                 const filter = this.getAttribute('data-filter');
-
-                // Update button active states
-                filterBtns.forEach(function (b) {
-                    const isActive = b === btn;
-                    b.classList.toggle('is-active', isActive);
-                    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-                });
-
-                // Filter cards with smooth fade
-                galleryCards.forEach(function (card) {
-                    const cardCat = card.getAttribute('data-category') || '';
-                    const match = filter === 'all' || cardCat.indexOf(filter) !== -1;
-
-                    if (match) {
-                        card.classList.remove('is-hidden');
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.96)';
-                        setTimeout(function () {
-                            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 20);
-                    } else {
-                        card.classList.add('is-hidden');
-                    }
-                });
+                applyFilter(filter, this);
+                if (window.history && history.replaceState) {
+                    history.replaceState(null, '', filter === 'all' ? location.pathname : '#usluga-' + filter);
+                }
             });
         });
+
+        // Glebokie linki z podstron uslug: /galeria/#usluga-ppf -> od razu przefiltrowana galeria
+        const hashMatch = location.hash.match(/^#usluga-(.+)$/);
+        if (hashMatch) {
+            const wanted = Array.prototype.find.call(filterBtns, function (b) {
+                return b.getAttribute('data-filter') === hashMatch[1];
+            });
+            if (wanted) {
+                applyFilter(wanted.getAttribute('data-filter'), wanted);
+                const wrap = wanted.closest('.hg-gallery-filter-wrap');
+                if (wrap) {
+                    wrap.scrollIntoView({ block: 'start' });
+                }
+            }
+        }
     }
     initGalleryFilter();
 

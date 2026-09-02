@@ -884,3 +884,175 @@ body.admin-bar .hg-header {
     margin: 0 0.5rem;
     color: #475569;
 }
+
+/* ===== Kafelki realizacji na podstronach uslug (desktop: grid / mobile: slider) ===== */
+.hg-svc-reals {
+    margin: 0 0 4rem;
+    --svc-accent: #25aae1;
+}
+
+.hg-svc-reals-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-bottom: 1.6rem;
+    flex-wrap: wrap;
+}
+
+.hg-svc-reals-eyebrow {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hg-muted, #94a3b8);
+    margin-bottom: 0.4rem;
+}
+
+.hg-svc-reals-title {
+    font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 1.15;
+}
+
+.hg-svc-reals-title span {
+    color: var(--svc-accent);
+}
+
+.hg-svc-reals-more {
+    white-space: nowrap;
+}
+
+.hg-svc-reals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.hg-svc-real-card {
+    position: relative;
+    display: block;
+    border: 1px solid var(--hg-line, rgba(148, 163, 184, 0.2));
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--hg-surface, #0a0f16);
+    text-decoration: none;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hg-svc-real-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--svc-accent);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
+.hg-svc-real-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.hg-svc-real-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.hg-svc-real-card:hover .hg-svc-real-media img {
+    transform: scale(1.06);
+}
+
+.hg-svc-real-pill {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    z-index: 2;
+    max-width: calc(100% - 1.6rem);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: rgba(4, 7, 12, 0.85);
+    border: 1px solid var(--svc-accent);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hg-svc-real-body {
+    display: block;
+    padding: 0.95rem 1.1rem 1.1rem;
+}
+
+.hg-svc-real-body strong {
+    display: block;
+    color: #ffffff;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+.hg-svc-real-body small {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.73rem;
+    margin-top: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+    .hg-svc-reals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .hg-svc-reals {
+        margin-bottom: 3rem;
+    }
+
+    .hg-svc-reals-grid {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin: 0 -0.2rem;
+        padding: 0 0.2rem 0.6rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .hg-svc-reals-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hg-svc-real-card {
+        flex: 0 0 82%;
+        scroll-snap-align: center;
+    }
+
+    .hg-svc-reals-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hg-svc-reals-more {
+        align-self: stretch;
+        justify-content: center;
+    }
+}
+
+/* Filtr galerii: offset pod lepki naglowek przy wejsciu z linku #usluga-... */
+.hg-gallery-filter-wrap {
+    scroll-margin-top: 6.5rem;
+}

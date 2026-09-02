@@ -77,7 +77,56 @@ $theme_uri = get_template_directory_uri();
             'order'          => 'DESC'
         );
         $realizacje_query = new WP_Query($args);
+
+        // Filtr wg rodzaju uslugi: kategorie zbieramy z faktycznie wyswietlanych kart
+        $hg_filter_defaults = array(
+            'zmiana-koloru' => 'Zmiana koloru',
+            'ppf'           => 'Ochrona PPF',
+            'reklama'       => 'Reklama i branding',
+            'detailing'     => 'Detailing i detale',
+        );
+        $hg_filter_cats = array();
+        if ($realizacje_query->have_posts()) {
+            foreach ($realizacje_query->posts as $hg_fp) {
+                $hg_ft = get_the_terms($hg_fp->ID, 'kategoria_realizacji');
+                $hg_fs = ($hg_ft && !is_wp_error($hg_ft)) ? $hg_ft[0]->slug : 'zmiana-koloru';
+                $hg_fn = ($hg_ft && !is_wp_error($hg_ft)) ? $hg_ft[0]->name : '';
+                if (!$hg_fn) {
+                    $hg_fn = isset($hg_filter_defaults[$hg_fs]) ? $hg_filter_defaults[$hg_fs] : ucwords(str_replace('-', ' ', $hg_fs));
+                }
+                if (!isset($hg_filter_cats[$hg_fs])) {
+                    $hg_filter_cats[$hg_fs] = array('name' => $hg_fn, 'count' => 0);
+                }
+                $hg_filter_cats[$hg_fs]['count']++;
+            }
+        } else {
+            $hg_filter_cats = array(
+                'zmiana-koloru' => array('name' => $hg_filter_defaults['zmiana-koloru'], 'count' => 4),
+                'ppf'           => array('name' => $hg_filter_defaults['ppf'], 'count' => 2),
+                'reklama'       => array('name' => $hg_filter_defaults['reklama'], 'count' => 1),
+                'detailing'     => array('name' => $hg_filter_defaults['detailing'], 'count' => 1),
+            );
+        }
+        $hg_filter_order = array_keys($hg_filter_defaults);
+        uksort($hg_filter_cats, static function ($a, $b) use ($hg_filter_order) {
+            $ia = array_search($a, $hg_filter_order, true);
+            $ib = array_search($b, $hg_filter_order, true);
+            return ($ia === false ? 99 : $ia) - ($ib === false ? 99 : $ib);
+        });
+        $hg_filter_total = array_sum(array_column($hg_filter_cats, 'count'));
         ?>
+
+        <!-- FILTR REALIZACJI WG RODZAJU USLUGI -->
+        <div class="hg-gallery-filter-wrap" role="group" aria-label="Filtr realizacji wg rodzaju usługi">
+            <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
+                Wszystkie <span class="hg-gallery-btn-count"><?php echo (int) $hg_filter_total; ?></span>
+            </button>
+            <?php foreach ($hg_filter_cats as $hg_fslug => $hg_fcat) : ?>
+            <button type="button" class="hg-gallery-btn" data-filter="<?php echo esc_attr($hg_fslug); ?>" aria-pressed="false">
+                <?php echo esc_html($hg_fcat['name']); ?> <span class="hg-gallery-btn-count"><?php echo (int) $hg_fcat['count']; ?></span>
+            </button>
+            <?php endforeach; ?>
+        </div>
 
         <?php if ($realizacje_query->have_posts()) : ?>
             

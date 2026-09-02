@@ -440,6 +440,21 @@ function higloss_sitemaps_providers($providers) {
 }
 
 /**
+ * Rozpoznaje branze realizacji po tytule + polu "wykonana usluga" (tekst wpisywany przez klienta).
+ * Zwraca slug: zmiana-koloru | ppf | reklama | detailing albo null.
+ * Kolejnosc regul ma znaczenie (ppf wygrywa z "ochrona lakieru", reklama z "branding").
+ */
+function higloss_service_guess($text) {
+    $t = strtolower((string) $text);
+    if ('' === trim($t)) return null;
+    if (preg_match('/ppf|ochron/i', $t)) return 'ppf';
+    if (preg_match('/reklam|brand/i', $t)) return 'reklama';
+    if (preg_match('/szyb|dechrom|detailing|lamp|przyciemn/i', $t)) return 'detailing';
+    if (preg_match('/zmiana|kolor|mat|satyna|połysk|paski|dach|grafik|motyw|wrap/i', $t)) return 'zmiana-koloru';
+    return null;
+}
+
+/**
  * Auto-alt dla obrazkow z biblioteki: pusty alt -> tytul realizacji rodzica
  * (klient wgrywa zdjecia bez opisow, front sam opisze je dla SEO/dostepnosci).
  */
