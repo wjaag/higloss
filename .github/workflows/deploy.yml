@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - arena/01a01ede-higloss
   workflow_dispatch:
 
 jobs:

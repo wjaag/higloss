@@ -1,0 +1,301 @@
+/* ==========================================================================
+   HI-GLOSS — ekran "kreatora realizacji" (tylko CPT realizacje)
+   ========================================================================== */
+
+/* Pasek naglowka kreatora */
+.hg-admin-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 8px 0 20px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #0b1116 0%, #12212c 100%);
+  border-left: 4px solid #25aae1;
+  border-radius: 4px;
+}
+.hg-admin-hero-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  flex: none;
+}
+.hg-admin-hero-text strong {
+  display: block;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.hg-admin-hero-text span {
+  color: #9fb3c8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.hg-admin-hero-text em {
+  font-style: normal;
+  color: #25aae1;
+  font-weight: 700;
+}
+
+/* Pole tytulu — wieksze, "projektowe" */
+.post-type-realizacje #titlewrap #title {
+  height: 54px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-color: #c3c4c7;
+}
+.post-type-realizacje #titlewrap #title:focus {
+  border-color: #25aae1;
+  box-shadow: 0 0 0 1px #25aae1;
+}
+
+/* Panel SPECYFIKACJA — karta bezposrednio pod tytulem */
+.hg-admin-specspanel {
+  margin: 18px 0 0;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #dcdcde;
+  border-top: 3px solid #0b1116;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+/* Pola specyfikacji — te same wymiary dla text i select */
+.hg-admin-specspanel .hg-admin-specs input[type="text"],
+.hg-admin-specspanel .hg-admin-specs select {
+  width: 100%;
+  height: 42px;
+  min-height: 42px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  line-height: normal;
+}
+.hg-admin-specspanel .hg-admin-specs select {
+  padding-right: 30px;
+}
+.hg-admin-specspanel .hg-admin-specs input:focus,
+.hg-admin-specspanel .hg-admin-specs select:focus {
+  border-color: #25aae1;
+  box-shadow: 0 0 0 1px #25aae1;
+  outline: none;
+}
+.hg-field-hint {
+  display: block;
+  margin-top: 3px;
+  color: #787c82;
+  font-size: 12px;
+}
+
+/* Pigulki kategorii — kolory identyczne jak pilli na frontach */
+.hg-admin-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f0f0f1;
+}
+.hg-cat-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: 2px solid #dcdcde;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #3c434a;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+}
+.hg-cat-pill:hover {
+  border-color: #8c8f94;
+}
+.hg-cat-pill input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.hg-cat-pill.hg-cat-zmiana-koloru.is-active {
+  border-color: #25aae1;
+  background: #eef8fd;
+  color: #0c6f96;
+}
+.hg-cat-pill.hg-cat-ppf.is-active {
+  border-color: #10b981;
+  background: #ecfdf5;
+  color: #047857;
+}
+.hg-cat-pill.hg-cat-reklama.is-active {
+  border-color: #f59e0b;
+  background: #fffbeb;
+  color: #b45309;
+}
+.hg-cat-pill.hg-cat-detailing.is-active {
+  border-color: #8b5cf6;
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+.hg-cat-pill.hg-cat-ogolna.is-active {
+  border-color: #64748b;
+  background: #f8fafc;
+  color: #334155;
+}
+
+/* Grupy pol warunkowych */
+.hg-field-group {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #dcdcde;
+}
+.hg-group-title {
+  margin: 0 0 10px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #787c82;
+}
+.hg-admin-specs--common {
+  padding-bottom: 2px;
+}
+
+/* Panel zdjec PRZED / PO — karta pod tytulem */
+.hg-admin-photos {
+  margin: 18px 0 22px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #dcdcde;
+  border-top: 3px solid #25aae1;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.hg-admin-photos-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f1;
+}
+.hg-admin-photos-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1d2327;
+}
+.hg-admin-photos-sub {
+  color: #787c82;
+  font-size: 12.5px;
+}
+
+/* Dwa pickery obok siebie */
+.hg-admin-duo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+.hg-admin-pick {
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  padding: 14px;
+  background: #fbfbfc;
+}
+.hg-admin-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 13.5px;
+  margin: 0 0 10px;
+  color: #1d2327;
+}
+.hg-admin-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0b1116;
+  color: #25aae1;
+  font-size: 13px;
+  font-weight: 800;
+  flex: none;
+}
+.hg-admin-preview {
+  margin: 0 0 12px;
+  min-height: 150px;
+  border: 2px dashed #c3c4c7;
+  border-radius: 4px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.hg-admin-pick:hover .hg-admin-preview {
+  border-color: #25aae1;
+}
+.hg-admin-preview img {
+  max-width: 100%;
+  max-height: 220px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hg-admin-empty {
+  color: #787c82;
+  font-style: italic;
+  padding: 14px;
+  text-align: center;
+  font-size: 13px;
+}
+.hg-admin-empty--warn {
+  color: #b32d2e;
+  font-style: normal;
+  font-weight: 600;
+}
+.hg-admin-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.hg-admin-actions .button-hero {
+  min-height: 40px;
+  font-weight: 600;
+}
+
+/* Postboxy — subtelny akcent firmowy */
+.post-type-realizacje #poststuff .postbox > .postbox-header {
+  border-top: 3px solid #0b1116;
+}
+.post-type-realizacje #poststuff .postbox > .postbox-header .hndle {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Specyfikacja — siatka pol */
+.hg-admin-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 4px 16px;
+}
+.hg-admin-field label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12.5px;
+}
+.hg-admin-field input {
+  width: 100%;
+}

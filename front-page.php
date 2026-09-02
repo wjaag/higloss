@@ -14,7 +14,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.jpg'); ?>" alt="" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="" width="1408" height="768" fetchpriority="high">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
 
@@ -28,7 +28,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <p class="hg-hero-lead hg-reveal">Całościowe oklejanie pojazdów, bezbarwne folie ochronne PPF i branding flot. Precyzyjna aplikacja, materiały premium i efekt dopracowany w każdym detalu.</p>
                 <div class="hg-hero-actions hg-reveal">
                     <a href="#wycena" class="hg-btn hg-btn-primary">Wyceń swój projekt <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    <a href="#realizacje" class="hg-btn hg-btn-ghost">Zobacz realizacje <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
+                    <a href="<?php echo esc_url(home_url('/galeria/')); ?>" class="hg-btn hg-btn-ghost">Zobacz realizacje <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             <div class="hg-service-grid">
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.jpg'); ?>" alt="Samochód po całościowej zmianie koloru folią" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Samochód po całościowej zmianie koloru folią" width="1408" height="768" loading="lazy">
                         <span>01</span>
                         <p>Car wrapping</p>
                     </div>
@@ -98,7 +98,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.jpg'); ?>" alt="Aplikacja bezbarwnej folii ochronnej PPF na maskę samochodu" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Aplikacja bezbarwnej folii ochronnej PPF na maskę samochodu" width="1408" height="768" loading="lazy">
                         <span>02</span>
                         <p>Paint Protection Film</p>
                     </div>
@@ -116,7 +116,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_reklama.jpg'); ?>" alt="Flota samochodów dostawczych z oznakowaniem reklamowym" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_reklama.webp'); ?>" alt="Flota samochodów dostawczych z oznakowaniem reklamowym" width="1408" height="768" loading="lazy">
                         <span>03</span>
                         <p>Fleet branding</p>
                     </div>
@@ -134,7 +134,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.jpg'); ?>" alt="Samochód przygotowany do detailingu i zabezpieczenia" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" alt="Samochód przygotowany do detailingu i zabezpieczenia" width="1408" height="768" loading="lazy">
                         <span>04</span>
                         <p>Finishing touch</p>
                     </div>
@@ -155,7 +155,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
     <section class="hg-feature-split" id="o-nas" aria-labelledby="about-title">
         <div class="hg-feature-media hg-reveal">
-            <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.jpg'); ?>" alt="Studio HI-GLOSS DESIGN — praca nad samochodem" width="1408" height="768" loading="lazy">
+            <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>" alt="Studio HI-GLOSS DESIGN — praca nad samochodem" width="1408" height="768" loading="lazy">
             <div class="hg-feature-label"><span>HI-GLOSS STUDIO</span> Szczecin · Mierzyn</div>
         </div>
         <div class="hg-feature-copy">
@@ -201,6 +201,9 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <li class="hg-reveal"><span>03</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 18.5 9.5M3 21l3.5-1 12-12a2.8 2.8 0 0 0-4-4l-12 12L3 21Z"/><path d="m13 6 4 4"/></svg></div><h3>Przygotowanie i aplikacja</h3><p>Myjemy, dekontaminujemy i przygotowujemy powierzchnię. Aplikujemy folię w kontrolowanych warunkach.</p></li>
                 <li class="hg-reveal"><span>04</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Kontrola i odbiór</h3><p>Sprawdzamy każdy detal, omawiamy pielęgnację i przekazujemy gotowy pojazd wraz z zaleceniami.</p></li>
             </ol>
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="<?php echo esc_url(home_url('/proces/')); ?>" class="hg-gallery-card-btn btn-primary">Pełny proces krok po kroku &rarr;</a>
+            </p>
         </div>
     </section>
 
@@ -213,25 +216,6 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 </div>
                 <p>Każdy projekt ma inny cel, ale ten sam bezkompromisowy standard wykonania. Zobacz zmianę koloru foliami premium, bezbarwną ochronę PPF i identyfikację flotową.</p>
             </header>
-
-            <!-- CATEGORY FILTER PILLS -->
-            <div class="hg-gallery-filter-wrap hg-reveal" role="group" aria-label="Filtry portfolio">
-                <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
-                    <span>Wszystkie</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="zmiana-koloru" aria-pressed="false">
-                    <span>Zmiana Koloru</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="ppf" aria-pressed="false">
-                    <span>Ochrona PPF</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="reklama" aria-pressed="false">
-                    <span>Floty &amp; Reklama</span>
-                </button>
-                <button type="button" class="hg-gallery-btn" data-filter="detailing" aria-pressed="false">
-                    <span>Detailing</span>
-                </button>
-            </div>
 
             <div class="hg-work-grid">
                 <?php
@@ -247,28 +231,43 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         $projects->the_post();
                         $service = get_post_meta(get_the_ID(), '_higloss_service_type', true);
                         $model = get_post_meta(get_the_ID(), '_higloss_car_model', true);
+                        // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach
+                        $model_label = ($model && ! higloss_model_in_title($model)) ? $model : '';
                         $terms = get_the_terms(get_the_ID(), 'kategoria_realizacji');
                         $cat_slug = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
-                        $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.jpg';
+                        $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp';
                         $before_image_map = array(
-                            'gallery_bmw_m4_satin_black.jpg' => 'gallery_before_stock_paint.jpg',
-                            'gallery_porsche_gt3_green.jpg'  => 'gallery_porsche_gt3_before.jpg',
-                            'gallery_audi_rs6_blue.jpg'      => 'gallery_audi_rs6_before.jpg',
-                            'gallery_mercedes_g63_matt.jpg'  => 'gallery_mercedes_g63_before.jpg',
-                            'gallery_ppf_application.jpg'    => 'gallery_ppf_application_before.jpg',
-                            'ai_oferta_ppf.jpg'              => 'ai_oferta_ppf_before.jpg',
-                            'gallery_fleet_commercial.jpg'   => 'gallery_fleet_before.jpg',
-                            'ai_oferta_detailing.jpg'        => 'ai_oferta_detailing_before.jpg',
+                            'gallery_bmw_m4_satin_black.webp' => 'gallery_before_stock_paint.webp',
+                            'gallery_porsche_gt3_green.webp'  => 'gallery_porsche_gt3_before.webp',
+                            'gallery_audi_rs6_blue.webp'      => 'gallery_audi_rs6_before.webp',
+                            'gallery_mercedes_g63_matt.webp'  => 'gallery_mercedes_g63_before.webp',
+                            'gallery_ppf_application.webp'    => 'gallery_ppf_application_before.webp',
+                            'ai_oferta_ppf.webp'              => 'ai_oferta_ppf_before.webp',
+                            'gallery_fleet_commercial.webp'   => 'gallery_fleet_before.webp',
+                            'ai_oferta_detailing.webp'        => 'ai_oferta_detailing_before.webp',
                         );
                         $thumb_basename = basename(parse_url($thumb, PHP_URL_PATH));
-                        $before_url     = isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '';
+                        $before_meta_id = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
+                        $before_url     = $before_meta_id ? wp_get_attachment_image_url($before_meta_id, 'full') : (isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '');
                         ?>
-                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model ? $model . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
+                        <a class="hg-work-card hg-reveal" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr($cat_slug); ?>" data-lightbox-img="<?php echo esc_url($thumb); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' · ' : '') . ($service ?: 'HI-GLOSS Studio')); ?>">
+                            <?php
+                            $thumb_id = get_post_thumbnail_id(get_the_ID());
+                            if ($thumb_id) :
+                                echo wp_get_attachment_image($thumb_id, 'large', false, array(
+                                    'alt'      => get_the_title(),
+                                    'loading'  => 'lazy',
+                                    'decoding' => 'async',
+                                    'sizes'    => '(max-width: 900px) 92vw, 640px',
+                                ));
+                            else :
+                            ?>
                             <img src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy">
+                            <?php endif; ?>
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $projects->current_post + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($service ?: 'Realizacja HI-GLOSS'); ?></span>
-                            <span class="hg-work-title"><strong><?php the_title(); ?></strong><?php if ($model) : ?><small><?php echo esc_html($model); ?></small><?php endif; ?></span>
+                            <span class="hg-work-title"><strong><?php the_title(); ?></strong><?php if ($model_label) : ?><small><?php echo esc_html($model_label); ?></small><?php endif; ?></span>
                             <span class="hg-work-arrow" aria-hidden="true"><svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
                         </a>
                         <?php
@@ -276,26 +275,26 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     wp_reset_postdata();
                 else :
                     $fallback_projects = array(
-                        array('gallery_bmw_m4_satin_black.jpg', 'Zmiana koloru', 'BMW M4 Coupe — Satin Nero', 'Folia Avery SWF · Satyna · Szczecin', 'zmiana-koloru'),
-                        array('gallery_porsche_gt3_green.jpg', 'Zmiana koloru', 'Porsche 911 GT3 RS — Racing Green', 'Inozetek / 3M 2080 · Satynowa zieleń', 'zmiana-koloru'),
-                        array('gallery_audi_rs6_blue.jpg', 'Zmiana koloru', 'Audi RS6 Avant — Miami Blue', '3M 2080 Gloss + Dechroming Black Optics', 'zmiana-koloru'),
-                        array('gallery_ppf_application.jpg', 'Folia ochronna PPF', 'Full Front PPF — Samoregeneracja', 'STEK DYNOshield 180µm · 10 lat gwarancji', 'ppf'),
-                        array('gallery_fleet_commercial.jpg', 'Branding flot', 'Flota DHL Express — 40 Aut', 'Projekt · Druk UV · Aplikacja seryjna', 'reklama'),
-                        array('ai_oferta_detailing.jpg', 'Detailing & Detale', 'Dechroming & Przyciemnianie Szyb', 'Shadow Line Gloss Black · Atest Ceramika', 'detailing'),
+                        array('gallery_bmw_m4_satin_black.webp', 'Zmiana koloru', 'BMW M4 Coupe — Satin Nero', 'Folia Avery SWF · Satyna · Szczecin', 'zmiana-koloru'),
+                        array('gallery_porsche_gt3_green.webp', 'Zmiana koloru', 'Porsche 911 GT3 RS — Racing Green', 'Inozetek / 3M 2080 · Satynowa zieleń', 'zmiana-koloru'),
+                        array('gallery_audi_rs6_blue.webp', 'Zmiana koloru', 'Audi RS6 Avant — Miami Blue', '3M 2080 Gloss + Dechroming Black Optics', 'zmiana-koloru'),
+                        array('gallery_ppf_application.webp', 'Folia ochronna PPF', 'Full Front PPF — Samoregeneracja', 'STEK DYNOshield 180µm · 10 lat gwarancji', 'ppf'),
+                        array('gallery_fleet_commercial.webp', 'Branding flot', 'Flota DHL Express — 40 Aut', 'Projekt · Druk UV · Aplikacja seryjna', 'reklama'),
+                        array('ai_oferta_detailing.webp', 'Detailing & Detale', 'Dechroming & Przyciemnianie Szyb', 'Shadow Line Gloss Black · Atest Ceramika', 'detailing'),
                     );
                     foreach ($fallback_projects as $index => $project) :
                         $before_map = array(
-                            'gallery_bmw_m4_satin_black.jpg' => 'gallery_before_stock_paint.jpg',
-                            'gallery_porsche_gt3_green.jpg'  => 'gallery_porsche_gt3_before.jpg',
-                            'gallery_audi_rs6_blue.jpg'      => 'gallery_audi_rs6_before.jpg',
-                            'gallery_ppf_application.jpg'    => 'gallery_ppf_application_before.jpg',
-                            'gallery_fleet_commercial.jpg'   => 'gallery_fleet_before.jpg',
-                            'ai_oferta_detailing.jpg'        => 'ai_oferta_detailing_before.jpg',
+                            'gallery_bmw_m4_satin_black.webp' => 'gallery_before_stock_paint.webp',
+                            'gallery_porsche_gt3_green.webp'  => 'gallery_porsche_gt3_before.webp',
+                            'gallery_audi_rs6_blue.webp'      => 'gallery_audi_rs6_before.webp',
+                            'gallery_ppf_application.webp'    => 'gallery_ppf_application_before.webp',
+                            'gallery_fleet_commercial.webp'   => 'gallery_fleet_before.webp',
+                            'ai_oferta_detailing.webp'        => 'ai_oferta_detailing_before.webp',
                         );
                         $before_src = isset($before_map[$project[0]]) ? $theme_uri . '/assets/images/' . $before_map[$project[0]] : '';
                         ?>
                         <a class="hg-work-card hg-reveal" href="<?php echo esc_url(home_url('/galeria')); ?>" data-category="<?php echo esc_attr($project[4]); ?>" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" data-lightbox-before="<?php echo $before_src ? esc_url($before_src) : ''; ?>" data-lightbox-title="<?php echo esc_attr($project[2]); ?>" data-lightbox-meta="<?php echo esc_attr($project[1] . ' · ' . $project[3]); ?>">
-                            <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" alt="<?php echo esc_attr($project[2]); ?>" width="1408" height="768" loading="lazy">
+                            <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/' . str_replace('.webp', '-480.webp', $project[0])); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/' . str_replace('.webp', '-768.webp', $project[0])); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/' . $project[0]); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" alt="<?php echo esc_attr($project[2]); ?>" width="1408" height="768" loading="lazy" decoding="async">
                             <span class="hg-work-overlay"></span>
                             <span class="hg-work-index"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></span>
                             <span class="hg-work-meta"><?php echo esc_html($project[1]); ?></span>
@@ -374,12 +373,11 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <div class="hg-contact-panel hg-reveal">
                     <p class="hg-contact-label">HI-GLOSS DESIGN</p>
                     <a class="hg-contact-phone" href="tel:+48605088065">605&nbsp;088&nbsp;065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    <a class="hg-contact-phone hg-contact-phone-secondary" href="tel:+48664129023">664&nbsp;129&nbsp;023 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 
                     <div class="hg-contact-details">
                         <div><span>Studio</span><a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">ul. Podmiejska 4<br>72-006 Mierzyn / Szczecin</a></div>
                         <div><span>E-mail</span><a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a></div>
-                        <div><span>Godziny</span><p>Pon.–Pt. 08:00–17:00<br>Sobota: po umówieniu</p></div>
+                        <div><span>Godziny</span><p>Pon.–Pt. 09:00–17:00<br>Sobota: po umówieniu</p></div>
                     </div>
 
                     <a class="hg-google-proof" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
@@ -412,18 +410,18 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     </div>
                     <form class="hg-quote-form" id="hgQuoteForm" novalidate>
                         <div class="hg-form-row">
-                            <label>Imię i nazwisko
+                            <label><span>Imię i nazwisko</span>
                                 <input type="text" name="name" autocomplete="name" placeholder="Jan Kowalski">
                             </label>
-                            <label>Numer telefonu <em>*</em>
+                            <label><span>Numer telefonu <em>*</em></span>
                                 <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="600 000 000" required>
                             </label>
                         </div>
                         <div class="hg-form-row">
-                            <label>Adres e-mail
+                            <label><span>Adres e-mail</span>
                                 <input type="email" name="email" autocomplete="email" placeholder="jan@email.pl">
                             </label>
-                            <label>Interesująca usługa <em>*</em>
+                            <label><span>Interesująca usługa <em>*</em></span>
                                 <select name="service" required>
                                     <option value="">Wybierz usługę</option>
                                     <option value="Całościowa zmiana koloru">Całościowa zmiana koloru</option>
@@ -434,7 +432,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                                 </select>
                             </label>
                         </div>
-                        <label>Auto i oczekiwany efekt
+                        <label><span>Auto i oczekiwany efekt</span>
                             <textarea name="notes" rows="4" placeholder="Marka, model, rocznik i krótki opis projektu..."></textarea>
                         </label>
                         <input type="text" name="website" class="hg-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">

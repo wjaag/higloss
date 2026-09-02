@@ -8,38 +8,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <?php wp_head(); ?>
-    <!-- Inline fallback prevents stale or blocked stylesheets on the staging host. -->
-    <style id="higloss-inline-fallback">
-        <?php
-        $inline_css_files = array(
-            HIGLOSS_THEME_DIR . '/assets/css/main.css',
-            HIGLOSS_THEME_DIR . '/assets/css/landing.css',
-        );
-        foreach ($inline_css_files as $inline_css_file) {
-            if (file_exists($inline_css_file) && is_readable($inline_css_file)) {
-                $inline_css = file_get_contents($inline_css_file);
-                echo str_replace('../images/', HIGLOSS_THEME_URI . '/assets/images/', $inline_css); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            }
-        }
-        ?>
-    </style>
+    <!-- Style ladowane normalnie (enqueue w functions.php) -->
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-
-<?php
-$is_landing = is_front_page();
-$section_url = static function ($section) use ($is_landing) {
-    return $is_landing ? '#' . $section : home_url('/#' . $section);
-};
-?>
 
 <a class="hg-skip-link" href="#main-content"><?php esc_html_e('Przejdź do treści', 'higloss2026'); ?></a>
 
 <header class="hg-header" id="siteHeader">
     <div class="hg-container hg-header-inner">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" aria-label="HI-GLOSS DESIGN — strona główna">
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="" class="hg-logo-standalone" width="52" height="52">
+            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS DESIGN — studio car wrappingu Szczecin Mierzyn" class="hg-logo-standalone" width="52" height="52">
             <span class="hg-brand-copy">
                 <strong>HI-GLOSS<span>DESIGN</span></strong>
                 <small>Car wrapping studio</small>
@@ -47,12 +26,13 @@ $section_url = static function ($section) use ($is_landing) {
         </a>
 
         <nav class="hg-nav-menu" id="hgNavMenu" aria-label="Nawigacja główna">
-            <a href="<?php echo esc_url($section_url('oferta')); ?>" class="hg-nav-link">Oferta</a>
-            <a href="<?php echo esc_url($section_url('realizacje')); ?>" class="hg-nav-link">Realizacje</a>
-            <a href="<?php echo esc_url($section_url('o-nas')); ?>" class="hg-nav-link">O nas</a>
-            <a href="<?php echo esc_url($section_url('proces')); ?>" class="hg-nav-link">Proces</a>
-            <a href="<?php echo esc_url($section_url('kontakt')); ?>" class="hg-nav-link">Kontakt</a>
-            <a href="<?php echo esc_url($section_url('wycena')); ?>" class="hg-nav-cta">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            <a href="<?php echo esc_url(home_url('/oferta/')); ?>" class="hg-nav-link">Oferta</a>
+            <a href="<?php echo esc_url(home_url('/proces/')); ?>" class="hg-nav-link">Proces</a>
+            <a href="<?php echo esc_url(home_url('/galeria/')); ?>" class="hg-nav-link">Realizacje</a>
+            <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="hg-nav-link">FAQ</a>
+            <a href="<?php echo esc_url(home_url('/o-firmie/')); ?>" class="hg-nav-link">O nas</a>
+            <a href="<?php echo esc_url(home_url('/kontakt/')); ?>" class="hg-nav-link">Kontakt</a>
+            <a href="<?php echo esc_url(home_url('/#wycena')); ?>" class="hg-nav-cta">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 
             <div class="hg-nav-socials" role="group" aria-label="Media społecznościowe">
                 <a href="https://www.instagram.com/higlossdesign/" target="_blank" rel="noopener noreferrer" aria-label="Instagram HI-GLOSS DESIGN">

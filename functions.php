@@ -40,7 +40,7 @@ add_action('after_setup_theme', 'higloss_theme_setup');
  * Enqueue scripts and styles with file-based cache busting.
  */
 function higloss_enqueue_assets() {
-    wp_enqueue_style('higloss-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap', array(), null);
+    // Google Fonts laduje sie asynchronicznie — patrz higloss_fonts_async() nizej
 
     $style_path   = HIGLOSS_THEME_DIR . '/style.css';
     $main_path    = HIGLOSS_THEME_DIR . '/assets/css/main.css';
@@ -64,6 +64,49 @@ function higloss_enqueue_assets() {
     ));
 }
 add_action('wp_enqueue_scripts', 'higloss_enqueue_assets', 99);
+
+/**
+ * WYDAJNOSC (PageSpeed mobile) — 3 elementy:
+ * 1) Google Fonts bez blokowania renderowania (preload + media="print"),
+ *    przy okazji 7 plikow krojec zamiast 9 (odpada ~40 KB transferu)
+ * 2) lzejszy <head>: bez emoji-skryptu, oembed-discovery, RSD, generator itd.
+ * 3) preload obrazka LCP na stronie glownej + dequeue CSS blokow (theme nie uzywa Gutenberga)
+ */
+add_action('wp_head', 'higloss_fonts_async', 1);
+function higloss_fonts_async() {
+    $fonts = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap';
+    echo '<link rel="preload" as="style" href="' . esc_url($fonts) . '">' . "\n";
+    echo '<link rel="stylesheet" href="' . esc_url($fonts) . '" media="print" onload="this.media=\'all\'">' . "\n";
+    echo '<noscript><link rel="stylesheet" href="' . esc_url($fonts) . '"></noscript>' . "\n";
+}
+
+add_action('wp_head', 'higloss_preload_lcp_image', 2);
+function higloss_preload_lcp_image() {
+    if (is_front_page()) {
+        echo '<link rel="preload" as="image" href="' . HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru.webp" fetchpriority="high">' . "\n";
+    }
+}
+
+// Mniej smieci w <head> (kazdy bajt i zadanie wazne na mobile)
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'rest_output_link_wp_head');
+remove_action('wp_head', 'wp_oembed_add_discovery_links');
+remove_action('template_redirect', 'rest_output_link_header', 11);
+
+add_action('wp_enqueue_scripts', 'higloss_trim_wp_assets', 100);
+function higloss_trim_wp_assets() {
+    // Zadne strony nie uzywa embedow (YouTube/WordPress) ani edytora blokow
+    wp_deregister_script('wp-embed');
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('classic-theme-styles');
+    wp_dequeue_style('global-styles');
+}
 
 /**
  * Register Custom Post Type: Realizacje (Portfolio / Projects)
@@ -97,7 +140,7 @@ function higloss_register_cpt_realizacje() {
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-format-gallery',
         'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
-        'show_in_rest'       => true,
+        'show_in_rest'       => false,
     );
 
     register_post_type('realizacje', $args);
@@ -121,224 +164,44 @@ function higloss_register_cpt_realizacje() {
         'show_admin_column' => true,
         'query_var'         => true,
         'rewrite'           => array('slug' => 'kategoria-realizacji'),
-        'show_in_rest'      => true,
+        'show_in_rest'      => false,
+        // Boczny box kategorii w edytorze wylaczony — wybor przez pigułki
+        // w panelu SPECYFIKACJA (inc/realizacje-admin.php)
+        'meta_box_cb'       => false,
     ));
 }
 add_action('init', 'higloss_register_cpt_realizacje');
 
 /**
- * Register Custom Meta Boxes for Realizacje (Specs & Multi-Photo Gallery)
+ * Realizacje — centralny config pól specyfikacji per kategoria (współdzielony: admin + front)
  */
-function higloss_add_realizacje_metaboxes() {
-    add_meta_box(
-        'higloss_realizacja_specs',
-        '🚗 Specyfikacja Projektu & Pojazdu (Hi-Gloss Specs)',
-        'higloss_render_specs_metabox',
-        'realizacje',
-        'normal',
-        'high'
-    );
-
-    add_meta_box(
-        'higloss_realizacja_gallery',
-        '🖼️ Galeria Zdjęć Pojazdu (Wielozdjęciowa Galeria Auto)',
-        'higloss_render_gallery_metabox',
-        'realizacje',
-        'normal',
-        'high'
-    );
-}
-add_action('add_meta_boxes', 'higloss_add_realizacje_metaboxes');
+require_once get_template_directory() . '/inc/realizacje-fields.php';
 
 /**
- * Render Project Specs Metabox
+ * Realizacje - panel admina (metaboxy na głównym planie: PRZED/PO, specyfikacja, galeria)
  */
-function higloss_render_specs_metabox($post) {
-    wp_nonce_field('higloss_save_specs', 'higloss_specs_nonce');
-
-    $car_model   = get_post_meta($post->ID, '_higloss_car_model', true);
-    $service_type= get_post_meta($post->ID, '_higloss_service_type', true);
-    $film_used   = get_post_meta($post->ID, '_higloss_film_used', true);
-    $exec_time   = get_post_meta($post->ID, '_higloss_execution_time', true);
-    $finish_type = get_post_meta($post->ID, '_higloss_finish_type', true);
-    ?>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; padding: 10px 0;">
-        <div>
-            <label style="font-weight: 700; display: block; margin-bottom: 5px;">🚘 Marka i Model Auta:</label>
-            <input type="text" name="higloss_car_model" value="<?php echo esc_attr($car_model); ?>" placeholder="np. Audi A7 Sportback" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:0;" />
-        </div>
-        <div>
-            <label style="font-weight: 700; display: block; margin-bottom: 5px;">🛠️ Wykonana Usługa:</label>
-            <input type="text" name="higloss_service_type" value="<?php echo esc_attr($service_type); ?>" placeholder="np. Całościowa Zmiana Koloru" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:0;" />
-        </div>
-        <div>
-            <label style="font-weight: 700; display: block; margin-bottom: 5px;">📜 Użyta Folia / Materiał:</label>
-            <input type="text" name="higloss_film_used" value="<?php echo esc_attr($film_used); ?>" placeholder="np. 3M 2080 Series Gloss Blue" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:0;" />
-        </div>
-        <div>
-            <label style="font-weight: 700; display: block; margin-bottom: 5px;">⏱️ Czas Realizacji:</label>
-            <input type="text" name="higloss_execution_time" value="<?php echo esc_attr($exec_time); ?>" placeholder="np. 4 Dni Robocze" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:0;" />
-        </div>
-        <div>
-            <label style="font-weight: 700; display: block; margin-bottom: 5px;">✨ Wykończenie Powierzchni:</label>
-            <input type="text" name="higloss_finish_type" value="<?php echo esc_attr($finish_type); ?>" placeholder="np. Głęboki Połysk / Satyna" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:0;" />
-        </div>
-    </div>
-    <?php
-}
+require_once get_template_directory() . '/inc/realizacje-admin.php';
 
 /**
- * Render Gallery Metabox
+ * Poradnik — definicje artykulow SEO + helpery (obrazki, czas czytania)
+ * (wymagany PRZED bootstrap-pages.php: bootstrap v2 publikuje te artykuły)
  */
-function higloss_render_gallery_metabox($post) {
-    wp_nonce_field('higloss_save_gallery', 'higloss_gallery_nonce');
-
-    $gallery_images = get_post_meta($post->ID, '_higloss_gallery_images', true);
-    ?>
-    <div style="padding: 10px 0;">
-        <p style="margin-bottom: 12px; color: #555;">Dodaj wielkoformatowe zdjęcia pojazdu z różnych ujęć (przód, tył, bok, detale). Wybrane zdjęcia utworzą interaktywną galerię na stronie przedniej.</p>
-        
-        <input type="hidden" name="higloss_gallery_images" id="higloss_gallery_images" value="<?php echo esc_attr($gallery_images); ?>" />
-
-        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 15px;">
-            <button type="button" class="button button-primary button-large" id="higloss_upload_gallery_btn" style="border-radius: 0 !important; font-weight: 700;">
-                ➕ Dodaj / Edytuj Zdjęcia w Galerii
-            </button>
-            <button type="button" class="button button-link-delete" id="higloss_clear_gallery_btn" style="color: #a00;">
-                🗑️ Wyczyść Galerię
-            </button>
-        </div>
-
-        <div id="higloss_gallery_preview" style="display: flex; flex-wrap: wrap; gap: 12px; min-height: 100px; padding: 12px; background: #f8f9fa; border: 2px dashed #ccc;">
-            <!-- Thumbnails rendered dynamically via JS -->
-        </div>
-    </div>
-    <?php
-}
+require_once get_template_directory() . '/inc/poradnik-articles.php';
 
 /**
- * Save Realizacje Meta
+ * Mapa obrazkow dla Google (image sitemap): /wp-sitemap-images.xml
  */
-function higloss_save_realizacje_meta($post_id) {
-    if (!isset($_POST['higloss_specs_nonce']) || !wp_verify_nonce($_POST['higloss_specs_nonce'], 'higloss_save_specs')) {
-        return;
-    }
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return;
-    }
-    if (!current_user_can('edit_post', $post_id)) {
-        return;
-    }
-
-    if (isset($_POST['higloss_car_model'])) {
-        update_post_meta($post_id, '_higloss_car_model', sanitize_text_field($_POST['higloss_car_model']));
-    }
-    if (isset($_POST['higloss_service_type'])) {
-        update_post_meta($post_id, '_higloss_service_type', sanitize_text_field($_POST['higloss_service_type']));
-    }
-    if (isset($_POST['higloss_film_used'])) {
-        update_post_meta($post_id, '_higloss_film_used', sanitize_text_field($_POST['higloss_film_used']));
-    }
-    if (isset($_POST['higloss_execution_time'])) {
-        update_post_meta($post_id, '_higloss_execution_time', sanitize_text_field($_POST['higloss_execution_time']));
-    }
-    if (isset($_POST['higloss_finish_type'])) {
-        update_post_meta($post_id, '_higloss_finish_type', sanitize_text_field($_POST['higloss_finish_type']));
-    }
-    if (isset($_POST['higloss_gallery_images'])) {
-        update_post_meta($post_id, '_higloss_gallery_images', sanitize_text_field($_POST['higloss_gallery_images']));
-    }
-}
-add_action('save_post_realizacje', 'higloss_save_realizacje_meta');
+require_once get_template_directory() . '/inc/image-sitemap.php';
 
 /**
- * Enqueue Media Uploader Scripts in WP Admin
+ * Bootstrap stron przy aktywacji motywu (wdrożenie na czysty WordPress)
  */
-function higloss_admin_gallery_scripts($hook) {
-    global $post_type;
-    if (($hook === 'post.php' || $hook === 'post-new.php') && $post_type === 'realizacje') {
-        wp_enqueue_media();
-        ?>
-        <script>
-        jQuery(document).ready(function($) {
-            var frame;
-            var $imagesInput = $('#higloss_gallery_images');
-            var $preview = $('#higloss_gallery_preview');
+require_once get_template_directory() . '/inc/bootstrap-pages.php';
 
-            function renderPreview() {
-                $preview.empty();
-                var ids = $imagesInput.val() ? $imagesInput.val().split(',').filter(Boolean) : [];
-                if (ids.length === 0) {
-                    $preview.html('<span style="color:#888; font-style:italic; align-self:center;">Brak dodanych zdjęć. Kliknij przycisk powyżej, aby dodać zdjęcia.</span>');
-                    return;
-                }
-
-                ids.forEach(function(id) {
-                    var attachment = wp.media.attachment(id);
-                    attachment.fetch().then(function() {
-                        var url = attachment.get('sizes') && attachment.get('sizes').thumbnail ? attachment.get('sizes').thumbnail.url : attachment.get('url');
-                        var $box = $('<div style="position:relative; width:110px; height:110px; border:2px solid #25aae1; background:#000; overflow:hidden;">' +
-                            '<img src="' + url + '" style="width:100%; height:100%; object-fit:cover;" />' +
-                            '<button type="button" class="remove-img" data-id="' + id + '" style="position:absolute; top:3px; right:3px; background:#e11d48; color:#fff; border:none; border-radius:50%; width:22px; height:22px; cursor:pointer; font-size:12px; line-height:22px; text-align:center; font-weight:bold;">&times;</button>' +
-                            '</div>');
-                        $preview.append($box);
-                    });
-                });
-            }
-
-            renderPreview();
-
-            $('#higloss_upload_gallery_btn').on('click', function(e) {
-                e.preventDefault();
-                if (frame) {
-                    frame.open();
-                    return;
-                }
-
-                frame = wp.media({
-                    title: 'Wybierz Zdjęcia Do Galerii Realizacji',
-                    button: { text: 'Dodaj Zdjęcia Do Galerii' },
-                    multiple: true
-                });
-
-                frame.on('select', function() {
-                    var selection = frame.state().get('selection');
-                    var currentIds = $imagesInput.val() ? $imagesInput.val().split(',').filter(Boolean) : [];
-                    selection.map(function(attachment) {
-                        attachment = attachment.toJSON();
-                        if (currentIds.indexOf(attachment.id.toString()) === -1) {
-                            currentIds.push(attachment.id);
-                        }
-                    });
-                    $imagesInput.val(currentIds.join(','));
-                    renderPreview();
-                });
-
-                frame.open();
-            });
-
-            $preview.on('click', '.remove-img', function(e) {
-                e.preventDefault();
-                var idToRemove = $(this).data('id').toString();
-                var currentIds = $imagesInput.val().split(',').filter(Boolean);
-                var newIds = currentIds.filter(function(id) { return id !== idToRemove; });
-                $imagesInput.val(newIds.join(','));
-                renderPreview();
-            });
-
-            $('#higloss_clear_gallery_btn').on('click', function(e) {
-                e.preventDefault();
-                if (confirm('Czy na pewno chcesz usunąć wszystkie zdjęcia z tej galerii?')) {
-                    $imagesInput.val('');
-                    renderPreview();
-                }
-            });
-        });
-        </script>
-        <?php
-    }
-}
-add_action('admin_footer', 'higloss_admin_gallery_scripts');
+/**
+ * Wysyłka SMTP przez stałe z wp-config.php (patrz inc/mailer.php)
+ */
+require_once get_template_directory() . '/inc/mailer.php';
 
 /**
  * Handle AJAX Quote Calculation / Contact Form Submission
@@ -371,7 +234,8 @@ function higloss_handle_quote_calculator() {
         wp_send_json_error(array('message' => 'Podaj poprawny adres e-mail.'));
     }
 
-    $to = get_option('admin_email', 'biuro@hi-glossdesign.pl');
+    // Zapytania z formularza zawsze leca na skrzynke biura (stala ewentualnie w wp-config.php)
+    $to = defined('HIGLOSS_QUOTE_TO') ? HIGLOSS_QUOTE_TO : 'biuro@hi-glossdesign.pl';
     $subject = 'Nowe zapytanie ze strony Hi-Gloss Design: ' . $service;
     
     $body  = "Nowe Zapytanie o Wycenę:\n\n";
@@ -391,7 +255,16 @@ function higloss_handle_quote_calculator() {
     $body .= "Auto i opis projektu: " . $notes . "\n\n";
     $body .= "---\nWysłano z formularza Hi-Gloss Design 2026";
 
-    $headers = array('Content-Type: text/plain; charset=UTF-8', 'From: Hi-Gloss Website <noreply@hi-glossdesign.pl>');
+    // Nadawce ustawia inc/mailer.php (SMTP) albo WordPress domyslnie — nie wymuszamy naglowka From
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
+
+    // Let staff reply straight to the customer from any mail client or phone.
+    if (!empty($email)) {
+        $reply_name = str_replace(array('"', "\r", "\n", ','), '', (string) $name);
+        $headers[]  = '' !== $reply_name
+            ? sprintf('Reply-To: %s <%s>', $reply_name, $email)
+            : sprintf('Reply-To: %s', $email);
+    }
 
     $sent = wp_mail($to, $subject, $body, $headers);
 
@@ -433,7 +306,7 @@ function higloss_render_schema_markup() {
             array(
                 "@type" => "OpeningHoursSpecification",
                 "dayOfWeek" => array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"),
-                "opens" => "08:00",
+                "opens" => "09:00",
                 "closes" => "17:00"
             )
         ),
@@ -457,3 +330,268 @@ function higloss_render_schema_markup() {
     echo '<script type="application/ld+json">' . json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
 }
 add_action('wp_head', 'higloss_render_schema_markup');
+
+
+/**
+ * Meta description + Open Graph — per strona, bez wtyczki SEO.
+ * Opisy kuratowane pod frazy z mapy SEO (seo-migration/PLAN-WDROZENIA.md);
+ * podstrony bez dopisku dostaja opis domyslny, realizacje — opis z tresci/specyfikacji.
+ */
+add_action('wp_head', 'higloss_render_seo_meta', 1);
+function higloss_render_seo_meta() {
+    $default_desc = 'HI-GLOSS DESIGN — studio całościowej zmiany koloru auta folią i bezbarwnych folii ochronnych PPF. Demontaż z procedurami fabrycznymi, folie premium. Szczecin / Mierzyn. Bezpłatna wycena.';
+
+    $page_desc = array(
+        'oferta'                => 'Oferta studia HI-GLOSS DESIGN: zmiana koloru auta folią, bezbarwne folie ochronne PPF, oklejanie reklamowe flot, przyciemnianie szyb, dechroming i detailing. Szczecin / Mierzyn.',
+        'zmiana-koloru'         => 'Całościowa zmiana koloru auta foliami premium 3M, Avery Dennison i Inozetek. Demontaż klamek i zderzaków, efekt lakieru fabrycznego, gwarancja na folię. Szczecin / Mierzyn — bezpłatna wycena.',
+        'ppf'                   => 'Bezbarwne folie ochronne PPF: ochrona lakieru przed odpryskami, zarysowaniami i solą drogową. Pakiety od stref newralgicznych po całe auto. HI-GLOSS DESIGN — Szczecin / Mierzyn.',
+        'reklama'               => 'Oklejanie reklamowe aut i flot firmowych: projekt, druk wielkoformatowy i aplikacja. Branding, który sprzedaje w ruchu. HI-GLOSS DESIGN — Szczecin / Mierzyn — bezpłatna wycena.',
+        'detailing'             => 'Usługi dodatkowe: przyciemnianie szyb, dechroming, detailing, powłoki ochronne i naprawy folii. HI-GLOSS DESIGN — studio w Szczecinie / Mierzynie.',
+        'galeria'               => 'Galeria realizacji HI-GLOSS DESIGN: metamorfozy aut folią, folie ochronne PPF i branding flot — zdjęcia PRZED i PO ze studia w Szczecinie / Mierzynie.',
+        'o-firmie'              => 'HI-GLOSS DESIGN — studio oklejania pojazdów z Mierzyna k. Szczecina. Procedury fabryczne, ogrzewana hala, folie premium. Poznaj naszą historię i standardy pracy.',
+        'kontakt'               => 'Kontakt z HI-GLOSS DESIGN: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00. Bezpłatna wycena.',
+        'polityka-prywatnosci'  => 'Polityka prywatności serwisu HI-GLOSS DESIGN — zasady przetwarzania danych osobowych zgodnie z RODO.',
+        'faq'                   => 'FAQ HI-GLOSS DESIGN: najczęstsze pytania o oklejanie aut — cennik PPF i zmiany koloru folią, przyciemnianie szyb, trwałość i demontaż folii. Rzetelne odpowiedzi ze studia Szczecin / Mierzyn.',
+        'proces'                => 'Jak wygląda oklejenie auta w HI-GLOSS DESIGN: wycena do 24 h, demontaż wg procedur fabrycznych, aplikacja w ogrzewanej hali, auto gotowe w 3–5 dni. Proces krok po kroku — Szczecin / Mierzyn.',
+    );
+
+    $description = $default_desc;
+    $title       = wp_get_document_title();
+    $url         = home_url('/');
+    $type        = 'website';
+    $image       = get_template_directory_uri() . '/screenshot.jpg';
+
+    if (is_singular()) {
+        global $post;
+        $type = in_array(get_post_type($post), array('realizacje', 'post'), true) ? 'article' : 'website';
+        $url  = get_permalink($post);
+
+        if (is_page($post) && isset($page_desc[$post->post_name])) {
+            $description = $page_desc[$post->post_name];
+        } elseif ('realizacje' === get_post_type($post)) {
+            $service = get_post_meta($post->ID, '_higloss_service_type', true);
+            $model   = get_post_meta($post->ID, '_higloss_car_model', true);
+            $lead    = trim(($model ? $model . ' — ' : '') . ($service ? $service : 'realizacja studia oklejania pojazdów'));
+            $description = sprintf('Realizacja HI-GLOSS DESIGN: %s. Zobacz efekt PRZED i PO oraz specyfikację projektu ze studia w Szczecinie / Mierzynie.', $lead);
+            if (has_excerpt($post)) {
+                $description = wp_strip_all_tags(get_the_excerpt($post), true);
+            } elseif (!empty($post->post_content)) {
+                $description = wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
+            }
+        } elseif (has_excerpt($post)) {
+            $description = wp_strip_all_tags(get_the_excerpt($post), true);
+        } elseif (!empty($post->post_content)) {
+            $description = wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
+        }
+
+        if (has_post_thumbnail($post)) {
+            $thumb = get_the_post_thumbnail_url($post, 'large');
+            if ($thumb) {
+                $image = $thumb;
+            }
+        }
+    } elseif (is_home()) {
+        // Archiwum wpisow (gdy ktos ustawi strone wpisow) — fallback na FAQ
+        $description = $page_desc['faq'];
+        $posts_page  = (int) get_option('page_for_posts');
+        $url         = $posts_page ? get_permalink($posts_page) : home_url('/');
+    } elseif (is_post_type_archive('realizacje')) {
+        $description = $page_desc['galeria'];
+        $url         = get_post_type_archive_link('realizacje');
+    } elseif (is_search()) {
+        $description = 'Wyniki wyszukiwania w serwisie HI-GLOSS DESIGN.';
+    }
+    ?>
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:type" content="<?php echo esc_attr($type); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:url" content="<?php echo esc_url($url); ?>">
+    <meta property="og:site_name" content="HI-GLOSS DESIGN">
+    <meta property="og:image" content="<?php echo esc_url($image); ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <?php
+}
+
+/**
+ * Auto-alt dla obrazkow z biblioteki: pusty alt -> tytul realizacji rodzica
+ * (klient wgrywa zdjecia bez opisow, front sam opisze je dla SEO/dostepnosci).
+ */
+add_filter('wp_get_attachment_image_attributes', 'higloss_auto_image_alt', 10, 2);
+function higloss_auto_image_alt($attr, $attachment) {
+    if (!empty($attr['alt'])) {
+        return $attr;
+    }
+    if (!empty($attachment->post_parent)) {
+        $parent_type = get_post_type($attachment->post_parent);
+        if ('realizacje' === $parent_type) {
+            $attr['alt'] = sprintf('Realizacja HI-GLOSS DESIGN: %s', get_the_title($attachment->post_parent));
+            return $attr;
+        }
+    }
+    $attr['alt'] = get_the_title($attachment);
+    return $attr;
+}
+
+/**
+ * Schema FAQPage dla sekcji FAQ strony glownej (pytania rozwijane w SERP Google).
+ * Tresc 1:1 z widocznym akordeonem w front-page.php — wymog Google.
+ */
+add_action('wp_head', 'higloss_render_faq_schema');
+function higloss_render_faq_schema() {
+    if (!is_front_page()) {
+        return;
+    }
+    $faq = array(
+        array('Czy folia do zmiany koloru chroni lakier?', 'Folia zmieniająca kolor stanowi dodatkową warstwę i ogranicza drobne uszkodzenia eksploatacyjne, jednak do ochrony przed kamieniami i głębszymi zarysowaniami przeznaczona jest grubsza, poliuretanowa folia PPF.'),
+        array('Jak długo trwa oklejenie całego auta?', 'Standardowa zmiana koloru zajmuje zwykle 3–5 dni roboczych. Dokładny termin zależy od wielkości i konstrukcji auta, zakresu demontażu oraz wybranego materiału.'),
+        array('Czy folię można później bezpiecznie usunąć?', 'Tak. Prawidłowo zaaplikowana folia renomowanego producenta może zostać profesjonalnie usunięta bez naruszania fabrycznego lakieru, o ile lakier był wcześniej w dobrym stanie i nie był naprawiany niezgodnie ze sztuką.'),
+        array('Jaki pakiet PPF wybrać?', 'Do jazdy miejskiej często wystarcza ochrona stref najbardziej narażonych. Przy częstych trasach rekomendujemy Full Front, a dla nowych, sportowych i kolekcjonerskich aut — zabezpieczenie Full Body.'),
+        array('Co jest potrzebne do przygotowania wyceny?', 'Podaj markę, model i rocznik auta, interesującą Cię usługę oraz oczekiwany efekt. Zdjęcia i informacja o stanie lakieru pomogą nam przygotować bardziej precyzyjną propozycję.'),
+    );
+    $entities = array();
+    foreach ($faq as $pair) {
+        $entities[] = array(
+            '@type'          => 'Question',
+            'name'           => $pair[0],
+            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $pair[1]),
+        );
+    }
+    $schema = array('@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $entities);
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * Pytania FAQ dla stron uslug (zmiana koloru / PPF / reklama / detailing).
+ * JEDYNE ZRODLO PRAWDY: te same dane renderuja widoczny akordeon
+ * (template-parts/service-faq.php) i schema FAQPage — Google wymaga zgodnosci 1:1.
+ */
+function higloss_service_faqs($slug) {
+    $all = array(
+        'zmiana-koloru' => array(
+            'title' => 'Najczęstsze pytania o zmianę koloru folią',
+            'items' => array(
+                array('Ile kosztuje całkowita zmiana koloru auta folią?', 'Orientacyjnie od ok. 5 500 zł za auto kompaktowe do ok. 11 000 zł za dużego SUV-a. Ostateczna cena zależy od wielkości auta, zakresu demontażu, stanu lakieru i wybranej folii — dokładną wycenę przygotowujemy bezpłatnie po obejrzeniu auta.'),
+                array('Ile trwa oklejenie całego auta?', 'Standardowo 3–5 dni roboczych. Dokładny termin zależy od wielkości i konstrukcji auta, zakresu demontażu oraz wybranego materiału.'),
+                array('Czy przed oklejeniem demontujecie elementy?', 'Tak. Klamki, lampy, zderzaki i lusterka demontujemy zgodnie z procedurami fabrycznymi — folia zawijana jest głęboko do wnętrza elementu, więc krawędzie się nie odklejają. Demontaż jest zawarty w wycenie usługi.'),
+                array('Czy folię da się później bezpiecznie zdjąć?', 'Tak — profesjonalnie założona folia premium schodzi bez naruszenia fabrycznego lakieru, o ile był on wcześniej w dobrym stanie i nie był naprawiany niezgodnie ze sztuką.'),
+            ),
+        ),
+        'ppf' => array(
+            'title' => 'Najczęstsze pytania o folie ochronne PPF',
+            'items' => array(
+                array('Ile kosztuje folia ochronna PPF?', 'Ochrona stref newralgicznych od ok. 1 500 zł, pakiet Full Front 5 000–9 000 zł, a zabezpieczenie całego auta od ok. 15 000 zł. Wycenę zawsze dopasowujemy do auta i sposobu jego użytkowania.'),
+                array('Czy folię PPF widać na lakierze?', 'Prawie wcale — poliuretanowa folia jest transparentna i wielowarstwowa, a jej warstwa wierzchnia regeneruje mikrorysy pod wpływem ciepła (słońce, ciepła woda).'),
+                array('Który pakiet PPF będzie najlepszy dla mnie?', 'Do jazdy głównie po mieście zwykle wystarcza ochrona stref najbardziej narażonych na odpryski. Jeśli jeździsz dużo w trasie, rekomendujemy pakiet Full Front, a do nowego, sportowego lub kolekcjonerskiego auta — Full Body.'),
+                array('Ile lat wytrzymuje folia PPF?', '8–10 lat przy poprawnej pielęgnacji. Na wybrane folie oferujemy gwarancję do 10 lat.'),
+            ),
+        ),
+        'reklama' => array(
+            'title' => 'Najczęstsze pytania o oklejanie reklamowe',
+            'items' => array(
+                array('Czy projekt graficzny jest po Waszej stronie?', 'Tak — prowadzimy pełny proces: projekt, druk wielkoformatowy i aplikację wykonujemy na miejscu, we własnym zapleczu. Możesz też dostarczyć gotowy projekt do realizacji.'),
+                array('Ile kosztuje oklejenie auta firmowego?', 'Od prostych naklejek na drzwi po pełne oklejenie reklamowe — cena zależy od zakresu grafiki, liczby aut i zastosowanych materiałów. Wycena jest bezpłatna, wystarczy krótki opis potrzeb.'),
+                array('Jak długo trwa realizacja?', 'Pojedyncze auto to zwykle 1–2 dni robocze po akceptacji projektu. Większe floty planujemy cyklami, tak aby auta były wyłączone z pracy możliwie krótko.'),
+                array('Czy oklejenie reklamowe da się zdjąć np. po leasingu?', 'Tak — profesjonalny demontaż nie pozostawia śladów na lakierze i przywraca auto do stanu sprzed oklejenia.'),
+            ),
+        ),
+        'detailing' => array(
+            'title' => 'Najczęstsze pytania o szyby i detailing',
+            'items' => array(
+                array('Czy przyciemnianie przednich szyb jest legalne?', 'Przednia szyba musi przepuszczać minimum 75% światła, a przednie boczne minimum 70%. Tylne szyby boczne i tylną szybę możesz przyciemnić dowolnie — doradzimy rozwiązanie w pełni zgodne z przepisami.'),
+                array('Czy stosujecie folie z atestem?', 'Tak — pracujemy wyłącznie na atestowanych foliach renomowanych producentów i do każdej realizacji wydajemy potwierdzenie zastosowanego materiału.'),
+                array('Co to jest dechroming?', 'Oklejanie fabrycznie chromowanych listew i ozdobników folią w kolorze czarnego połysku lub satyny (tzw. Shadow Line) — szybki sposób na sportowy charakter auta bez wymiany elementów.'),
+                array('Ile trwa przyciemnianie szyb?', 'Standardowa usługa zajmuje zwykle 1 dzień — auto odstawiasz rano, a odbierasz po południu.'),
+            ),
+        ),
+    );
+    return isset($all[$slug]) ? $all[$slug] : null;
+}
+
+/**
+ * Schema FAQPage dla stron uslug (rozwijane pytania w SERP Google).
+ */
+add_action('wp_head', 'higloss_render_service_faq_schema');
+function higloss_render_service_faq_schema() {
+    if (!is_page(array('zmiana-koloru', 'ppf', 'reklama', 'detailing'))) {
+        return;
+    }
+    $faq = higloss_service_faqs(get_post_field('post_name', get_queried_object_id()));
+    if (empty($faq['items'])) {
+        return;
+    }
+    $entities = array();
+    foreach ($faq['items'] as $pair) {
+        $entities[] = array(
+            '@type'          => 'Question',
+            'name'           => $pair[0],
+            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $pair[1]),
+        );
+    }
+    $schema = array('@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $entities);
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * Schema Article JSON-LD dla artykulow Pytan (lepsza prezencja w SERP:
+ * data, autor, obrazek — sygnaly rich result dla Google).
+ */
+add_action('wp_head', 'higloss_render_article_schema');
+function higloss_render_article_schema() {
+    if (!is_singular('post')) {
+        return;
+    }
+    global $post;
+    $description = has_excerpt($post)
+        ? wp_strip_all_tags(get_the_excerpt($post), true)
+        : wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
+    $schema = array(
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Article',
+        'headline'    => get_the_title($post),
+        'description' => $description,
+        'image'       => higloss_poradnik_image($post->ID),
+        'datePublished' => get_the_date('c', $post),
+        'dateModified'  => get_the_modified_date('c', $post),
+        'inLanguage'  => 'pl-PL',
+        'author'      => array(
+            '@type' => 'Organization',
+            'name'  => 'HI-GLOSS DESIGN',
+            'url'   => 'https://www.hi-glossdesign.pl',
+            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.png'),
+        ),
+        'publisher'   => array(
+            '@type' => 'Organization',
+            'name'  => 'HI-GLOSS DESIGN',
+            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.png'),
+        ),
+        'mainEntityOfPage' => array('@type' => 'WebPage', '@id' => get_permalink($post)),
+    );
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * Schema BreadcrumbList: realizacje (Glowna > Galeria > realizacja) oraz podstrony.
+ */
+add_action('wp_head', 'higloss_render_breadcrumb_schema');
+function higloss_render_breadcrumb_schema() {
+    if (!is_singular() || is_front_page()) {
+        return;
+    }
+    $items = array(
+        array('@type' => 'ListItem', 'position' => 1, 'name' => 'Strona główna', 'item' => home_url('/')),
+    );
+    if ('realizacje' === get_post_type()) {
+        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Galeria realizacji', 'item' => home_url('/galeria/'));
+        $position = 3;
+    } elseif ('post' === get_post_type()) {
+        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'FAQ', 'item' => home_url('/faq/'));
+        $position = 3;
+    } else {
+        $position = 2;
+    }
+    $items[] = array('@type' => 'ListItem', 'position' => $position, 'name' => get_the_title());
+    $schema = array('@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $items);
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}

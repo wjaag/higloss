@@ -46,12 +46,11 @@ $service_options  = array(
             <div class="hg-contact-panel hg-reveal">
                 <p class="hg-contact-label">HI-GLOSS DESIGN</p>
                 <a class="hg-contact-phone" href="tel:+48605088065">605&nbsp;088&nbsp;065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                <a class="hg-contact-phone hg-contact-phone-secondary" href="tel:+48664129023">664&nbsp;129&nbsp;023 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 
                 <div class="hg-contact-details">
                     <div><span>Studio</span><a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">ul. Podmiejska 4<br>72-006 Mierzyn / Szczecin</a></div>
                     <div><span>E-mail</span><a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a></div>
-                    <div><span>Godziny</span><p>Pon.–Pt. 08:00–17:00<br>Sobota: po umówieniu</p></div>
+                    <div><span>Godziny</span><p>Pon.–Pt. 09:00–17:00<br>Sobota: po umówieniu</p></div>
                 </div>
 
                 <a class="hg-google-proof" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
@@ -84,18 +83,18 @@ $service_options  = array(
                 </div>
                 <form class="hg-quote-form" id="hgQuoteForm" novalidate>
                     <div class="hg-form-row">
-                        <label>Imię i nazwisko
+                        <label><span>Imię i nazwisko</span>
                             <input type="text" name="name" autocomplete="name" placeholder="Jan Kowalski">
                         </label>
-                        <label>Numer telefonu <em>*</em>
+                        <label><span>Numer telefonu <em>*</em></span>
                             <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="600 000 000" required>
                         </label>
                     </div>
                     <div class="hg-form-row">
-                        <label>Adres e-mail
+                        <label><span>Adres e-mail</span>
                             <input type="email" name="email" autocomplete="email" placeholder="jan@email.pl">
                         </label>
-                        <label>Interesująca usługa <em>*</em>
+                        <label><span>Interesująca usługa <em>*</em></span>
                             <select name="service" required>
                                 <option value="">Wybierz usługę</option>
                                 <?php foreach ($service_options as $value => $label) : ?>
@@ -104,7 +103,7 @@ $service_options  = array(
                             </select>
                         </label>
                     </div>
-                    <label>Auto i oczekiwany efekt
+                    <label><span>Auto i oczekiwany efekt</span>
                         <textarea name="notes" rows="4" placeholder="Marka, model, rocznik i krótki opis projektu..."></textarea>
                     </label>
                     <input type="text" name="website" class="hg-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">

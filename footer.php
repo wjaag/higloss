@@ -41,16 +41,16 @@ $footer_section_url = static function ($section) use ($is_landing) {
 
             <div class="hg-footer-column">
                 <p>Na skróty</p>
-                <a href="<?php echo esc_url($footer_section_url('oferta')); ?>">Oferta</a>
-                <a href="<?php echo esc_url($footer_section_url('realizacje')); ?>">Realizacje</a>
-                <a href="<?php echo esc_url($footer_section_url('o-nas')); ?>">O nas</a>
-                <a href="<?php echo esc_url($footer_section_url('proces')); ?>">Jak pracujemy</a>
+                <a href="<?php echo esc_url(home_url('/oferta/')); ?>">Oferta</a>
+                <a href="<?php echo esc_url(home_url('/proces/')); ?>">Proces</a>
+                <a href="<?php echo esc_url(home_url('/galeria/')); ?>">Realizacje</a>
+                <a href="<?php echo esc_url(home_url('/faq/')); ?>">FAQ</a>
+                <a href="<?php echo esc_url(home_url('/o-firmie/')); ?>">O nas</a>
             </div>
 
             <div class="hg-footer-column">
                 <p>Kontakt</p>
                 <a href="tel:+48605088065">+48&nbsp;605&nbsp;088&nbsp;065</a>
-                <a href="tel:+48664129023">+48&nbsp;664&nbsp;129&nbsp;023</a>
                 <a href="mailto:biuro@hi-glossdesign.pl">biuro@hi-glossdesign.pl</a>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Podmiejska+4%2C+72-006+Mierzyn" target="_blank" rel="noopener noreferrer">Podmiejska 4, Mierzyn <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </div>
@@ -65,8 +65,9 @@ $footer_section_url = static function ($section) use ($is_landing) {
         <div class="hg-footer-bottom">
             <p>&copy; <?php echo esc_html(date('Y')); ?> HI-GLOSS DESIGN. Wszelkie prawa zastrzeżone.</p>
             <p class="hg-footer-meta">
-                <a href="mailto:wjag@onet.pl">Design &amp; code by WJAG</a>
                 <a href="<?php echo esc_url(home_url('/polityka-prywatnosci')); ?>">Polityka prywatności i RODO</a>
+                <a href="#" id="hgCookiesOpen">Ustawienia cookies</a>
+                <span>Realizacja: <a href="mailto:wjag@onet.pl">Wojciech Jagodzinski</a></span>
             </p>
         </div>
     </div>
@@ -79,6 +80,19 @@ $footer_section_url = static function ($section) use ($is_landing) {
     </a>
     <a href="<?php echo esc_url(home_url('/#wycena')); ?>">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
 </nav>
+
+<div class="hg-cookies" id="hgCookies" role="dialog" aria-live="polite" aria-label="Zgoda na pliki cookies" hidden>
+    <div class="hg-cookies-inner">
+        <div class="hg-cookies-text">
+            <strong>Ta strona używa plików cookies</strong>
+            <p>Niezbędne cookies zapewniają poprawne i bezpieczne działanie strony — są zawsze włączone. Pozostałe (analityczne) uruchamiamy wyłącznie za Twoją zgodą. Szczegóły znajdziesz w <a href="<?php echo esc_url(home_url('/polityka-prywatnosci/')); ?>">polityce prywatności</a>.</p>
+        </div>
+        <div class="hg-cookies-actions">
+            <button type="button" class="hg-btn hg-btn-primary" data-consent="all">Akceptuję wszystkie</button>
+            <button type="button" class="hg-btn hg-btn-ghost" data-consent="essential">Tylko niezbędne</button>
+        </div>
+    </div>
+</div>
 
 <?php wp_footer(); ?>
 </body>
