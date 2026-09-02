@@ -417,12 +417,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="hg-lightbox-img-wrap">
                         <div class="hg-lightbox-pair" id="hgLightboxPair">
                             <figure class="hg-lightbox-side hg-lightbox-before">
-                                <img src="" alt="" class="hg-lightbox-img" id="hgLightboxBeforeImg">
+                                <img src="" alt="Auto przed realizacją w studio HI-GLOSS DESIGN" class="hg-lightbox-img" id="hgLightboxBeforeImg">
                                 <figcaption>PRZED</figcaption>
                             </figure>
                             <span class="hg-lightbox-vs" aria-hidden="true">&#8594;</span>
                             <figure class="hg-lightbox-side hg-lightbox-after">
-                                <img src="" alt="" class="hg-lightbox-img" id="hgLightboxImg">
+                                <img src="" alt="Auto po realizacji w studio HI-GLOSS DESIGN" class="hg-lightbox-img" id="hgLightboxImg">
                                 <figcaption>PO</figcaption>
                             </figure>
                         </div>
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h4 id="hgLightboxTitle">Realizacja HI-GLOSS DESIGN</h4>
                         <p id="hgLightboxMeta">Szczecin / Mierzyn</p>
                     </div>
-                    <a href="#wycena" class="hg-lightbox-cta" id="hgLightboxCta">Wyceń podobny projekt &rarr;</a>
+                    <a href="/#wycena" class="hg-lightbox-cta" id="hgLightboxCta">Wyceń podobny projekt &rarr;</a>
                 </div>
             `;
             document.body.appendChild(lightbox);
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const beforeSrc = target.getAttribute('data-lightbox-before') || '';
             const title = target.getAttribute('data-lightbox-title') || target.getAttribute('alt') || 'Realizacja HI-GLOSS DESIGN';
             const meta = target.getAttribute('data-lightbox-meta') || 'Car wrapping · Folie PPF · Mierzyn';
-            const quoteLink = target.getAttribute('data-lightbox-link') || '#wycena';
+            const quoteLink = target.getAttribute('data-lightbox-link') || '/#wycena';
 
             imgEl.src = imgSrc;
             imgEl.alt = title;

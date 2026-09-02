@@ -339,20 +339,21 @@ add_action('wp_head', 'higloss_render_schema_markup');
  */
 add_action('wp_head', 'higloss_render_seo_meta', 1);
 function higloss_render_seo_meta() {
-    $default_desc = 'HI-GLOSS DESIGN — studio całościowej zmiany koloru auta folią i bezbarwnych folii ochronnych PPF. Demontaż z procedurami fabrycznymi, folie premium. Szczecin / Mierzyn. Bezpłatna wycena.';
+    $default_desc = 'HI-GLOSS DESIGN — studio zmiany koloru auta folią i folii PPF. Demontaż wg procedur fabrycznych, folie premium. Szczecin / Mierzyn. Bezpłatna wycena.';
 
+    // Opisy pilnowane do max ~160 znakow (Bing WMT: "opis za dlugi").
     $page_desc = array(
-        'oferta'                => 'Oferta studia HI-GLOSS DESIGN: zmiana koloru auta folią, bezbarwne folie ochronne PPF, oklejanie reklamowe flot, przyciemnianie szyb, dechroming i detailing. Szczecin / Mierzyn.',
-        'zmiana-koloru'         => 'Całościowa zmiana koloru auta foliami premium 3M, Avery Dennison i Inozetek. Demontaż klamek i zderzaków, efekt lakieru fabrycznego, gwarancja na folię. Szczecin / Mierzyn — bezpłatna wycena.',
-        'ppf'                   => 'Bezbarwne folie ochronne PPF: ochrona lakieru przed odpryskami, zarysowaniami i solą drogową. Pakiety od stref newralgicznych po całe auto. HI-GLOSS DESIGN — Szczecin / Mierzyn.',
-        'reklama'               => 'Oklejanie reklamowe aut i flot firmowych: projekt, druk wielkoformatowy i aplikacja. Branding, który sprzedaje w ruchu. HI-GLOSS DESIGN — Szczecin / Mierzyn — bezpłatna wycena.',
+        'oferta'                => 'Oferta HI-GLOSS DESIGN: zmiana koloru auta folią, bezbarwne folie ochronne PPF, branding flot, przyciemnianie szyb i detailing. Szczecin / Mierzyn.',
+        'zmiana-koloru'         => 'Całościowa zmiana koloru auta foliami 3M, Avery Dennison i Inozetek. Demontaż detali, efekt lakieru fabrycznego. Szczecin / Mierzyn — bezpłatna wycena.',
+        'ppf'                   => 'Bezbarwne folie ochronne PPF: ochrona lakieru przed odpryskami, zarysowaniami i solą drogową. Pakiety od stref newralgicznych po całe auto. Szczecin / Mierzyn.',
+        'reklama'               => 'Oklejanie reklamowe aut i flot firmowych: projekt, druk wielkoformatowy i aplikacja. Branding, który sprzedaje w ruchu. Szczecin / Mierzyn — bezpłatna wycena.',
         'detailing'             => 'Usługi dodatkowe: przyciemnianie szyb, dechroming, detailing, powłoki ochronne i naprawy folii. HI-GLOSS DESIGN — studio w Szczecinie / Mierzynie.',
         'galeria'               => 'Galeria realizacji HI-GLOSS DESIGN: metamorfozy aut folią, folie ochronne PPF i branding flot — zdjęcia PRZED i PO ze studia w Szczecinie / Mierzynie.',
-        'o-firmie'              => 'HI-GLOSS DESIGN — studio oklejania pojazdów z Mierzyna k. Szczecina. Procedury fabryczne, ogrzewana hala, folie premium. Poznaj naszą historię i standardy pracy.',
+        'o-firmie'              => 'HI-GLOSS DESIGN — studio oklejania pojazdów z Mierzyna k. Szczecina. Ogrzewana hala, procedury fabryczne, folie premium. Poznaj naszą historię.',
         'kontakt'               => 'Kontakt z HI-GLOSS DESIGN: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00. Bezpłatna wycena.',
         'polityka-prywatnosci'  => 'Polityka prywatności serwisu HI-GLOSS DESIGN — zasady przetwarzania danych osobowych zgodnie z RODO.',
-        'faq'                   => 'FAQ HI-GLOSS DESIGN: najczęstsze pytania o oklejanie aut — cennik PPF i zmiany koloru folią, przyciemnianie szyb, trwałość i demontaż folii. Rzetelne odpowiedzi ze studia Szczecin / Mierzyn.',
-        'proces'                => 'Jak wygląda oklejenie auta w HI-GLOSS DESIGN: wycena do 24 h, demontaż wg procedur fabrycznych, aplikacja w ogrzewanej hali, auto gotowe w 3–5 dni. Proces krok po kroku — Szczecin / Mierzyn.',
+        'faq'                   => 'FAQ o oklejaniu aut: cennik PPF i zmiany koloru folią, przyciemnianie szyb, trwałość i demontaż folii. Rzetelne odpowiedzi ze studia Szczecin / Mierzyn.',
+        'proces'                => 'Jak wygląda oklejenie auta w HI-GLOSS DESIGN: wycena do 24 h, demontaż wg procedur fabrycznych, aplikacja w ogrzewanej hali, auto w 3–5 dni.',
     );
 
     $description = $default_desc;
@@ -412,6 +413,27 @@ function higloss_render_seo_meta() {
     <meta property="og:image" content="<?php echo esc_url($image); ?>">
     <meta name="twitter:card" content="summary_large_image">
     <?php
+}
+
+/**
+ * Tytul dokumentu strony glownej: WP sklejal tytul strony + stary tagline
+ * (159 znakow — Bing WMT: „tytul zbyt dlugi"). Wersja pilnowana z motywu (55 znakow).
+ */
+add_filter('document_title_parts', 'higloss_document_title_parts');
+function higloss_document_title_parts($parts) {
+    if (is_front_page()) {
+        $parts = array('title' => get_bloginfo('name') . ' | Oklejanie aut & PPF — Szczecin/Mierzyn');
+    }
+    return $parts;
+}
+
+/**
+ * Wylewa podmape users z wp-sitemap.xml (1 autor, zero wartosci SEO — smieciowy URL w GSC).
+ */
+add_filter('wp_sitemaps_providers', 'higloss_sitemaps_providers');
+function higloss_sitemaps_providers($providers) {
+    unset($providers['users']);
+    return $providers;
 }
 
 /**
