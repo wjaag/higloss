@@ -26,8 +26,7 @@ Nawigacja prowadzi do sekcji strony głównej. Stare podstrony i pojedyncze real
 - formularz AJAX zabezpieczony nonce i honeypotem,
 - dynamiczne realizacje z danymi pojazdu i usługi,
 - Schema.org `AutoBodyShop` z katalogiem usług i profilami social,
-- lokalne obrazy z lazy loadingiem (poza hero),
-- statyczny podgląd w `landing-preview.html`.
+- lokalne obrazy z lazy loadingiem (poza hero).
 
 ## Struktura
 
@@ -38,9 +37,46 @@ assets/css/main.css        # style bazowe i zgodność starych szablonów
 assets/css/landing.css     # design system i pełny landing
 assets/js/main.js          # menu, reveal, aktywne sekcje, FAQ i formularz
 functions.php              # assety, CPT, AJAX, Schema.org
-landing-preview.html       # podgląd bez instalacji WordPressa
+build-theme-zip.sh         # budowanie paczki ZIP motywu do wgrania w WP
+template-parts/            # FAQ, linkowanie wewnętrzne, karta realizacji usługi
 ```
 
 ## Deployment
 
-Workflow `.github/workflows/deploy.yml` publikuje wyłącznie push na `main`. Gałęzie testowe nie uruchamiają automatycznego wdrożenia produkcyjnego.
+Wdrożenie ręczne: paczka ZIP motywu wgrywana w panelu WordPressa
+(**Wygląd → Motywy → Dodaj nowy motyw → Wyślij motyw**).
+
+### Pobranie paczki z gałęzi GitHub
+
+`Code → Download ZIP` na wybranej gałęzi daje archiwum całego repo z **jednym katalogiem
+głównym** — czyli w strukturze, którą WordPress przyjmuje przy wgrywaniu motywu.
+Katalogiem motywu w `wp-content/themes/` stanie się jednak nazwa tego katalogu,
+np. `higloss-main` albo `higloss-<nazwa-galezi>`.
+
+- **Nazwa zgodna z obecnym katalogiem motywu** → WordPress zaproponuje zastąpienie
+  istniejącej wersji i zachowa przypisania menu oraz ustawienia motywu.
+- **Nazwa inna niż obecna** → motyw zainstaluje się obok dotychczasowego; trzeba go
+  aktywować i ponownie przypisać menu (Wygląd → Menu → Zarządzanie lokalizacjami),
+  bo przypisania lokalizacji trzymane są per katalog motywu. Treści (strony, CPT
+  `realizacje`, opcje) nie są ruszane.
+
+Żeby podmienić motyw 1:1, po pobraniu rozpakuj archiwum, zmień nazwę katalogu głównego
+na nazwę obecnie wgranego motywu i spakuj ponownie — albo zbuduj paczkę skryptem (niżej).
+
+### Budowanie paczki skryptem
+
+```bash
+./build-theme-zip.sh higloss               # -> dist/higloss.zip
+./build-theme-zip.sh higloss --with-docs   # dodatkowo katalog seo-migration/
+```
+
+Skrypt pakuje pliki motywu śledzone przez gita w jeden katalog główny o podanej nazwie
+(bez `.git` i — domyślnie — bez wewnętrznej dokumentacji `seo-migration/`, która nie powinna
+leżeć pod publicznym adresem `wp-content/themes/<slug>/seo-migration/`).
+Katalog `dist/` jest w `.gitignore` — paczki buduj lokalnie, nie commituj ich do repo.
+
+Wersje CSS/JS są wersjonowane przez `filemtime()`, więc po wgraniu paczki przeglądarki
+pobiorą nowe pliki bez ręcznego czyszczenia cache (przy włączonym cache stron, np. LiteSpeed,
+warto jeszcze zrobić „Purge All"). Numer wersji motywu (`style.css` oraz `HIGLOSS_VERSION`
+w `functions.php`) warto podnieść przy każdej zmianie — pozwala to rozpoznać w panelu,
+która paczka jest wgrana.
