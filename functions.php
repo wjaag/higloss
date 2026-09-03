@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-define('HIGLOSS_VERSION', '3.2.0');
+define('HIGLOSS_VERSION', '3.2.1');
 define('HIGLOSS_THEME_DIR', get_template_directory());
 define('HIGLOSS_THEME_URI', get_template_directory_uri());
 

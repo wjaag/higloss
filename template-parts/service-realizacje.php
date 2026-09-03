@@ -1,9 +1,13 @@
 <?php
 /**
- * Kafelek PRZYKŁADOWEJ realizacji danej usługi — pod sekcją SPECYFIKACJA (prawa kolumna).
+ * Karta PRZYKŁADOWEJ realizacji danej usługi — prawa kolumna podstrony usługi, pod sekcją SPECYFIKACJA.
+ *
  * Jedna najnowsza realizacja dopasowana do strony usługi: taksonomia kategoria_realizacji,
  * awaryjnie rozpoznawanie po słowach kluczowych (higloss_service_guess).
- * Pod kafelkiem dyskretny link do przefiltrowanej galerii (#usluga-...).
+ * Pod kartą link do przefiltrowanej galerii (#usluga-... — filtr uruchamia assets/js/main.js).
+ *
+ * Karta renderuje się jako drugi element .hg-service-side, dlatego NIE jest lepka —
+ * przyklejony blok SPECYFIKACJA nachodziłby na nią podczas przewijania (zwłaszcza na mobile).
  *
  * @package HiGloss2026
  */
@@ -67,30 +71,39 @@ if (!$picked) {
 
 $accent  = $heads[$slug]['accent'];
 $tag     = get_post_meta($picked->ID, '_higloss_service_type', true);
-$eyebrow = $first_match ? 'Przykładowa realizacja — ' . $heads[$slug]['label'] : 'Najnowsza realizacja z naszej hali';
+$model   = get_post_meta($picked->ID, '_higloss_car_model', true);
+$title   = get_the_title($picked);
+$heading = $first_match ? 'Przykładowa realizacja' : 'Najnowsza realizacja';
+$meta    = array_filter(array($model, $tag ? $tag : $heads[$slug]['label'], 'Szczecin / Mierzyn'));
 ?>
-<aside class="hg-svc-real-single" style="--svc-accent: <?php echo esc_attr($accent); ?>;" aria-label="Przykładowa realizacja">
-    <span class="hg-svc-reals-eyebrow"><?php echo esc_html($eyebrow); ?></span>
+<aside class="hg-svc-real-single" style="--svc-accent: <?php echo esc_attr($accent); ?>;" aria-label="<?php echo esc_attr($heading); ?>">
+    <h3 class="hg-specs-title hg-svc-real-title">
+        <?php echo esc_html($heading); ?>
+    </h3>
 
     <a class="hg-svc-real-card" href="<?php echo esc_url(get_permalink($picked)); ?>">
         <span class="hg-svc-real-media">
             <?php
-            echo wp_get_attachment_image(get_post_thumbnail_id($picked->ID), 'large', false, array(
-                'alt'      => get_the_title($picked),
+            echo wp_get_attachment_image(get_post_thumbnail_id($picked->ID), 'medium_large', false, array(
+                'alt'      => $title,
                 'loading'  => 'lazy',
                 'decoding' => 'async',
             ));
             ?>
-            <span class="hg-svc-real-pill"><?php echo esc_html($tag ? $tag : $heads[$slug]['label']); ?></span>
+            <span class="hg-svc-real-pill" aria-hidden="true"><?php echo esc_html($tag ? $tag : $heads[$slug]['label']); ?></span>
+            <span class="hg-svc-real-view" aria-hidden="true">
+                Zobacz realizację
+                <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </span>
         </span>
         <span class="hg-svc-real-body">
-            <strong><?php echo esc_html(get_the_title($picked)); ?></strong>
-            <small><?php echo esc_html($tag ? $tag . ' · Szczecin / Mierzyn' : 'Realizacja · Szczecin / Mierzyn'); ?></small>
+            <strong><?php echo esc_html($title); ?></strong>
+            <small><?php echo esc_html(implode(' · ', $meta)); ?></small>
         </span>
     </a>
 
     <a class="hg-svc-real-more" href="<?php echo esc_url(home_url('/galeria/#usluga-' . $slug)); ?>">
-        Więcej realizacji w galerii
+        Więcej realizacji: <?php echo esc_html($heads[$slug]['label']); ?>
         <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
     </a>
 </aside>
