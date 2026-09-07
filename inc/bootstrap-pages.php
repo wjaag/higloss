@@ -54,6 +54,10 @@ function higloss_bootstrap_pages() {
             'title'    => 'Detailing i przyciemnianie szyb',
             'template' => 'page-detailing.php',
         ),
+        'szkolenia' => array(
+            'title'    => 'Szkolenia car wrappingu',
+            'template' => 'page-szkolenia.php',
+        ),
     );
 
     $front_page_id = 0;
@@ -185,6 +189,39 @@ function higloss_bootstrap_proces_title() {
     update_option('higloss_proces_v', 2);
 }
 add_action('init', 'higloss_bootstrap_proces_title', 33);
+
+/**
+ * Bootstrap — strona /szkolenia (page-szkolenia.php).
+ *
+ * Haczyk na `init` (a nie tylko `after_switch_theme`), żeby strona powstala rowniez
+ * przy aktualizacji motywu przez wgranie ZIP-a na juz aktywnym motywie — bez
+ * ponownej aktywacji. Idempotentne: istniejaca strona (slug) nie jest nadpisywana.
+ */
+function higloss_bootstrap_szkolenia_page() {
+    if (get_option('higloss_szkolenia_seeded')) {
+        return;
+    }
+    $existing = get_page_by_path('szkolenia');
+    if ($existing) {
+        if (!get_post_meta($existing->ID, '_wp_page_template', true)) {
+            update_post_meta($existing->ID, '_wp_page_template', 'page-szkolenia.php');
+        }
+        update_option('higloss_szkolenia_seeded', 1);
+        return;
+    }
+    $new_id = wp_insert_post(array(
+        'post_title'   => 'Szkolenia car wrappingu',
+        'post_name'    => 'szkolenia',
+        'post_status'  => 'publish',
+        'post_type'    => 'page',
+        'post_content' => '',
+    ));
+    if ($new_id && !is_wp_error($new_id)) {
+        update_post_meta($new_id, '_wp_page_template', 'page-szkolenia.php');
+        update_option('higloss_szkolenia_seeded', 1);
+    }
+}
+add_action('init', 'higloss_bootstrap_szkolenia_page', 29);
 
 /**
  * Bootstrap v2 — Poradnik (blog SEO).

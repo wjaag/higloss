@@ -562,6 +562,15 @@ function higloss_service_faqs($slug) {
                 array('Ile trwa przyciemnianie szyb?', 'Standardowa usługa zajmuje zwykle 1 dzień — auto odstawiasz rano, a odbierasz po południu.'),
             ),
         ),
+        'szkolenia' => array(
+            'title' => 'Najczęstsze pytania o szkolenia car wrappingu',
+            'items' => array(
+                array('Dla kogo są szkolenia?', 'Dla warsztatów i detailerów poszerzających ofertę, osób startujących w branży car wrappingu oraz działów marketingu i flot, które chcą oklejać pojazdy samodzielnie. Nie wymagamy doświadczenia w module podstawowym.'),
+                array('Czy potrzebuję własnego sprzętu lub auta?', 'Nie — ćwiczymy na prawdziwych autach z naszej hali, a folie premium, narzędzia i sprzęt grzewczy są w cenie szkolenia.'),
+                array('Ile osób liczy grupa i jak długo trwa szkolenie?', 'Maksymalnie 4 uczestników na trenera, dzięki czemu każdy klei samodzielnie. Moduły trwają od 1 do 3 dni zależnie od zakresu.'),
+                array('Czy po szkoleniu otrzymam certyfikat?', 'Tak — każdy uczestnik dostaje certyfikat ukończenia, materiały szkoleniowe oraz możliwość konsultacji po wdrożeniu umiejętności w praktyce.'),
+            ),
+        ),
     );
     return isset($all[$slug]) ? $all[$slug] : null;
 }

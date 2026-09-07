@@ -34,6 +34,12 @@ $links_map = array(
         array('Realizacja: Mercedes GLK — lampy i dechroming', '/realizacja/mercedes-glk-przyciemnianie-lamp-i-dechroming-grila/'),
         array('Realizacja: Dodge Charger — paski na masce', '/realizacja/dodge-charger-paski-na-masce/'),
     ),
+    'szkolenia' => array(
+        array('Ile kosztuje zmiana koloru auta folią?', '/ile-kosztuje-zmiana-koloru-auta-folia/'),
+        array('Folia PPF czy powłoka ceramiczna?', '/folia-ppf-czy-powloka-ceramiczna/'),
+        array('Jak długo trzyma się folia na aucie?', '/jak-dlugo-trzyma-sie-folia/'),
+        array('Zobacz usługę: całościowa zmiana koloru', '/zmiana-koloru/'),
+    ),
 );
 
 if (empty($links_map[$slug])) {

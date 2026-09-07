@@ -315,6 +315,89 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
         </div>
     </section>
 
+    <!-- SZKOLENIA: praktyczna nauka car wrappingu w Mierzynie -->
+    <section class="hg-section hg-services" id="szkolenia" aria-labelledby="szkolenia-title">
+        <div class="hg-container">
+            <header class="hg-section-heading hg-reveal">
+                <div>
+                    <p class="hg-kicker">05 · Szkolenia</p>
+                    <h2 id="szkolenia-title">Uczymy kleić tak,<br><span>jak kleimy na zlecenia.</span></h2>
+                </div>
+                <p>Praktyczne szkolenia car wrappingu w ogrzewanej hali w Mierzynie — na prawdziwych autach, foliach premium i w małych grupach. Dla warsztatów, detailerów i osób startujących w branży.</p>
+            </header>
+
+            <div class="hg-service-grid">
+                <article class="hg-service-card hg-reveal">
+                    <div class="hg-service-image">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Trener podczas szkolenia z oklejania auta folią" width="1408" height="768" loading="lazy">
+                        <span>01</span>
+                        <p>Podstawy</p>
+                    </div>
+                    <div class="hg-service-body">
+                        <h3>Podstawy i zmiana koloru</h3>
+                        <p>Przygotowanie lakieru, narzędzia, cięcie i praca na krzywiznach, a następnie pełna zmiana koloru z demontażem i zawijaniem folii w głąb elementów.</p>
+                        <ul>
+                            <li><span>Format</span><strong>Grupy 2–4 os.</strong></li>
+                            <li><span>Poziom</span><strong>Od zera</strong></li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/szkolenia')); ?>" class="hg-text-link">Poznaj program szkoleń <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    </div>
+                </article>
+
+                <article class="hg-service-card hg-reveal">
+                    <div class="hg-service-image">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Aplikacja folii ochronnej PPF podczas szkolenia" width="1408" height="768" loading="lazy">
+                        <span>02</span>
+                        <p>Ochrona</p>
+                    </div>
+                    <div class="hg-service-body">
+                        <h3>Ochrona PPF</h3>
+                        <p>Praca z folią poliuretanową: strefy aplikacji, wykończenia krawędzi i właściwości samoregeneracji mikrorys pod wpływem ciepła.</p>
+                        <ul>
+                            <li><span>Format</span><strong>Indywidualnie</strong></li>
+                            <li><span>Poziom</span><strong>Średni</strong></li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/szkolenia')); ?>" class="hg-text-link">Poznaj moduł PPF <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    </div>
+                </article>
+
+                <article class="hg-service-card hg-reveal">
+                    <div class="hg-service-image">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_reklama.webp'); ?>" alt="Szkolenie z oklejania reklamowego pojazdów firmowych" width="1408" height="768" loading="lazy">
+                        <span>03</span>
+                        <p>Branding</p>
+                    </div>
+                    <div class="hg-service-body">
+                        <h3>Reklama i branding flot</h3>
+                        <p>Wielkoformatowa grafika, druk i aplikacja na pojazdach firmowych — dla działów marketingu i flot, które chcą oklejać samodzielnie.</p>
+                        <ul>
+                            <li><span>Format</span><strong>Dla firm</strong></li>
+                            <li><span>Poziom</span><strong>Dowolny</strong></li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/szkolenia')); ?>" class="hg-text-link">Poznaj moduł branding <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    </div>
+                </article>
+
+                <article class="hg-service-card hg-reveal">
+                    <div class="hg-service-image">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_szkolenia.webp'); ?>" alt="Trener HI-GLOSS DESIGN uczy kursantów aplikacji folii w hali w Mierzynie" width="1408" height="768" loading="lazy">
+                        <span>+</span>
+                        <p>Certyfikat</p>
+                    </div>
+                    <div class="hg-service-body">
+                        <h3>Materiały i certyfikat w cenie</h3>
+                        <p>Folie premium, narzędzia i sprzęt grzewczy zapewniamy na miejscu. Po szkoleniu otrzymujesz certyfikat oraz konsultacje po wdrożeniu.</p>
+                        <ul>
+                            <li><span>Miejsce</span><strong>Hala Mierzyn</strong></li>
+                            <li><span>Termin</span><strong>Do ustalenia</strong></li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-text-link">Zapytaj o termin <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <section class="hg-cta-band" aria-label="Zaproszenie do kontaktu">
         <div class="hg-cta-track" aria-hidden="true">
             <span>Zmień kolor</span><i></i><span>Chroń lakier</span><i></i><span>Wyróżnij markę</span><i></i><span>Zmień kolor</span><i></i><span>Chroń lakier</span><i></i>
@@ -329,7 +412,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
     <section class="hg-section hg-faq" aria-labelledby="faq-title">
         <div class="hg-container hg-faq-layout">
             <header class="hg-faq-heading hg-reveal">
-                <p class="hg-kicker">05 · Warto wiedzieć</p>
+                <p class="hg-kicker">06 · Warto wiedzieć</p>
                 <h2 id="faq-title">Najczęstsze<br><span>pytania.</span></h2>
                 <p>Nie widzisz odpowiedzi? Zadzwoń — doradzimy rozwiązanie dopasowane do Twojego auta.</p>
                 <a href="tel:+48605088065" class="hg-text-link">605&nbsp;088&nbsp;065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
@@ -363,7 +446,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
         <div class="hg-container">
             <header class="hg-section-heading hg-contact-heading hg-reveal">
                 <div>
-                    <p class="hg-kicker">06 · Kontakt</p>
+                    <p class="hg-kicker">07 · Kontakt</p>
                     <h2 id="contact-title">Zacznijmy<br><span>Twój projekt.</span></h2>
                 </div>
                 <p>Opowiedz nam o aucie i oczekiwanym efekcie. Wrócimy z rekomendacją zakresu, materiału i orientacyjnym terminem.</p>
