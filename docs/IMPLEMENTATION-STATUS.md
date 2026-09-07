@@ -3,51 +3,44 @@
 Date: 2026-09-08
 Branch: `redesign/seo-ux-2026`
 
-## Completed in this milestone
+## Completed
 
-- Restored the complete `functions.php` after a failed partial update; the original theme functionality is preserved.
-- Added the scoped `assets/css/redesign.css` layer to the WordPress asset graph.
-- Kept the existing visual language, logo and project imagery while improving spacing, CTA sizing, hero hierarchy, card interaction and reduced-motion behavior.
-- Kept Yoast compatibility conditional: when Yoast is active, legacy theme SEO callbacks are removed so metadata/schema ownership is not duplicated.
-- Kept the custom image sitemap/robots fallback guarded when Yoast is active.
-- Added `inc/realizacje-seo.php` for portfolio-to-service linking and related-project queries.
-- Connected the portfolio archive taxonomy views to their corresponding commercial service hubs.
-- Added contextual related-project links to individual `realizacje` content, using crawlable HTML links and no extra schema.
-- Added responsive styling for the related-project block.
-- Connected the first high-value `poradnik` articles to their commercial service hubs and relevant portfolio realizations through explicit slug-to-intent mappings.
-- Kept editorial-to-commercial links server-rendered as normal anchors; no JS dependency and no duplicate schema.
+- Restored the complete `functions.php` after a failed partial update; final diff keeps the original theme functionality intact.
+- Added scoped `assets/css/redesign.css` for the UX/UI layer without global plugin-facing overrides.
+- Improved hero hierarchy, CTA sizing, spacing, card interactions, responsive behavior and reduced-motion handling.
+- Added conditional Yoast compatibility: when Yoast is active, legacy theme SEO callbacks are removed to avoid duplicate metadata/schema ownership.
+- Kept custom image sitemap/robots fallback disabled when Yoast is active.
+- Added `inc/realizacje-seo.php` for portfolio/service contextual linking and related-project queries.
+- Connected portfolio taxonomy views to service hubs and added crawlable related-project links to single realizations.
+- Strengthened the `poradnik` content graph with contextual links from commercial articles to relevant service hubs and portfolio work.
 
-## SEO architecture decision
+## SEO architecture
 
-Yoast remains the SEO metadata/schema/sitemap owner when active. Theme code should focus on semantic HTML, internal links, images, accessibility and performance.
+Yoast is the SEO owner when active: metadata, canonical/robots, sitemap and schema graph. The theme owns semantic HTML, internal linking, image markup, accessibility and performance.
 
-The portfolio/content graph is now:
+Current content graph:
 
-`service hub <-> realization -> related realization`
+`poradnik / FAQ -> service hub -> realization -> related realization`
 
-and for mapped editorial content:
+## Next implementation queue
 
-`poradnik -> service hub -> realization`
+1. Finish contextual linking across all remaining FAQ/poradnik articles.
+2. Refactor `front-page.php` into reusable template parts without changing public URLs.
+3. Introduce a safe image rendering helper: explicit alt text, intrinsic dimensions, loading and fetch-priority rules.
+4. Audit every service page for H1/H2 hierarchy, search intent and semantic sections.
+5. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
+6. Inventory existing URLs and redirects before any URL change.
+7. Run PHP syntax checks and WordPress staging QA.
+8. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation, accessibility and console errors.
+9. Run Lighthouse/Core Web Vitals on representative templates.
 
-The editorial mapping is intentionally explicit so unrelated posts are not force-linked. New long-tail articles should be added to the mapping only when there is a clear commercial search-intent relationship.
+## Hard branch safety rule
 
-## Remaining before production
+All development commits for this redesign stay on `redesign/seo-ux-2026`.
 
-- Refactor the large `front-page.php` into reusable template parts.
-- Build a reusable image rendering helper with deliberate alt text, intrinsic dimensions and loading/fetch-priority rules.
-- Audit every service page for H1/H2 structure and intent-focused copy.
-- Extend FAQ/poradnik internal links across the remaining relevant articles.
-- Verify every mapped service URL and realization taxonomy slug against the production content model.
-- Complete redirect inventory before any URL changes.
-- Run PHP syntax checks and WordPress staging QA.
-- Verify Yoast/no-Yoast output, forms/SMTP, mobile navigation, accessibility and console errors.
-- Run Lighthouse/Core Web Vitals checks on representative templates.
-- Only after staging verification: mark the draft PR ready and merge.
+**NEVER modify, merge into, rebase onto, force-push, or otherwise write to:**
 
-## Safety rule
+- `arena/01a068c1-higloss`
+- `main`
 
-Do not deploy this branch directly to production. The PR remains the review boundary.
-
-## Branch protection for this project
-
-All development work in this project is performed only on `redesign/seo-ux-2026` unless the project owner explicitly changes that instruction. The branches `arena/01a068c1-higloss` and `main` are read-only reference branches for this work and must not receive commits, merges, resets or force-updates.
+No production deployment or merge is performed from this workflow unless the user explicitly requests it.
