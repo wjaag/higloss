@@ -127,6 +127,46 @@ function higloss_poradnik_service_link($slug) {
             'path'  => '/detailing/',
             'term'  => 'detailing',
         ),
+        'pielegnacja-folii-po-oklejeniu' => array(
+            'label' => 'zmiana koloru auta i pielęgnacja folii',
+            'path'  => '/zmiana-koloru/',
+            'term'  => 'zmiana-koloru',
+        ),
+        'oklejanie-auta-czy-lakierowanie' => array(
+            'label' => 'zmiana koloru auta folią',
+            'path'  => '/zmiana-koloru/',
+            'term'  => 'zmiana-koloru',
+        ),
+        'czy-folia-niszczy-lakier' => array(
+            'label' => 'profesjonalne oklejanie i ochrona lakieru',
+            'path'  => '/zmiana-koloru/',
+            'term'  => 'zmiana-koloru',
+        ),
+        'ile-kosztuje-folia-ppf-cennik' => array(
+            'label' => 'folia ochronna PPF',
+            'path'  => '/ppf/',
+            'term'  => 'ppf',
+        ),
+        'folia-matowa-satyna-czy-polysk' => array(
+            'label' => 'zmiana koloru auta folią',
+            'path'  => '/zmiana-koloru/',
+            'term'  => 'zmiana-koloru',
+        ),
+        'jak-dlugo-trzyma-sie-folia' => array(
+            'label' => 'folie do zmiany koloru i ochrony PPF',
+            'path'  => '/zmiana-koloru/',
+            'term'  => 'zmiana-koloru',
+        ),
+        'demontaz-folii-z-auta' => array(
+            'label' => 'zmiana koloru auta folią',
+            'path'  => '/zmiana-koloru/',
+            'term'  => 'zmiana-koloru',
+        ),
+        'ile-kosztuje-oklejenie-dachu-auta-folia' => array(
+            'label' => 'oklejanie auta i elementów folią',
+            'path'  => '/zmiana-koloru/',
+            'term'  => 'zmiana-koloru',
+        ),
     );
 
     return isset($map[$slug]) ? array(
