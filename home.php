@@ -22,7 +22,7 @@ $theme_uri = get_template_directory_uri();
             <div class="hg-subpage-banner-content">
                 <span class="hg-subpage-banner-badge">ODPOWIEDZI EKSPERTA &bull; OKLEJANIE &bull; PPF &bull; DETAILING</span>
                 <h1 class="hg-subpage-banner-title">
-                    PYTANIA <span style="color: #25aae1;">I ODPOWIEDZI</span>
+                    PORADNIK CAR WRAPPINGU <span style="color: #25aae1;">SZCZECIN / MIERZYN</span>
                 </h1>
                 <p style="color: #cbd5e1; max-width: 640px; margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.6;">
                     Rzetelne odpowiedzi na pytania, które słyszymy codziennie w studiu: cenniki, przepisy, pielęgnacja i technologia. Bez marketingowej wody — piszemy o tym, co robimy pod Szczecinem.

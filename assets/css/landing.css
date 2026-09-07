@@ -3648,3 +3648,47 @@ body:not(.home) .hg-footer-main {
   -webkit-text-stroke: 0 !important;
   paint-order: normal;
 }
+
+/* Lightbox: opis realizacji + para przyciskow (realizacja / wycena) */
+.hg-lightbox-desc {
+  margin: 0.45rem 0 0;
+  color: var(--hg-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  max-width: 70ch;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.hg-lightbox-ctas {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.hg-lightbox-cta--ghost {
+  background: transparent;
+  border: 1px solid var(--hg-line-strong);
+  color: #fff;
+}
+
+.hg-lightbox-cta--ghost:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #020407;
+}
+
+@media (max-height: 700px) {
+  .hg-lightbox-main { padding: 0.5rem 3.5rem; }
+  .hg-lightbox-img, .hg-lightbox-pair .hg-lightbox-img { max-height: calc(100vh - 300px); }
+}
+
+@media (max-width: 768px) {
+  .hg-lightbox-bottom { flex-direction: column; align-items: stretch; }
+  .hg-lightbox-ctas { width: 100%; }
+  .hg-lightbox-ctas .hg-lightbox-cta { justify-content: center; }
+  .hg-lightbox-desc { -webkit-line-clamp: 4; }
+}

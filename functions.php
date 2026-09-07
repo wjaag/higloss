@@ -654,12 +654,12 @@ function higloss_render_article_schema() {
             '@type' => 'Organization',
             'name'  => 'HI-GLOSS DESIGN',
             'url'   => 'https://www.hi-glossdesign.pl',
-            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.png'),
+            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.webp'),
         ),
         'publisher'   => array(
             '@type' => 'Organization',
             'name'  => 'HI-GLOSS DESIGN',
-            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.png'),
+            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.webp'),
         ),
         'mainEntityOfPage' => array('@type' => 'WebPage', '@id' => get_permalink($post)),
     );

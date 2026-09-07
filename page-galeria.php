@@ -159,9 +159,10 @@ $theme_uri = get_template_directory_uri();
                     $thumb_basename  = basename(parse_url($thumb_url, PHP_URL_PATH));
                     $before_meta_id  = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
                     $before_url      = $before_meta_id ? wp_get_attachment_image_url($before_meta_id, 'full') : (isset($before_image_map[$thumb_basename]) ? $theme_uri . '/assets/images/' . $before_image_map[$thumb_basename] : '');
+                    $hg_lb_desc     = wp_trim_words(get_the_excerpt() ? get_the_excerpt() : get_the_title(), 26, '…');
                 ?>
                     <article class="hg-gallery-card" data-category="<?php echo esc_attr($cat_slug); ?>">
-                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                        <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-desc="<?php echo esc_attr($hg_lb_desc); ?>" data-lightbox-link="<?php the_permalink(); ?>">
                             <?php
                             $thumb_id = get_post_thumbnail_id(get_the_ID());
                             if ($thumb_id) :
@@ -205,7 +206,7 @@ $theme_uri = get_template_directory_uri();
                                 <?php endif; ?>
 
                                 <div class="hg-gallery-actions">
-                                    <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>">
+                                    <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-before="<?php echo $before_url ? esc_url($before_url) : ''; ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-desc="<?php echo esc_attr($hg_lb_desc); ?>" data-lightbox-link="<?php the_permalink(); ?>">
                                         <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg> Przed / Po
                                     </button>
                                     <a href="<?php the_permalink(); ?>" class="hg-gallery-card-btn btn-primary">
@@ -225,7 +226,7 @@ $theme_uri = get_template_directory_uri();
                 
                 <!-- CARD 1: BMW M4 -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_before_stock_paint.webp'); ?>" data-lightbox-title="BMW M4 Coupe — Satin Nero Wrap &amp; Dechroming" data-lightbox-meta="BMW M4 Coupe &bull; Całościowa zmiana koloru folią Avery Dennison &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_before_stock_paint.webp'); ?>" data-lightbox-title="BMW M4 Coupe — Satin Nero Wrap &amp; Dechroming" data-lightbox-meta="BMW M4 Coupe &bull; Całościowa zmiana koloru folią Avery Dennison &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/zmiana-koloru')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?>" alt="BMW M4 Coupe — Satin Black" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
@@ -259,7 +260,7 @@ $theme_uri = get_template_directory_uri();
 
                 <!-- CARD 2: PORSCHE GT3 RS -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_before.webp'); ?>" data-lightbox-title="Porsche 911 GT3 RS — Satin Racing Green" data-lightbox-meta="Porsche 911 GT3 RS &bull; Zmiana koloru Inozetek / 3M 2080 &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_before.webp'); ?>" data-lightbox-title="Porsche 911 GT3 RS — Satin Racing Green" data-lightbox-meta="Porsche 911 GT3 RS &bull; Zmiana koloru Inozetek / 3M 2080 &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/zmiana-koloru')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?>" alt="Porsche 911 GT3 RS" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_porsche_gt3_green.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
@@ -293,7 +294,7 @@ $theme_uri = get_template_directory_uri();
 
                 <!-- CARD 3: AUDI RS6 -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_before.webp'); ?>" data-lightbox-title="Audi RS6 Avant — Gloss Miami Blue + Black Optics" data-lightbox-meta="Audi RS6 Avant &bull; Gloss Miami Blue Wrap &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_before.webp'); ?>" data-lightbox-title="Audi RS6 Avant — Gloss Miami Blue + Black Optics" data-lightbox-meta="Audi RS6 Avant &bull; Gloss Miami Blue Wrap &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/zmiana-koloru')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?>" alt="Audi RS6 Avant — Gloss Miami Blue" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_audi_rs6_blue.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
@@ -327,7 +328,7 @@ $theme_uri = get_template_directory_uri();
 
                 <!-- CARD 4: MERCEDES G63 AMG -->
                 <article class="hg-gallery-card" data-category="zmiana-koloru">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_before.webp'); ?>" data-lightbox-title="Mercedes-AMG G63 — Matte Dark Charcoal" data-lightbox-meta="Mercedes-AMG G63 &bull; Matowa zmiana koloru Hexis Skintac &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_before.webp'); ?>" data-lightbox-title="Mercedes-AMG G63 — Matte Dark Charcoal" data-lightbox-meta="Mercedes-AMG G63 &bull; Matowa zmiana koloru Hexis Skintac &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/zmiana-koloru')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?>" alt="Mercedes-AMG G63" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_mercedes_g63_matt.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-zmiana-koloru">Zmiana Koloru</span>
@@ -361,7 +362,7 @@ $theme_uri = get_template_directory_uri();
 
                 <!-- CARD 5: PORSCHE PPF APPLICATION -->
                 <article class="hg-gallery-card" data-category="ppf">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application_before.webp'); ?>" data-lightbox-title="Zabezpieczenie Foliami PPF — Full Front Package" data-lightbox-meta="Folia Ochronna PPF 180µm &bull; Samoregeneracja lakieru &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application_before.webp'); ?>" data-lightbox-title="Zabezpieczenie Foliami PPF — Full Front Package" data-lightbox-meta="Folia Ochronna PPF 180µm &bull; Samoregeneracja lakieru &bull; Szczecin" data-lightbox-link="<?php echo esc_url(home_url('/ppf')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>" alt="Aplikacja folii ochronnej PPF" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-ppf">Ochrona PPF</span>
@@ -395,7 +396,7 @@ $theme_uri = get_template_directory_uri();
 
                 <!-- CARD 6: PORSCHE PANAMERA PPF -->
                 <article class="hg-gallery-card" data-category="ppf">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf_before.webp'); ?>" data-lightbox-title="Porsche Panamera Turbo — Full Body PPF" data-lightbox-meta="Porsche Panamera Turbo &bull; Kompletna ochrona nadwozia folią bezbarwną &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf_before.webp'); ?>" data-lightbox-title="Porsche Panamera Turbo — Full Body PPF" data-lightbox-meta="Porsche Panamera Turbo &bull; Kompletna ochrona nadwozia folią bezbarwną &bull; Mierzyn" data-lightbox-link="<?php echo esc_url(home_url('/ppf')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Porsche Panamera — Full Body PPF" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-ppf">Ochrona PPF</span>
@@ -429,7 +430,7 @@ $theme_uri = get_template_directory_uri();
 
                 <!-- CARD 7: FLEET DHL COMMERCIAL -->
                 <article class="hg-gallery-card" data-category="reklama">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_before.webp'); ?>" data-lightbox-title="Oklejanie Floty Kurierskiej — DHL Courier Szczecin" data-lightbox-meta="Branding Floty &bull; 40 pojazdów dostawczych &bull; Projekt, druk i aplikacja w Mierzynie" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_before.webp'); ?>" data-lightbox-title="Oklejanie Floty Kurierskiej — DHL Courier Szczecin" data-lightbox-meta="Branding Floty &bull; 40 pojazdów dostawczych &bull; Projekt, druk i aplikacja w Mierzynie" data-lightbox-link="<?php echo esc_url(home_url('/reklama')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?>" alt="Branding floty pojazdów DHL" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_fleet_commercial.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-reklama">Floty &amp; Reklama</span>
@@ -463,7 +464,7 @@ $theme_uri = get_template_directory_uri();
 
                 <!-- CARD 8: DETAILING & DECHROMING -->
                 <article class="hg-gallery-card" data-category="detailing">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing_before.webp'); ?>" data-lightbox-title="Detailing &amp; Dechroming — Shadow Line Studio" data-lightbox-meta="Dechroming listew &bull; Przyciemnianie szyb &bull; Powłoki ceramiczne" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing_before.webp'); ?>" data-lightbox-title="Detailing &amp; Dechroming — Shadow Line Studio" data-lightbox-meta="Dechroming listew &bull; Przyciemnianie szyb &bull; Powłoki ceramiczne" data-lightbox-link="<?php echo esc_url(home_url('/detailing')); ?>>
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" alt="Detailing i Dechroming" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-gallery-cat-pill cat-detailing">Detailing &amp; Detale</span>

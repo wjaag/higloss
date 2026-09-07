@@ -16,7 +16,7 @@ $footer_section_url = static function ($section) use ($is_landing) {
         <div class="hg-footer-main">
             <div class="hg-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" aria-label="HI-GLOSS DESIGN — strona główna">
-                    <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="" width="52" height="52">
+                    <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.webp'); ?>" alt="" width="52" height="52">
                     <span class="hg-brand-copy"><strong>HI-GLOSS<span>DESIGN</span></strong><small>Car wrapping studio</small></span>
                 </a>
                 <p>Całościowe oklejanie pojazdów, folie ochronne PPF i branding flot w Szczecinie i Mierzynie.</p>

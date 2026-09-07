@@ -18,7 +18,7 @@ get_header();
                 BŁĄD 404 &bull; STRONA NIE ISTNIEJE
             </div>
 
-            <h1 style="font-family: var(--font-heading, 'Montserrat', sans-serif); font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; color: #ffffff; text-transform: uppercase; line-height: 1; margin-bottom: 1.5rem; text-shadow: 0 10px 30px rgba(0,0,0,0.9);">
+            <h1 class="hg-subpage-banner-title">
                 SZUKANA STRONA <span style="color: #25aae1;">NIE ZOSTAŁA ZNALEZIONA</span>
             </h1>
 

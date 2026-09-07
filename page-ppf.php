@@ -98,6 +98,98 @@ get_header();
         </div>
 
     </div>
+
+    <!-- LOKALNE SEO: PPF SZCZECIN / MIERZYN -->
+    <section class="hg-section" style="padding-top: 1rem;" aria-labelledby="ppf-local-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">PPF blisko Ciebie</p>
+                    <h2 id="ppf-local-title">Ochrona lakieru PPF.<br><span>Szczecin i Mierzyn.</span></h2>
+                </div>
+                <p>Aplikujemy folie ochronne PPF w ogrzewanej hali przy ul. Podmiejskiej 4 w Mierzynie — 10 minut od granic Szczecina. Auto możesz zostawić rano lub umówić transport lawetą z dowolnej miejscowości w regionie.</p>
+            </header>
+
+            <div class="hg-svc-chips">
+                <article><h3>Mierzyn — hala studio</h3><p>ul. Podmiejska 4: sterylna, ogrzewana hala 21°C, stanowiska detailingowe i oświetlenie kontrolne do inspekcji folii.</p></article>
+                <article><h3>Szczecin</h3><p>Gumieńce, Bezrzecze, Pomorzany, Prawobrzeże, Centrum i Police — najczęstsze kierunki klientów PPF w regionie.</p></article>
+                <article><h3>Region</h3><p>Goleniów, Stargard, Gryfino i wybrzeże: przyjmujemy auta z całego województwa zachodniopomorskiego, także z transportem.</p></article>
+                <article><h3>10 lat gwarancji</h3><p>Na folie STEK, XPEL i 3M wystawiamy pisemną gwarancję do 10 lat — bez żółknięcia, bez odklejeń krawędzi.</p></article>
+                <article><h3>Wycena w 24 h</h3><p>Prześlij markę, model i rok produkcji — przygotujemy bezpłatną kalkulację pakietu z doborem folii do sposobu użytkowania auta.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PPF VS POWLOKA + PIELEGNACJA -->
+    <section class="hg-section" style="background: #070a0f;" aria-labelledby="ppf-compare-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Warto wiedzieć</p>
+                    <h2 id="ppf-compare-title">PPF czy ceramika?<br><span>Zanim zdecydujesz.</span></h2>
+                </div>
+                <p>Oba rozwiązania chronią lakier, ale robią to w zupełnie inny sposób. W studiu dobieramy ochronę do realnych warunków: trasa, miasto, auto nowe czy kolekcjonerskie.</p>
+            </header>
+
+            <div class="hg-grid hg-grid-2" style="gap: 2rem; align-items: stretch;">
+                <div class="hg-editorial-card" style="--card-accent: #10b981;">
+                    <h2 class="hg-editorial-title">Folia PPF — mechaniczna tarcza</h2>
+                    <ul style="color: #e2e8f0; font-size: 1rem; line-height: 1.8; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.55rem;">
+                        <li><strong>Odpryski i kamienie:</strong> poliuretan 140–200 µm przejmuje uderzenia, których nie zatrzyma żadna powłoka.</li>
+                        <li><strong>Samoregeneracja:</strong> mikrorysy znikają pod wpływem ciepła — słońca lub gorącej wody.</li>
+                        <li><strong>Trwałość:</strong> 8–10 lat przy poprawnej pielęgnacji, demontaż bez śladu.</li>
+                        <li><strong>Dla kogo:</strong> nowe auta, trasy, sportowe i kolekcjonerskie egzemplarze.</li>
+                    </ul>
+                </div>
+                <div class="hg-editorial-card" style="--card-accent: #10b981;">
+                    <h2 class="hg-editorial-title">Powłoka ceramiczna — chemia i połysk</h2>
+                    <ul style="color: #e2e8f0; font-size: 1rem; line-height: 1.8; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.55rem;">
+                        <li><strong>Hydrofobowość:</strong> brud i woda spływają, mycie jest szybsze i bezpieczniejsze.</li>
+                        <li><strong>Połysk i UV:</strong> pogłębia kolor i ogranicza matowienie lakieru.</li>
+                        <li><strong>Ograniczenia:</strong> nie chroni przed odpryskami kamieni tak jak folia.</li>
+                        <li><strong>Najlepszy zestaw:</strong> ceramika <em>na</em> folii PPF — śliskość i ochrona mechaniczna razem.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCES APLIKACJI PPF -->
+    <section class="hg-section" aria-labelledby="ppf-process-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Jak nakładamy PPF</p>
+                    <h2 id="ppf-process-title">Cztery etapy.<br><span>Zero kompromisów.</span></h2>
+                </div>
+                <p>Ten sam rygor co przy zmianie koloru: pomiar, dekontaminacja, aplikacja w temperaturze i kontrola jakości pod lampami.</p>
+            </header>
+
+            <ul class="hg-process-grid">
+                <li><span>01</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l2-5h14l2 5v5h-3m-12 0H3v-5Zm4 0h10"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+                    <h3>Inspekcja i pomiar lakieru</h3>
+                    <p>Mierzymy grubość lakieru miernikiem, dokumentujemy stan i planujemy pakiet ochrony z Tobą przy aucie.</p>
+                </li>
+                <li><span>02</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div>
+                    <h3>Dekontaminacja</h3>
+                    <p>Mycie, deironizacja i glinka — folia klei się tylko do idealnie czystej powierzchni, inaczej zostaną inclusiony.</p>
+                </li>
+                <li><span>03</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
+                    <h3>Aplikacja folii</h3>
+                    <p>Krojenie ploterowe lub ręczne formowanie, zawijanie krawędzi w głąb elementu i odprowadzanie wody montażowej.</p>
+                </li>
+                <li><span>04</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <h3>Kontrola i gwarancja</h3>
+                    <p>Inspekcja pod lampami, 24 h wygrzewania i pisemna gwarancja do 10 lat z instrukcją pielęgnacji.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
 <?php get_template_part('template-parts/service-faq'); ?>
 <?php get_template_part('template-parts/service-xlinks'); ?>
 

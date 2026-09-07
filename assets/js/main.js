@@ -454,8 +454,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="hg-lightbox-info">
                         <h4 id="hgLightboxTitle">Realizacja HI-GLOSS DESIGN</h4>
                         <p id="hgLightboxMeta">Szczecin / Mierzyn</p>
+                        <p id="hgLightboxDesc" class="hg-lightbox-desc" hidden></p>
                     </div>
-                    <a href="/#wycena" class="hg-lightbox-cta" id="hgLightboxCta">Wyceń podobny projekt &rarr;</a>
+                    <div class="hg-lightbox-ctas">
+                        <a href="#" class="hg-lightbox-cta" id="hgLightboxCta" hidden>Zobacz realizację <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                        <a href="/#wycena" class="hg-lightbox-cta hg-lightbox-cta--ghost" id="hgLightboxQuote">Wyceń podobny projekt</a>
+                    </div>
                 </div>
             `;
             document.body.appendChild(lightbox);
@@ -466,11 +470,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const pairEl = document.getElementById('hgLightboxPair');
         const titleEl = document.getElementById('hgLightboxTitle');
         const metaEl = document.getElementById('hgLightboxMeta');
+        const descEl = document.getElementById('hgLightboxDesc');
         const counterEl = document.getElementById('hgLightboxCounter');
         const closeBtn = document.getElementById('hgLightboxClose');
         const prevBtn = document.getElementById('hgLightboxPrev');
         const nextBtn = document.getElementById('hgLightboxNext');
         const ctaBtn = document.getElementById('hgLightboxCta');
+        const quoteBtn = document.getElementById('hgLightboxQuote');
 
         let currentGalleryItems = [];
         let currentIndex = 0;
@@ -496,12 +502,17 @@ document.addEventListener('DOMContentLoaded', function () {
             const beforeSrc = target.getAttribute('data-lightbox-before') || '';
             const title = target.getAttribute('data-lightbox-title') || target.getAttribute('alt') || 'Realizacja HI-GLOSS DESIGN';
             const meta = target.getAttribute('data-lightbox-meta') || 'Car wrapping · Folie PPF · Mierzyn';
-            const quoteLink = target.getAttribute('data-lightbox-link') || '/#wycena';
+            const desc = target.getAttribute('data-lightbox-desc') || '';
+            const subLink = target.getAttribute('data-lightbox-link') || '';
 
             imgEl.src = imgSrc;
             imgEl.alt = title;
             titleEl.textContent = title;
             metaEl.textContent = meta;
+            if (descEl) {
+                descEl.textContent = desc;
+                descEl.hidden = !desc;
+            }
             counterEl.textContent = (currentIndex + 1 < 10 ? '0' : '') + (currentIndex + 1) + ' / ' + (currentGalleryItems.length < 10 ? '0' : '') + currentGalleryItems.length;
 
             if (beforeSrc) {
@@ -515,8 +526,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (ctaBtn) {
-                ctaBtn.href = quoteLink;
+                if (subLink) {
+                    ctaBtn.href = subLink;
+                    ctaBtn.hidden = false;
+                } else {
+                    ctaBtn.hidden = true;
+                }
                 ctaBtn.onclick = function () { closeLightbox(); };
+            }
+            if (quoteBtn) {
+                quoteBtn.onclick = function () { closeLightbox(); };
             }
 
             lightbox.classList.add('is-open');

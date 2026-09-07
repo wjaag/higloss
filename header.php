@@ -18,7 +18,7 @@
 <header class="hg-header" id="siteHeader">
     <div class="hg-container hg-header-inner">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" aria-label="HI-GLOSS DESIGN — strona główna">
-            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.png'); ?>" alt="HI-GLOSS DESIGN — studio car wrappingu Szczecin Mierzyn" class="hg-logo-standalone" width="52" height="52">
+            <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.webp'); ?>" alt="HI-GLOSS DESIGN — studio car wrappingu Szczecin Mierzyn" class="hg-logo-standalone" width="52" height="52">
             <span class="hg-brand-copy">
                 <strong>HI-GLOSS<span>DESIGN</span></strong>
                 <small>Car wrapping studio</small>

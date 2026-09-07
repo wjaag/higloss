@@ -40,7 +40,7 @@ get_header();
                 </div>
 
                 <!-- POST TITLE -->
-                <h1 style="font-family: var(--font-heading, 'Montserrat', sans-serif); font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 900; color: #ffffff; text-transform: uppercase; line-height: 1.15; margin-bottom: 2rem; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+                <h1 class="hg-editorial-title">
                     <?php the_title(); ?>
                 </h1>
 
