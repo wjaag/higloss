@@ -1,0 +1,200 @@
+/*
+ * HI-GLOSS DESIGN — redesign layer
+ *
+ * Purpose: progressive visual refinement without rewriting the existing
+ * production CSS in one step. Scope is intentionally limited to theme
+ * components so plugin UI is not affected.
+ */
+
+:root {
+  --hg-redesign-blue: #25aae1;
+  --hg-redesign-blue-bright: #6bd5ff;
+  --hg-redesign-ink: #05070b;
+  --hg-redesign-surface: #0b1018;
+  --hg-redesign-surface-soft: #101722;
+  --hg-redesign-line: rgba(255, 255, 255, 0.13);
+  --hg-redesign-text: #f8fafc;
+  --hg-redesign-muted: #a7b1bf;
+}
+
+/* Global visual system — scoped to the site chrome and landing experience. */
+.hg-header,
+.hg-landing {
+  --hg-space-1: 0.5rem;
+  --hg-space-2: 0.75rem;
+  --hg-space-3: 1rem;
+  --hg-space-4: 1.5rem;
+  --hg-space-5: 2rem;
+  --hg-space-6: 3rem;
+  --hg-space-7: 4.5rem;
+  --hg-space-8: 7rem;
+}
+
+.hg-header {
+  border-bottom-color: transparent;
+}
+
+.hg-header.scrolled {
+  background: rgba(5, 7, 11, 0.96) !important;
+}
+
+.hg-hero {
+  min-height: min(920px, 100svh);
+}
+
+.hg-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 22%;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--hg-redesign-ink), transparent);
+  z-index: 1;
+}
+
+.hg-hero-inner,
+.hg-social-rail,
+.hg-scroll-cue {
+  position: relative;
+  z-index: 2;
+}
+
+.hg-hero-title {
+  max-width: 11ch;
+  text-wrap: balance;
+  letter-spacing: -0.045em;
+}
+
+.hg-hero-lead {
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hg-btn,
+.hg-nav-cta {
+  min-height: 48px;
+}
+
+.hg-btn-primary {
+  box-shadow: 0 10px 35px rgba(37, 170, 225, 0.18);
+}
+
+.hg-section-heading h2,
+.hg-feature-copy h2 {
+  text-wrap: balance;
+  letter-spacing: -0.035em;
+}
+
+.hg-section-heading > p {
+  max-width: 55ch;
+  color: var(--hg-redesign-muted);
+}
+
+.hg-service-card,
+.hg-feature-media,
+.hg-history,
+.hg-process-step,
+.hg-faq-item {
+  border-color: var(--hg-redesign-line);
+}
+
+.hg-service-card {
+  background: linear-gradient(180deg, rgba(16, 23, 34, 0.92), rgba(9, 13, 20, 0.96));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hg-service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(37, 170, 225, 0.42);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.hg-service-image img,
+.hg-feature-media img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hg-service-card:hover .hg-service-image img,
+.hg-feature-media:hover img {
+  transform: scale(1.025);
+}
+
+.hg-text-link {
+  text-underline-offset: 0.25em;
+}
+
+.hg-text-link:hover {
+  text-decoration: underline;
+}
+
+/* Make proof and facts scannable instead of treating them as decoration. */
+.hg-hero-proof strong,
+.hg-history-figure strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reduce motion without removing the information architecture. */
+@media (prefers-reduced-motion: reduce) {
+  .hg-service-card,
+  .hg-service-image img,
+  .hg-feature-media img {
+    transition: none !important;
+  }
+
+  .hg-service-card:hover {
+    transform: none;
+  }
+
+  .hg-service-card:hover .hg-service-image img,
+  .hg-feature-media:hover img {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hg-container {
+    width: min(100% - 2rem, 1320px);
+  }
+
+  .hg-header {
+    height: 76px;
+  }
+
+  .hg-hero {
+    min-height: 760px;
+  }
+
+  .hg-hero-title {
+    max-width: 12ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .hg-container {
+    width: min(100% - 1.25rem, 1320px);
+  }
+
+  .hg-hero {
+    min-height: 700px;
+  }
+
+  .hg-hero-title {
+    font-size: clamp(2.65rem, 13vw, 4.25rem);
+    line-height: 0.96;
+  }
+
+  .hg-hero-lead {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .hg-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hg-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
