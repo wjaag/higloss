@@ -13,6 +13,8 @@ Branch: `redesign/seo-ux-2026`
 - Added `inc/realizacje-seo.php` for portfolio/service contextual linking and related-project queries.
 - Connected portfolio taxonomy views to service hubs and added crawlable related-project links to single realizations.
 - Connected all 11 seeded `poradnik` articles to the appropriate commercial service hub and related portfolio taxonomy, without forcing unrelated editorial posts into the graph.
+- Prepared reusable front-page template parts for the hero, materials strip and service cards; the legacy `front-page.php` remains intact until the wiring step is completed and syntax-checked.
+- Added `inc/theme-image.php` as a shared helper for theme assets with explicit alt text, intrinsic dimensions, loading/decoding and fetch-priority attributes.
 
 ## SEO architecture
 
@@ -24,8 +26,8 @@ Current content graph:
 
 ## Next implementation queue
 
-1. Refactor `front-page.php` into reusable template parts without changing public URLs.
-2. Introduce a safe image rendering helper: explicit alt text, intrinsic dimensions, loading and fetch-priority rules.
+1. Safely wire the prepared front-page template parts into `front-page.php` without changing public URLs or existing lower-page sections.
+2. Adopt `higloss_theme_image()` in the new front-page partials and remaining static theme-image locations where it improves markup consistency.
 3. Audit every service page for H1/H2 hierarchy, search intent and semantic sections.
 4. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
 5. Inventory existing URLs and redirects before any URL change.
