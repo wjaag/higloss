@@ -1,0 +1,748 @@
+/*
+ * HI-GLOSS DESIGN — Theme 4.0 "DIMENSION" — profesjonalna warstwa 3D.
+ *
+ * Warstwa doczytywana PO landing.css. Aktywuje się progresywnie:
+ *
+ *   html.hg-3d        (dodaje JS) → statyczny system głębi: elewacja, krawędzie
+ *                                    oświetlone od góry, wytłaczane przyciski, panele.
+ *   html.hg-3d-motion (dodaje JS) → ruch sterowany kursorem i scrollem
+ *                                    (tylko precyzyjny kursor + brak reduced-motion).
+ *
+ * Bez JavaScriptu motyw renderuje się dokładnie jak poprzednia wersja płaska.
+ * Wszystkie efekty respektują prefers-reduced-motion i wygaszają się na dotyku.
+ * Geometria pozostaje ostra (0 px radius) zgodnie z identyfikacją marki.
+ *
+ * Spis treści:
+ *   01. Tokeny systemu głębi
+ *   02. Scena otoczenia (ambient)
+ *   03. Header — płyta z głębią
+ *   04. Hero — scena 3D z perspektywą
+ *   05. Przyciski — wytłaczane (extrusion)
+ *   06. Materiały i filtry — chipy 3D
+ *   07. Karty usług — tilt + elewacja + glare
+ *   08. O nas — media, punkty, plakietka historii
+ *   09. Proces — slaby 3D i kaskada głębi
+ *   10. Portfolio — karty z tilt-glare
+ *   11. Pas CTA — perspektywiczna ściana
+ *   12. FAQ — akordeon z elewacją
+ *   13. Kontakt — panele, formularz z fazowaniem
+ *   14. Mapa
+ *   15. Lightbox — wejście w 3D
+ *   16. Redukcje mobilne i dostępność
+ */
+
+/* ==========================================================================
+   01. TOKENY SYSTEMU GŁĘBI
+   ========================================================================== */
+
+html.hg-3d {
+  --hg3d-e1: 0 2px 4px -1px rgba(0, 0, 0, 0.5), 0 8px 18px -10px rgba(0, 0, 0, 0.55);
+  --hg3d-e2: 0 3px 8px -2px rgba(0, 0, 0, 0.5), 0 16px 34px -14px rgba(0, 0, 0, 0.6);
+  --hg3d-e3: 0 6px 14px -4px rgba(0, 0, 0, 0.55), 0 28px 56px -20px rgba(0, 0, 0, 0.65);
+  --hg3d-e4: 0 10px 22px -6px rgba(0, 0, 0, 0.6), 0 40px 80px -24px rgba(0, 0, 0, 0.7);
+  --hg3d-glow: 0 18px 44px -16px rgba(37, 170, 225, 0.4);
+  --hg3d-edge: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --hg3d-line: rgba(255, 255, 255, 0.09);
+  --hg3d-line-hover: rgba(37, 170, 225, 0.42);
+  --hg3d-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.038), rgba(255, 255, 255, 0.005)), var(--hg-surface);
+}
+
+/* ==========================================================================
+   02. SCENA OTOCZENIA (AMBIENT)
+   ========================================================================== */
+
+/* Globalna poświata sceny — maluje się nad tłem body, pod treścią sekcji. */
+html.hg-3d body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(46% 36% at 16% 6%, rgba(37, 170, 225, 0.07), transparent 70%),
+    radial-gradient(40% 34% at 86% 94%, rgba(37, 170, 225, 0.05), transparent 70%);
+}
+
+/* Reflektor podążający za kursorem (tylko z ruchem). */
+html.hg-3d-motion body::after {
+  background:
+    radial-gradient(46% 36% at 16% 6%, rgba(37, 170, 225, 0.07), transparent 70%),
+    radial-gradient(40% 34% at 86% 94%, rgba(37, 170, 225, 0.05), transparent 70%),
+    radial-gradient(38% 30% at calc(50% + var(--hg-cursor-x, 0) * 28%) calc(36% + var(--hg-cursor-y, 0) * 20%), rgba(107, 213, 255, 0.05), transparent 72%);
+}
+
+/* ==========================================================================
+   03. HEADER — PŁYTA Z GŁĘBIĄ
+   ========================================================================== */
+
+html.hg-3d .hg-header.scrolled,
+html.hg-3d body:not(.home) .hg-header {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+    0 10px 20px -10px rgba(0, 0, 0, 0.4),
+    0 30px 60px -18px rgba(0, 0, 0, 0.55);
+}
+
+html.hg-3d .hg-nav-cta {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 2px 0 rgba(10, 96, 130, 0.55),
+    0 12px 28px -14px rgba(37, 170, 225, 0.45);
+  transition: translate 0.35s var(--hg-ease), box-shadow 0.35s ease, color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-nav-cta:hover {
+    translate: 0 -2px;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      0 3px 0 rgba(10, 96, 130, 0.55),
+      0 18px 36px -14px rgba(37, 170, 225, 0.6);
+  }
+}
+
+/* ==========================================================================
+   04. HERO — SCENA 3D Z PERSPEKTYWĄ
+   ========================================================================== */
+
+/* Horyzont i smuga światła na dole hero. */
+html.hg-3d .hg-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 55% at 50% 116%, rgba(37, 170, 225, 0.16), transparent 58%),
+    linear-gradient(112deg, transparent 42%, rgba(107, 213, 255, 0.05) 50%, transparent 58%);
+}
+
+/* Warstwy tła reagują na kursor (parallax) i scroll.
+   `scale`/`translate` to niezależne właściwości — nie kolidują z animacją zoom. */
+html.hg-3d-motion .hg-hero-media {
+  scale: 1.09; /* zapas na przesunięcia parallax bez odsłonięcia krawędzi */
+  translate: calc(var(--hero-par-x, 0) * -18px) calc(var(--hero-par-y, 0) * -11px + var(--hg-sp, 0) * 1px);
+  transition: translate 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.hg-3d-motion .hg-hero-grid {
+  translate: calc(var(--hero-par-x, 0) * 30px) calc(var(--hero-par-y, 0) * 18px);
+  transition: translate 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Scena treści: lekki obrót całej siatki + rozmieszczenie dzieci w osi Z. */
+html.hg-3d-motion .hg-hero-inner {
+  transform: perspective(1500px) rotateX(calc(var(--hero-par-y, 0) * -1.2deg)) rotateY(calc(var(--hero-par-x, 0) * 1.6deg));
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.hg-3d-motion .hg-hero-content {
+  transform-style: preserve-3d;
+}
+
+html.hg-3d-motion .hg-eyebrow {
+  translate: 0 0 18px;
+}
+
+html.hg-3d-motion .hg-hero-title {
+  translate: 0 0 52px;
+  text-shadow: 0 22px 60px rgba(0, 0, 0, 0.65);
+}
+
+html.hg-3d-motion .hg-hero-lead {
+  translate: 0 0 34px;
+}
+
+html.hg-3d-motion .hg-hero-actions {
+  translate: 0 0 42px;
+}
+
+/* Panel dowodowy (500+ / 40+ / 10) — szklana płyta unosząca się najbliżej widza. */
+html.hg-3d .hg-hero-proof {
+  position: relative;
+  width: auto;
+  min-width: 206px;
+  padding: 1.25rem 1.45rem;
+  background: rgba(8, 12, 19, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: var(--hg3d-e3), var(--hg3d-edge);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.hg-3d-motion .hg-hero-proof {
+    translate: 0 0 70px;
+    animation: hg3dProofFloat 7s ease-in-out infinite;
+  }
+}
+
+@keyframes hg3dProofFloat {
+  0%, 100% { translate: 0 0 70px; }
+  50% { translate: 0 -12px 70px; }
+}
+
+/* ==========================================================================
+   05. PRZYCISKI — WYTŁACZANE (EXTRUSION)
+   ========================================================================== */
+
+html.hg-3d .hg-btn {
+  transition: transform 0.3s var(--hg-ease), box-shadow 0.35s ease, color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+/* CTA — fizyczny klocek: odbicie światła na górze, krawędź 3D, miękki cień. */
+html.hg-3d .hg-btn-primary {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -12px 22px -14px rgba(1, 26, 38, 0.8),
+    0 3px 0 rgba(10, 102, 138, 0.95),
+    0 16px 34px -12px rgba(37, 170, 225, 0.55);
+}
+
+html.hg-3d .hg-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -14px 24px -14px rgba(1, 26, 38, 0.8),
+    0 5px 0 rgba(10, 102, 138, 0.95),
+    0 26px 50px -14px rgba(37, 170, 225, 0.65);
+}
+
+html.hg-3d .hg-btn-primary:active {
+  transform: translateY(1px);
+  transition-duration: 0.08s;
+  box-shadow:
+    inset 0 3px 8px rgba(1, 26, 38, 0.65),
+    0 1px 0 rgba(10, 102, 138, 0.95),
+    0 8px 18px -10px rgba(37, 170, 225, 0.5);
+}
+
+/* Ghost / outline — szklana płyta. */
+html.hg-3d .hg-btn-ghost,
+html.hg-3d .hg-btn-outline {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 10px 26px -14px rgba(0, 0, 0, 0.8);
+}
+
+html.hg-3d .hg-btn-ghost:hover,
+html.hg-3d .hg-btn-outline:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 18px 36px -16px rgba(0, 0, 0, 0.85);
+}
+
+/* ==========================================================================
+   06. MATERIAŁY I FILTRY — CHIPY 3D
+   ========================================================================== */
+
+html.hg-3d .hg-material-list span {
+  padding: 0.6rem 1.05rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.012));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 12px 24px -14px rgba(0, 0, 0, 0.75);
+  transition: translate 0.45s var(--hg-ease), box-shadow 0.4s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-material-list span:hover {
+    translate: 0 -5px;
+    color: #fff;
+    border-color: var(--hg3d-line-hover);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 18px 30px -14px rgba(0, 0, 0, 0.8),
+      0 12px 28px -14px rgba(37, 170, 225, 0.35);
+  }
+}
+
+html.hg-3d .hg-gallery-btn {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 10px 22px -14px rgba(0, 0, 0, 0.8);
+  transition: translate 0.4s var(--hg-ease), box-shadow 0.35s ease, color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-gallery-btn:hover {
+    translate: 0 -3px;
+    border-color: var(--hg3d-line-hover);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 16px 28px -14px rgba(0, 0, 0, 0.85),
+      0 10px 24px -14px rgba(37, 170, 225, 0.4);
+  }
+}
+
+html.hg-3d .hg-gallery-btn.is-active {
+  border-color: rgba(37, 170, 225, 0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -10px 18px -12px rgba(37, 170, 225, 0.4),
+    0 14px 30px -12px rgba(37, 170, 225, 0.5);
+}
+
+/* ==========================================================================
+   07. KARTY USŁUG — TILT + ELEWACJA + GLARE
+   ========================================================================== */
+
+/* Siatka 1px z liniami wspólnymi → osobne, unoszące się slaby. */
+html.hg-3d .hg-service-grid {
+  gap: 1.6rem;
+  background: transparent;
+  border: 0;
+}
+
+html.hg-3d .hg-service-card {
+  position: relative;
+  border: 1px solid var(--hg3d-line);
+  box-shadow: var(--hg3d-e2), var(--hg3d-edge);
+  /* Tilto-wanie sterowane zmiennymi CSS (--tilt-*, --par-*) ustawianymi przez JS. */
+  transform: perspective(1400px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translate3d(0, var(--tilt-lift, 0px), var(--tilt-z, 0px));
+  transition: transform 0.7s var(--hg-ease), box-shadow 0.5s ease, border-color 0.35s ease;
+}
+
+html.hg-3d .hg-service-card.is-tilting {
+  transition: transform 0.16s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-service-card:hover {
+    --tilt-lift: -8px;
+    --tilt-z: 22px;
+    border-color: var(--hg3d-line-hover);
+    box-shadow: var(--hg3d-e3), var(--hg3d-glow);
+  }
+}
+
+html.hg-3d .hg-service-card:focus-within {
+  --tilt-lift: -8px;
+  --tilt-z: 22px;
+  border-color: rgba(37, 170, 225, 0.5);
+  box-shadow: var(--hg3d-e3), var(--hg3d-glow);
+}
+
+/* Refleks światła podążający za kursorem. */
+html.hg-3d .hg-service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(520px circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(150, 214, 255, 0.12), transparent 45%);
+  transition: opacity 0.45s ease;
+}
+
+html.hg-3d .hg-service-card.is-tilting::before {
+  opacity: 1;
+}
+
+/* Numer usługi — chip z fazowaniem. */
+html.hg-3d .hg-service-image > span {
+  padding: 0.28rem 0.55rem;
+  background: rgba(4, 7, 11, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 18px -8px rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Wewnętrzny parallax warstw karty podczas tilta. */
+html.hg-3d .hg-service-image > span,
+html.hg-3d .hg-service-image > p,
+html.hg-3d .hg-service-body {
+  transition: translate 0.6s var(--hg-ease);
+}
+
+html.hg-3d .hg-service-card.is-tilting .hg-service-image > span {
+  translate: calc(var(--par-x, 0px) * 0.7) calc(var(--par-y, 0px) * 0.7);
+  transition: translate 0.16s ease-out;
+}
+
+html.hg-3d .hg-service-card.is-tilting .hg-service-image > p {
+  translate: calc(var(--par-x, 0px) * 0.45) calc(var(--par-y, 0px) * 0.45);
+  transition: translate 0.16s ease-out;
+}
+
+html.hg-3d .hg-service-card.is-tilting .hg-service-body {
+  translate: calc(var(--par-x, 0px) * 0.25) calc(var(--par-y, 0px) * 0.25);
+  transition: translate 0.2s ease-out;
+}
+
+html.hg-3d .hg-service-card.is-tilting .hg-service-image img {
+  transform: scale(1.08);
+  transition-duration: 0.4s;
+}
+
+/* ==========================================================================
+   08. O NAS — MEDIA, PUNKTY, PLAKIETKA HISTORII
+   ========================================================================== */
+
+html.hg-3d .hg-feature-media {
+  border: 1px solid var(--hg3d-line);
+  box-shadow: var(--hg3d-e3);
+}
+
+/* Obraz z zapasem skali dla parallax scrollowego. */
+html.hg-3d-motion .hg-feature-media img {
+  scale: 1.14;
+  translate: 0 calc(var(--hg-sp, 0) * 1px);
+  transition: translate 0.25s linear;
+}
+
+html.hg-3d .hg-feature-label {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 16px 32px -12px rgba(37, 170, 225, 0.55);
+}
+
+/* Punkty przewag — z matrysy liniowej na slaby z głębią. */
+html.hg-3d .hg-feature-points {
+  gap: 1rem;
+}
+
+html.hg-3d .hg-feature-points > div {
+  border: 1px solid var(--hg3d-line);
+  background: var(--hg3d-surface);
+  box-shadow: var(--hg3d-e1), var(--hg3d-edge);
+  transition: translate 0.5s var(--hg-ease), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-feature-points > div:hover {
+    translate: 0 -6px;
+    border-color: var(--hg3d-line-hover);
+    box-shadow: var(--hg3d-e2), 0 16px 34px -16px rgba(37, 170, 225, 0.35);
+  }
+}
+
+/* Plakietka „15 lat” — unosi się nad treścią. */
+html.hg-3d .hg-history {
+  box-shadow: var(--hg3d-e2), var(--hg3d-edge);
+  transition: translate 0.5s var(--hg-ease), box-shadow 0.45s ease;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-history:hover {
+    translate: 0 -4px;
+    box-shadow: var(--hg3d-e3), 0 24px 48px -18px rgba(37, 170, 225, 0.3);
+  }
+}
+
+/* ==========================================================================
+   09. PROCES — SŁABY 3D I KASKADA GŁĘBI
+   ========================================================================== */
+
+html.hg-3d .hg-process-grid {
+  gap: 1.25rem;
+  border: 0;
+  background: transparent;
+  perspective: 1500px;
+}
+
+html.hg-3d .hg-process-grid li {
+  border: 1px solid var(--hg3d-line);
+  background: var(--hg3d-surface);
+  box-shadow: var(--hg3d-e1), var(--hg3d-edge);
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  transition: transform 0.55s var(--hg-ease), box-shadow 0.45s ease, border-color 0.3s ease, background 0.35s ease;
+}
+
+html.hg-3d .hg-process-icon {
+  transition: transform 0.55s var(--hg-ease), border-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-process-grid li:hover {
+    border-color: var(--hg3d-line-hover);
+    background: linear-gradient(180deg, rgba(37, 170, 225, 0.09), rgba(255, 255, 255, 0.005)), var(--hg-surface);
+    box-shadow: var(--hg3d-e3), 0 22px 44px -18px rgba(37, 170, 225, 0.3);
+    transform: translateZ(30px);
+  }
+
+  html.hg-3d .hg-process-grid li:hover .hg-process-icon {
+    transform: translateZ(34px);
+    border-color: rgba(37, 170, 225, 0.55);
+    color: #9fe4ff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 18px 30px -14px rgba(37, 170, 225, 0.45);
+  }
+}
+
+/* Kaskada: każdy kolejny krok niżej — wyraźna głębia na dużych ekranach. */
+@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
+  html.hg-3d-motion .hg-process-grid {
+    margin-bottom: 54px;
+  }
+
+  html.hg-3d-motion .hg-process-grid li:nth-child(2) { translate: 0 18px; }
+  html.hg-3d-motion .hg-process-grid li:nth-child(3) { translate: 0 36px; }
+  html.hg-3d-motion .hg-process-grid li:nth-child(4) { translate: 0 54px; }
+}
+
+/* ==========================================================================
+   10. PORTFOLIO — KARTY Z TILT-GLARE
+   ========================================================================== */
+
+html.hg-3d .hg-work-card {
+  box-shadow: var(--hg3d-e2);
+  transform: perspective(1300px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translate3d(0, var(--tilt-lift, 0px), var(--tilt-z, 0px));
+  transition: transform 0.65s var(--hg-ease), box-shadow 0.5s ease;
+}
+
+html.hg-3d .hg-work-card.is-tilting {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-work-card:hover {
+    --tilt-lift: -10px;
+    --tilt-z: 26px;
+    box-shadow: var(--hg3d-e4), 0 26px 60px -20px rgba(37, 170, 225, 0.28);
+  }
+}
+
+html.hg-3d .hg-work-card:focus-visible {
+  --tilt-lift: -10px;
+  --tilt-z: 26px;
+  box-shadow: var(--hg3d-e4), 0 26px 60px -20px rgba(37, 170, 225, 0.28);
+}
+
+/* Refleks na powierzchni zdjęcia. */
+html.hg-3d .hg-work-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(480px circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(150, 214, 255, 0.14), transparent 46%);
+  transition: opacity 0.45s ease;
+}
+
+html.hg-3d .hg-work-card.is-tilting::before {
+  opacity: 1;
+}
+
+/* Warstwowy parallax treści karty. */
+html.hg-3d .hg-work-index,
+html.hg-3d .hg-work-meta,
+html.hg-3d .hg-work-title,
+html.hg-3d .hg-work-arrow {
+  transition: translate 0.6s var(--hg-ease), transform 0.4s var(--hg-ease);
+}
+
+html.hg-3d .hg-work-card.is-tilting .hg-work-index {
+  translate: calc(var(--par-x, 0px) * 0.9) calc(var(--par-y, 0px) * 0.9);
+  transition: translate 0.15s ease-out;
+}
+
+html.hg-3d .hg-work-card.is-tilting .hg-work-meta {
+  translate: calc(var(--par-x, 0px) * 0.45) calc(var(--par-y, 0px) * 0.45);
+  transition: translate 0.15s ease-out;
+}
+
+html.hg-3d .hg-work-card.is-tilting .hg-work-title {
+  translate: calc(var(--par-x, 0px) * 0.55) calc(var(--par-y, 0px) * 0.55);
+  transition: translate 0.15s ease-out;
+}
+
+html.hg-3d .hg-work-card.is-tilting .hg-work-arrow {
+  translate: calc(var(--par-x, 0px) * 0.8) calc(var(--par-y, 0px) * 0.8);
+  transition: translate 0.15s ease-out, transform 0.3s ease;
+}
+
+html.hg-3d .hg-work-card.is-tilting img {
+  transform: scale(1.07);
+  transition-duration: 0.4s;
+}
+
+/* ==========================================================================
+   11. PAS CTA — PERSPEKTYWICZNA ŚCIANA
+   ========================================================================== */
+
+html.hg-3d-motion .hg-cta-band {
+  perspective: 950px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.hg-3d-motion .hg-cta-track {
+    rotate: x 16deg;
+    translate: 0 calc(var(--hg-sp, 0) * 1px);
+  }
+}
+
+/* ==========================================================================
+   12. FAQ — AKORDEON Z ELEWACJĄ
+   ========================================================================== */
+
+html.hg-3d .hg-accordion {
+  border-top: 0;
+}
+
+html.hg-3d .hg-accordion details {
+  margin-bottom: 0.8rem;
+  border: 1px solid var(--hg3d-line);
+  background: var(--hg3d-surface);
+  box-shadow: var(--hg3d-e1), var(--hg3d-edge);
+  transition: box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+html.hg-3d .hg-accordion details[open] {
+  border-color: rgba(37, 170, 225, 0.35);
+  box-shadow: var(--hg3d-e2), 0 18px 40px -20px rgba(37, 170, 225, 0.28), var(--hg3d-edge);
+}
+
+html.hg-3d .hg-accordion summary {
+  padding: 1.2rem 3rem 1.2rem 1.3rem;
+}
+
+html.hg-3d .hg-accordion details p {
+  padding: 0 3rem 1.8rem 1.3rem;
+}
+
+/* ==========================================================================
+   13. KONTAKT — PANELE, FORMULARZ Z FAZOWANIEM
+   ========================================================================== */
+
+html.hg-3d .hg-contact-panel {
+  border: 1px solid var(--hg3d-line);
+  box-shadow: var(--hg3d-e2), var(--hg3d-edge);
+}
+
+html.hg-3d .hg-form-panel {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: var(--hg3d-e3), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* Świetlista krawędź u góry panelu formularza. */
+html.hg-3d .hg-form-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(37, 170, 225, 0.9), transparent);
+}
+
+/* Pola — wciśnięte w powierzchnię (inset), fokus z poświatą. */
+html.hg-3d .hg-quote-form input:not([type='checkbox']),
+html.hg-3d .hg-quote-form select,
+html.hg-3d .hg-quote-form textarea {
+  background-color: rgba(3, 6, 10, 0.62); /* nie shorthand — select ma własną strzałkę w background-image */
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(0, 0, 0, 0.4);
+  transition: border-color 0.25s ease, box-shadow 0.3s ease, background-color 0.25s ease;
+}
+
+html.hg-3d .hg-quote-form input:focus,
+html.hg-3d .hg-quote-form select:focus,
+html.hg-3d .hg-quote-form textarea:focus {
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.5),
+    0 0 0 3px rgba(37, 170, 225, 0.16),
+    0 10px 26px -12px rgba(37, 170, 225, 0.4);
+}
+
+/* Płytki social / Google w panelu kontaktowym. */
+html.hg-3d .hg-contact-socials a,
+html.hg-3d .hg-google-proof {
+  box-shadow: var(--hg3d-e1), var(--hg3d-edge);
+  transition: translate 0.45s var(--hg-ease), box-shadow 0.4s ease, border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+@media (hover: hover) {
+  html.hg-3d .hg-contact-socials a:hover,
+  html.hg-3d .hg-google-proof:hover {
+    translate: 0 -3px;
+    box-shadow: var(--hg3d-e2), 0 16px 32px -16px rgba(37, 170, 225, 0.35);
+  }
+}
+
+/* ==========================================================================
+   14. MAPA
+   ========================================================================== */
+
+html.hg-3d .hg-map {
+  border: 1px solid var(--hg3d-line);
+  box-shadow: var(--hg3d-e2);
+}
+
+html.hg-3d .hg-map-caption {
+  box-shadow: var(--hg3d-e2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   15. LIGHTBOX — WEJŚCIE W 3D
+   ========================================================================== */
+
+html.hg-3d .hg-lightbox .hg-lightbox-main {
+  translate: 0 40px;
+  scale: 0.94;
+  rotate: x 8deg;
+  opacity: 0;
+  transition: translate 0.55s var(--hg-ease), scale 0.55s var(--hg-ease), rotate 0.55s var(--hg-ease), opacity 0.35s ease;
+}
+
+html.hg-3d .hg-lightbox.is-open .hg-lightbox-main {
+  translate: 0 0;
+  scale: 1;
+  rotate: none;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   16. REDUKCJE MOBILNE I DOSTĘPNOŚĆ
+   ========================================================================== */
+
+@media (max-width: 980px) {
+  html.hg-3d .hg-service-grid {
+    gap: 1.1rem;
+  }
+
+  html.hg-3d .hg-process-grid {
+    perspective: none;
+    gap: 0.9rem;
+  }
+
+  /* Na mobile panel dowodowy wraca do oryginalnego układu poziomego. */
+  html.hg-3d .hg-hero-proof {
+    min-width: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--hg-line-strong);
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  html.hg-3d .hg-material-list span {
+    padding: 0.5rem 0.8rem;
+  }
+
+  /* Na dotyku karty pozostają płaskie — czytelność ponad efekt. */
+  html.hg-3d .hg-service-card,
+  html.hg-3d .hg-work-card {
+    transform: none;
+  }
+}
+
+/* Pełne wygaszenie ruchu — warstwa statyczna głębi zostaje. */
+@media (prefers-reduced-motion: reduce) {
+  html.hg-3d *,
+  html.hg-3d *::before,
+  html.hg-3d *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  html.hg-3d-motion .hg-hero-inner,
+  html.hg-3d-motion .hg-hero-media,
+  html.hg-3d-motion .hg-hero-grid {
+    transform: none;
+    translate: none;
+    scale: none;
+  }
+}

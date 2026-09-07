@@ -1,6 +1,25 @@
-# HI-GLOSS DESIGN — WordPress Theme 3.0
+# HI-GLOSS DESIGN — WordPress Theme 4.0 „DIMENSION”
 
 Dedykowany, jednopłaszczyznowy motyw dla studia car wrappingu **HI-GLOSS DESIGN** w Szczecinie i Mierzynie.
+
+## Motyw 3D „DIMENSION” (od wersji 4.0)
+
+Warstwa profesjonalnej głębi 3D dokładana na istniejący design system
+(`theme-3d.css` + `theme-3d.js` ładowane po `landing.css` / `main.js`):
+
+- **scena hero w perspektywie** — kursor obraca całość, a warstwy (foto, siatka,
+  nagłówek, panel dowodowy) rozłożone są w osi Z,
+- **tilt kart** usług i realizacji z refleksem światła (glare) i parallaxem
+  warstw wewnątrz karty,
+- **wytłaczane przyciski** (extrusion + press-down), chipy materiałowe i filtrów,
+- **parallax scrolla** dla mediów i pasów tła oraz kaskada głębi procesu,
+- **elewacja i światło** — czterostopniowa skala cieni, krawędzie oświetlone
+  od góry, fazowane pola formularza,
+- statyczny podgląd bez WordPressa: `theme-3d-preview.html`.
+
+Warstwa jest w 100% progresywna: bez JavaScriptu strona renderuje się jak
+poprzednia wersja płaska, a cały ruch wyłącza się przy `prefers-reduced-motion`
+oraz na urządzeniach dotykowych (pozostaje statyczna głębia cieni).
 
 ## Landing page
 
@@ -36,9 +55,12 @@ front-page.php             # produkcyjny landing WordPress
 header.php / footer.php    # one-page navigation i rozbudowana stopka
 assets/css/main.css        # style bazowe i zgodność starych szablonów
 assets/css/landing.css     # design system i pełny landing
+assets/css/theme-3d.css    # warstwa 3D „DIMENSION” (głębia, elewacja, tilt)
 assets/js/main.js          # menu, reveal, aktywne sekcje, FAQ i formularz
+assets/js/theme-3d.js      # silnik 3D: tilt, parallax, reflektor ambient
 functions.php              # assety, CPT, AJAX, Schema.org
 landing-preview.html       # podgląd bez instalacji WordPressa
+theme-3d-preview.html      # podgląd warstwy 3D bez instalacji WordPressa
 ```
 
 ## Deployment

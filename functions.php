@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-define('HIGLOSS_VERSION', '3.2.0');
+define('HIGLOSS_VERSION', '4.0.0');
 define('HIGLOSS_THEME_DIR', get_template_directory());
 define('HIGLOSS_THEME_URI', get_template_directory_uri());
 
@@ -45,18 +45,24 @@ function higloss_enqueue_assets() {
     $style_path   = HIGLOSS_THEME_DIR . '/style.css';
     $main_path    = HIGLOSS_THEME_DIR . '/assets/css/main.css';
     $landing_path = HIGLOSS_THEME_DIR . '/assets/css/landing.css';
+    $theme3d_path = HIGLOSS_THEME_DIR . '/assets/css/theme-3d.css';
     $js_path      = HIGLOSS_THEME_DIR . '/assets/js/main.js';
+    $theme3d_js   = HIGLOSS_THEME_DIR . '/assets/js/theme-3d.js';
 
     $style_ver   = file_exists($style_path) ? filemtime($style_path) : HIGLOSS_VERSION;
     $main_ver    = file_exists($main_path) ? filemtime($main_path) : HIGLOSS_VERSION;
     $landing_ver = file_exists($landing_path) ? filemtime($landing_path) : HIGLOSS_VERSION;
+    $theme3d_ver = file_exists($theme3d_path) ? filemtime($theme3d_path) : HIGLOSS_VERSION;
     $js_ver      = file_exists($js_path) ? filemtime($js_path) : HIGLOSS_VERSION;
+    $theme3d_js_ver = file_exists($theme3d_js) ? filemtime($theme3d_js) : HIGLOSS_VERSION;
 
     wp_enqueue_style('higloss-style', get_stylesheet_uri(), array(), $style_ver);
     wp_enqueue_style('higloss-main-css', HIGLOSS_THEME_URI . '/assets/css/main.css', array('higloss-style'), $main_ver);
     wp_enqueue_style('higloss-landing-css', HIGLOSS_THEME_URI . '/assets/css/landing.css', array('higloss-main-css'), $landing_ver);
+    wp_enqueue_style('higloss-theme-3d-css', HIGLOSS_THEME_URI . '/assets/css/theme-3d.css', array('higloss-landing-css'), $theme3d_ver);
 
     wp_enqueue_script('higloss-main-js', HIGLOSS_THEME_URI . '/assets/js/main.js', array(), $js_ver, true);
+    wp_enqueue_script('higloss-theme-3d-js', HIGLOSS_THEME_URI . '/assets/js/theme-3d.js', array('higloss-main-js'), $theme3d_js_ver, true);
 
     wp_localize_script('higloss-main-js', 'higlossData', array(
         'ajaxurl' => admin_url('admin-ajax.php'),

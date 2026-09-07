@@ -26,6 +26,7 @@ jobs:
               --exclude-glob .github/ \
               --exclude-glob README.md \
               --exclude-glob landing-preview.html \
+              --exclude-glob theme-3d-preview.html \
               --exclude-glob proposal-*.html \
               --exclude-glob preview-*.html;
           "
