@@ -27,7 +27,11 @@ $services = array(
                     </div>
                     <div class="hg-service-body">
                         <h3><?php echo esc_html($service[2]); ?></h3><p><?php echo esc_html($service[3]); ?></p>
-                        <ul><?php for ($i = 7; $i <= 9; $i++) : ?><li><span><?php echo esc_html($service[$i][0]); ?></span><strong><?php echo esc_html($service[$i][1]); ?></strong></li><?php endfor; ?></ul>
+                        <ul>
+                            <li><span><?php echo esc_html($service[8][0]); ?></span><strong><?php echo esc_html($service[8][1]); ?></strong></li>
+                            <li><span><?php echo esc_html($service[9][0]); ?></span><strong><?php echo esc_html($service[9][1]); ?></strong></li>
+                            <li><span><?php echo esc_html($service[10][0]); ?></span><strong><?php echo esc_html($service[10][1]); ?></strong></li>
+                        </ul>
                         <a href="<?php echo esc_url(home_url($service[6])); ?>" class="hg-text-link"><?php echo esc_html($service[7]); ?> <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
