@@ -7,6 +7,7 @@
 
 // Portfolio SEO helpers are presentation-safe and add contextual internal links only.
 require_once get_template_directory() . '/inc/realizacje-seo.php';
+require_once get_template_directory() . '/inc/theme-image.php';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
