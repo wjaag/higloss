@@ -20,16 +20,18 @@
     // Yoast and emits titles/meta/Open Graph/JSON-LD itself, so disable only
     // those theme callbacks instead of fighting the plugin's output.
     if (defined('WPSEO_VERSION')) {
-        foreach (array(
-            'higloss_render_seo_meta',
-            'higloss_render_schema_markup',
-            'higloss_render_faq_schema',
-            'higloss_render_service_faq_schema',
-            'higloss_render_article_schema',
-            'higloss_render_breadcrumb_schema',
-        ) as $seo_callback) {
+        $theme_seo_callbacks = array(
+            'higloss_render_seo_meta'            => 1,
+            'higloss_render_schema_markup'       => 10,
+            'higloss_render_faq_schema'          => 10,
+            'higloss_render_service_faq_schema' => 10,
+            'higloss_render_article_schema'      => 10,
+            'higloss_render_breadcrumb_schema'   => 10,
+        );
+
+        foreach ($theme_seo_callbacks as $seo_callback => $priority) {
             if (function_exists($seo_callback)) {
-                remove_action('wp_head', $seo_callback);
+                remove_action('wp_head', $seo_callback, $priority);
             }
         }
     }
