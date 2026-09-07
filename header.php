@@ -8,13 +8,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <?php
-    // Loaded here so the redesign remains part of WordPress' dependency graph.
+    // Keep the redesign inside WordPress' asset dependency graph.
     wp_enqueue_style(
         'higloss-redesign',
         HIGLOSS_THEME_URI . '/assets/css/redesign.css',
         array('higloss-landing-css'),
         HIGLOSS_VERSION
     );
+
+    // Yoast is the single SEO owner when active. The legacy theme predates
+    // Yoast and emits titles/meta/Open Graph/JSON-LD itself, so disable only
+    // those theme callbacks instead of fighting the plugin's output.
+    if (defined('WPSEO_VERSION')) {
+        foreach (array(
+            'higloss_render_seo_meta',
+            'higloss_render_schema_markup',
+            'higloss_render_faq_schema',
+            'higloss_render_service_faq_schema',
+            'higloss_render_article_schema',
+            'higloss_render_breadcrumb_schema',
+        ) as $seo_callback) {
+            if (function_exists($seo_callback)) {
+                remove_action('wp_head', $seo_callback);
+            }
+        }
+    }
+
     wp_head();
     ?>
 </head>
