@@ -2,9 +2,9 @@
 /**
  * Mapa obrazkow (Google image sitemap) pod adresem /wp-sitemap-images.xml.
  *
- * This is a fallback for installations without Yoast SEO. When Yoast is active,
- * its sitemap/robots system is authoritative and this file exits before registering
- * competing routes or robots directives.
+ * Fallback only for installations without Yoast SEO. When Yoast is active,
+ * the plugin owns XML sitemaps and robots output, so this file exits before
+ * registering competing routes or directives.
  *
  * @package HiGloss2026
  */
@@ -34,8 +34,14 @@ function higloss_page_images_map() {
     );
 }
 
+/**
+ * Sklada pary (url strony, tytul, lastmod, [urle obrazkow]) dla calej mapy.
+ *
+ * @return array
+ */
 function higloss_collect_image_sitemap_entries() {
     $entries = array();
+
     $map = higloss_page_images_map();
     foreach ($map as $slug => $files) {
         $page = $slug === '' ? get_post(get_option('page_on_front')) : get_page_by_path($slug);
@@ -98,6 +104,9 @@ function higloss_collect_image_sitemap_entries() {
     return $entries;
 }
 
+/**
+ * Renderuje XML mapy obrazkow i przerywa zadanie (tylko dla /wp-sitemap-images.xml).
+ */
 add_action('template_redirect', 'higloss_render_image_sitemap', 0);
 function higloss_render_image_sitemap() {
     $request = isset($_SERVER['REQUEST_URI']) ? wp_parse_url(esc_url_raw(wp_unslash($_SERVER['REQUEST_URI'])), PHP_URL_PATH) : '';
@@ -131,6 +140,10 @@ function higloss_render_image_sitemap() {
     exit;
 }
 
+/**
+ * Dopisuje mape obrazkow do robots.txt (obok glownej mapy WP)
+ * oraz jawnie otwiera serwis na boty AI/LLM (AEO — Google i tak dalej chodzi).
+ */
 add_filter('robots_txt', 'higloss_image_sitemap_robots');
 function higloss_image_sitemap_robots($output) {
     $output .= "\n# Podsumowanie serwisu dla LLM: " . esc_url(home_url('/llms.txt')) . "\n";
@@ -142,6 +155,10 @@ function higloss_image_sitemap_robots($output) {
     return $output;
 }
 
+/**
+ * /llms.txt — zwarta mapa serwisu po markdownie dla crawlerow AI
+ * (konwencja llms.txt; nie zastępuje XML sitemap).
+ */
 add_action('template_redirect', 'higloss_render_llms_txt', 0);
 function higloss_render_llms_txt() {
     $path = isset($_SERVER['REQUEST_URI']) ? strtok(wp_unslash($_SERVER['REQUEST_URI']), '?') : '/';
@@ -149,14 +166,16 @@ function higloss_render_llms_txt() {
         return;
     }
 
-    $home = home_url();
+    $home = 'https://hi-glossdesign.pl';
     $out  = "# HI-GLOSS DESIGN\n\n";
-    $out .= "> Studio oklejania pojazdów (Szczecin / Mierzyn, woj. zachodniopomorskie): całościowa zmiana koloru auta folią, bezbarwne folie ochronne PPF, oklejanie reklamowe i branding flot, przyciemnianie szyb, dechroming i detailing.\n\n";
+    $out .= "> Studio oklejania pojazdów (Szczecin / Mierzyn, woj. zachodniopomorskie): całościowa zmiana koloru auta folią, bezbarwne folie ochronne PPF, oklejanie reklamowe i branding flot, przyciemnianie szyb, dechroming i detailing. Ogrzewana pracownia, materiały 3M / Avery Dennison / Hexis / XPEL.\n";
+    $out .= "> Kontakt: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, 72-006 Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00.\n\n";
+
     $out .= "## Usługi\n\n";
-    $out .= "- [Całościowa zmiana koloru auta folią]({$home}/zmiana-koloru/): folie premium i aplikacja z dbałością o krawędzie.\n";
-    $out .= "- [Bezbarwne folie ochronne PPF]({$home}/ppf/): ochrona lakieru w pakietach dopasowanych do auta.\n";
-    $out .= "- [Reklama i branding flot]({$home}/reklama/): projekt, druk i aplikacja grafiki na pojazdach firmowych.\n";
-    $out .= "- [Szyby, dechroming i detailing]({$home}/detailing/): przyciemnianie szyb, Shadow Line i przygotowanie auta.\n\n";
+    $out .= "- [Całościowa zmiana koloru auta folią]({$home}/zmiana-koloru/): folie premium z demontażem detali (klamki, lampy, zderzaki), gwarancja 5–7 lat, realizacja 3–5 dni.\n";
+    $out .= "- [Bezbarwne folie ochronne PPF]({$home}/ppf/): poliuretanowa ochrona lakieru 140–200 μm, pakiety Strefy / Full Front / Full Body, samoregeneracja rys, 8–10 lat trwałości.\n";
+    $out .= "- [Reklama i branding flot]({$home}/reklama/): projekt, druk wielkoformatowy i aplikacja grafiki na auta firmowe; doświadczenie flotowe (m.in. DHL).\n";
+    $out .= "- [Szyby, dechroming i detailing]({$home}/detailing/): przyciemnianie szyb foliami z atestem, Shadow Line, przyciemnianie lamp, paski, przygotowanie lakieru pod folię.\n\n";
 
     $out .= "## Cenniki i poradniki\n\n";
     if (function_exists('higloss_poradnik_articles')) {
@@ -167,8 +186,8 @@ function higloss_render_llms_txt() {
 
     $out .= "\n## Realizacje i firma\n\n";
     $out .= "- [Galeria realizacji]({$home}/galeria/): portfolio metamorfoz PRZED/PO z opisami i foliami.\n";
-    $out .= "- [Proces pracy]({$home}/proces/): od wyceny do odbioru auta.\n";
-    $out .= "- [O nas]({$home}/o-firmie/): doświadczenie i zaplecze studia w Mierzynie.\n";
+    $out .= "- [Proces pracy]({$home}/proces/): wycena do 24 h, demontaż wg procedur, aplikacja w ogrzewanej hali.\n";
+    $out .= "- [O nas]({$home}/o-firmie/): 15 lat doświadczenia, własne zaplecze druku i ploterów.\n";
     $out .= "- [Kontakt i dojazd]({$home}/kontakt/) | [FAQ]({$home}/faq/)\n";
 
     status_header(200);
