@@ -7,8 +7,16 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <?php wp_head(); ?>
-    <!-- Style ladowane normalnie (enqueue w functions.php) -->
+    <?php
+    // Loaded here so the redesign remains part of WordPress' dependency graph.
+    wp_enqueue_style(
+        'higloss-redesign',
+        HIGLOSS_THEME_URI . '/assets/css/redesign.css',
+        array('higloss-landing-css'),
+        HIGLOSS_VERSION
+    );
+    wp_head();
+    ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
