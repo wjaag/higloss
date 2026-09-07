@@ -12,7 +12,7 @@ Branch: `redesign/seo-ux-2026`
 - Kept custom image sitemap/robots fallback disabled when Yoast is active.
 - Added `inc/realizacje-seo.php` for portfolio/service contextual linking and related-project queries.
 - Connected portfolio taxonomy views to service hubs and added crawlable related-project links to single realizations.
-- Strengthened the `poradnik` content graph with contextual links from commercial articles to relevant service hubs and portfolio work.
+- Connected all 11 seeded `poradnik` articles to the appropriate commercial service hub and related portfolio taxonomy, without forcing unrelated editorial posts into the graph.
 
 ## SEO architecture
 
@@ -24,15 +24,14 @@ Current content graph:
 
 ## Next implementation queue
 
-1. Finish contextual linking across all remaining FAQ/poradnik articles.
-2. Refactor `front-page.php` into reusable template parts without changing public URLs.
-3. Introduce a safe image rendering helper: explicit alt text, intrinsic dimensions, loading and fetch-priority rules.
-4. Audit every service page for H1/H2 hierarchy, search intent and semantic sections.
-5. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
-6. Inventory existing URLs and redirects before any URL change.
-7. Run PHP syntax checks and WordPress staging QA.
-8. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation, accessibility and console errors.
-9. Run Lighthouse/Core Web Vitals on representative templates.
+1. Refactor `front-page.php` into reusable template parts without changing public URLs.
+2. Introduce a safe image rendering helper: explicit alt text, intrinsic dimensions, loading and fetch-priority rules.
+3. Audit every service page for H1/H2 hierarchy, search intent and semantic sections.
+4. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
+5. Inventory existing URLs and redirects before any URL change.
+6. Run PHP syntax checks and WordPress staging QA.
+7. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation, accessibility and console errors.
+8. Run Lighthouse/Core Web Vitals on representative templates.
 
 ## Hard branch safety rule
 
