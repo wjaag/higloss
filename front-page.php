@@ -307,6 +307,12 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 ?>
             </div>
 
+            <div style="text-align: center; margin-top: 2.5rem;" class="hg-reveal">
+                <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-btn hg-btn-outline" style="padding: 0.95rem 2.2rem; font-weight: 800; font-size: 0.9rem;">
+                    Zobacz pełną galerię realizacji &rarr;
+                </a>
+            </div>
+
             <div class="hg-clients-row hg-reveal">
                 <p class="hg-clients-label">Zaufali nam</p>
                 <div class="hg-clients-list">
@@ -317,12 +323,6 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     <span>TVP3 <b>SZCZECIN</b></span>
                     <span>WATERDROP</span>
                 </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 2.5rem;" class="hg-reveal">
-                <a href="<?php echo esc_url(home_url('/galeria')); ?>" class="hg-btn hg-btn-outline" style="padding: 0.95rem 2.2rem; font-weight: 800; font-size: 0.9rem;">
-                    Zobacz pełną galerię realizacji &rarr;
-                </a>
             </div>
         </div>
     </section>

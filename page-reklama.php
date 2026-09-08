@@ -105,21 +105,6 @@ get_header();
 
     </div>
 
-    <!-- ZAUFALI NAM — marki i floty, z ktorymi pracujemy -->
-    <section class="hg-material-strip hg-material-strip--clients" aria-label="Klienci, którzy nam zaufali">
-        <div class="hg-container">
-            <p>Zaufali nam</p>
-            <div class="hg-material-list">
-                <span>DHL <b>COURIER</b></span>
-                <span>WARTA</span>
-                <span>SAMSUNG</span>
-                <span>POCZTA <b>POLSKA</b></span>
-                <span>TVP3 <b>SZCZECIN</b></span>
-                <span>WATERDROP</span>
-            </div>
-        </div>
-    </section>
-
     <!-- LOKALNE SEO: REKLAMA NA AUTACH SZCZECIN / MIERZYN -->
     <section class="hg-section" style="padding-top: 1rem;" aria-labelledby="reklama-local-title">
         <div class="hg-container">
@@ -137,6 +122,19 @@ get_header();
                 <article><h3>Region i floty</h3><p>Goleniów, Stargard, Gryfino i całe zachodniopomorskie: obsługujemy floty kurierskie, handlowe i serwisowe — także z dojazdem na miejsce postoju pojazdów.</p></article>
                 <article><h3>40+ aut w jednej flocie</h3><p>Stała obsługa DHL Courier: powtarzalny standard aplikacji, harmonogram wymian i dokumentacja zdjęciowa każdego pojazdu.</p></article>
                 <article><h3>Wycena w 24 h</h3><p>Prześlij model auta, zakres (całość / boki / tył) i logo — przygotujemy bezpłatną kalkulację z wizualizacją grafiki na Twoim pojeździe.</p></article>
+            </div>
+
+            <!-- ZAUFALI NAM — marki i floty, z ktorymi pracujemy -->
+            <div class="hg-clients-row hg-reveal">
+                <p class="hg-clients-label">Zaufali nam</p>
+                <div class="hg-clients-list">
+                    <span>DHL <b>COURIER</b></span>
+                    <span>WARTA</span>
+                    <span>SAMSUNG</span>
+                    <span>POCZTA <b>POLSKA</b></span>
+                    <span>TVP3 <b>SZCZECIN</b></span>
+                    <span>WATERDROP</span>
+                </div>
             </div>
         </div>
     </section>
