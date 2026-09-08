@@ -20,7 +20,17 @@ Branch: `redesign/seo-ux-2026`
 - Cleaned visible markup/heading semantics on the advertising service page.
 - Preserved the theme's existing global box-model reset while removing only the unsafe global `border-radius: 0 !important` rule; radius overrides are now component-scoped.
 - Hardened gallery/archive thumbnails with intrinsic dimensions and lazy/async loading where the archive template controls the markup.
-- Added automated PHP syntax QA workflow; the latest Theme QA run passed on the current branch head.
+- Added automated PHP syntax QA workflow; the last confirmed Theme QA run passed on the branch.
+
+## Final QA findings
+
+- Branch comparison is clean: `redesign/seo-ux-2026` is ahead of `arena/01a068c1-higloss` with no commits behind.
+- Pull request #9 remains open, draft and mergeable, targeting only `arena/01a068c1-higloss`.
+- Confirmed PHP syntax QA success on commit `42f983474872a2d26cfdfc572c591a30c51204bc`.
+- The GitHub API/content-update path does not expose a new workflow run for the documentation-only head update; no false CI claim is made for the newer commit.
+- Lighthouse/browser/staging/Core Web Vitals results are not claimed because the redesign branch is not deployed to an executable staging runtime.
+- Lightbox review identified a remaining accessibility improvement: keyboard focus is moved to the close button, but a complete focus trap and restoration to the original trigger still require runtime validation/editing.
+- WordPress compatibility review identified the global dequeue of `wp-block-library`, `wp-block-library-theme`, `classic-theme-styles` and `global-styles` as a runtime/plugin compatibility risk. It is intentionally not changed blindly without an executable WordPress environment, because the contents API only permits whole-file replacement and `functions.php` is a high-risk legacy file.
 
 ## SEO architecture
 
@@ -30,27 +40,18 @@ Current content graph:
 
 `poradnik / FAQ -> service hub -> realization -> related realization`
 
-## Current integration state
+## Integration state
 
-The front-page componentisation milestone is integrated. The main remaining risks are verification rather than another large template rewrite: service-page semantic consistency, URL/redirect inventory, PHP/runtime checks, accessibility/lightbox keyboard behavior, plugin compatibility and real-device performance.
+The front-page componentisation milestone is integrated. The redesign branch is internally consistent at the repository level and has passed the confirmed PHP syntax QA run. Remaining items are runtime-dependent rather than another large template rewrite: WordPress plugin behavior, browser/mobile interaction, lightbox keyboard behavior, staging output and Core Web Vitals.
 
-## Verification status
+## Next required runtime validation
 
-- Branch comparison: `redesign/seo-ux-2026` is ahead of `arena/01a068c1-higloss` with no divergence behind the base.
-- Pull request #9 remains open, draft and targets `arena/01a068c1-higloss`.
-- **Theme QA / PHP syntax: PASS** on head `42f983474872a2d26cfdfc572c591a30c51204bc`; the workflow completed successfully and PHP lint passed.
-- Lighthouse/browser/staging/Core Web Vitals results are not claimed yet because the redesign branch is not deployed to an executable staging runtime.
-- Lightbox review found a remaining accessibility improvement: keyboard focus is moved to the close button, but a full focus trap and restoration to the original trigger are not yet implemented.
-
-## Next implementation queue
-
-1. Finish the service-page H1/H2 and intent audit across all core service templates.
-2. Inventory existing public URLs and redirects; do not rename or remove valuable URLs without a migration entry.
-3. Review WordPress asset dequeues for plugin compatibility without touching production/base branches.
-4. Complete keyboard accessibility review, including the lightbox focus trap/restoration.
-5. Run WordPress staging QA when an executable environment is available.
-6. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation and console errors.
-7. Run Lighthouse/Core Web Vitals on representative templates in an accessible staging/browser environment.
+1. Deploy this branch to an executable WordPress staging environment.
+2. Verify Yoast and no-Yoast head/schema output.
+3. Verify forms/SMTP, mobile navigation, gallery/lightbox keyboard behavior and browser console errors.
+4. Check plugin UI after loading the front end, especially any block/global-style dependent plugin components.
+5. Run Lighthouse/Core Web Vitals on homepage, service page, portfolio archive and realization detail.
+6. After staging validation, promote PR #9 from draft only when the runtime checks are clean.
 
 ## Hard branch safety rule
 
