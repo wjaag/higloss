@@ -4,12 +4,24 @@
  *
  * @package HiGloss2026
  */
-$theme_uri = HIGLOSS_THEME_URI;
 $facebook_url = 'https://www.facebook.com/Hi-gloss-design-Szczecin-239982882747453/';
 $instagram_url = 'https://www.instagram.com/higlossdesign/';
 ?>
 <section class="hg-hero" aria-labelledby="hero-title">
-    <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="" width="1408" height="768" fetchpriority="high">
+    <?php
+    echo higloss_theme_image(
+        'ai_oferta_zmiana_koloru.webp',
+        '',
+        array(
+            'width' => 1408,
+            'height' => 768,
+            'loading' => 'eager',
+            'decoding' => 'async',
+            'fetchpriority' => 'high',
+            'class' => 'hg-hero-media',
+        )
+    );
+    ?>
     <div class="hg-hero-shade"></div>
     <div class="hg-hero-grid" aria-hidden="true"></div>
     <div class="hg-container hg-hero-inner">
@@ -31,7 +43,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
     <div class="hg-social-rail" role="group" aria-label="Media społecznościowe">
         <span>Obserwuj nas</span><i></i>
         <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram HI-GLOSS DESIGN"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="hg-icon-fill"/></svg></a>
-        <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook HI-GLOSS DESIGN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.2l.8-4h-4V9c0-.7.3-1 1-1Z" class="hg-icon-fill"/></svg></a>
+        <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook HI-GLOSS DESIGN"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h4v7h4v-7h3.2l.8-4h-4V9c0-.7.3-1 1-1Z" class="hg-icon-fill"/></svg></a>
     </div>
     <a class="hg-scroll-cue" href="#oferta"><span></span> Poznaj nasze możliwości</a>
 </section>
