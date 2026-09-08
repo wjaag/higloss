@@ -1,26 +1,30 @@
 # HI-GLOSS DESIGN — UI/UX REDESIGN
 
 ## CURRENT STATE
-- Stage: 0 — baseline audit + static design workspace bootstrap
+- Stage: 1 — static visual system + landing + portfolio/detail prototypes
 - Production/reference branch: `arena/01a068c1-higloss`
 - Work branch: `arena/ui-redesign-clean`
 - Rule: production branch is read-only for this redesign
+- Rule: no additional work branches will be created
 
 ## OBJECTIVE
 Rebuild the visual and UX layer as a static HTML/CSS/JS prototype first. After approval, port the approved markup back into the WordPress theme while preserving the existing WordPress engine, URLs, content, CPT, ACF data, forms, SEO and accessibility behavior.
 
-## BASELINE
-The production theme is a one-page landing experience with legacy/subpage routes retained. The landing currently contains hero, services, studio/about, process, portfolio, FAQ, quote/contact and footer. The theme also has a `realizacje` CPT and taxonomy `kategoria_realizacji`. See `README.md`, `front-page.php`, `header.php`, `footer.php` and `functions.php` in the reference branch.
+## COMPLETED
+- Audited the production landing architecture and confirmed it contains substantial WordPress/business logic.
+- Bootstrapped `ui-redesign/index.html` as the primary landing prototype.
+- Added a dedicated design-system stylesheet with typography, grid, spacing, responsive behavior, header, hero, service cards, process, portfolio, FAQ, quote and footer patterns.
+- Added `ui-redesign/realizacje.html` as the static CPT archive/portfolio direction.
+- Added `ui-redesign/realizacja.html` as the static single-project/case-study direction.
+- Added `ui-redesign/css/subpages.css` for portfolio/detail layouts.
 
-## DESIGN-FIRST PIPELINE
-1. Audit production templates, assets and dynamic data.
-2. Extract presentation into `ui-redesign/`.
-3. Redesign UX/UI without changing WordPress data structures.
-4. Validate desktop/mobile/accessibility and interaction states.
-5. User approval checkpoint: **"Tak, to jest to."**
-6. Convert static components into PHP/template-parts.
-7. Reconnect WP_Query, ACF, CPT, media, forms, SEO/schema and menus.
-8. Regression-test old URLs and dynamic content.
+## DESIGN DIRECTION
+- Dark automotive-studio visual language retained, but hierarchy is rebuilt rather than merely recolored.
+- Typography: Montserrat for display/headings, Manrope for UI/body copy.
+- Accent: HI-GLOSS cyan/blue used selectively for actions, numbering and emphasis.
+- Large editorial typography, asymmetric grids, deliberate whitespace and image-led composition are the primary premium cues.
+- Cards use restrained borders and motion instead of excessive rounded containers.
+- Mobile is treated as a dedicated composition with simplified navigation and stacked content.
 
 ## STATIC PROTOTYPE RULES
 - Static pages are design artifacts, not replacement WordPress templates.
@@ -40,22 +44,39 @@ The production theme is a one-page landing experience with legacy/subpage routes
 - `{{service_name}}`
 - `{{acf_field_name}}`
 
-## COMPONENT INVENTORY — INITIAL
+## COMPONENT INVENTORY
+### Shared
 - Header / desktop navigation
 - Mobile navigation
 - Skip link
+- Buttons / CTA
+- Footer
+- Mobile quick actions
+- Reveal / hover states
+
+### Landing
 - Hero
 - Proof/stat strip
 - Material/logo strip
-- Service card
-- About/feature split
+- Service cards
+- About/studio split
 - Process steps
-- Portfolio/project card
+- Portfolio preview
 - FAQ accordion
 - Quote/contact block
-- Footer
-- Mobile quick actions
-- Cookie consent panel
+
+### Portfolio
+- Portfolio hero
+- Category filter UI
+- Project card/grid
+- Project CTA
+
+### Project detail
+- Project hero
+- Case-study copy
+- Specification card
+- Gallery
+- Project CTA
 
 ## WORDPRESS RE-INTEGRATION MAP
 | Static component | WordPress destination |
@@ -73,13 +94,15 @@ The production theme is a one-page landing experience with legacy/subpage routes
 ## EXISTING FUNCTIONALITY TO PRESERVE
 - CPT `realizacje`
 - taxonomy `kategoria_realizacji`
-- ACF/specification fields
+- ACF/specification fields and existing project metadata
+- Before/after project imagery where configured
 - AJAX quote form and security
 - SEO compatibility and schema handling
 - responsive/accessibility support
 - social links
 - mobile call/quote actions
 - existing public URLs and SEO content
+- existing article/FAQ routes
 
 ## ACCEPTANCE GATES
 ### Visual
@@ -88,25 +111,32 @@ The production theme is a one-page landing experience with legacy/subpage routes
 - Consistent grid and spacing system
 - Strong desktop composition
 - Deliberate mobile composition, not merely collapsed desktop
-- Complete interaction states
+- Complete hover/focus/expanded states
+- Real content and imagery used wherever production assets are known
 
 ### Technical
 - No production branch modifications
 - Semantic HTML
 - Keyboard navigation
-- visible focus states
-- reduced-motion support
-- no layout shift caused by missing image dimensions
-- deterministic static-to-PHP mapping
+- Visible focus states
+- Reduced-motion support
+- No layout shift caused by missing image dimensions
+- Deterministic static-to-PHP mapping
+- No loss of existing URLs or dynamic data
 
 ## CHANGELOG
 ### 2026-09-08
 - Created isolated work branch `arena/ui-redesign-clean` from production reference.
-- Created this redesign documentation baseline.
-- Confirmed production architecture includes substantial PHP/business logic, so redesign will be presentation-first rather than a blind PHP-to-HTML conversion.
-- Started static workspace bootstrap.
+- Created redesign documentation baseline.
+- Confirmed production architecture includes substantial PHP/business logic, so redesign is presentation-first rather than a blind PHP-to-HTML conversion.
+- Added landing static prototype.
+- Added static portfolio archive prototype and project-detail/case-study prototype.
+- Added dedicated subpage stylesheet.
 
 ## NEXT
-1. Complete static landing prototype.
-2. Add representative internal pages for portfolio/detail/service/contact.
-3. Review the prototype as a visual system before WordPress conversion.
+1. Finish and visually polish the landing prototype against the real production asset inventory.
+2. Add static service and contact templates based on the actual WordPress templates.
+3. Add realistic portfolio filtering and gallery/lightbox interaction states.
+4. Perform desktop + tablet + mobile pass and accessibility pass.
+5. User approval checkpoint: **"Tak, to jest to."**
+6. Only after approval: convert the approved static system back into PHP/template-parts and reconnect WordPress data.
