@@ -29,8 +29,8 @@ if ( ! function_exists( 'higloss_theme_image' ) ) {
         $src  = HIGLOSS_THEME_URI . '/assets/images/' . ltrim( $filename, '/' );
 
         $attributes = array(
-            'src'    => esc_url( $src ),
-            'alt'    => esc_attr( $alt ),
+            'src'    => $src,
+            'alt'    => $alt,
             'width'  => absint( $args['width'] ),
             'height' => absint( $args['height'] ),
         );
