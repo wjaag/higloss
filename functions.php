@@ -482,15 +482,60 @@ function higloss_render_seo_meta() {
 }
 
 /**
- * Tytul dokumentu strony glownej: WP sklejal tytul strony + stary tagline
- * (159 znakow — Bing WMT: „tytul zbyt dlugi"). Wersja pilnowana z motywu (55 znakow).
+ * Tytuly dokumentow pilnowane z motywu (Bing WMT: „tytul zbyt dlugi" x13).
+ * - Strona glowna: stala fraza lokalna (47 znakow).
+ * - Pozostale strony: „{tytul} | HI-GLOSS DESIGN"; tagline (dlugi, ~40 znakow)
+ *   nie dokleja sie, a tytuly >45 znakow (poradniki „Pytanie? Podtytul")
+ *   przycinane sa na PIERWSZYM zakonczeniu zdania, wiszacy myslnik jest zrzucany.
  */
 add_filter('document_title_parts', 'higloss_document_title_parts');
 function higloss_document_title_parts($parts) {
-    if (is_front_page()) {
-        $parts = array('title' => get_bloginfo('name') . ' | Oklejanie aut & PPF — Szczecin/Mierzyn');
+    $brand = 'HI-GLOSS DESIGN';
+    $home  = 'Oklejanie samochodów Szczecin | ' . $brand;
+    $out   = array();
+
+    if (isset($parts['page'])) {
+        $out['page'] = $parts['page'];
     }
-    return $parts;
+
+    if (is_front_page()) {
+        $out['title'] = $home;
+        return $out;
+    }
+
+    $title = isset($parts['title']) ? trim(wp_strip_all_tags($parts['title'])) : '';
+    if ('' === $title) {
+        $out['title'] = $home;
+        return $out;
+    }
+
+    if (mb_strlen($title, 'UTF-8') > 45) {
+        $best = null;
+        foreach (array('? ', '! ', ' — ', ' – ') as $marker) {
+            $pos = mb_strpos($title, $marker, 0, 'UTF-8');
+            if (false !== $pos) {
+                $end = $pos + mb_strlen($marker, 'UTF-8');
+                if (null === $best || $end < $best) {
+                    $best = $end;
+                }
+            }
+        }
+
+        if (null !== $best && $best >= 20) {
+            $cut = $best;
+        } else {
+            $head  = mb_substr($title, 0, 45, 'UTF-8');
+            $space = mb_strrpos($head, ' ', 0, 'UTF-8');
+            $cut   = (false !== $space) ? $space : 45;
+        }
+
+        $title = rtrim(mb_substr($title, 0, $cut, 'UTF-8'));
+        $title = preg_replace('/\s*(?:—|–)$/u', '', $title);
+        $title = rtrim($title);
+    }
+
+    $out['title'] = $title . ' | ' . $brand;
+    return $out;
 }
 
 /**

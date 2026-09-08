@@ -50,7 +50,7 @@ $icons = array(
 
 <main id="main-content" class="hg-landing hg-service-page">
     <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/' . $s['hero_image']); ?>" alt="" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/' . $s['hero_image']); ?>" alt="<?php echo esc_attr((isset($s['title']) ? $s['title'] : 'Usługa HI-GLOSS DESIGN') . ' — studio oklejania aut Szczecin'); ?>" width="1408" height="768" fetchpriority="high">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
 
@@ -216,7 +216,7 @@ $icons = array(
                     }
                     ?>
                     <a class="hg-svc-sibling hg-reveal" href="<?php echo esc_url(home_url('/' . $key)); ?>">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $item['img']); ?>" alt="" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $item['img']); ?>" alt="<?php echo esc_attr($item['title'] . ' — HI-GLOSS DESIGN Szczecin'); ?>" width="1408" height="768" loading="lazy">
                         <span class="hg-svc-sibling-copy">
                             <small><?php echo esc_html($item['kicker']); ?></small>
                             <strong><?php echo esc_html($item['title']); ?></strong>
