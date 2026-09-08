@@ -67,6 +67,20 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
         </div>
     </section>
 
+    <section class="hg-material-strip" aria-label="Klienci, którzy nam zaufali">
+        <div class="hg-container">
+            <p>Zaufali nam</p>
+            <div class="hg-material-list">
+                <span>DHL <b>COURIER</b></span>
+                <span>WARTA</span>
+                <span>SAMSUNG</span>
+                <span>POCZTA <b>POLSKA</b></span>
+                <span>TVP3 <b>SZCZECIN</b></span>
+                <span>WATERDROP</span>
+            </div>
+        </div>
+    </section>
+
     <section class="hg-section hg-services" id="oferta" aria-labelledby="services-title">
         <div class="hg-container">
             <header class="hg-section-heading hg-reveal">

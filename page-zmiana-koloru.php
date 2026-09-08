@@ -96,6 +96,97 @@ get_header();
         </div>
 
     </div>
+    <!-- LOKALNE SEO: ZMIANA KOLORU SZCZECIN / MIERZYN -->
+    <section class="hg-section" style="padding-top: 1rem;" aria-labelledby="zk-local-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Zmiana koloru blisko Ciebie</p>
+                    <h2 id="zk-local-title">Oklejanie folią.<br><span>Szczecin i Mierzyn.</span></h2>
+                </div>
+                <p>Aplikujemy folie w ogrzewanej hali przy ul. Podmiejskiej 4 w Mierzynie — 10 minut od granic Szczecina. Auto zostawiasz rano, a po 3-5 dniach odbierasz z pełną metamorfozą i gwarancją producenta.</p>
+            </header>
+
+            <div class="hg-svc-chips">
+                <article><h3>Mierzyn — hala studio</h3><p>ul. Podmiejska 4: ogrzewana hala 21°C, stanowiska do demontażu elementów i oświetlenie kontrolne do inspekcji krawędzi.</p></article>
+                <article><h3>Szczecin</h3><p>Gumieńce, Bezrzecze, Pomorzany, Prawobrzeże, Centrum i Police — najczęstsze kierunki klientów zmiany koloru w regionie.</p></article>
+                <article><h3>Region</h3><p>Goleniów, Stargard, Gryfino i całe zachodniopomorskie — przyjmujemy auta z całego województwa, także z transportem lawetą.</p></article>
+                <article><h3>500+ oklejonych pojazdów</h3><p>15 lat doświadczenia od grafiki reklamowej po pełne wrapy 3M, Avery Dennison i Hexis — w tej samej hali, tą samą ekipą.</p></article>
+                <article><h3>Wycena w 24 h</h3><p>Prześlij markę, model, rocznik i zdjęcie auta — przygotujemy bezpłatną kalkulację z doborem folii i wykończenia.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOLIA VS LAKIER -->
+    <section class="hg-section" style="background: #070a0f;" aria-labelledby="zk-compare-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Warto wiedzieć</p>
+                    <h2 id="zk-compare-title">Folia czy lakier?<br><span>Zanim zdecydujesz.</span></h2>
+                </div>
+                <p>Obie metody zmieniają kolor auta, ale różnią się ceną, czasem i odwracalnością. W studiu doradzamy uczciwie — czasem lakier faktycznie ma sens.</p>
+            </header>
+
+            <div class="hg-grid hg-grid-2" style="gap: 2rem; align-items: stretch;">
+                <div class="hg-editorial-card" style="--card-accent: #25aae1;">
+                    <h2 class="hg-editorial-title">Zmiana koloru folią — odwracalna metamorfoza</h2>
+                    <ul style="color: #e2e8f0; font-size: 1rem; line-height: 1.8; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.55rem;">
+                        <li><strong>Cena:</strong> orientacyjnie 5 500-11 000 zł — lakierowanie całego auta to zwykle 10 000-20 000 zł.</li>
+                        <li><strong>Czas:</strong> 3-5 dni roboczych zamiast 2-3 tygodni w lakierni.</li>
+                        <li><strong>Odwracalność:</strong> folię zdejmujesz bez śladu — oryginalny lakier zostaje, auto nie traci przy odsprzedaży czy zwrocie z leasingu.</li>
+                        <li><strong>Bonus:</strong> folia chroni lakier przed UV, solą i mikrozarysowaniami przez cały okres użytkowania.</li>
+                    </ul>
+                </div>
+                <div class="hg-editorial-card" style="--card-accent: #25aae1;">
+                    <h2 class="hg-editorial-title">Lakier — kiedy faktycznie ma sens</h2>
+                    <ul style="color: #e2e8f0; font-size: 1rem; line-height: 1.8; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.55rem;">
+                        <li><strong>Po kolizji:</strong> elementy i tak trafiają do lakierni — wtedy lakier jest naturalnym wyborem.</li>
+                        <li><strong>Klasyki i renowacje:</strong> oryginalna technologia bywa warunkiem wartości kolekcjonerskiej.</li>
+                        <li><strong>Ograniczenia:</strong> trwała ingerencja w lakier fabryczny, wyższy koszt i dłuższy czas.</li>
+                        <li><strong>Najlepszy zestaw:</strong> lakierowane auto + <a href="<?php echo esc_url(home_url('/ppf')); ?>" style="color: #25aae1; font-weight: 700;">folia PPF</a> na strefy newralgiczne — świeży kolor i ochrona na lata.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCES ZMIANY KOLORU -->
+    <section class="hg-section" aria-labelledby="zk-process-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Jak oklejamy auto</p>
+                    <h2 id="zk-process-title">Cztery etapy.<br><span>Zero kompromisów.</span></h2>
+                </div>
+                <p>Ten sam rygor przy każdym aucie — od kompaktu po duże SUV-y: demontaż, przygotowanie, aplikacja w temperaturze i kontrola pod lampami.</p>
+            </header>
+
+            <ul class="hg-process-grid">
+                <li><span>01</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5 20.5 9.5M3 21l3.5-1 12-12a2.8 2.8 0 0 0-4-4l-12 12L3 21Z"/></svg></div>
+                    <h3>Demontaż i przygotowanie</h3>
+                    <p>Klamki, lampy, listwy i lusterka demontujemy wg procedur fabrycznych; auto myjemy, dekontaminujemy i odtłuszczamy.</p>
+                </li>
+                <li><span>02</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></div>
+                    <h3>Docinka i przymiarka</h3>
+                    <p>Każdy element docinamy indywidualnie z zapasem na zawinięcie — żadnych „obcinanek" na widocznych krawędziach.</p>
+                </li>
+                <li><span>03</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div>
+                    <h3>Aplikacja w temperaturze</h3>
+                    <p>Folie 3M, Avery Dennison i Hexis kładziemy w ogrzewanej hali; krawędzie zawijamy w głąb elementów, żeby nic nie podchodziło.</p>
+                </li>
+                <li><span>04</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <h3>Kontrola i odbiór</h3>
+                    <p>Inspekcja każdej krawędzi pod lampami, instrukcja pielęgnacji i gwarancja producenta 5-7 lat na folię.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
 <?php get_template_part('template-parts/service-faq'); ?>
 <?php get_template_part('template-parts/service-xlinks'); ?>
 

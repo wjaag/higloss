@@ -164,6 +164,14 @@ get_header();
             </p>
             <?php endif; ?>
 
+            <!-- LOKALNY KONTEKST REALIZACJI (SEO lokalne — bez zmian w tytule wpisu) -->
+            <p class="hg-xlinks">
+                <span class="hg-xlinks-label">Studio:</span>
+                Realizacja wykonana w studiu <strong>HI-GLOSS DESIGN</strong> w Mierzynie pod Szczecinem (ul. Podmiejska 4) — ogrzewana hala, demontaż wg procedur fabrycznych i folie premium z gwarancją producenta.
+                <span class="hg-xlinks-sep" aria-hidden="true">·</span>
+                <a href="<?php echo esc_url(home_url('/kontakt')); ?>">Umów bezpłatną wycenę podobnego projektu</a>
+            </p>
+
         <?php endwhile; ?>
 
     </div>

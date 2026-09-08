@@ -130,6 +130,97 @@ get_header();
         </div>
 
     </div>
+    <!-- LOKALNE SEO: DETAILING SZCZECIN / MIERZYN -->
+    <section class="hg-section" style="padding-top: 1rem;" aria-labelledby="det-local-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Detailing blisko Ciebie</p>
+                    <h2 id="det-local-title">Szyby, dechroming, detale.<br><span>Szczecin i Mierzyn.</span></h2>
+                </div>
+                <p>Większość usług z tej strony zamykamy w jeden dzień roboczy — auto zostawiasz rano w hali przy ul. Podmiejskiej 4 w Mierzynie, odbierasz po południu gotowe.</p>
+            </header>
+
+            <div class="hg-svc-chips">
+                <article><h3>Mierzyn — hala studio</h3><p>ul. Podmiejska 4: ogrzewane stanowiska do aplikacji folii, formowanie szyb na gorąco i kontrola jakości pod lampami.</p></article>
+                <article><h3>Szczecin</h3><p>Gumieńce, Bezrzecze, Pomorzany, Prawobrzeże, Centrum i Police — najczęstsze kierunki klientów szybowych i dechromingu.</p></article>
+                <article><h3>Region</h3><p>Goleniów, Stargard, Gryfino i wybrzeże — przyjmujemy auta z całego województwa zachodniopomorskiego.</p></article>
+                <article><h3>Atest i przepisy</h3><p>Na przód dobieramy wyłącznie folie z homologacją, a na życzenie wystawiamy atest — przegląd i kontrola drogowa bez stresu.</p></article>
+                <article><h3>Wycena w 24 h</h3><p>Napisz, co Cię interesuje (szyby, dechroming, lampy, przygotowanie lakieru) — bezpłatną kalkulację dostaniesz tego samego lub następnego dnia.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOLIE CERAMICZNE VS PIECOWE -->
+    <section class="hg-section" style="background: #070a0f;" aria-labelledby="det-compare-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Warto wiedzieć</p>
+                    <h2 id="det-compare-title">Ceramika czy piec?<br><span>Jaką folię wybrać.</span></h2>
+                </div>
+                <p>Obie klasy folii blokują do 99% UV i dają ten sam efekt wizualny. Różnica jest w komforcie termicznym i budżecie — dobieramy je do auta i Twoich oczekiwań.</p>
+            </header>
+
+            <div class="hg-grid hg-grid-2" style="gap: 2rem; align-items: stretch;">
+                <div class="hg-editorial-card" style="--card-accent: #ff0055;">
+                    <h2 class="hg-editorial-title">Folie ceramiczne — komfort i technologia</h2>
+                    <ul style="color: #e2e8f0; font-size: 1rem; line-height: 1.8; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.55rem;">
+                        <li><strong>Mniej nagrzane wnętrze:</strong> wysoka redukcja promieniowania IR — klimatyzacja pracuje lżej, a lato w aucie jest znośniejsze.</li>
+                        <li><strong>Neutralne dla elektroniki:</strong> bez zakłóceń GPS, radia i czujników — bez metalizowanej warstwy.</li>
+                        <li><strong>Najwyższa klarowność:</strong> brak efektu „mleka" nawet przy ciemniejszych procentach.</li>
+                        <li><strong>Dla kogo:</strong> nowe auta, panoramiczne dachy i kierowcy jeżdżący dużo w słońcu.</li>
+                    </ul>
+                </div>
+                <div class="hg-editorial-card" style="--card-accent: #ff0055;">
+                    <h2 class="hg-editorial-title">Folie piecowe — klasyka w dobrej cenie</h2>
+                    <ul style="color: #e2e8f0; font-size: 1rem; line-height: 1.8; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.55rem;">
+                        <li><strong>Niższy budżet:</strong> zwykle o 30-40% taniej od ceramiki przy tym samym efekcie wizualnym.</li>
+                        <li><strong>Trwała, głęboka barba:</strong> sprawdzona technologia barwienia piecowego — kolor nie płowieje latami.</li>
+                        <li><strong>Te same standardy:</strong> ochrona UV do 99%, prywatność i atest na życzenie.</li>
+                        <li><strong>Dla kogo:</strong> auta codzienne i flotowe, gdzie liczy się wygląd i prywatność bez dopłaty za termikę.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCES DETAILINGU -->
+    <section class="hg-section" aria-labelledby="det-process-title">
+        <div class="hg-container">
+            <header class="hg-section-heading">
+                <div>
+                    <p class="hg-kicker">Jak pracujemy</p>
+                    <h2 id="det-process-title">Cztery etapy.<br><span>Zero kompromisów.</span></h2>
+                </div>
+                <p>Szyby, dechroming i detale rządzą się tymi samymi prawami co duże aplikacje: dobór, przygotowanie, montaż w warunkach i kontrola.</p>
+            </header>
+
+            <ul class="hg-process-grid">
+                <li><span>01</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+                    <h3>Dobór i pomiar</h3>
+                    <p>Ustalamy procent przepuszczalności zgodnie z przepisami (przód min. 75/70%) i dobieramy klasę folii do auta oraz budżetu.</p>
+                </li>
+                <li><span>02</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div>
+                    <h3>Przygotowanie</h3>
+                    <p>Mycie i odtłuszczanie szyb, demontaż boczków i uszczelek tam, gdzie wymaga tego czysta krawędź folii.</p>
+                </li>
+                <li><span>03</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
+                    <h3>Aplikacja</h3>
+                    <p>Formowanie folii na gorąco i montaż w ogrzewanej hali — bez pęcherzy, pyłków i podwiniętych krawędzi.</p>
+                </li>
+                <li><span>04</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <h3>Kontrola i atest</h3>
+                    <p>Inspekcja krawędzi, wskazówki pielęgnacji (7 dni bez myjni) i atest do folii na życzenie.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
 <?php get_template_part('template-parts/service-faq'); ?>
 <?php get_template_part('template-parts/service-xlinks'); ?>
 
