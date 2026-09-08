@@ -4,7 +4,6 @@
  *
  * @package HiGloss2026
  */
-$theme_uri = HIGLOSS_THEME_URI;
 $services = array(
     array('01','Car wrapping','Całościowa zmiana koloru','Odwracalna alternatywa dla lakierowania. Oklejamy auta, motocykle i łodzie foliami wylewanymi premium — w połysku, satynie, macie, carbonie i wykończeniach typu kameleon.','ai_oferta_zmiana_koloru.webp','Samochód po całościowej zmianie koloru folią','/zmiana-koloru','Poznaj zmianę koloru',array('Czas realizacji','3–5 dni'),array('Gwarancja producenta','5–7 lat'),array('Materiały','3M / Avery / Hexis')),
     array('02','Paint Protection Film','Bezbarwne folie PPF','Niemal niewidoczna bariera chroniąca lakier przed odpryskami, zarysowaniami, chemią drogową i codziennym zużyciem. Powierzchnia folii regeneruje mikrorysy pod wpływem ciepła.','ai_oferta_ppf.webp','Aplikacja bezbarwnej folii ochronnej PPF na maskę samochodu','/ppf','Poznaj ochronę PPF',array('Grubość folii','140–200 μm'),array('Trwałość','8–10 lat'),array('Pakiety','Strefy / Full Front / Full Body')),
@@ -22,7 +21,18 @@ $services = array(
             <?php foreach ($services as $service) : ?>
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/' . $service[4]); ?>" alt="<?php echo esc_attr($service[5]); ?>" width="1408" height="768" loading="lazy" decoding="async">
+                        <?php
+                        echo higloss_theme_image(
+                            $service[4],
+                            $service[5],
+                            array(
+                                'width' => 1408,
+                                'height' => 768,
+                                'loading' => 'lazy',
+                                'decoding' => 'async',
+                            )
+                        );
+                        ?>
                         <span><?php echo esc_html($service[0]); ?></span><p><?php echo esc_html($service[1]); ?></p>
                     </div>
                     <div class="hg-service-body">
