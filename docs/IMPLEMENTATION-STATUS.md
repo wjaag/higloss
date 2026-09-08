@@ -13,11 +13,12 @@ Branch: `redesign/seo-ux-2026`
 - Added `inc/realizacje-seo.php` for portfolio/service contextual linking and related-project queries.
 - Connected portfolio taxonomy views to service hubs and added crawlable related-project links to single realizations.
 - Connected all 11 seeded `poradnik` articles to the appropriate commercial service hub and related portfolio taxonomy, without forcing unrelated editorial posts into the graph.
-- Prepared reusable front-page template parts for the hero, materials strip and service cards; the legacy `front-page.php` remains intact until the wiring step is completed and syntax-checked.
+- Wired reusable front-page partials for the hero, materials strip and core service cards into the legacy `front-page.php`, while retaining the existing lower-page sections and public URLs.
 - Added `inc/theme-image.php` as a shared helper for theme assets with explicit alt text, intrinsic dimensions, loading/decoding and fetch-priority attributes.
-- Adopted the shared image helper in the prepared front-page hero and service-card partials.
+- Adopted the shared image helper in the front-page hero and service-card partials.
 - Corrected service-page heading semantics where a sibling-level `Specyfikacja` section was incorrectly marked as H3.
 - Cleaned visible markup/heading semantics on the advertising service page.
+- Preserved the theme's existing global box-model reset while removing only the unsafe global `border-radius: 0 !important` rule; radius overrides are now component-scoped.
 
 ## SEO architecture
 
@@ -29,17 +30,24 @@ Current content graph:
 
 ## Current integration state
 
-The main remaining implementation risk is the large legacy `front-page.php`. The prepared partials are ready, but the legacy inline hero/materials/services blocks must be replaced carefully while preserving the existing lower-page sections and public URLs. No production branch is touched.
+The front-page componentisation milestone is integrated. The main remaining risks are verification rather than another large template rewrite: service-page semantic consistency, URL/redirect inventory, PHP/runtime checks, accessibility/lightbox keyboard behavior, plugin compatibility and real-device performance.
+
+## Verification status
+
+- Branch comparison: `redesign/seo-ux-2026` is ahead of `arena/01a068c1-higloss` with no divergence behind the base.
+- Pull request #9 remains open, draft and targets `arena/01a068c1-higloss`.
+- GitHub Actions currently reports no workflow runs for the latest branch commit, so automated CI/PHP lint/Lighthouse results are **not claimed as passed**.
+- Lightbox review found a remaining accessibility improvement: keyboard focus is moved to the close button, but a full focus trap and restoration to the original trigger are not yet implemented.
 
 ## Next implementation queue
 
-1. Safely wire the prepared front-page template parts into `front-page.php` without changing public URLs or existing lower-page sections.
-2. Finish the service-page H1/H2 audit and semantic intent sections.
-3. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
-4. Inventory existing URLs and redirects before any URL change.
-5. Run PHP syntax checks and WordPress staging QA.
-6. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation, accessibility and console errors.
-7. Run Lighthouse/Core Web Vitals on representative templates.
+1. Finish the service-page H1/H2 and intent audit across all core service templates.
+2. Inventory existing public URLs and redirects; do not rename or remove valuable URLs without a migration entry.
+3. Review WordPress asset dequeues for plugin compatibility without touching production/base branches.
+4. Complete keyboard accessibility review, including the lightbox focus trap/restoration.
+5. Run PHP syntax checks and WordPress staging QA when an executable environment is available.
+6. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation and console errors.
+7. Run Lighthouse/Core Web Vitals on representative templates in an accessible staging/browser environment.
 
 ## Hard branch safety rule
 
