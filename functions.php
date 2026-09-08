@@ -66,6 +66,30 @@ function higloss_enqueue_assets() {
 add_action('wp_enqueue_scripts', 'higloss_enqueue_assets', 99);
 
 /**
+ * Krytyczne poprawki wydajnosci bezposrednio w <head> — inline, wiec odporne
+ * na optymalizatory LiteSpeed (UCSS/CCSS/combine), ktore potrafia wyciac
+ * reguly z zewnetrznych plikow CSS (selektory z .hg-js sa dodawane przez JS
+ * i optymalizator uznaje je za "nieuzywane").
+ * 1) Hero widoczne od pierwszego painta — bez JS-gated reveal (LCP 5,9 s -> ~FCP).
+ * 2) Preload obrazu hero (LCP) z srcset — pobieranie startuje przed arkuszami CSS.
+ */
+add_action('wp_head', 'higloss_perf_head', 1);
+function higloss_perf_head() {
+    echo "<style>.hg-hero .hg-reveal{opacity:1!important;transform:none!important;transition:none!important}</style>\n";
+
+    if (is_front_page()) {
+        $u = HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru';
+        printf(
+            '<link rel="preload" as="image" href="%s" imagesrcset="%s 480w, %s 768w, %s 1408w" imagesizes="100vw" fetchpriority="high">' . "\n",
+            esc_url($u . '-768.webp'),
+            esc_url($u . '-480.webp'),
+            esc_url($u . '-768.webp'),
+            esc_url($u . '.webp')
+        );
+    }
+}
+
+/**
  * WYDAJNOSC (PageSpeed mobile) — 3 elementy:
  * 1) Google Fonts bez blokowania renderowania (preload + media="print"),
  *    przy okazji 7 plikow krojec zamiast 9 (odpada ~40 KB transferu)
