@@ -49,9 +49,9 @@ get_header();
             <div class="hg-service-side">
                 <!-- KARTA: SPECYFIKACJA + CTA -->
                 <div class="hg-specs-cta-card" style="--card-accent: #ff0055;">
-                    <h3 class="hg-specs-title" style="border-color: #ff0055;">
+                    <h2 class="hg-specs-title" style="border-color: #ff0055;">
                         SPECYFIKACJA DETAILINGU
-                    </h3>
+                    </h2>
 
                     <div style="display: flex; flex-direction: column; gap: 1.25rem; color: #ffffff; margin-bottom: 2.2rem;">
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem;">
