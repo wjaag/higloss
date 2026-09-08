@@ -758,6 +758,47 @@ body:not(.home) .hg-header {
   font-weight: inherit;
 }
 
+/* „Zaufali nam" — wiersz w sekcji Wybrane realizacje (strona glowna) */
+.hg-clients-row {
+  margin-top: 3rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--hg-line);
+  text-align: center;
+}
+
+.hg-clients-label {
+  color: #758195;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hg-clients-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.hg-clients-list span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.42rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hg-clients-list b {
+  color: inherit;
+  font-weight: inherit;
+}
+
 /* Services */
 .hg-services {
   background:

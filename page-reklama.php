@@ -105,6 +105,21 @@ get_header();
 
     </div>
 
+    <!-- ZAUFALI NAM — marki i floty, z ktorymi pracujemy -->
+    <section class="hg-material-strip hg-material-strip--clients" aria-label="Klienci, którzy nam zaufali">
+        <div class="hg-container">
+            <p>Zaufali nam</p>
+            <div class="hg-material-list">
+                <span>DHL <b>COURIER</b></span>
+                <span>WARTA</span>
+                <span>SAMSUNG</span>
+                <span>POCZTA <b>POLSKA</b></span>
+                <span>TVP3 <b>SZCZECIN</b></span>
+                <span>WATERDROP</span>
+            </div>
+        </div>
+    </section>
+
     <!-- LOKALNE SEO: REKLAMA NA AUTACH SZCZECIN / MIERZYN -->
     <section class="hg-section" style="padding-top: 1rem;" aria-labelledby="reklama-local-title">
         <div class="hg-container">
