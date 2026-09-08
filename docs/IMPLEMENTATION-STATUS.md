@@ -15,6 +15,7 @@ Branch: `redesign/seo-ux-2026`
 - Connected all 11 seeded `poradnik` articles to the appropriate commercial service hub and related portfolio taxonomy, without forcing unrelated editorial posts into the graph.
 - Prepared reusable front-page template parts for the hero, materials strip and service cards; the legacy `front-page.php` remains intact until the wiring step is completed and syntax-checked.
 - Added `inc/theme-image.php` as a shared helper for theme assets with explicit alt text, intrinsic dimensions, loading/decoding and fetch-priority attributes.
+- Adopted the shared image helper in the prepared front-page hero and service-card partials.
 
 ## SEO architecture
 
@@ -27,13 +28,12 @@ Current content graph:
 ## Next implementation queue
 
 1. Safely wire the prepared front-page template parts into `front-page.php` without changing public URLs or existing lower-page sections.
-2. Adopt `higloss_theme_image()` in the new front-page partials and remaining static theme-image locations where it improves markup consistency.
-3. Audit every service page for H1/H2 hierarchy, search intent and semantic sections.
-4. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
-5. Inventory existing URLs and redirects before any URL change.
-6. Run PHP syntax checks and WordPress staging QA.
-7. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation, accessibility and console errors.
-8. Run Lighthouse/Core Web Vitals on representative templates.
+2. Audit every service page for H1/H2 hierarchy, search intent and semantic sections.
+3. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
+4. Inventory existing URLs and redirects before any URL change.
+5. Run PHP syntax checks and WordPress staging QA.
+6. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation, accessibility and console errors.
+7. Run Lighthouse/Core Web Vitals on representative templates.
 
 ## Hard branch safety rule
 
