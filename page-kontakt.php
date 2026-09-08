@@ -11,7 +11,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/kontakt_z_nami.webp'); ?>" alt="Kontakt z HI-GLOSS DESIGN — studio oklejania aut w Szczecinie i Mierzynie" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/kontakt_z_nami.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/kontakt_z_nami-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/kontakt_z_nami-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/kontakt_z_nami.webp'); ?> 1408w" sizes="100vw" alt="Kontakt z HI-GLOSS DESIGN — studio oklejania aut w Szczecinie i Mierzynie" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
         <div class="hg-container hg-hero-inner">

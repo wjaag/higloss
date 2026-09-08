@@ -597,37 +597,29 @@ document.addEventListener('DOMContentLoaded', function () {
     initLightbox();
 
     /* ==========================================
-       Background preloader for lightbox images
-       (idle-time, one at a time — makes opening
-       the lightbox and the Przed/Po switch instant)
+       Preloader obrazkow lightboxa — NA ZADANIE.
+       Wersja poprzednia pobierala w idle CALA galeria
+       przed/po (~5-6 MB, w tym PNG-i 2 MB+) i na mobile
+       zatykala lacze (PSI: payload 6,65 MB, SI 4,9 s).
+       Teraz: karta laduje swoje 2 obrazki dopiero gdy
+       uzytkownik wyrazi zamiar (hover / dotkniecie).
+       Otwarcie lightboxa i tak laduje je bezposrednio.
        ========================================== */
     function initGalleryPreloader() {
-        const onIdle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1500); };
-        onIdle(function () {
-            const seen = new Set();
-            const queue = [];
-            document.querySelectorAll('[data-lightbox-img]').forEach(function (el) {
-                const main = el.getAttribute('data-lightbox-img');
-                const before = el.getAttribute('data-lightbox-before');
-                [main, before].forEach(function (url) {
-                    if (url && !seen.has(url)) {
-                        seen.add(url);
-                        queue.push(url);
-                    }
+        document.querySelectorAll('[data-lightbox-img]').forEach(function (el) {
+            let done = false;
+            function preloadCard() {
+                if (done) return;
+                done = true;
+                [el.getAttribute('data-lightbox-img'), el.getAttribute('data-lightbox-before')].forEach(function (url) {
+                    if (!url) return;
+                    const img = new Image();
+                    img.decoding = 'async';
+                    img.src = url;
                 });
-            });
-            let index = 0;
-            function step() {
-                if (index >= queue.length) return;
-                const img = new Image();
-                img.decoding = 'async';
-                img.onload = img.onerror = function () {
-                    index += 1;
-                    setTimeout(step, 220);
-                };
-                img.src = queue[index];
             }
-            step();
+            el.addEventListener('pointerenter', preloadCard);
+            el.addEventListener('touchstart', preloadCard, { passive: true });
         });
     }
     initGalleryPreloader();

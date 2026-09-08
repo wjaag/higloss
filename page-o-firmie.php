@@ -11,7 +11,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>" alt="Studio HI-GLOSS DESIGN w Mierzynie — 15 lat oklejania i zmiany koloru aut" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile1_pasja.webp'); ?> 1408w" sizes="100vw" alt="Studio HI-GLOSS DESIGN w Mierzynie — 15 lat oklejania i zmiany koloru aut" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
         <div class="hg-container hg-hero-inner">

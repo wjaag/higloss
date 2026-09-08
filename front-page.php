@@ -14,7 +14,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Całościowa zmiana koloru samochodu folią — realizacja HI-GLOSS DESIGN Szczecin" width="1408" height="768" fetchpriority="high">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?> 1408w" sizes="100vw" alt="Całościowa zmiana koloru samochodu folią — realizacja HI-GLOSS DESIGN Szczecin" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
 
