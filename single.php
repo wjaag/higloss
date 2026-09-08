@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main style="padding: 7.5rem 0 5rem; flex: 1;">
+<main style="padding: 6.5rem 0 5rem; flex: 1;">
     <div class="hg-container">
 
         <?php while (have_posts()) : the_post();

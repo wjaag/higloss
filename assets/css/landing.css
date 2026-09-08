@@ -66,7 +66,9 @@ body.menu-open {
 
 /* Header */
 .hg-header {
-  position: fixed;
+  /* Statyczny naglowek: siedzi na gorze dokumentu i znika przy scrollu,
+     zeby nie zajmowal miejsca podczas przewijania (bylo: position: fixed). */
+  position: absolute;
   inset: 0 0 auto;
   z-index: 1000;
   height: 90px;
@@ -249,7 +251,8 @@ body:not(.home) .hg-header {
 
 .hg-section {
   position: relative;
-  padding: clamp(5.5rem, 9vw, 9rem) 0;
+  /* Ciaśniejszy rytm pionowy — treść sekcji nie zaczyna się zbyt nisko (było: clamp(5.5rem, 9vw, 9rem)). */
+  padding: clamp(3.75rem, 6vw, 6rem) 0;
 }
 
 .hg-kicker,
@@ -777,6 +780,23 @@ body:not(.home) .hg-header {
 
 .hg-service-body {
   padding: clamp(1.65rem, 3vw, 2.7rem);
+}
+
+/* Kafelki (oferta + szkolenia): CTA zawsze przy dolnej krawedzi karty,
+   na jednej wysokosci w calej siatce, niezaleznie od dlugosci opisu. */
+.hg-service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.hg-service-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.hg-service-body .hg-text-link {
+  margin-top: auto;
 }
 
 .hg-service-body h3 {

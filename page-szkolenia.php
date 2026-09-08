@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-<main style="padding: 7.5rem 0 0; flex: 1;">
+<main style="padding: 6.5rem 0 0; flex: 1;">
     <div class="hg-container">
 
         <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO

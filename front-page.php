@@ -139,14 +139,14 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         <p>Finishing touch</p>
                     </div>
                     <div class="hg-service-body">
-                        <h3>Szyby, dechroming i detailing</h3>
+                        <h3>Detailing</h3>
                         <p>Przyciemnianie szyb atestowanymi foliami, sportowy Shadow Line, oklejanie elementów wnętrza oraz przygotowanie lakieru do aplikacji. Detale, które domykają cały projekt.</p>
                         <ul>
                             <li><span>Ochrona UV</span><strong>Do 99%</strong></li>
                             <li><span>Dechroming</span><strong>Połysk / satyna</strong></li>
                             <li><span>Typowy czas usługi</span><strong>1 dzień</strong></li>
                         </ul>
-                        <a href="#wycena" class="hg-text-link">Zaplanuj zakres prac <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                        <a href="<?php echo esc_url(home_url('/detailing')); ?>" class="hg-text-link">Poznaj detailing <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
             </div>
@@ -329,7 +329,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             <div class="hg-service-grid">
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_podstawy.webp'); ?>" alt="Szkolenie z podstaw car wrappingu — kursant dociska folię rakelką na krawędzi drzwi" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_podstawy.webp'); ?>" alt="Szkolenie z podstaw car wrappingu — drzwi auta oklejone matową folią, rakelka i opalarka na panelu" width="1408" height="768" loading="lazy">
                         <span>01</span>
                         <p>Podstawy</p>
                     </div>
@@ -346,7 +346,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_ppf.webp'); ?>" alt="Szkolenie z folii ochronnych PPF — naciąganie bezbarwnej folii na błotnik auta" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_ppf.webp'); ?>" alt="Szkolenie z folii ochronnych PPF — bezbarwna folia rozłożona na masce auta, spryskiwacz i rakelka obok" width="1408" height="768" loading="lazy">
                         <span>02</span>
                         <p>Ochrona</p>
                     </div>
@@ -363,7 +363,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_branding.webp'); ?>" alt="Szkolenie z brandingu flot — aplikacja wielkoformatowej grafiki na auto dostawcze" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_branding.webp'); ?>" alt="Szkolenie z brandingu flot — bus z częściowo zaaplikowaną grafiką, w tle ploter tnący i drukarka" width="1408" height="768" loading="lazy">
                         <span>03</span>
                         <p>Branding</p>
                     </div>

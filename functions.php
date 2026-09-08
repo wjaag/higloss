@@ -98,6 +98,46 @@ remove_action('wp_head', 'rest_output_link_wp_head');
 remove_action('wp_head', 'wp_oembed_add_discovery_links');
 remove_action('template_redirect', 'rest_output_link_header', 11);
 
+// ---------------------------------------------------------------------------
+// Zgodnosc z wtyczkami SEO (Rank Math / Yoast / SEOPress / AIOSEO).
+// Motyw wypisuje wlasne meta (description, OG, canonical) i schematy JSON-LD
+// TYLKO gdy zadna wtyczka SEO nie jest aktywna — inaczej oddaje caly <head>
+// wtyczce, zeby nie dublowac sygnalow dla wyszukiwarek.
+// ---------------------------------------------------------------------------
+function higloss_seo_plugin_active() {
+    static $active = null;
+    if (null !== $active) {
+        return $active;
+    }
+
+    // Stale wersji definiowane w plikach glownych wtyczek
+    // (RANK_MATH_VERSION potwierdzone w rank-math.php, pozostale to standardowe
+    // nazwy uzywane w dokumentacji i snippetach kazdej z wtyczek).
+    $active = defined('RANK_MATH_VERSION')   // seo-by-rank-math
+        || defined('WPSEO_VERSION')          // wordpress-seo (Yoast)
+        || defined('SEOPRESS_VERSION')       // wp-seopress
+        || defined('AIOSEO_VERSION')         // all-in-one-seo-pack (v4)
+        || defined('AIOSEOP_VERSION');       // all-in-one-seo-pack (v3)
+
+    if (! $active) {
+        // Fallback po slugach wtyczek (front-end wymaga dolozenia plugin.php).
+        if (! function_exists('is_plugin_active')) {
+            require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+        $active = is_plugin_active('seo-by-rank-math/rank-math.php')
+            || is_plugin_active('wordpress-seo/wp-seo.php')
+            || is_plugin_active('wp-seopress/seopress.php')
+            || is_plugin_active('all-in-one-seo-pack/aioseo.php');
+    }
+
+    return $active;
+}
+
+// Jeden canonical na strone: motyw sam wypisuje rel=canonical w
+// higloss_render_seo_meta() (priorytet 1), wiec natywny duplikat WP zdejmujemy.
+// Wtyczki SEO zarzadzaja canonical samodzielnie i robia to samo.
+remove_action('wp_head', 'rel_canonical');
+
 add_action('wp_enqueue_scripts', 'higloss_trim_wp_assets', 100);
 function higloss_trim_wp_assets() {
     // Zadne strony nie uzywa embedow (YouTube/WordPress) ani edytora blokow
@@ -286,6 +326,9 @@ add_action('wp_ajax_nopriv_higloss_quote', 'higloss_handle_quote_calculator');
  * Output LocalBusiness & AutomotiveBusiness Schema.org JSON-LD
  */
 function higloss_render_schema_markup() {
+    if (higloss_seo_plugin_active()) {
+        return; // Wtyczka SEO wystawia wlasny schemat organizacji.
+    }
     $schema = array(
         "@context" => "https://schema.org",
         "@type" => "AutoBodyShop",
@@ -344,6 +387,9 @@ add_action('wp_head', 'higloss_render_schema_markup');
  */
 add_action('wp_head', 'higloss_render_seo_meta', 1);
 function higloss_render_seo_meta() {
+    if (higloss_seo_plugin_active()) {
+        return; // <head> przejmuje wtyczka SEO — nie dublujemy meta.
+    }
     $default_desc = 'HI-GLOSS DESIGN — studio zmiany koloru auta folią i folii PPF. Demontaż wg procedur fabrycznych, folie premium. Szczecin / Mierzyn. Bezpłatna wycena.';
 
     // Opisy pilnowane do max ~160 znakow (Bing WMT: "opis za dlugi").
@@ -634,6 +680,9 @@ function higloss_legacy_ofirmie_redirects() {
  */
 add_action('wp_head', 'higloss_render_article_schema');
 function higloss_render_article_schema() {
+    if (higloss_seo_plugin_active()) {
+        return; // Wtyczka SEO wystawia wlasny schemat Article.
+    }
     if (!is_singular('post')) {
         return;
     }
@@ -653,7 +702,7 @@ function higloss_render_article_schema() {
         'author'      => array(
             '@type' => 'Organization',
             'name'  => 'HI-GLOSS DESIGN',
-            'url'   => 'https://www.hi-glossdesign.pl',
+            'url'   => home_url('/'),
             'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.webp'),
         ),
         'publisher'   => array(
