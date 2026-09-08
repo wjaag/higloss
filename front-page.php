@@ -329,7 +329,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             <div class="hg-service-grid">
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Trener podczas szkolenia z oklejania auta folią" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_podstawy.webp'); ?>" alt="Szkolenie z podstaw car wrappingu — kursant dociska folię rakelką na krawędzi drzwi" width="1408" height="768" loading="lazy">
                         <span>01</span>
                         <p>Podstawy</p>
                     </div>
@@ -346,7 +346,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Aplikacja folii ochronnej PPF podczas szkolenia" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_ppf.webp'); ?>" alt="Szkolenie z folii ochronnych PPF — naciąganie bezbarwnej folii na błotnik auta" width="1408" height="768" loading="lazy">
                         <span>02</span>
                         <p>Ochrona</p>
                     </div>
@@ -363,7 +363,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_reklama.webp'); ?>" alt="Szkolenie z oklejania reklamowego pojazdów firmowych" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_branding.webp'); ?>" alt="Szkolenie z brandingu flot — aplikacja wielkoformatowej grafiki na auto dostawcze" width="1408" height="768" loading="lazy">
                         <span>03</span>
                         <p>Branding</p>
                     </div>
@@ -380,7 +380,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
 
                 <article class="hg-service-card hg-reveal">
                     <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_szkolenia.webp'); ?>" alt="Trener HI-GLOSS DESIGN uczy kursantów aplikacji folii w hali w Mierzynie" width="1408" height="768" loading="lazy">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_certyfikat.webp'); ?>" alt="Materiały szkoleniowe i certyfikat HI-GLOSS DESIGN — rakelki, opalarka i wzorniki folii" width="1408" height="768" loading="lazy">
                         <span>+</span>
                         <p>Certyfikat</p>
                     </div>

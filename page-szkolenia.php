@@ -14,18 +14,17 @@ get_header();
 <main style="padding: 7.5rem 0 0; flex: 1;">
     <div class="hg-container">
 
-        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #8b5cf6; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_szkolenia.webp'); ?>');">
+        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO
+             Uklad identyczny jak na pozostalych podstronach (page-ppf / page-zmiana-koloru):
+             wylacznie badge + H1. Kazdy dodatkowy element (np. akapit) nie miesci sie
+             w stalej wysokosci baneru 240px i rozjezdza sie z winieta. -->
+        <div class="hg-subpage-image-banner" style="--banner-accent: #8b5cf6; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/szkolenia_banner.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">SZKOLENIA CAR WRAPPINGU SZCZECIN - MIERZYN</span>
+                <span class="hg-subpage-banner-badge" style="color: #8b5cf6; border-color: #8b5cf6;">SZKOLENIA CAR WRAPPINGU SZCZECIN - MIERZYN</span>
                 <h1 class="hg-subpage-banner-title">
                     PROFESJONALNE <span style="color: #8b5cf6;">SZKOLENIA CAR WRAPPINGU</span>
                 </h1>
-                <p style="color: #cbd5e1; max-width: 640px; margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.6;">
-                    Praktyczne szkolenia z oklejania aut w ogrzewanej hali w Mierzynie: na prawdziwych samochodach,
-                    foliach premium i w małych grupach. Dla warsztatów, detailerów i osób, które startują w branży.
-                </p>
             </div>
         </div>
 
@@ -81,7 +80,7 @@ get_header();
                     <p class="hg-kicker">01 · Program</p>
                     <h2 id="szkolenia-program-title">Cztery moduły.<br><span>Od zera do wdrożenia.</span></h2>
                 </div>
-                <p>Każdy moduł kończysz z oklejonym elementem lub całym autem i listą kontrolną do powtórzenia we własnym warsztacie. Możesz zacząć od podstaw albo wejść od razu w specjalizację.</p>
+                <p>Praktyczne szkolenia z oklejania aut w ogrzewanej hali w Mierzynie: na prawdziwych samochodach, foliach premium i w małych grupach — dla warsztatów, detailerów i osób, które startują w branży. Każdy moduł kończysz z oklejonym elementem lub całym autem i listą kontrolną do powtórzenia u siebie.</p>
             </header>
 
             <ul class="hg-process-grid">
@@ -114,24 +113,24 @@ get_header();
         <div class="hg-container">
             <header class="hg-section-heading">
                 <div>
-                    <p class="hg-kicker">02 · Rytm dnia</p>
+                    <p class="hg-kicker">02 · Jak pracujemy</p>
                     <h2 id="szkolenia-dzien-title">Tak wygląda<br><span>dzień szkolenia.</span></h2>
                 </div>
                 <p>Teorii jest dokładnie tyle, ile trzeba, żeby praktyka była bezpieczna dla auta i folii. Resztę dnia kleisz — pod okiem trenera, na prawdziwym samochodzie.</p>
             </header>
 
             <ul class="hg-process-grid hg-process-grid--3">
-                <li><span>08:30</span>
+                <li><span>01</span>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div>
                     <h3>Teoria i dobór materiałów</h3>
                     <p>Rodzaje folii wylewanych, narzędzia, temperatury i plan cięcia — na przykładzie aut, które tego dnia oklejamy.</p>
                 </li>
-                <li><span>10:00</span>
+                <li><span>02</span>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l2-5h14l2 5v5h-3m-12 0H3v-5Zm4 0h10"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
                     <h3>Praktyka przy aucie</h3>
                     <p>Przygotowanie pojazdu, aplikacja na elementach, praca opalarką i rakelką. Każdy uczestnik klei samodzielnie.</p>
                 </li>
-                <li><span>15:00</span>
+                <li><span>03</span>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div>
                     <h3>Wykończenia i certyfikat</h3>
                     <p>Zawijanie w głąb, kontrola jakości pod lampami, omówienie błędów i certyfikat z planem wdrożenia u siebie.</p>

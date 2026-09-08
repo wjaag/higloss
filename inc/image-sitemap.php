@@ -25,6 +25,7 @@ function higloss_page_images_map() {
         'ppf'            => array('ai_oferta_ppf.webp'),
         'reklama'        => array('ai_oferta_reklama.webp'),
         'detailing'      => array('ai_oferta_detailing.webp'),
+        'szkolenia'      => array('szkolenia_banner.webp', 'szkolenia_podstawy.webp', 'szkolenia_ppf.webp', 'szkolenia_branding.webp', 'szkolenia_certyfikat.webp'),
         'galeria'        => array('galeria_realizacji.webp', 'gallery_bmw_m4_satin_black.webp', 'gallery_porsche_gt3_green.webp', 'gallery_porsche_gt3_before.webp', 'gallery_audi_rs6_blue.webp', 'gallery_audi_rs6_before.webp', 'gallery_mercedes_g63_matt.webp', 'gallery_mercedes_g63_before.webp', 'gallery_fleet_commercial.webp', 'gallery_fleet_before.webp', 'gallery_ppf_application.webp', 'gallery_ppf_application_before.webp', 'gallery_before_stock_paint.webp', 'ai_oferta_ppf.webp', 'ai_oferta_ppf_before.webp', 'ai_oferta_detailing.webp', 'ai_oferta_detailing_before.webp'),
         'proces'         => array('gallery_ppf_application.webp', 'proces_krok1.webp', 'proces_krok2.webp', 'proces_krok3.webp', 'proces_krok4.webp', 'proces_krok5.webp', 'proces_krok6.webp'),
         'faq'            => array('ai_tile2_oferta.webp'),
