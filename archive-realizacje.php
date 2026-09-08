@@ -52,11 +52,16 @@ $theme_uri = get_template_directory_uri();
                     $finish_type = get_post_meta(get_the_ID(), '_higloss_finish_type', true);
                     $terms       = get_the_terms(get_the_ID(), 'kategoria_realizacji');
                     $cat_slug    = ($terms && !is_wp_error($terms)) ? $terms[0]->slug : 'zmiana-koloru';
-                    $thumb_url   = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp';
+                    $thumb_id    = has_post_thumbnail() ? get_post_thumbnail_id() : 0;
+                    $thumb_url   = $thumb_id ? get_the_post_thumbnail_url(get_the_ID(), 'full') : $theme_uri . '/assets/images/gallery_bmw_m4_satin_black.webp';
                 ?>
                     <article class="hg-gallery-card" data-category="<?php echo esc_attr($cat_slug); ?>">
                         <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($thumb_url); ?>" data-lightbox-title="<?php the_title_attribute(); ?>" data-lightbox-meta="<?php echo esc_attr(($car_model ? $car_model . ' &bull; ' : '') . ($service_tag ?: 'HI-GLOSS Studio')); ?>" data-lightbox-link="<?php echo esc_url(home_url('/#wycena')); ?>">
-                            <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
+                            <?php if ($thumb_id) : ?>
+                                <?php echo wp_get_attachment_image($thumb_id, 'large', false, array('alt' => get_the_title(), 'loading' => 'lazy', 'decoding' => 'async')); ?>
+                            <?php else : ?>
+                                <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" width="1408" height="768" loading="lazy" decoding="async">
+                            <?php endif; ?>
                             <div class="hg-gallery-vignette"></div>
                             <span class="hg-gallery-cat-pill cat-<?php echo esc_attr($cat_slug); ?>">
                                 <?php echo ($terms && !is_wp_error($terms)) ? esc_html($terms[0]->name) : (!empty($service_tag) ? esc_html($service_tag) : 'REALIZACJA'); ?>
