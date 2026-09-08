@@ -1,0 +1,31 @@
+name: Theme QA
+
+on:
+  push:
+    branches:
+      - redesign/seo-ux-2026
+  pull_request:
+    branches:
+      - arena/01a068c1-higloss
+
+jobs:
+  php-lint:
+    name: PHP syntax
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Lint PHP files
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            php -l "$file"
+          done < <(find . -type f -name '*.php' -not -path './vendor/*' -print0)
