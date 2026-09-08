@@ -16,6 +16,8 @@ Branch: `redesign/seo-ux-2026`
 - Prepared reusable front-page template parts for the hero, materials strip and service cards; the legacy `front-page.php` remains intact until the wiring step is completed and syntax-checked.
 - Added `inc/theme-image.php` as a shared helper for theme assets with explicit alt text, intrinsic dimensions, loading/decoding and fetch-priority attributes.
 - Adopted the shared image helper in the prepared front-page hero and service-card partials.
+- Corrected service-page heading semantics where a sibling-level `Specyfikacja` section was incorrectly marked as H3.
+- Cleaned visible markup/heading semantics on the advertising service page.
 
 ## SEO architecture
 
@@ -25,10 +27,14 @@ Current content graph:
 
 `poradnik / FAQ -> service hub -> realization -> related realization`
 
+## Current integration state
+
+The main remaining implementation risk is the large legacy `front-page.php`. The prepared partials are ready, but the legacy inline hero/materials/services blocks must be replaced carefully while preserving the existing lower-page sections and public URLs. No production branch is touched.
+
 ## Next implementation queue
 
 1. Safely wire the prepared front-page template parts into `front-page.php` without changing public URLs or existing lower-page sections.
-2. Audit every service page for H1/H2 hierarchy, search intent and semantic sections.
+2. Finish the service-page H1/H2 audit and semantic intent sections.
 3. Build the full internal-link matrix: service ↔ guide ↔ FAQ ↔ realization ↔ contact/quote.
 4. Inventory existing URLs and redirects before any URL change.
 5. Run PHP syntax checks and WordPress staging QA.
