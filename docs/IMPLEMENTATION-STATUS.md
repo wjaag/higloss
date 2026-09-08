@@ -19,6 +19,8 @@ Branch: `redesign/seo-ux-2026`
 - Corrected service-page heading semantics where a sibling-level `Specyfikacja` section was incorrectly marked as H3.
 - Cleaned visible markup/heading semantics on the advertising service page.
 - Preserved the theme's existing global box-model reset while removing only the unsafe global `border-radius: 0 !important` rule; radius overrides are now component-scoped.
+- Hardened gallery/archive thumbnails with intrinsic dimensions and lazy/async loading where the archive template controls the markup.
+- Added automated PHP syntax QA workflow; the latest Theme QA run passed on the current branch head.
 
 ## SEO architecture
 
@@ -36,7 +38,8 @@ The front-page componentisation milestone is integrated. The main remaining risk
 
 - Branch comparison: `redesign/seo-ux-2026` is ahead of `arena/01a068c1-higloss` with no divergence behind the base.
 - Pull request #9 remains open, draft and targets `arena/01a068c1-higloss`.
-- GitHub Actions currently reports no workflow runs for the latest branch commit, so automated CI/PHP lint/Lighthouse results are **not claimed as passed**.
+- **Theme QA / PHP syntax: PASS** on head `42f983474872a2d26cfdfc572c591a30c51204bc`; the workflow completed successfully and PHP lint passed.
+- Lighthouse/browser/staging/Core Web Vitals results are not claimed yet because the redesign branch is not deployed to an executable staging runtime.
 - Lightbox review found a remaining accessibility improvement: keyboard focus is moved to the close button, but a full focus trap and restoration to the original trigger are not yet implemented.
 
 ## Next implementation queue
@@ -45,7 +48,7 @@ The front-page componentisation milestone is integrated. The main remaining risk
 2. Inventory existing public URLs and redirects; do not rename or remove valuable URLs without a migration entry.
 3. Review WordPress asset dequeues for plugin compatibility without touching production/base branches.
 4. Complete keyboard accessibility review, including the lightbox focus trap/restoration.
-5. Run PHP syntax checks and WordPress staging QA when an executable environment is available.
+5. Run WordPress staging QA when an executable environment is available.
 6. Verify Yoast and no-Yoast output, forms/SMTP, mobile navigation and console errors.
 7. Run Lighthouse/Core Web Vitals on representative templates in an accessible staging/browser environment.
 
