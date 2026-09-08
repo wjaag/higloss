@@ -439,3 +439,65 @@ function higloss_bootstrap_poradnik_sync() {
     set_transient('higloss_poradnik_notice', $created, 10 * MINUTE_IN_SECONDS);
 }
 add_action('init', 'higloss_bootstrap_poradnik_sync', 33);
+
+/**
+ * Bootstrap v3 poradnika — dodaje NOWE artykuly z higross_poradnik_articles_v3()
+ * jako SZKICE (post_status = draft). Klient publikuje je recznie w WP-Admin
+ * (Wpisy → Szkice). Jednorazowe: flaga higross_poradnik_seeded 2 → 3.
+ */
+function higross_bootstrap_poradnik_v3() {
+    if ((int) get_option('higross_poradnik_seeded') !== 2) {
+        return;
+    }
+
+    $articles = function_exists('higross_poradnik_articles_v3') ? higross_poradnik_articles_v3() : array();
+    $cat      = get_term_by('slug', 'pytania', 'category');
+    $cat_id   = ($cat && !is_wp_error($cat)) ? (int) $cat->term_id : 0;
+    $created  = 0;
+
+    foreach ($articles as $article) {
+        $existing = get_page_by_path($article['slug'], OBJECT, 'post');
+        if ($existing) {
+            continue;
+        }
+        $new_post = wp_insert_post(array(
+            'post_title'    => $article['title'],
+            'post_name'     => $article['slug'],
+            'post_status'   => 'draft',
+            'post_type'     => 'post',
+            'post_excerpt'  => $article['excerpt'],
+            'post_content'  => $article['content'],
+            'post_category' => $cat_id ? array($cat_id) : array(),
+        ));
+        if ($new_post && !is_wp_error($new_post)) {
+            $created++;
+        }
+    }
+
+    update_option('higross_poradnik_seeded', 3);
+    if ($created) {
+        set_transient('higloss_poradnik_v3_notice', $created, 10 * MINUTE_IN_SECONDS);
+    }
+}
+add_action('init', 'higross_bootstrap_poradnik_v3', 31);
+
+/**
+ * Komunikat w kokpicie po dodaniu szkicow poradnika (pakiet v3).
+ */
+function higross_poradnik_v3_admin_notice() {
+    $created = get_transient('higloss_poradnik_v3_notice');
+    if (false === $created || !current_user_can('manage_options')) {
+        return;
+    }
+    delete_transient('higross_poradnik_v3_notice');
+    ?>
+    <div class="notice notice-info is-dismissible">
+        <p>
+            <strong>Nowe szkice poradników dodane.</strong>
+            Utworzyliśmy <?php echo (int) $created; ?> nowe artykuły jako <strong>szkice</strong>
+            (Wpisy → Szkice). Przejrzyj je i opublikuj ręcznie, kiedy będziesz gotowy.
+        </p>
+    </div>
+    <?php
+}
+add_action('admin_notices', 'higross_poradnik_v3_admin_notice');

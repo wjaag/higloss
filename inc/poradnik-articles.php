@@ -513,6 +513,9 @@ function higloss_poradnik_image($post_id) {
     }
     $slug   = get_post_field('post_name', $post_id);
     $assets = wp_list_pluck(higloss_poradnik_articles(), 'image', 'slug');
+    if (function_exists('higross_poradnik_articles_v3')) {
+        $assets += wp_list_pluck(higross_poradnik_articles_v3(), 'image', 'slug');
+    }
     $file   = isset($assets[$slug]) ? $assets[$slug] : 'gallery_bmw_m4_satin_black.webp';
     return HIGLOSS_THEME_URI . '/assets/images/' . $file;
 }
@@ -526,4 +529,162 @@ function higloss_poradnik_image($post_id) {
 function higloss_reading_time($content) {
     $words = str_word_count(wp_strip_all_tags($content), 0, 'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ');
     return max(1, (int) round($words / 200));
+}
+
+/**
+ * Pakiet v3 — nowe artykuły long-tail dodawane jako SZKICE (do ręcznej
+ * publikacji przez klienta w WP-Admin: Wpisy → Szkice). Ten sam format
+ * co higross_poradnik_articles(): title, slug, excerpt, image, content.
+ *
+ * @return array<int,array<string,string>>
+ */
+function higross_poradnik_articles_v3() {
+    return array(
+
+        // ---------------------------------------------------------- v3/1 — CENNIK PRZYCIEMNIANIA SZYB
+        array(
+            'title'   => 'Ile kosztuje przyciemnienie szyb w samochodzie? Cennik 2026 i od czego zależy cena',
+            'slug'    => 'ile-kosztuje-przyciemnienie-szyb-w-samochodzie',
+            'image'   => 'gallery_audi_rs6_blue.webp',
+            'excerpt' => 'Przyciemnienie szyb w 2026 roku kosztuje orientacyjnie od 600 zł (tylne szyby w kompakcie) do ok. 1 800 zł (duży SUV lub van folią ceramiczną). Sprawdź widełki, co wchodzi w cenę i na co uważać, żeby auto przeszło przegląd.',
+            'content'   => '
+<h2>Od czego zależy cena przyciemnienia szyb?</h2>
+<p>Ceny ofertowe potrafią różnić się nawet dwukrotnie — i nie jest to przypadek. Na końcową kwotę wpływają cztery rzeczy:</p>
+<ul>
+<li><strong>Klasa folii</strong> — folie piecowe są tańsze i w pełni legalne; folie ceramiczne kosztują zwykle o 30-40% więcej, ale mocniej redukują nagrzewanie wnętrza i są neutralne dla GPS-u.</li>
+<li><strong>Wielkość i kształt auta</strong> — kompakt to mniej materiału i krótsza praca niż SUV czy van, a mocno wygięte szyby wymagają dłuższego formowania na gorąco.</li>
+<li><strong>Zakres usługi</strong> — najczęściej przyciemnia się szyby tylne i tylną; osobną pozycją jest pas na szybę przednią (daszek przeciwsłoneczny).</li>
+<li><strong>Demontaż</strong> — przy części aut zdjęcie boczków i uszczelek daje czystszą krawędź folii i jest wliczone w usługę premium.</li>
+</ul>
+
+<h2>Orientacyjny cennik przyciemniania szyb (2026)</h2>
+<p>Kwoty dotyczą szyb tylnych i tylnej, folią z atestem, z przygotowaniem i montażem w ogrzewanej hali:</p>
+<table>
+<thead><tr><th>Segment auta</th><th>Przykłady</th><th>Folia piecowa</th><th>Folia ceramiczna</th></tr></thead>
+<tbody>
+<tr><td>Miejskie / kompakt</td><td>Fiat 500, VW Polo, Toyota Yaris</td><td>600 – 900 zł</td><td>850 – 1 200 zł</td></tr>
+<tr><td>Sedan / kombi</td><td>BMW 3/5, Audi A4/A6, Tesla Model 3</td><td>700 – 1 100 zł</td><td>1 000 – 1 400 zł</td></tr>
+<tr><td>SUV / crossover</td><td>Audi Q5, BMW X5, Volvo XC60</td><td>900 – 1 400 zł</td><td>1 200 – 1 800 zł</td></tr>
+<tr><td>Van / duży SUV</td><td>Mercedes Vito, VW Multivan, Range Rover</td><td>1 200 – 1 800 zł</td><td>1 500 – 2 200 zł</td></tr>
+<tr><td>Pas na szybę przednią</td><td>każde auto</td><td colspan="2">200 – 400 zł</td></tr>
+</tbody>
+</table>
+<p><em>Kwoty są orientacyjne i dotyczą regionu Szczecina. Dokładną wycenę przygotowujemy bezpłatnie po podaniu modelu auta i wybranej klasy folii.</em></p>
+
+<h2>Ceramiczna czy piecowa — którą wybrać?</h2>
+<p>Obie klasy blokują do 99% promieniowania UV i dają ten sam efekt wizualny. <strong>Ceramika</strong> dodatkowo wyraźnie ogranicza promieniowanie podczerwone (mniej nagrzane wnętrze, lżej pracująca klimatyzacja) i nie zakłóca elektroniki. <strong>Folia piecowa</strong> to sprawdzona klasyka w niższym budżecie — głęboka, trwała barwa bez dopłaty za termikę. Pełne porównanie znajdziesz w opisie usługi <a href="/detailing/">przyciemniania szyb</a>.</p>
+
+<h2>Co dokładnie dostajesz w tej cenie?</h2>
+<ul>
+<li>mycie i odtłuszczenie szyb oraz demontaż elementów tam, gdzie wymaga tego czysta krawędź,</li>
+<li>formowanie folii na gorąco i montaż bez pęcherzy i podwiniętych krawędzi,</li>
+<li>folię renomowanego producenta z atestem — na życzenie wystawiamy dokument do auta,</li>
+<li>instrukcję pielęgnacji (m.in. 7 dni bez myjni i opuszczania szyb).</li>
+</ul>
+
+<h2>Przepisy w skrócie — żeby przegląd przeszedł bez stresu</h2>
+<p>W Polsce szyba przednia musi przepuszczać minimum 75% światła, a przednie boczne minimum 70%. Dlatego na przód dobieramy wyłącznie bardzo jasne, homologowane folie (lub pas przeciwsłoneczny), a właściwe przyciemnienie wykonujemy na szybach za słupkiem B. Szczegóły opisaliśmy w artykule o tym, co wolno przy przyciemnianiu szyb i o co chodzi z atestem.</p>
+
+<p><strong>Masz pytanie o wycenę dla swojego auta?</strong> Zadzwoń: <a href="tel:+48605088065">605 088 065</a> lub napisz przez <a href="/kontakt/">formularz kontaktowy</a> — odpowiadamy zwykle tego samego dnia.</p>',
+        ),
+
+        // ---------------------------------------------------------- v3/2 — OKLEJANIE REKLAMĄ / FLOTA
+        array(
+            'title'   => 'Oklejanie auta reklamą — ile kosztuje i jak przygotować projekt? Cennik 2026',
+            'slug'    => 'oklejanie-auta-reklama-cennik-i-jak-przygotowac-projekt',
+            'image'   => 'gallery_fleet_commercial.webp',
+            'excerpt' => 'Reklama na aucie kosztuje od kilkuset złotych za logo na drzwiach do kilku tysięcy za pełne oklejenie z wydrukiem. Zobacz cennik 2026, listę materiałów do przygotowania i przebieg realizacji od pomiaru do aplikacji.',
+            'content'   => '
+<h2>Ile kosztuje reklama na samochodzie?</h2>
+<p>Rozstrzał jest duży, bo „oklejanie reklamą" to zarówno pojedyncze logo na drzwiach, jak i pełny car wrapping flotowy z wydrukiem. Najważniejsze czynniki ceny:</p>
+<ul>
+<li><strong>Zakres</strong> — powierzchnia oklejenia (logo, pas, pół auta, całość) oraz liczba pojazdów w serii.</li>
+<li><strong>Materiał</strong> — folia wylewana z laminatem UV (trwałość 5-7 lat) vs folia polimerowa na płaskie powierzchnie; do szyb stosujemy folię One Way Vision.</li>
+<li><strong>Stopień trudności</strong> — przetłoczenia, zderzaki i wnęki wydłużają aplikację.</li>
+<li><strong>Projekt</strong> — gotowy projekt klienta obniża koszt; przygotowanie grafiki i wizualizacji na aucie wyceniamy osobno.</li>
+</ul>
+
+<h2>Orientacyjny cennik oklejania reklamowego (2026)</h2>
+<table>
+<thead><tr><th>Zakres</th><th>Opis</th><th>Cena orientacyjna</th></tr></thead>
+<tbody>
+<tr><td>Logo / napis na drzwiach</td><td>folia plotowana, 1-2 elementy</td><td>300 – 700 zł</td></tr>
+<tr><td>Drzwi + klapa tylna</td><td>dane kontaktowe, podstawowy branding</td><td>800 – 1 500 zł</td></tr>
+<tr><td>Pół oklejenia (partial wrap)</td><td>tył + części boków, wydruk z laminatem</td><td>2 000 – 4 000 zł</td></tr>
+<tr><td>Pełne oklejenie reklamowe</td><td>całe auto, wydruk + laminat UV</td><td>4 500 – 8 000 zł</td></tr>
+<tr><td>Van / auto dostawcze</td><td>np. VW Transporter, Mercedes Sprinter</td><td>3 000 – 7 000 zł</td></tr>
+<tr><td>Szyby (One Way Vision)</td><td>reklama na szybach bocznych/tylnej</td><td>400 – 900 zł</td></tr>
+</tbody>
+</table>
+<p><em>Przy flotach (5+ pojazdów) obowiązuje wycena pakietowa — zwykle wyraźnie niższa za sztukę. Kwoty dotyczą regionu Szczecina.</em></p>
+
+<h2>Jak przygotować materiały do projektu?</h2>
+<p>Im lepiej przygotowane pliki, tym szybciej auto wyjeżdża z hali. Lista startowa:</p>
+<ul>
+<li><strong>Logo w wektorach</strong> (AI, EPS, SVG lub PDF) — brak wersji wektorowej da się obejść, ale wydłuża przygotowanie.</li>
+<li><strong>Kolorystyka firmowa</strong> — wartości Pantone/CMYK, ewentualnie księga znaku.</li>
+<li><strong>Treści</strong> — dane kontaktowe, hasła, domena; wszystko, co ma trafić na auto.</li>
+<li><strong>Zdjęcia lub wizja</strong> — wystarczy telefonem z profilu i przodu auta; na ich podstawie przygotujemy wizualizację.</li>
+</ul>
+
+<h2>Jak przebiega realizacja?</h2>
+<ul>
+<li><strong>Konsultacja i pomiar</strong> — ustalamy zakres i dobieramy materiały pod budżet.</li>
+<li><strong>Projekt i wizualizacja</strong> — pokazujemy branding na zdjęciach Twojego auta; poprawki robimy przed drukiem.</li>
+<li><strong>Druk i laminowanie</strong> — druk solwentowy/lateksowy na folii wylewanej, zabezpieczony laminatem UV.</li>
+<li><strong>Aplikacja w ogrzewanej hali</strong> — demontaż elementów, klejenie w kontrolowanej temperaturze, kontrola krawędzi.</li>
+</ul>
+
+<h2>Trwałość i referencje</h2>
+<p>Prawidłowo zaaplikowana reklama z laminatem wytrzymuje <strong>5-7 lat</strong> mycia i słońca bez wyraźnej utraty koloru, a po zakończeniu kampanii folię usuwamy bez śladu na lakierze. W tym standardzie oklejaliśmy m.in. flotę kurierską <strong>DHL</strong> i auta <strong>Warty</strong> — pełny opis usługi znajdziesz na stronie <a href="/reklama/">reklama na auto</a>.</p>
+
+<p><strong>Chcesz wycenę dla swojej floty?</strong> Zadzwoń: <a href="tel:+48605088065">605 088 065</a> albo wyślij zapytanie przez <a href="/kontakt/">formularz</a> — kalkulację przygotujemy w 24 godziny.</p>',
+        ),
+
+        // ---------------------------------------------------------- v3/3 — FORMALNOŚCI PO ZMIANIE KOLORU
+        array(
+            'title'   => 'Zmiana koloru auta folią a formalności — dowód rejestracyjny, ubezpieczenie i przegląd w pigułce',
+            'slug'    => 'zmiana-koloru-auta-folia-formalnosci-dowod-ubezpieczenie-przeglad',
+            'image'   => 'gallery_bmw_m4_satin_black.webp',
+            'excerpt' => 'Okleiłeś auto folią w innym kolorze — czy trzeba aktualizować dowód rejestracyjny, zgłaszać zmianę ubezpieczycielowi i co na to diagnosta? Konkretne odpowiedzi bez prawniczego żargonu.',
+            'content'   => '
+<h2>Czy zmianę koloru folią wpisuje się do dowodu rejestracyjnego?</h2>
+<p>Kolor pojazdu to jedna z danych wpisanych do dowodu rejestracyjnego. Przepisy nie opisują wprost folii — mówią o zmianie koloru pojazdu, więc bezpieczna i poprawna praktyka jest prosta:</p>
+<ul>
+<li><strong>Folia wyraźnie zmienia kolor</strong> (np. biały lakier pod czarnym matem) — warto zaktualizować wpis w wydziale komunikacji. Koszt wymiany dokumentu to ok. 54 zł, a sprawa jest czysta przy każdej kontroli.</li>
+<li><strong>Odcień zbliżony do fabrycznego</strong> (np. satyna na połysku tego samego koloru) — zmiana zwykle nie wymaga żadnego wpisu.</li>
+<li><strong>Oklejenie częściowe</strong> (dach, pasy, detale) — kolor pojazdu się nie zmienia, formalności brak.</li>
+</ul>
+<p>Jeśli masz wątpliwość co do swojego przypadku, dopytaj w swoim wydziale komunikacji — to jedna krótka rozmowa, a dokument zostaje spójny z rzeczywistością.</p>
+
+<h2>Ubezpieczenie OC i AC — co zgłosić?</h2>
+<p><strong>OC:</strong> polisa OC nie zależy od koloru — tu nic zgłaszać nie trzeba. <strong>AC:</strong> zmiana koloru wpływa na identyfikację i wycenę auta, więc warto poinformować ubezpieczyciela. W praktyce pomaga komplet trzech rzeczy:</p>
+<ul>
+<li>faktura za usługę oklejenia (potwierdza wartość i jakość materiału),</li>
+<li>zdjęcia auta przed i po realizacji (otrzymujesz je od nas razem z kartą gwarancyjną),</li>
+<li>informacja o gwarancji producenta folii.</li>
+</ul>
+<p>Dzięki temu przy szkodzie nie ma sporów o to, czym jest folia na aucie — a jest pełnoprawnym, udokumentowanym elementem.</p>
+
+<h2>Przegląd techniczny — czy diagnosta patrzy na folię?</h2>
+<p>Diagnosta sprawdza stan techniczny, nie kolor — folia na lakierze nie ma żadnego wpływu na wynik badania. Inaczej jest z <strong>przyciemnianiem szyb</strong>: tam obowiązują normy przepuszczalności (75% przód / 70% boczne przednie) i warto mieć przy sobie atest folii. Dlatego na przód stosujemy wyłącznie folie homologowane.</p>
+
+<h2>Sprzedaż auta z folią — atut, nie problem</h2>
+<p>To argument, o którym klienci często zapominają: folia jest <strong>w pełni odwracalna</strong>. Kupujący dostaje auto, którego fabryczny lakier przez cały czas był chroniony przed słońcem, rysami i odpryskami — a przy sprzedaży można pokazać to na zdjęciach sprzed oklejenia. Dwie drogi:</p>
+<ul>
+<li><strong>sprzedaż z folią</strong> — nowy kolor zostaje; dołącz kartę gwarancyjną (gwarancja 5-7 lat jest zbywalna razem z autem),</li>
+<li><strong>demontaż przed sprzedażą</strong> — zdejmujemy folię, auto wraca do fabrycznego koloru w stanie lepszym niż przed oklejeniem.</li>
+</ul>
+
+<h2>Podsumowanie — lista kroków po oklejeniu</h2>
+<ul>
+<li>Zaktualizuj kolor w dowodzie, jeśli folia wyraźnie go zmieniła (~54 zł).</li>
+<li>Poinformuj ubezpieczyciela AC i dołącz fakturę oraz zdjęcia.</li>
+<li>Trzymaj kartę gwarancyjną razem z dokumentami auta.</li>
+<li>Przegląd i kontrola drogowa — bez dodatkowych wymagań (poza atestem szyb, jeśli są przyciemnione).</li>
+</ul>
+
+<p><strong>Planujesz zmianę koloru?</strong> Zobacz, jak to robimy na stronie <a href="/zmiana-koloru/">zmiana koloru auta folią</a>, zadzwoń: <a href="tel:+48605088065">605 088 065</a> albo napisz przez <a href="/kontakt/">formularz</a> — bezpłatną wycenę dostaniesz w 24 godziny.</p>',
+        ),
+    );
 }

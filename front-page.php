@@ -67,7 +67,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
         </div>
     </section>
 
-    <section class="hg-material-strip" aria-label="Klienci, którzy nam zaufali">
+    <section class="hg-material-strip hg-material-strip--clients" aria-label="Klienci, którzy nam zaufali">
         <div class="hg-container">
             <p>Zaufali nam</p>
             <div class="hg-material-list">

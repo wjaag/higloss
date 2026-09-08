@@ -706,6 +706,58 @@ body:not(.home) .hg-header {
   font-size: 0.66em;
 }
 
+/* Pasek „Zaufali nam" — wariant kliencki (pigulki), odroznia sie od paska marek folii */
+.hg-material-strip--clients {
+  background: #0a0f18;
+  border-top: none;
+}
+
+.hg-material-strip--clients .hg-container {
+  grid-template-columns: 220px 1fr;
+  min-height: 96px;
+}
+
+.hg-material-strip--clients p {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #25aae1;
+  letter-spacing: 0.22em;
+}
+
+.hg-material-strip--clients p::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: #25aae1;
+  flex: none;
+}
+
+.hg-material-strip--clients .hg-material-list {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.45rem;
+}
+
+.hg-material-strip--clients .hg-material-list span {
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--hg-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.42rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hg-material-strip--clients .hg-material-list b {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 /* Services */
 .hg-services {
   background:

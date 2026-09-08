@@ -101,11 +101,11 @@ $theme_uri = HIGLOSS_THEME_URI;
                     <div class="hg-service-image">
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" alt="Samochód przygotowany do detailingu i zabezpieczenia" width="1408" height="768" loading="lazy">
                         <span>04</span>
-                        <p>Finishing touch</p>
+                        <p>Folia na szyby i detale</p>
                     </div>
                     <div class="hg-service-body">
-                        <h3>Szyby, dechroming i detailing</h3>
-                        <p>Przyciemnianie szyb atestowanymi foliami, sportowy Shadow Line, oklejanie elementów wnętrza oraz przygotowanie lakieru do aplikacji. Detale, które domykają cały projekt.</p>
+                        <h3>Detailing</h3>
+                        <p>Folie na szyby, dechroming i renowacja lamp. Komfort, prywatność i wygląd bez kompromisów.</p>
                         <ul>
                             <li><span>Ochrona UV</span><strong>Do 99%</strong></li>
                             <li><span>Dechroming</span><strong>Połysk / satyna</strong></li>
