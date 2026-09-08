@@ -2176,6 +2176,21 @@ body:not(.home) .hg-header {
 .hg-service-grid .hg-reveal:nth-child(4),
 .hg-process-grid .hg-reveal:nth-child(4) { transition-delay: 0.2s; }
 
+/* ==========================================================================
+   HERO (above-the-fold): WYLACZONY reveal sterowany JS.
+   main.js laduje sie w stopce; dodanie .hg-js chowalo hero (opacity:0),
+   a IntersectionObserver pokazywal je znow z 0,8 s transitionem — Lighthouse
+   liczyl LCP dopiero na koncu tej animacji (render delay 2,3 s, LCP 5,9 s).
+   Hero ma byc widoczne od pierwszego painta; sekcje ponizej zostaja z animacja.
+   ========================================================================== */
+.hg-hero .hg-reveal,
+.hg-js .hg-hero .hg-reveal,
+.hg-js .hg-hero .hg-reveal.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
 /* Existing subpages: account for the redesigned header/footer. */
 body:not(.home) main:not(.hg-landing) {
   padding-top: 8rem !important;
