@@ -32,7 +32,7 @@ get_header();
                 </h2>
 
                 <p class="hg-editorial-paragraph">
-                    Grafika na pojazdach to najskuteczniejsza i najbardziej dochodowa forma mobilnej reklamy wizualnej. Samochód firmowy codziennie generuje tysiące kontaktów wzrokowych z potencjalnymi klientami na ulicach Szczecina i regionu.
+                    Grafika na pojazdach pozwala wykorzystać samochody firmowe jako dodatkowy nośnik identyfikacji wizualnej i reklamy — zarówno w Szczecinie, jak i w codziennej pracy flot na terenie regionu.
                 </p>
 
                 <p class="hg-editorial-paragraph">
