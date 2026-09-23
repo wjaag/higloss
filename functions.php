@@ -75,7 +75,7 @@ add_action('wp_enqueue_scripts', 'higloss_enqueue_assets', 99);
  */
 add_action('wp_head', 'higloss_perf_head', 1);
 function higloss_perf_head() {
-    echo "<style>.hg-hero .hg-reveal{opacity:1!important;transform:none!important;transition:none!important}</style>\n";
+    echo "<style>.hg-hero .hg-reveal{opacity:1!important;transform:none!important;transition:none!important}body.home .hg-hero-title{font-family:'Montserrat H1','Montserrat',Arial,sans-serif}</style>\n";
 
     if (is_front_page()) {
         $u = HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru';
@@ -101,10 +101,11 @@ function higloss_perf_head() {
 add_action('wp_head', 'higloss_fonts_async', 1);
 function higloss_fonts_async() {
     $f = HIGLOSS_THEME_URI . '/assets/fonts/';
-    echo '<link rel="preload" as="font" type="font/woff2" href="' . esc_url($f . 'montserrat-latin-wght700-900.woff2') . '" crossorigin>' . "\n";
+    echo '<link rel="preload" as="font" type="font/woff2" href="' . esc_url($f . 'montserrat-h1.woff2') . '" crossorigin>' . "\n";
     $latin     = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD';
     $latin_ext = 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF';
     echo '<style>' . "\n";
+    echo "@font-face{font-family:'Montserrat H1';font-style:normal;font-display:swap;font-weight:900;src:url(" . esc_url($f . 'montserrat-h1.woff2') . ") format('woff2');}\n";
     echo "@font-face{font-family:'Montserrat';font-style:normal;font-display:swap;font-weight:700 900;src:url(" . esc_url($f . 'montserrat-latin-wght700-900.woff2') . ") format('woff2-variations');unicode-range:" . $latin . ";}\n";
     echo "@font-face{font-family:'Montserrat';font-style:normal;font-display:swap;font-weight:700 900;src:url(" . esc_url($f . 'montserrat-latin-ext-wght700-900.woff2') . ") format('woff2-variations');unicode-range:" . $latin_ext . ";}\n";
     echo "@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-display:swap;font-weight:400 800;src:url(" . esc_url($f . 'plus-jakarta-sans-latin-wght400-800.woff2') . ") format('woff2-variations');unicode-range:" . $latin . ";}\n";
