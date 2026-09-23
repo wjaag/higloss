@@ -91,38 +91,26 @@ function higloss_perf_head() {
 
 /**
  * WYDAJNOSC (PageSpeed mobile) — fonty self-hostowane (woff2 variable z
- * @fontsource, Montserrat 100-900, Plus Jakarta Sans 200-800). Bez Google Fonts:
- * brak DNS/TLS do fonts.gstatic.com (~300-600 ms na mobile), pelny zakres wag
- * z jednego pliku na rodzine zamiast wielu podzbiorow. Preload + font-display:
- * swap = tekst widoczny od razu fallbackiem, bez blokowania renderowania (FOIT).
+ * @fontsource, zwarte instancerem do wag realnie uzywanych w motywie:
+ * Montserrat 700-900, Plus Jakarta Sans 400-800 — ~119 KB lacznie zamiast
+ * ~158 KB za pelne zakresy 100-900/200-800). Bez Google Fonts: brak DNS/TLS
+ * do fonts.gstatic.com (~300-600 ms na mobile). Preload TYLKO Montserrat
+ * (naglowki/H1 — font krytyczny dla pierwszego wrazenia); Plus Jakarta Sans
+ * (tekst biezacy) dociaga sie asynchronicznie z font-display: swap.
  */
-add_action('wp_head', 'higross_fonts_async', 1);
-function higross_fonts_async() {
-    $f     = HIGLOSS_THEME_URI . '/assets/fonts/';
-    $files = array(
-        'montserrat-latin-wght-normal.woff2',
-        'montserrat-latin-ext-wght-normal.woff2',
-        'plus-jakarta-sans-latin-wght-normal.woff2',
-        'plus-jakarta-sans-latin-ext-wght-normal.woff2',
-    );
-    foreach ($files as $file) {
-        echo '<link rel="preload" as="font" type="font/woff2" href="' . esc_url($f . $file) . '" crossorigin>' . "\n";
-    }
+add_action('wp_head', 'higloss_fonts_async', 1);
+function higloss_fonts_async() {
+    $f = HIGLOSS_THEME_URI . '/assets/fonts/';
+    echo '<link rel="preload" as="font" type="font/woff2" href="' . esc_url($f . 'montserrat-latin-wght700-900.woff2') . '" crossorigin>' . "\n";
+    echo '<link rel="preload" as="font" type="font/woff2" href="' . esc_url($f . 'montserrat-latin-ext-wght700-900.woff2') . '" crossorigin>' . "\n";
     $latin     = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD';
     $latin_ext = 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF';
     echo '<style>' . "\n";
-    echo "@font-face{font-family:'Montserrat';font-style:normal;font-display:swap;font-weight:100 900;src:url(" . esc_url($f . 'montserrat-latin-wght-normal.woff2') . ") format('woff2-variations');unicode-range:" . $latin . ";}\n";
-    echo "@font-face{font-family:'Montserrat';font-style:normal;font-display:swap;font-weight:100 900;src:url(" . esc_url($f . 'montserrat-latin-ext-wght-normal.woff2') . ") format('woff2-variations');unicode-range:" . $latin_ext . ";}\n";
-    echo "@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-display:swap;font-weight:200 800;src:url(" . esc_url($f . 'plus-jakarta-sans-latin-wght-normal.woff2') . ") format('woff2-variations');unicode-range:" . $latin . ";}\n";
-    echo "@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-display:swap;font-weight:200 800;src:url(" . esc_url($f . 'plus-jakarta-sans-latin-ext-wght-normal.woff2') . ") format('woff2-variations');unicode-range:" . $latin_ext . ";}\n";
+    echo "@font-face{font-family:'Montserrat';font-style:normal;font-display:swap;font-weight:700 900;src:url(" . esc_url($f . 'montserrat-latin-wght700-900.woff2') . ") format('woff2-variations');unicode-range:" . $latin . ";}\n";
+    echo "@font-face{font-family:'Montserrat';font-style:normal;font-display:swap;font-weight:700 900;src:url(" . esc_url($f . 'montserrat-latin-ext-wght700-900.woff2') . ") format('woff2-variations');unicode-range:" . $latin_ext . ";}\n";
+    echo "@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-display:swap;font-weight:400 800;src:url(" . esc_url($f . 'plus-jakarta-sans-latin-wght400-800.woff2') . ") format('woff2-variations');unicode-range:" . $latin . ";}\n";
+    echo "@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-display:swap;font-weight:400 800;src:url(" . esc_url($f . 'plus-jakarta-sans-latin-ext-wght400-800.woff2') . ") format('woff2-variations');unicode-range:" . $latin_ext . ";}\n";
     echo '</style>' . "\n";
-}
-
-add_action('wp_head', 'higloss_preload_lcp_image', 2);
-function higloss_preload_lcp_image() {
-    if (is_front_page()) {
-        echo '<link rel="preload" as="image" href="' . HIGLOSS_THEME_URI . '/assets/images/ai_oferta_zmiana_koloru.webp" fetchpriority="high">' . "\n";
-    }
 }
 
 // Mniej smieci w <head> (kazdy bajt i zadanie wazne na mobile)
@@ -135,46 +123,6 @@ remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'rest_output_link_wp_head');
 remove_action('wp_head', 'wp_oembed_add_discovery_links');
 remove_action('template_redirect', 'rest_output_link_header', 11);
-
-// ---------------------------------------------------------------------------
-// Zgodnosc z wtyczkami SEO (Rank Math / Yoast / SEOPress / AIOSEO).
-// Motyw wypisuje wlasne meta (description, OG, canonical) i schematy JSON-LD
-// TYLKO gdy zadna wtyczka SEO nie jest aktywna — inaczej oddaje caly <head>
-// wtyczce, zeby nie dublowac sygnalow dla wyszukiwarek.
-// ---------------------------------------------------------------------------
-function higloss_seo_plugin_active() {
-    static $active = null;
-    if (null !== $active) {
-        return $active;
-    }
-
-    // Stale wersji definiowane w plikach glownych wtyczek
-    // (RANK_MATH_VERSION potwierdzone w rank-math.php, pozostale to standardowe
-    // nazwy uzywane w dokumentacji i snippetach kazdej z wtyczek).
-    $active = defined('RANK_MATH_VERSION')   // seo-by-rank-math
-        || defined('WPSEO_VERSION')          // wordpress-seo (Yoast)
-        || defined('SEOPRESS_VERSION')       // wp-seopress
-        || defined('AIOSEO_VERSION')         // all-in-one-seo-pack (v4)
-        || defined('AIOSEOP_VERSION');       // all-in-one-seo-pack (v3)
-
-    if (! $active) {
-        // Fallback po slugach wtyczek (front-end wymaga dolozenia plugin.php).
-        if (! function_exists('is_plugin_active')) {
-            require_once ABSPATH . 'wp-admin/includes/plugin.php';
-        }
-        $active = is_plugin_active('seo-by-rank-math/rank-math.php')
-            || is_plugin_active('wordpress-seo/wp-seo.php')
-            || is_plugin_active('wp-seopress/seopress.php')
-            || is_plugin_active('all-in-one-seo-pack/aioseo.php');
-    }
-
-    return $active;
-}
-
-// Jeden canonical na strone: motyw sam wypisuje rel=canonical w
-// higloss_render_seo_meta() (priorytet 1), wiec natywny duplikat WP zdejmujemy.
-// Wtyczki SEO zarzadzaja canonical samodzielnie i robia to samo.
-remove_action('wp_head', 'rel_canonical');
 
 add_action('wp_enqueue_scripts', 'higloss_trim_wp_assets', 100);
 function higloss_trim_wp_assets() {
@@ -267,16 +215,6 @@ require_once get_template_directory() . '/inc/realizacje-admin.php';
 require_once get_template_directory() . '/inc/poradnik-articles.php';
 
 /**
- * Mapa obrazkow dla Google (image sitemap): /wp-sitemap-images.xml
- */
-require_once get_template_directory() . '/inc/image-sitemap.php';
-
-/**
- * Hurtowe metadane mediów realizacji (jednorazowa migracja, option-gated).
- */
-require_once get_template_directory() . '/inc/media-seo.php';
-
-/**
  * Bootstrap stron przy aktywacji motywu (wdrożenie na czysty WordPress)
  */
 require_once get_template_directory() . '/inc/bootstrap-pages.php';
@@ -320,7 +258,7 @@ function higloss_handle_quote_calculator() {
     // Zapytania z formularza zawsze leca na skrzynke biura (stala ewentualnie w wp-config.php)
     $to = defined('HIGLOSS_QUOTE_TO') ? HIGLOSS_QUOTE_TO : 'biuro@hi-glossdesign.pl';
     $subject = 'Nowe zapytanie ze strony Hi-Gloss Design: ' . $service;
-    
+
     $body  = "Nowe Zapytanie o Wycenę:\n\n";
     $body .= "Imię i nazwisko: " . $name . "\n";
     $body .= "Telefon: " . $phone . "\n";
@@ -361,231 +299,6 @@ add_action('wp_ajax_higloss_quote', 'higloss_handle_quote_calculator');
 add_action('wp_ajax_nopriv_higloss_quote', 'higloss_handle_quote_calculator');
 
 /**
- * Output LocalBusiness & AutomotiveBusiness Schema.org JSON-LD
- */
-function higloss_render_schema_markup() {
-    if (higloss_seo_plugin_active()) {
-        return; // Wtyczka SEO wystawia wlasny schemat organizacji.
-    }
-    $schema = array(
-        "@context" => "https://schema.org",
-        "@type" => "AutoBodyShop",
-        "name" => "HI-GLOSS DESIGN - Oklejanie Samochodów & PPF Szczecin",
-        "image" => HIGLOSS_THEME_URI . "/assets/images/logo.png",
-        "@id" => "https://hi-glossdesign.pl/#organization",
-        "url" => "https://hi-glossdesign.pl",
-        "telephone" => "+48605088065",
-        "priceRange" => "$$$",
-        "address" => array(
-            "@type" => "PostalAddress",
-            "streetAddress" => "ul. Podmiejska 4",
-            "addressLocality" => "Mierzyn / Szczecin",
-            "postalCode" => "72-006",
-            "addressCountry" => "PL"
-        ),
-        "geo" => array(
-            "@type" => "GeoCoordinates",
-            "latitude" => 53.42748,
-            "longitude" => 14.47109
-        ),
-        "openingHoursSpecification" => array(
-            array(
-                "@type" => "OpeningHoursSpecification",
-                "dayOfWeek" => array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"),
-                "opens" => "09:00",
-                "closes" => "17:00"
-            )
-        ),
-        "sameAs" => array(
-            "https://www.facebook.com/Hi-gloss-design-Szczecin-239982882747453/",
-            "https://www.instagram.com/higlossdesign/"
-        ),
-        "hasOfferCatalog" => array(
-            "@type" => "OfferCatalog",
-            "name" => "Usługi HI-GLOSS DESIGN",
-            "itemListElement" => array(
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Całościowa zmiana koloru auta", "url" => "https://hi-glossdesign.pl/zmiana-koloru/")),
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Bezbarwne folie ochronne PPF", "url" => "https://hi-glossdesign.pl/ppf/")),
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Oklejanie reklamowe i branding flot", "url" => "https://hi-glossdesign.pl/reklama/")),
-                array("@type" => "Offer", "itemOffered" => array("@type" => "Service", "name" => "Przyciemnianie szyb i dechroming", "url" => "https://hi-glossdesign.pl/detailing/"))
-            )
-        ),
-        "description" => "Profesjonalne studio całościowego oklejania pojazdów, zmiany koloru auta foliami premium oraz bezbarwnych folii ochronnych PPF w Szczecinie i Mierzynie."
-    );
-
-    echo '<script type="application/ld+json">' . json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
-}
-add_action('wp_head', 'higloss_render_schema_markup');
-
-
-/**
- * Meta description + Open Graph — per strona, bez wtyczki SEO.
- * Opisy kuratowane pod frazy z mapy SEO (seo-migration/PLAN-WDROZENIA.md);
- * podstrony bez dopisku dostaja opis domyslny, realizacje — opis z tresci/specyfikacji.
- */
-add_action('wp_head', 'higloss_render_seo_meta', 1);
-function higloss_render_seo_meta() {
-    if (higloss_seo_plugin_active()) {
-        return; // <head> przejmuje wtyczka SEO — nie dublujemy meta.
-    }
-    $default_desc = 'HI-GLOSS DESIGN — studio zmiany koloru auta folią i folii PPF. Demontaż wg procedur fabrycznych, folie premium. Szczecin / Mierzyn. Bezpłatna wycena.';
-
-    // Opisy pilnowane do max ~160 znakow (Bing WMT: "opis za dlugi").
-    $page_desc = array(
-        'oferta'                => 'Oferta HI-GLOSS DESIGN: zmiana koloru auta folią, bezbarwne folie ochronne PPF, branding flot, przyciemnianie szyb i detailing. Szczecin / Mierzyn.',
-        'zmiana-koloru'         => 'Całościowa zmiana koloru auta foliami 3M, Avery Dennison i Inozetek. Demontaż detali, efekt lakieru fabrycznego. Szczecin / Mierzyn — bezpłatna wycena.',
-        'ppf'                   => 'Bezbarwne folie ochronne PPF: ochrona lakieru przed odpryskami, zarysowaniami i solą drogową. Pakiety od stref newralgicznych po całe auto. Szczecin / Mierzyn.',
-        'reklama'               => 'Oklejanie reklamowe aut i flot firmowych: projekt, druk wielkoformatowy i aplikacja. Branding, który sprzedaje w ruchu. Szczecin / Mierzyn — bezpłatna wycena.',
-        'detailing'             => 'Usługi dodatkowe: przyciemnianie szyb, dechroming, detailing, powłoki ochronne i naprawy folii. HI-GLOSS DESIGN — studio w Szczecinie / Mierzynie.',
-        'galeria'               => 'Galeria realizacji HI-GLOSS DESIGN: metamorfozy aut folią, folie ochronne PPF i branding flot — zdjęcia PRZED i PO ze studia w Szczecinie / Mierzynie.',
-        'o-firmie'              => 'HI-GLOSS DESIGN — studio oklejania pojazdów z Mierzyna k. Szczecina. Ogrzewana hala, procedury fabryczne, folie premium. Poznaj naszą historię.',
-        'kontakt'               => 'Kontakt z HI-GLOSS DESIGN: tel. 605 088 065, biuro@hi-glossdesign.pl, ul. Podmiejska 4, Mierzyn k. Szczecina. Pon.–pt. 9:00–17:00. Bezpłatna wycena.',
-        'polityka-prywatnosci'  => 'Polityka prywatności serwisu HI-GLOSS DESIGN — zasady przetwarzania danych osobowych zgodnie z RODO.',
-        'faq'                   => 'FAQ o oklejaniu aut: cennik PPF i zmiany koloru folią, przyciemnianie szyb, trwałość i demontaż folii. Rzetelne odpowiedzi ze studia Szczecin / Mierzyn.',
-        'proces'                => 'Jak wygląda oklejenie auta w HI-GLOSS DESIGN: wycena do 24 h, demontaż wg procedur fabrycznych, aplikacja w ogrzewanej hali, auto w 3–5 dni.',
-    );
-
-    $description = $default_desc;
-    $title       = wp_get_document_title();
-    $url         = home_url('/');
-    $type        = 'website';
-    $image       = get_template_directory_uri() . '/screenshot.jpg';
-    $pub_time    = '';
-    $mod_time    = '';
-
-    if (is_singular()) {
-        global $post;
-        $type = in_array(get_post_type($post), array('realizacje', 'post'), true) ? 'article' : 'website';
-        $url  = get_permalink($post);
-
-        if (is_page($post) && isset($page_desc[$post->post_name])) {
-            $description = $page_desc[$post->post_name];
-        } elseif ('realizacje' === get_post_type($post)) {
-            $service = get_post_meta($post->ID, '_higloss_service_type', true);
-            $model   = get_post_meta($post->ID, '_higloss_car_model', true);
-            $lead    = trim(($model ? $model . ' — ' : '') . ($service ? $service : 'realizacja studia oklejania pojazdów'));
-            $description = sprintf('Realizacja HI-GLOSS DESIGN: %s. Zobacz efekt PRZED i PO oraz specyfikację projektu ze studia w Szczecinie / Mierzynie.', $lead);
-            if (has_excerpt($post)) {
-                $description = wp_strip_all_tags(get_the_excerpt($post), true);
-            } elseif (!empty($post->post_content)) {
-                $description = wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
-            }
-        } elseif (has_excerpt($post)) {
-            $description = wp_strip_all_tags(get_the_excerpt($post), true);
-        } elseif (!empty($post->post_content)) {
-            $description = wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
-        }
-
-        if (has_post_thumbnail($post)) {
-            $thumb = get_the_post_thumbnail_url($post, 'large');
-            if ($thumb) {
-                $image = $thumb;
-            }
-        }
-
-        // Daty publikacji/modyfikacji w OG — sygnal swiezosci tresci dla AI i Google
-        if (in_array(get_post_type($post), array('realizacje', 'post'), true)) {
-            $pub_time = get_post_time('c', true, $post);
-            $mod_time = get_post_modified_time('c', true, $post);
-        }
-    } elseif (is_home()) {
-        // Archiwum wpisow (gdy ktos ustawi strone wpisow) — fallback na FAQ
-        $description = $page_desc['faq'];
-        $posts_page  = (int) get_option('page_for_posts');
-        $url         = $posts_page ? get_permalink($posts_page) : home_url('/');
-    } elseif (is_post_type_archive('realizacje')) {
-        $description = $page_desc['galeria'];
-        $url         = get_post_type_archive_link('realizacje');
-    } elseif (is_search()) {
-        $description = 'Wyniki wyszukiwania w serwisie HI-GLOSS DESIGN.';
-    }
-    ?>
-    <?php if (!is_search() && !is_404()) : ?>
-    <link rel="canonical" href="<?php echo esc_url($url); ?>">
-    <?php endif; ?>
-    <meta name="description" content="<?php echo esc_attr($description); ?>">
-    <meta property="og:locale" content="pl_PL">
-    <meta property="og:type" content="<?php echo esc_attr($type); ?>">
-    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
-    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
-    <meta property="og:url" content="<?php echo esc_url($url); ?>">
-    <meta property="og:site_name" content="HI-GLOSS DESIGN">
-    <meta property="og:image" content="<?php echo esc_url($image); ?>">
-    <?php if ($pub_time) : ?>
-    <meta property="article:published_time" content="<?php echo esc_attr($pub_time); ?>">
-    <meta property="article:modified_time" content="<?php echo esc_attr($mod_time); ?>">
-    <?php endif; ?>
-    <meta name="twitter:card" content="summary_large_image">
-    <?php
-}
-
-/**
- * Tytuly dokumentow pilnowane z motywu (Bing WMT: „tytul zbyt dlugi" x13).
- * - Strona glowna: stala fraza lokalna (47 znakow).
- * - Pozostale strony: „{tytul} | HI-GLOSS DESIGN"; tagline (dlugi, ~40 znakow)
- *   nie dokleja sie, a tytuly >45 znakow (poradniki „Pytanie? Podtytul")
- *   przycinane sa na PIERWSZYM zakonczeniu zdania, wiszacy myslnik jest zrzucany.
- */
-add_filter('document_title_parts', 'higloss_document_title_parts');
-function higloss_document_title_parts($parts) {
-    $brand = 'HI-GLOSS DESIGN';
-    $home  = 'Oklejanie samochodów Szczecin | ' . $brand;
-    $out   = array();
-
-    if (isset($parts['page'])) {
-        $out['page'] = $parts['page'];
-    }
-
-    if (is_front_page()) {
-        $out['title'] = $home;
-        return $out;
-    }
-
-    $title = isset($parts['title']) ? trim(wp_strip_all_tags($parts['title'])) : '';
-    if ('' === $title) {
-        $out['title'] = $home;
-        return $out;
-    }
-
-    if (mb_strlen($title, 'UTF-8') > 45) {
-        $best = null;
-        foreach (array('? ', '! ', ' — ', ' – ') as $marker) {
-            $pos = mb_strpos($title, $marker, 0, 'UTF-8');
-            if (false !== $pos) {
-                $end = $pos + mb_strlen($marker, 'UTF-8');
-                if (null === $best || $end < $best) {
-                    $best = $end;
-                }
-            }
-        }
-
-        if (null !== $best && $best >= 20) {
-            $cut = $best;
-        } else {
-            $head  = mb_substr($title, 0, 45, 'UTF-8');
-            $space = mb_strrpos($head, ' ', 0, 'UTF-8');
-            $cut   = (false !== $space) ? $space : 45;
-        }
-
-        $title = rtrim(mb_substr($title, 0, $cut, 'UTF-8'));
-        $title = preg_replace('/\s*(?:—|–)$/u', '', $title);
-        $title = rtrim($title);
-    }
-
-    $out['title'] = $title . ' | ' . $brand;
-    return $out;
-}
-
-/**
- * Wylewa podmape users z wp-sitemap.xml (1 autor, zero wartosci SEO — smieciowy URL w GSC).
- */
-add_filter('wp_sitemaps_providers', 'higloss_sitemaps_providers');
-function higloss_sitemaps_providers($providers) {
-    unset($providers['users']);
-    return $providers;
-}
-
-/**
  * Rozpoznaje branze realizacji po tytule + polu "wykonana usluga" (tekst wpisywany przez klienta).
  * Zwraca slug: zmiana-koloru | ppf | reklama | detailing albo null.
  * Kolejnosc regul ma znaczenie (ppf wygrywa z "ochrona lakieru", reklama z "branding").
@@ -621,37 +334,9 @@ function higloss_auto_image_alt($attr, $attachment) {
 }
 
 /**
- * Schema FAQPage dla sekcji FAQ strony glownej (pytania rozwijane w SERP Google).
- * Tresc 1:1 z widocznym akordeonem w front-page.php — wymog Google.
- */
-add_action('wp_head', 'higloss_render_faq_schema');
-function higloss_render_faq_schema() {
-    if (!is_front_page()) {
-        return;
-    }
-    $faq = array(
-        array('Czy folia do zmiany koloru chroni lakier?', 'Folia zmieniająca kolor stanowi dodatkową warstwę i ogranicza drobne uszkodzenia eksploatacyjne, jednak do ochrony przed kamieniami i głębszymi zarysowaniami przeznaczona jest grubsza, poliuretanowa folia PPF.'),
-        array('Jak długo trwa oklejenie całego auta?', 'Standardowa zmiana koloru zajmuje zwykle 3–5 dni roboczych. Dokładny termin zależy od wielkości i konstrukcji auta, zakresu demontażu oraz wybranego materiału.'),
-        array('Czy folię można później bezpiecznie usunąć?', 'Tak. Prawidłowo zaaplikowana folia renomowanego producenta może zostać profesjonalnie usunięta bez naruszania fabrycznego lakieru, o ile lakier był wcześniej w dobrym stanie i nie był naprawiany niezgodnie ze sztuką.'),
-        array('Jaki pakiet PPF wybrać?', 'Do jazdy miejskiej często wystarcza ochrona stref najbardziej narażonych. Przy częstych trasach rekomendujemy Full Front, a dla nowych, sportowych i kolekcjonerskich aut — zabezpieczenie Full Body.'),
-        array('Co jest potrzebne do przygotowania wyceny?', 'Podaj markę, model i rocznik auta, interesującą Cię usługę oraz oczekiwany efekt. Zdjęcia i informacja o stanie lakieru pomogą nam przygotować bardziej precyzyjną propozycję.'),
-    );
-    $entities = array();
-    foreach ($faq as $pair) {
-        $entities[] = array(
-            '@type'          => 'Question',
-            'name'           => $pair[0],
-            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $pair[1]),
-        );
-    }
-    $schema = array('@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $entities);
-    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
-}
-
-/**
  * Pytania FAQ dla stron uslug (zmiana koloru / PPF / reklama / detailing).
  * JEDYNE ZRODLO PRAWDY: te same dane renderuja widoczny akordeon
- * (template-parts/service-faq.php) i schema FAQPage — Google wymaga zgodnosci 1:1.
+ * (template-parts/service-faq.php). Schematy JSON-LD obsluguje wylacznie wtyczka SEO.
  */
 function higloss_service_faqs($slug) {
     $all = array(
@@ -705,30 +390,6 @@ function higloss_service_faqs($slug) {
 }
 
 /**
- * Schema FAQPage dla stron uslug (rozwijane pytania w SERP Google).
- */
-add_action('wp_head', 'higloss_render_service_faq_schema');
-function higloss_render_service_faq_schema() {
-    if (!is_page(array('zmiana-koloru', 'ppf', 'reklama', 'detailing'))) {
-        return;
-    }
-    $faq = higloss_service_faqs(get_post_field('post_name', get_queried_object_id()));
-    if (empty($faq['items'])) {
-        return;
-    }
-    $entities = array();
-    foreach ($faq['items'] as $pair) {
-        $entities[] = array(
-            '@type'          => 'Question',
-            'name'           => $pair[0],
-            'acceptedAnswer' => array('@type' => 'Answer', 'text' => $pair[1]),
-        );
-    }
-    $schema = array('@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $entities);
-    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
-}
-
-/**
  * Przekierowania 301 starych artykulow Joomla pod /o-firmie/<id>-<slug>.
  * Warstwa PHP (WordPress) — dziala bez dostepu do .htaccess. Zapalany dopiero
  * dla adresow konczacych sie 404, wiec nie rusza poprawnych tras. Po wdrozeniu
@@ -755,70 +416,4 @@ function higloss_legacy_ofirmie_redirects() {
     }
     wp_safe_redirect(home_url($target), 301);
     exit;
-}
-
-/**
- * Schema Article JSON-LD dla artykulow Pytan (lepsza prezencja w SERP:
- * data, autor, obrazek — sygnaly rich result dla Google).
- */
-add_action('wp_head', 'higloss_render_article_schema');
-function higloss_render_article_schema() {
-    if (higloss_seo_plugin_active()) {
-        return; // Wtyczka SEO wystawia wlasny schemat Article.
-    }
-    if (!is_singular('post')) {
-        return;
-    }
-    global $post;
-    $description = has_excerpt($post)
-        ? wp_strip_all_tags(get_the_excerpt($post), true)
-        : wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content), true), 28, '');
-    $schema = array(
-        '@context'    => 'https://schema.org',
-        '@type'       => 'Article',
-        'headline'    => get_the_title($post),
-        'description' => $description,
-        'image'       => higloss_poradnik_image($post->ID),
-        'datePublished' => get_the_date('c', $post),
-        'dateModified'  => get_the_modified_date('c', $post),
-        'inLanguage'  => 'pl-PL',
-        'author'      => array(
-            '@type' => 'Organization',
-            'name'  => 'HI-GLOSS DESIGN',
-            'url'   => home_url('/'),
-            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.webp'),
-        ),
-        'publisher'   => array(
-            '@type' => 'Organization',
-            'name'  => 'HI-GLOSS DESIGN',
-            'logo'  => array('@type' => 'ImageObject', 'url' => HIGLOSS_THEME_URI . '/assets/images/logo.webp'),
-        ),
-        'mainEntityOfPage' => array('@type' => 'WebPage', '@id' => get_permalink($post)),
-    );
-    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
-}
-
-/**
- * Schema BreadcrumbList: realizacje (Glowna > Galeria > realizacja) oraz podstrony.
- */
-add_action('wp_head', 'higloss_render_breadcrumb_schema');
-function higloss_render_breadcrumb_schema() {
-    if (!is_singular() || is_front_page()) {
-        return;
-    }
-    $items = array(
-        array('@type' => 'ListItem', 'position' => 1, 'name' => 'Strona główna', 'item' => home_url('/')),
-    );
-    if ('realizacje' === get_post_type()) {
-        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'Galeria realizacji', 'item' => home_url('/galeria/'));
-        $position = 3;
-    } elseif ('post' === get_post_type()) {
-        $items[] = array('@type' => 'ListItem', 'position' => 2, 'name' => 'FAQ', 'item' => home_url('/faq/'));
-        $position = 3;
-    } else {
-        $position = 2;
-    }
-    $items[] = array('@type' => 'ListItem', 'position' => $position, 'name' => get_the_title());
-    $schema = array('@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $items);
-    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
 }

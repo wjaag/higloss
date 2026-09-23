@@ -1,8 +1,8 @@
 <?php
 /**
  * Sekcja FAQ na stronach uslug (zmiana koloru / PPF / reklama / detailing).
- * Dane pochodza z higloss_service_faqs() — to samo zrodlo co schema FAQPage
- * w <head> (higloss_render_service_faq_schema), wiec tresc = schema 1:1.
+ * Dane pochodza z higloss_service_faqs() — jedno zrodlo dla wszystkich
+ * szablonow uslug. (Schematy JSON-LD i meta obsluguje wylacznie wtyczka SEO.)
  *
  * @package HiGloss2026
  */
