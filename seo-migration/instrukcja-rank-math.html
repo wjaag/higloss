@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instrukcja: Rank Math dla HI-GLOSS DESIGN</title>
+<style>
+  :root{
+    --accent:#7b2ff7;
+    --accent2:#2563eb;
+    --bg:#f3f4f8;
+    --card:#ffffff;
+    --ink:#1c1f2b;
+    --muted:#5b6072;
+    --ok:#16a34a;
+    --line:#e5e7f0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 80px;}
+
+  header.top{
+    background:linear-gradient(120deg,var(--accent),var(--accent2));
+    color:#fff;
+    border-radius:18px;
+    padding:32px 28px;
+    margin-bottom:28px;
+    box-shadow:0 10px 30px rgba(60,40,150,.18);
+  }
+  header.top h1{margin:0 0 8px;font-size:26px;}
+  header.top p{margin:0;opacity:.95;font-size:15px;}
+  .note{
+    background:#fff7e6;
+    border:1px solid #ffd98e;
+    color:#7a5300;
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:14px;
+    margin-bottom:32px;
+  }
+  .note b{display:inline-block;margin-right:4px;}
+
+  .part-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:44px 0 20px;
+  }
+  .part-header .badge{
+    font-size:30px;
+    width:56px;height:56px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--card);
+    border-radius:16px;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+  }
+  .part-header h2{margin:0;font-size:21px;}
+  .part-header span.sub{display:block;color:var(--muted);font-size:13px;font-weight:normal;margin-top:2px;}
+
+  .step{
+    background:var(--card);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:16px;
+    box-shadow:0 3px 12px rgba(20,20,50,.06);
+    border:1px solid var(--line);
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:16px;
+  }
+  .step .num-icon{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+  }
+  .step .num-icon .icon{
+    font-size:26px;
+    width:48px;height:48px;
+    border-radius:50%;
+    background:#f1edff;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step .num-icon .num{
+    font-size:11px;font-weight:700;color:var(--accent);
+    background:#f1edff;border-radius:8px;padding:1px 7px;
+  }
+  .step h3{margin:0 0 6px;font-size:16.5px;}
+  .step p{margin:0 0 10px;color:var(--muted);font-size:14.5px;}
+  .step .where{
+    display:inline-block;
+    background:#eef2ff;
+    color:#3730a3;
+    font-size:12.5px;
+    padding:3px 9px;
+    border-radius:8px;
+    margin-bottom:10px;
+    font-family:ui-monospace,Consolas,monospace;
+  }
+  .step img{
+    max-width:100%;
+    border-radius:10px;
+    border:1px solid var(--line);
+    display:block;
+    margin-top:6px;
+  }
+  .step .caption{font-size:12px;color:#8a8fa3;margin-top:6px;font-style:italic;}
+
+  /* pages grid */
+  .pages-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .page-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 20px;
+    box-shadow:0 3px 12px rgba(20,20,50,.05);
+  }
+  .page-card .ph{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:10px;
+  }
+  .page-card .ph .name{
+    display:flex;align-items:center;gap:10px;font-weight:700;font-size:15.5px;
+  }
+  .page-card .ph .icon{font-size:22px;}
+  .page-card .url{
+    font-family:ui-monospace,Consolas,monospace;
+    font-size:12px;color:var(--muted);
+  }
+  .field{margin-bottom:8px;}
+  .field label{
+    display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;
+    color:var(--muted);font-weight:700;margin-bottom:3px;
+  }
+  .field .val{
+    background:#f7f7fb;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:8px 10px;
+    font-size:14px;
+  }
+  .copy-btn{
+    margin-top:10px;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    border-radius:9px;
+    padding:8px 14px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .copy-btn:active{transform:scale(.97);}
+  .copy-btn.copied{background:var(--ok);}
+  .noindex{
+    background:#fff1f2;border:1px solid #fecdd3;color:#9f1239;
+    border-radius:8px;padding:10px 12px;font-size:13.5px;
+  }
+
+  .legend{
+    background:var(--card);
+    border:1px dashed var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    font-size:13.5px;
+    color:var(--muted);
+    margin-bottom:24px;
+  }
+  .legend b{color:var(--ink);}
+
+  footer{
+    text-align:center;color:var(--muted);font-size:12.5px;margin-top:50px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>🧭 Rank Math krok po kroku — HI-GLOSS DESIGN</h1>
+    <p>Część 1: instalacja i konfiguracja wtyczki. Część 2: nadawanie tytułów, opisów i fraz kluczowych dla każdej podstrony.</p>
+  </header>
+
+  <div class="note">
+    <b>ℹ️ Uwaga:</b> ta instrukcja niczego nie zmienia w kodzie strony — pokazuje tylko, co kliknąć w panelu WordPress.
+    Ekrany poglądowe pochodzą z oficjalnej dokumentacji Rank Math — u Ciebie wyglądają identycznie, mogą się różnić
+    tylko drobne szczegóły (np. wersja kolorystyczna panelu).
+  </div>
+
+  <!-- ================= PART 1 ================= -->
+  <div class="part-header">
+    <div class="badge">🧩</div>
+    <div>
+      <h2>Część 1 — Instalacja i konfiguracja Rank Math</h2>
+      <span class="sub">Robisz to raz, na starcie</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🔌</div><div class="num">KROK 1</div></div>
+    <div>
+      <h3>Zainstaluj wtyczkę</h3>
+      <div class="where">Wtyczki → Dodaj nową</div>
+      <p>W panelu WordPress wejdź w <b>Wtyczki → Dodaj nową</b>, w polu wyszukiwania wpisz
+        <b>„Rank Math SEO”</b>, kliknij <b>Zainstaluj</b>, a potem <b>Włącz</b>.</p>
+      <img src="img/01-plugin-karta.png" alt="Karta wtyczki Rank Math SEO z przyciskiem Install Now">
+      <div class="caption">Tak wygląda karta wtyczki na liście wyników wyszukiwania.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🧙</div><div class="num">KROK 2</div></div>
+    <div>
+      <h3>Uruchom Kreator Konfiguracji</h3>
+      <div class="where">Uruchamia się automatycznie po włączeniu wtyczki (lub: Rank Math → Kreator konfiguracji)</div>
+      <p>Kreator przeprowadzi Cię krok po kroku. Możesz <b>pominąć logowanie do konta Rank Math</b> — to nieobowiązkowe.
+        Gdy zapyta o typ strony, wybierz <b>„Small Business Site”</b>, a jako typ działalności — <b>„Organization”</b>
+        (lub „Local Business”, jeśli jest dostępne).</p>
+      <img src="img/02-kreator-typ-firmy.jpg" alt="Kreator Rank Math — wybór typu strony i typu działalności">
+      <div class="caption">Ekran wyboru typu strony w kreatorze.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🏢</div><div class="num">KROK 3</div></div>
+    <div>
+      <h3>Podaj dane firmy</h3>
+      <p>W kolejnych krokach kreatora wpisz nazwę firmy: <b>HI-GLOSS DESIGN</b>, dodaj logo (jeśli masz plik pod ręką)
+        i przejdź dalej — sitemapę (mapę strony) zostaw <b>włączoną</b>, to ustawienie domyślne.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🏁</div><div class="num">KROK 4</div></div>
+    <div>
+      <h3>Zakończ kreator</h3>
+      <p>Klikaj <b>Dalej / Zapisz i kontynuuj</b> aż do ostatniego ekranu z napisem, że konfiguracja jest gotowa.
+        Nie musisz włączać żadnych opcji PRO ani łączyć konta — darmowa wersja w zupełności wystarczy.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">📍</div><div class="num">KROK 5</div></div>
+    <div>
+      <h3>Uzupełnij dane lokalne firmy (Local SEO)</h3>
+      <div class="where">Rank Math SEO → Titles &amp; Meta → Local SEO</div>
+      <p>Wejdź w menu <b>Rank Math SEO → Titles &amp; Meta</b>, zakładka <b>Local SEO</b>, i uzupełnij:</p>
+      <ul>
+        <li>Adres: <b>Podmiejska 4, 72-006 Mierzyn</b></li>
+        <li>Telefon: <b>+48 605 088 065</b></li>
+        <li>E-mail: <b>biuro@hi-glossdesign.pl</b></li>
+      </ul>
+      <p>Na dole kliknij <b>Save Changes</b>.</p>
+      <img src="img/03-local-seo-ustawienia.png" alt="Ekran ustawień Local SEO w Rank Math z polami adresu, telefonu i e-maila">
+      <div class="caption">Zakładka Local SEO — dokładnie tu wpisujesz dane firmy.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🔍</div><div class="num">KROK 6</div></div>
+    <div>
+      <h3>Zgłoś sitemapę do Google Search Console</h3>
+      <div class="where">search.google.com/search-console</div>
+      <p>Zaloguj się do <b>Google Search Console</b> (jeśli konto nie istnieje — załóż je dla domeny hi-glossdesign.pl).
+        Wejdź w sekcję <b>Sitemapy</b>, wklej adres:</p>
+      <div class="field"><div class="val">https://hi-glossdesign.pl/sitemap_index.xml</div></div>
+      <p>i kliknij <b>Wyślij</b>. To wystarczy, żeby Google zaczął śledzić wszystkie podstrony.</p>
+    </div>
+  </div>
+
+  <div class="legend">
+    ✅ <b>Część 1 gotowa.</b> Rank Math działa i wie wszystko o Twojej firmie. Teraz przechodzimy do nadawania
+    tytułów, opisów i fraz kluczowych dla każdej podstrony — to już Część 2.
+  </div>
+
+  <!-- ================= PART 2 ================= -->
+  <div class="part-header">
+    <div class="badge">📝</div>
+    <div>
+      <h2>Część 2 — Nadawanie tytułów, opisów i fraz (meta)</h2>
+      <span class="sub">Powtarzasz dla każdej z 12 podstron</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">✏️</div><div class="num">KROK A</div></div>
+    <div>
+      <h3>Otwórz stronę do edycji</h3>
+      <div class="where">Strony → najedź na tytuł strony → Edytuj</div>
+      <p>W panelu WordPress wejdź w <b>Strony</b>, znajdź podstronę (np. „Oferta”), kliknij <b>Edytuj</b>.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">⬇️</div><div class="num">KROK B</div></div>
+    <div>
+      <h3>Zjedź do panelu Rank Math</h3>
+      <p>Pod treścią strony (albo w bocznym panelu, w zależności od edytora) zobaczysz sekcję <b>Rank Math SEO</b>
+        z kółkiem oceny SEO i przyciskiem <b>Edit Snippet</b>.</p>
+      <img src="img/04-edit-snippet-przycisk.jpg" alt="Panel Rank Math pod edytorem z przyciskiem Edit Snippet">
+      <div class="caption">Kliknij niebieski przycisk „Edit Snippet”, żeby otworzyć pola do edycji.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">⌨️</div><div class="num">KROK C</div></div>
+    <div>
+      <h3>Wklej Tytuł SEO i Opis</h3>
+      <p>Po kliknięciu „Edit Snippet” pojawią się dwa pola: <b>Title</b> (tytuł SEO) i <b>Description</b> (opis).
+        Skasuj to, co jest w środku, i wklej gotowy tekst z Części 2 poniżej (dla właściwej podstrony).</p>
+      <img src="img/05-pola-tytul-opis.jpg" alt="Rozwinięte pola Title i Description w edytorze fragmentu Rank Math">
+      <div class="caption">Pole „Title” = Tytuł SEO, pole „Description” = Opis.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🏷️</div><div class="num">KROK D</div></div>
+    <div>
+      <h3>Wpisz Frazę kluczową</h3>
+      <p>Wyżej, w polu <b>Focus Keyword</b>, wpisz frazę kluczową z Części 2 (np. „oklejanie aut Szczecin”) i naciśnij Enter.</p>
+      <img src="img/06-fraza-kluczowa-checklist.jpg" alt="Pole Focus Keyword z listą kontrolną Basic SEO w Rank Math">
+      <div class="caption">Poniżej pojawi się checklista — im więcej zielonych ✔, tym lepiej, ale nie musi być idealnie na 100%.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">💾</div><div class="num">KROK E</div></div>
+    <div>
+      <h3>Zapisz stronę</h3>
+      <p>Kliknij <b>Aktualizuj</b> (lub „Zapisz”) w prawym górnym rogu edytora WordPress. Gotowe dla tej podstrony.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🔁</div><div class="num">KROK F</div></div>
+    <div>
+      <h3>Powtórz dla wszystkich podstron</h3>
+      <p>Zrób to samo dla każdej z 12 podstron poniżej — dla każdej masz już gotową frazę, tytuł i opis do wklejenia.</p>
+    </div>
+  </div>
+
+  <!-- ================= PAGES ================= -->
+  <div class="part-header">
+    <div class="badge">📄</div>
+    <div>
+      <h2>Gotowe wartości do wklejenia — 12 podstron</h2>
+      <span class="sub">Kliknij „Kopiuj”, wklej w Rank Math, zapisz</span>
+    </div>
+  </div>
+
+  <div class="pages-grid" id="pages"></div>
+
+  <footer>Przygotowano dla hi-glossdesign.pl • Rank Math (wersja darmowa) • dokument informacyjny, nie modyfikuje kodu strony</footer>
+</div>
+
+<script>
+const PAGES = [
+  {icon:"🏠", name:"Strona główna", url:"/", kw:"oklejanie aut Szczecin",
+   title:"Oklejanie aut Szczecin — Car Wrapping, PPF i Detailing | HI-GLOSS DESIGN",
+   desc:"Studio car wrappingu w Mierzynie k. Szczecina. Zmiana koloru folią, PPF, detailing i oklejanie reklamowe. 15 lat praktyki. Bezpłatna wycena online."},
+  {icon:"🗂️", name:"Oferta", url:"/oferta/", kw:"oferta oklejania aut",
+   title:"Oferta — Oklejanie Aut, PPF, Detailing i Reklama | HI-GLOSS DESIGN",
+   desc:"Pełna oferta HI-GLOSS DESIGN: zmiana koloru folią, bezbarwne PPF, detailing i przyciemnianie szyb oraz oklejanie reklamowe aut. Sprawdź ceny."},
+  {icon:"🎨", name:"Zmiana koloru", url:"/zmiana-koloru/", kw:"zmiana koloru auta folią Szczecin",
+   title:"Zmiana koloru auta folią Szczecin — Car Wrapping | HI-GLOSS DESIGN",
+   desc:"Folie 3M i Avery Dennison, pełna paleta kolorów i wykończeń. Odwracalna metamorfoza auta bez lakierowania. Szczecin, Mierzyn. Bezpłatna wycena."},
+  {icon:"🛡️", name:"PPF", url:"/ppf/", kw:"folia PPF Szczecin",
+   title:"Folia ochronna PPF na auto — Szczecin, Mierzyn | HI-GLOSS DESIGN",
+   desc:"Ochrona lakieru folią PPF: Full Front i Full Body. Montaż w hali, gwarancja producenta. Zabezpiecz auto przed odpryskami i rysami."},
+  {icon:"✨", name:"Detailing", url:"/detailing/", kw:"przyciemnianie szyb Szczecin",
+   title:"Detailing aut i przyciemnianie szyb Szczecin | HI-GLOSS DESIGN",
+   desc:"Korekta lakieru, powłoki ochronne i przyciemnianie szyb z atestem oraz dechroming. Profesjonalny detailing w Mierzynie k. Szczecina."},
+  {icon:"📢", name:"Reklama", url:"/reklama/", kw:"oklejanie aut reklamą Szczecin",
+   title:"Oklejanie aut reklamą — reklama na samochodzie Szczecin | HI-GLOSS",
+   desc:"Projekt, druk UV i profesjonalny montaż. Branding pojedynczego auta lub całej floty firmowej. Szczecin i Mierzyn. Zapytaj o wycenę."},
+  {icon:"🧭", name:"Proces", url:"/proces/", kw:"jak wygląda oklejanie auta",
+   title:"Jak wygląda oklejanie auta? Proces krok po kroku | HI-GLOSS DESIGN",
+   desc:"Od bezpłatnej wyceny po odbiór gotowego auta: demontaż wg procedur, oklejanie w hali i kontrola jakości. Zobacz cały proces."},
+  {icon:"🖼️", name:"Galeria / Realizacje", url:"/galeria/", kw:"realizacje oklejanie aut",
+   title:"Realizacje — Galeria oklejania aut, PPF i detailingu | HI-GLOSS DESIGN",
+   desc:"Zobacz nasze realizacje: zmiany koloru, PPF, oklejanie reklamowe i detailing. Zdjęcia przed i po z Mierzyna i Szczecina."},
+  {icon:"🎓", name:"Szkolenia", url:"/szkolenia/", kw:"szkolenie car wrapping Szczecin",
+   title:"Szkolenia car wrappingu Szczecin — kurs oklejania aut | HI-GLOSS DESIGN",
+   desc:"Kursy car wrappingu w małych grupach (max 4 osoby na trenera). 15 lat praktyki, wiedza z realnych realizacji. Szczecin, Mierzyn."},
+  {icon:"❓", name:"FAQ", url:"/faq/", kw:"oklejanie auta pytania",
+   title:"FAQ — Najczęstsze pytania o oklejanie aut i folie | HI-GLOSS DESIGN",
+   desc:"Odpowiedzi na pytania o koszty, trwałość i pielęgnację folii, PPF oraz detailingu. Sprawdź, zanim zdecydujesz się na oklejanie auta."},
+  {icon:"🏢", name:"O firmie", url:"/o-firmie/", kw:"studio car wrapping Szczecin",
+   title:"O nas — Studio car wrappingu HI-GLOSS DESIGN | Szczecin, Mierzyn",
+   desc:"15 lat praktyki i setki realizacji. Poznaj zespół i pasję do rzemiosła stojącą za każdym oklejeniem auta w naszym studiu w Mierzynie."},
+  {icon:"📞", name:"Kontakt", url:"/kontakt/", kw:"kontakt oklejanie aut Szczecin",
+   title:"Kontakt — HI-GLOSS DESIGN | Oklejanie aut Szczecin, Mierzyn",
+   desc:"Zadzwoń, napisz lub odwiedź nas: Podmiejska 4, Mierzyn k. Szczecina. Umów bezpłatną wycenę oklejenia, PPF lub detailingu."},
+];
+
+const NOINDEX = {icon:"🔒", name:"Polityka prywatności", url:"/polityka-prywatnosci/"};
+
+function escapeHtml(s){
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function buildCard(p, i){
+  const block = "Fraza: " + p.kw + "\nTytuł: " + p.title + "\nOpis: " + p.desc;
+  return `
+  <div class="page-card">
+    <div class="ph">
+      <div class="name"><span class="icon">${p.icon}</span> ${escapeHtml(p.name)}</div>
+      <div class="url">${escapeHtml(p.url)}</div>
+    </div>
+    <div class="field"><label>Fraza kluczowa</label><div class="val">${escapeHtml(p.kw)}</div></div>
+    <div class="field"><label>Tytuł SEO</label><div class="val">${escapeHtml(p.title)}</div></div>
+    <div class="field"><label>Opis</label><div class="val">${escapeHtml(p.desc)}</div></div>
+    <button class="copy-btn" data-text="${escapeHtml(block)}">📋 Kopiuj wszystko</button>
+  </div>`;
+}
+
+function buildNoindexCard(p){
+  return `
+  <div class="page-card">
+    <div class="ph">
+      <div class="name"><span class="icon">${p.icon}</span> ${escapeHtml(p.name)}</div>
+      <div class="url">${escapeHtml(p.url)}</div>
+    </div>
+    <div class="noindex">🚫 Ta strona ma być <b>niewidoczna w Google</b>. W Rank Math: zakładka
+      <b>Zaawansowane → Robots Meta</b> → zaznacz <b>No Index</b>. Nie ustawiaj frazy/tytułu.</div>
+  </div>`;
+}
+
+const container = document.getElementById("pages");
+container.innerHTML = PAGES.map(buildCard).join("") + buildNoindexCard(NOINDEX);
+
+container.addEventListener("click", function(e){
+  const btn = e.target.closest(".copy-btn");
+  if(!btn) return;
+  const text = btn.getAttribute("data-text");
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try{ document.execCommand("copy"); }catch(err){}
+  document.body.removeChild(ta);
+  const old = btn.textContent;
+  btn.textContent = "✅ Skopiowano";
+  btn.classList.add("copied");
+  setTimeout(()=>{ btn.textContent = old; btn.classList.remove("copied"); }, 1500);
+});
+</script>
+</body>
+</html>
