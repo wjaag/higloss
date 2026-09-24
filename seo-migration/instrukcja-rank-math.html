@@ -215,9 +215,11 @@
     <div class="num-icon"><div class="icon">🧙</div><div class="num">KROK 2</div></div>
     <div>
       <h3>Uruchom Kreator Konfiguracji</h3>
-      <div class="where">Uruchamia się automatycznie po włączeniu wtyczki (lub: Rank Math → Kreator konfiguracji)</div>
-      <p>Kreator przeprowadzi Cię krok po kroku. Możesz <b>pominąć logowanie do konta Rank Math</b> — to nieobowiązkowe.
-        Gdy zapyta o typ strony, wybierz <b>„Small Business Site”</b>, a jako typ działalności — <b>„Organization”</b>
+      <div class="where">Uruchamia się automatycznie po włączeniu wtyczki (lub: Rank Math SEO → Kreator konfiguracji)</div>
+      <p>Na pierwszym ekranie możesz <b>pominąć logowanie do konta Rank Math</b> — to nieobowiązkowe.
+        Gdy zapyta o tryb, wybierz <b>„Zaawansowany” (Advanced)</b> zamiast „Łatwy” — to jednorazowo odblokuje
+        później więcej ustawień (m.in. Instant Indexing z Kroku 9), bez tego nic się nie komplikuje.</p>
+      <p>Gdy zapyta o typ strony, wybierz <b>„Small Business Site”</b>, a jako typ działalności — <b>„Organization”</b>
         (lub „Local Business”, jeśli jest dostępne).</p>
       <img src="img/02-kreator-typ-firmy.jpg" alt="Kreator Rank Math — wybór typu strony i typu działalności">
       <div class="caption">Ekran wyboru typu strony w kreatorze.</div>
@@ -227,23 +229,52 @@
   <div class="step">
     <div class="num-icon"><div class="icon">🏢</div><div class="num">KROK 3</div></div>
     <div>
-      <h3>Podaj dane firmy</h3>
-      <p>W kolejnych krokach kreatora wpisz nazwę firmy: <b>HI-GLOSS DESIGN</b>, dodaj logo (jeśli masz plik pod ręką)
-        i przejdź dalej — sitemapę (mapę strony) zostaw <b>włączoną</b>, to ustawienie domyślne.</p>
+      <h3>Ekran „Twoja witryna” — dane firmy</h3>
+      <p>Wypełnij pola, które pojawią się w kreatorze:</p>
+      <ul>
+        <li><b>Nazwa firmy:</b> HI-GLOSS DESIGN</li>
+        <li><b>Logo:</b> dodaj plik z logo, jeśli masz go pod ręką (najlepiej kwadratowe, np. 512×512 px)</li>
+        <li><b>Domyślny obrazek do udostępniania (Default Social Share Image):</b> zdjęcie, które pokaże się,
+          gdy ktoś udostępni link do strony na Facebooku — np. zdjęcie hero ze strony głównej</li>
+      </ul>
+      <p>Kliknij <b>Save and Continue</b>.</p>
     </div>
   </div>
 
   <div class="step">
-    <div class="num-icon"><div class="icon">🏁</div><div class="num">KROK 4</div></div>
+    <div class="num-icon"><div class="icon">🔎</div><div class="num">KROK 4</div></div>
+    <div>
+      <h3>Ekran „Search Console” — połącz z Google (opcjonalnie teraz)</h3>
+      <p>Kreator zaproponuje połączenie z Google Search Console przez przycisk <b>Get Authorization Code</b>
+        (logujesz się na konto Google i wklejasz otrzymany kod). Jeśli to za dużo na teraz —
+        <b>śmiało kliknij „Skip Step”</b>. Zrobimy to ręcznie w Kroku 10, to nic nie psuje.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🗺️</div><div class="num">KROK 5</div></div>
+    <div>
+      <h3>Ekran „Sitemap” — mapa strony</h3>
+      <p>Zostaw ustawienia domyślne: <b>Sitemaps: włączone</b>, <b>Include Images: włączone</b>.
+        W sekcji <b>Public Post Types</b> zaznacz <b>Posts</b> i <b>Pages</b> (jeśli widzisz tam też
+        „Realizacje” — zaznacz też to). Kliknij <b>Save and Continue</b>.</p>
+      <img src="img/07-kreator-sitemapa.png" alt="Ekran ustawień mapy strony (Sitemap) w kreatorze Rank Math">
+      <div class="caption">Tak wygląda krok „Sitemap” w kreatorze.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🏁</div><div class="num">KROK 6</div></div>
     <div>
       <h3>Zakończ kreator</h3>
-      <p>Klikaj <b>Dalej / Zapisz i kontynuuj</b> aż do ostatniego ekranu z napisem, że konfiguracja jest gotowa.
-        Nie musisz włączać żadnych opcji PRO ani łączyć konta — darmowa wersja w zupełności wystarczy.</p>
+      <p>Ostatnie ekrany („Optymalizacja” i „Gotowe”) możesz przeklikać z ustawieniami domyślnymi —
+        <b>Dalej / Zapisz i kontynuuj</b> aż do napisu, że konfiguracja jest gotowa.
+        Nie musisz włączać żadnych opcji PRO — darmowa wersja w zupełności wystarczy.</p>
     </div>
   </div>
 
   <div class="step">
-    <div class="num-icon"><div class="icon">📍</div><div class="num">KROK 5</div></div>
+    <div class="num-icon"><div class="icon">📍</div><div class="num">KROK 7</div></div>
     <div>
       <h3>Uzupełnij dane lokalne firmy (Local SEO)</h3>
       <div class="where">Rank Math SEO → Titles &amp; Meta → Local SEO</div>
@@ -253,14 +284,44 @@
         <li>Telefon: <b>+48 605 088 065</b></li>
         <li>E-mail: <b>biuro@hi-glossdesign.pl</b></li>
       </ul>
-      <p>Na dole kliknij <b>Save Changes</b>.</p>
+      <p>Na dole kliknij <b>Save Changes</b>. Dzięki temu Google od razu wie, że to firma lokalna
+        w Mierzynie/Szczecinie — to ustawienie automatycznie „zasila” dane strukturalne (Schema) całej strony,
+        nic więcej nie trzeba tu robić.</p>
       <img src="img/03-local-seo-ustawienia.png" alt="Ekran ustawień Local SEO w Rank Math z polami adresu, telefonu i e-maila">
       <div class="caption">Zakładka Local SEO — dokładnie tu wpisujesz dane firmy.</div>
     </div>
   </div>
 
   <div class="step">
-    <div class="num-icon"><div class="icon">🔍</div><div class="num">KROK 6</div></div>
+    <div class="num-icon"><div class="icon">🖼️</div><div class="num">KROK 8</div></div>
+    <div>
+      <h3>Social Meta — jak strona wygląda po udostępnieniu na Facebooku</h3>
+      <div class="where">Rank Math SEO → Titles &amp; Meta → Global Meta → zakładka „Social”</div>
+      <p>To ustawienie decyduje, jakie zdjęcie/tytuł/opis pokażą się, gdy ktoś wklei link do Twojej strony
+        na Facebooku lub w wiadomości. Jeśli nie ustawiałeś tego w Kroku 3, zrób to teraz: wgraj zdjęcie
+        (zalecane 1200×630 px) w polu <b>obrazka</b>.</p>
+      <img src="img/08-social-meta-tab.png" alt="Zakładka Social w edytorze fragmentu Rank Math — podgląd Facebook, pole obrazka, tytułu i opisu">
+      <div class="caption">Tak wygląda podgląd i pola do ustawienia obrazka udostępniania.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">⚡</div><div class="num">KROK 9</div></div>
+    <div>
+      <h3>Włącz Instant Indexing (szybsze wykrywanie nowych stron)</h3>
+      <div class="where">Rank Math SEO → Dashboard (Bacheka) → moduł „Instant Indexing”</div>
+      <p>To darmowa funkcja: gdy dodajesz lub zmieniasz stronę, Rank Math sam powiadamia wyszukiwarki
+        Bing i Yandex, żeby szybciej ją zobaczyły (działa przez protokół IndexNow — <b>nie musisz zakładać
+        żadnego konta ani klucza API</b>, wtyczka robi to automatycznie).</p>
+      <p>Wystarczy przełączyć suwak przy „Instant Indexing” na <b>włączony (niebieski)</b>. To wszystko —
+        można pominąć ten krok, jeśli wolisz na razie mniej ustawień, ale nic nie kosztuje go włączyć.</p>
+      <img src="img/09-instant-indexing.jpg" alt="Kafelek modułu Instant Indexing w panelu Rank Math z przełącznikiem włącz/wyłącz">
+      <div class="caption">Kafelek „Instant Indexing” w Dashboardzie Rank Math — wystarczy jeden klik.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">🔍</div><div class="num">KROK 10</div></div>
     <div>
       <h3>Zgłoś sitemapę do Google Search Console</h3>
       <div class="where">search.google.com/search-console</div>
@@ -272,8 +333,9 @@
   </div>
 
   <div class="legend">
-    ✅ <b>Część 1 gotowa.</b> Rank Math działa i wie wszystko o Twojej firmie. Teraz przechodzimy do nadawania
-    tytułów, opisów i fraz kluczowych dla każdej podstrony — to już Część 2.
+    ✅ <b>Część 1 gotowa.</b> Rank Math działa, zna dane Twojej firmy, ma włączoną szybszą indeksację
+    i wie, jak strona ma wyglądać przy udostępnianiu. Teraz przechodzimy do nadawania tytułów, opisów,
+    fraz kluczowych i danych strukturalnych dla każdej podstrony — to już Część 2.
   </div>
 
   <!-- ================= PART 2 ================= -->
@@ -327,7 +389,22 @@
   </div>
 
   <div class="step">
-    <div class="num-icon"><div class="icon">💾</div><div class="num">KROK E</div></div>
+    <div class="num-icon"><div class="icon">🧩</div><div class="num">KROK E</div></div>
+    <div>
+      <h3>Ustaw typ Schema (dane strukturalne) — dla stron usługowych</h3>
+      <div class="where">Panel Rank Math pod edytorem → zakładka „Schema” (ikonka obok „General” i „Social”)</div>
+      <p>Dane strukturalne to dodatkowe informacje „w tle” strony, dzięki którym Google może pokazać ładniejszy,
+        bardziej rozbudowany wynik wyszukiwania (np. z gwiazdkami, adresem czy pytaniami). Rank Math (darmowy)
+        ma gotowe szablony — wystarczy wybrać typ z listy, nic nie trzeba programować.</p>
+      <img src="img/10-schema-type.jpg" alt="Wybór typu Schema (dane strukturalne) w ustawieniach Rank Math">
+      <div class="caption">Tak wygląda wybór typu Schema — u Ciebie lista pojawi się w zakładce „Schema” pod edytorem strony.</div>
+      <p>Zobacz tabelę niżej — przy każdej podstronie masz podane, jaki typ Schema wybrać
+        (a gdzie napisano „domyślny — nic nie zmieniaj”, po prostu pomiń ten krok dla tej strony).</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num-icon"><div class="icon">💾</div><div class="num">KROK F</div></div>
     <div>
       <h3>Zapisz stronę</h3>
       <p>Kliknij <b>Aktualizuj</b> (lub „Zapisz”) w prawym górnym rogu edytora WordPress. Gotowe dla tej podstrony.</p>
@@ -335,10 +412,11 @@
   </div>
 
   <div class="step">
-    <div class="num-icon"><div class="icon">🔁</div><div class="num">KROK F</div></div>
+    <div class="num-icon"><div class="icon">🔁</div><div class="num">KROK G</div></div>
     <div>
       <h3>Powtórz dla wszystkich podstron</h3>
-      <p>Zrób to samo dla każdej z 12 podstron poniżej — dla każdej masz już gotową frazę, tytuł i opis do wklejenia.</p>
+      <p>Zrób to samo dla każdej z 12 podstron poniżej — dla każdej masz już gotową frazę, tytuł, opis
+        i (tam gdzie warto) typ Schema do wklejenia/wybrania.</p>
     </div>
   </div>
 
@@ -360,40 +438,52 @@
 const PAGES = [
   {icon:"🏠", name:"Strona główna", url:"/", kw:"oklejanie aut Szczecin",
    title:"Oklejanie aut Szczecin — Car Wrapping, PPF i Detailing | HI-GLOSS DESIGN",
-   desc:"Studio car wrappingu w Mierzynie k. Szczecina. Zmiana koloru folią, PPF, detailing i oklejanie reklamowe. 15 lat praktyki. Bezpłatna wycena online."},
+   desc:"Studio car wrappingu w Mierzynie k. Szczecina. Zmiana koloru folią, PPF, detailing i oklejanie reklamowe. 15 lat praktyki. Bezpłatna wycena online.",
+   schema:"Local Business (ustawione automatycznie w Kroku 7 — tu nic nie zmieniaj)"},
   {icon:"🗂️", name:"Oferta", url:"/oferta/", kw:"oferta oklejania aut",
    title:"Oferta — Oklejanie Aut, PPF, Detailing i Reklama | HI-GLOSS DESIGN",
-   desc:"Pełna oferta HI-GLOSS DESIGN: zmiana koloru folią, bezbarwne PPF, detailing i przyciemnianie szyb oraz oklejanie reklamowe aut. Sprawdź ceny."},
+   desc:"Pełna oferta HI-GLOSS DESIGN: zmiana koloru folią, bezbarwne PPF, detailing i przyciemnianie szyb oraz oklejanie reklamowe aut. Sprawdź ceny.",
+   schema:"Service"},
   {icon:"🎨", name:"Zmiana koloru", url:"/zmiana-koloru/", kw:"zmiana koloru auta folią Szczecin",
    title:"Zmiana koloru auta folią Szczecin — Car Wrapping | HI-GLOSS DESIGN",
-   desc:"Folie 3M i Avery Dennison, pełna paleta kolorów i wykończeń. Odwracalna metamorfoza auta bez lakierowania. Szczecin, Mierzyn. Bezpłatna wycena."},
+   desc:"Folie 3M i Avery Dennison, pełna paleta kolorów i wykończeń. Odwracalna metamorfoza auta bez lakierowania. Szczecin, Mierzyn. Bezpłatna wycena.",
+   schema:"Service"},
   {icon:"🛡️", name:"PPF", url:"/ppf/", kw:"folia PPF Szczecin",
    title:"Folia ochronna PPF na auto — Szczecin, Mierzyn | HI-GLOSS DESIGN",
-   desc:"Ochrona lakieru folią PPF: Full Front i Full Body. Montaż w hali, gwarancja producenta. Zabezpiecz auto przed odpryskami i rysami."},
+   desc:"Ochrona lakieru folią PPF: Full Front i Full Body. Montaż w hali, gwarancja producenta. Zabezpiecz auto przed odpryskami i rysami.",
+   schema:"Service"},
   {icon:"✨", name:"Detailing", url:"/detailing/", kw:"przyciemnianie szyb Szczecin",
    title:"Detailing aut i przyciemnianie szyb Szczecin | HI-GLOSS DESIGN",
-   desc:"Korekta lakieru, powłoki ochronne i przyciemnianie szyb z atestem oraz dechroming. Profesjonalny detailing w Mierzynie k. Szczecina."},
+   desc:"Korekta lakieru, powłoki ochronne i przyciemnianie szyb z atestem oraz dechroming. Profesjonalny detailing w Mierzynie k. Szczecina.",
+   schema:"Service"},
   {icon:"📢", name:"Reklama", url:"/reklama/", kw:"oklejanie aut reklamą Szczecin",
    title:"Oklejanie aut reklamą — reklama na samochodzie Szczecin | HI-GLOSS",
-   desc:"Projekt, druk UV i profesjonalny montaż. Branding pojedynczego auta lub całej floty firmowej. Szczecin i Mierzyn. Zapytaj o wycenę."},
+   desc:"Projekt, druk UV i profesjonalny montaż. Branding pojedynczego auta lub całej floty firmowej. Szczecin i Mierzyn. Zapytaj o wycenę.",
+   schema:"Service"},
   {icon:"🧭", name:"Proces", url:"/proces/", kw:"jak wygląda oklejanie auta",
    title:"Jak wygląda oklejanie auta? Proces krok po kroku | HI-GLOSS DESIGN",
-   desc:"Od bezpłatnej wyceny po odbiór gotowego auta: demontaż wg procedur, oklejanie w hali i kontrola jakości. Zobacz cały proces."},
+   desc:"Od bezpłatnej wyceny po odbiór gotowego auta: demontaż wg procedur, oklejanie w hali i kontrola jakości. Zobacz cały proces.",
+   schema:"domyślny (WebPage) — nic nie zmieniaj"},
   {icon:"🖼️", name:"Galeria / Realizacje", url:"/galeria/", kw:"realizacje oklejanie aut",
    title:"Realizacje — Galeria oklejania aut, PPF i detailingu | HI-GLOSS DESIGN",
-   desc:"Zobacz nasze realizacje: zmiany koloru, PPF, oklejanie reklamowe i detailing. Zdjęcia przed i po z Mierzyna i Szczecina."},
+   desc:"Zobacz nasze realizacje: zmiany koloru, PPF, oklejanie reklamowe i detailing. Zdjęcia przed i po z Mierzyna i Szczecina.",
+   schema:"domyślny (WebPage) — nic nie zmieniaj"},
   {icon:"🎓", name:"Szkolenia", url:"/szkolenia/", kw:"szkolenie car wrapping Szczecin",
    title:"Szkolenia car wrappingu Szczecin — kurs oklejania aut | HI-GLOSS DESIGN",
-   desc:"Kursy car wrappingu w małych grupach (max 4 osoby na trenera). 15 lat praktyki, wiedza z realnych realizacji. Szczecin, Mierzyn."},
+   desc:"Kursy car wrappingu w małych grupach (max 4 osoby na trenera). 15 lat praktyki, wiedza z realnych realizacji. Szczecin, Mierzyn.",
+   schema:"Service"},
   {icon:"❓", name:"FAQ", url:"/faq/", kw:"oklejanie auta pytania",
    title:"FAQ — Najczęstsze pytania o oklejanie aut i folie | HI-GLOSS DESIGN",
-   desc:"Odpowiedzi na pytania o koszty, trwałość i pielęgnację folii, PPF oraz detailingu. Sprawdź, zanim zdecydujesz się na oklejanie auta."},
+   desc:"Odpowiedzi na pytania o koszty, trwałość i pielęgnację folii, PPF oraz detailingu. Sprawdź, zanim zdecydujesz się na oklejanie auta.",
+   schema:"FAQPage — opcjonalnie, tylko jeśli dopiszesz realne pytania i odpowiedzi w treści strony"},
   {icon:"🏢", name:"O firmie", url:"/o-firmie/", kw:"studio car wrapping Szczecin",
    title:"O nas — Studio car wrappingu HI-GLOSS DESIGN | Szczecin, Mierzyn",
-   desc:"15 lat praktyki i setki realizacji. Poznaj zespół i pasję do rzemiosła stojącą za każdym oklejeniem auta w naszym studiu w Mierzynie."},
+   desc:"15 lat praktyki i setki realizacji. Poznaj zespół i pasję do rzemiosła stojącą za każdym oklejeniem auta w naszym studiu w Mierzynie.",
+   schema:"domyślny — nic nie zmieniaj"},
   {icon:"📞", name:"Kontakt", url:"/kontakt/", kw:"kontakt oklejanie aut Szczecin",
    title:"Kontakt — HI-GLOSS DESIGN | Oklejanie aut Szczecin, Mierzyn",
-   desc:"Zadzwoń, napisz lub odwiedź nas: Podmiejska 4, Mierzyn k. Szczecina. Umów bezpłatną wycenę oklejenia, PPF lub detailingu."},
+   desc:"Zadzwoń, napisz lub odwiedź nas: Podmiejska 4, Mierzyn k. Szczecina. Umów bezpłatną wycenę oklejenia, PPF lub detailingu.",
+   schema:"Local Business"},
 ];
 
 const NOINDEX = {icon:"🔒", name:"Polityka prywatności", url:"/polityka-prywatnosci/"};
@@ -403,7 +493,7 @@ function escapeHtml(s){
 }
 
 function buildCard(p, i){
-  const block = "Fraza: " + p.kw + "\nTytuł: " + p.title + "\nOpis: " + p.desc;
+  const block = "Fraza: " + p.kw + "\nTytuł: " + p.title + "\nOpis: " + p.desc + (p.schema ? "\nSchema: " + p.schema : "");
   return `
   <div class="page-card">
     <div class="ph">
@@ -413,6 +503,7 @@ function buildCard(p, i){
     <div class="field"><label>Fraza kluczowa</label><div class="val">${escapeHtml(p.kw)}</div></div>
     <div class="field"><label>Tytuł SEO</label><div class="val">${escapeHtml(p.title)}</div></div>
     <div class="field"><label>Opis</label><div class="val">${escapeHtml(p.desc)}</div></div>
+    ${p.schema ? `<div class="field"><label>Typ Schema (Krok E)</label><div class="val">${escapeHtml(p.schema)}</div></div>` : ""}
     <button class="copy-btn" data-text="${escapeHtml(block)}">📋 Kopiuj wszystko</button>
   </div>`;
 }
