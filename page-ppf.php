@@ -15,9 +15,9 @@ get_header();
         <div class="hg-subpage-image-banner" style="--banner-accent: #10b981; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge" style="color: #10b981; border-color: #10b981;">PAINT PROTECTION FILM (PPF) SZCZECIN - MIERZYN</span>
+                <span class="hg-subpage-banner-badge">PAINT PROTECTION FILM (PPF) SZCZECIN - MIERZYN</span>
                 <h1 class="hg-subpage-banner-title">
-                    BEZBARWNE <span style="color: #10b981;">FOLIE OCHRONNE PPF</span>
+                    BEZBARWNE <span>FOLIE OCHRONNE PPF</span>
                 </h1>
             </div>
         </div>

@@ -189,6 +189,10 @@ body.admin-bar .hg-header {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
 }
 
+.hg-subpage-banner-title span {
+  color: var(--banner-accent, #25aae1);
+}
+
 /* Editorial Description Card (Maximum High-Contrast Readability) */
 .hg-editorial-card {
   background: #0d111a;

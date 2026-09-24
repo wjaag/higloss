@@ -21,9 +21,9 @@ get_header();
         <div class="hg-subpage-image-banner" style="--banner-accent: #8b5cf6; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/szkolenia_banner.webp'); ?>');">
             <div class="hg-subpage-banner-vignette"></div>
             <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge" style="color: #8b5cf6; border-color: #8b5cf6;">SZKOLENIA CAR WRAPPINGU SZCZECIN - MIERZYN</span>
+                <span class="hg-subpage-banner-badge">SZKOLENIA CAR WRAPPINGU SZCZECIN - MIERZYN</span>
                 <h1 class="hg-subpage-banner-title">
-                    PROFESJONALNE <span style="color: #8b5cf6;">SZKOLENIA CAR WRAPPINGU</span>
+                    PROFESJONALNE <span>SZKOLENIA CAR WRAPPINGU</span>
                 </h1>
             </div>
         </div>

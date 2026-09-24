@@ -31,7 +31,7 @@ $faq_query = new WP_Query(array(
             <div class="hg-subpage-banner-content">
                 <span class="hg-subpage-banner-badge">FAQ &bull; WIEDZA ZE STUDIA &bull; SZCZECIN / MIERZYN</span>
                 <h1 class="hg-subpage-banner-title">
-                    PYTANIA <span style="color: #25aae1;">I ODPOWIEDZI</span>
+                    PYTANIA <span>I ODPOWIEDZI</span>
                 </h1>
             </div>
         </div>

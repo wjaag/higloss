@@ -17,7 +17,7 @@ get_header();
             <div class="hg-subpage-banner-content">
                 <span class="hg-subpage-banner-badge">CAR WRAPPING &amp; TUNING OPTYCZNY SZCZECIN - MIERZYN</span>
                 <h1 class="hg-subpage-banner-title">
-                    CAŁOŚCIOWA <span style="color: #25aae1;">ZMIANA KOLORU AUTA</span>
+                    CAŁOŚCIOWA <span>ZMIANA KOLORU AUTA</span>
                 </h1>
             </div>
         </div>
