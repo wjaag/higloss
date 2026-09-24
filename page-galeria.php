@@ -13,18 +13,14 @@ $theme_uri = get_template_directory_uri();
     <div class="hg-container">
         
         <!-- HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji.webp'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">PORTFOLIO STUDIO SZCZECIN &bull; MIERZYN</span>
-                <h1 class="hg-subpage-banner-title">
-                    GALERIA REALIZACJI <span>HI-GLOSS</span>
-                </h1>
-                <p style="color: #cbd5e1; max-width: 640px; margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.6;">
-                    Poznaj wybrane transformacje aut naszych klientów. Każdy projekt to indywidualne podejście, demontaż z zachowaniem procedur fabrycznych i najwyższej klasy folie ochronne oraz do zmiany koloru.
-                </p>
-            </div>
-        </div>
+        <?php
+        get_template_part('template-parts/subpage-banner', null, array(
+            'image' => $theme_uri . '/assets/images/galeria_realizacji.webp',
+            'badge' => 'PORTFOLIO STUDIO SZCZECIN &bull; MIERZYN',
+            'title' => 'GALERIA REALIZACJI <span>HI-GLOSS</span>',
+            'desc'  => 'Poznaj wybrane transformacje aut naszych klientów. Każdy projekt to indywidualne podejście, demontaż z zachowaniem procedur fabrycznych i najwyższej klasy folie ochronne oraz do zmiany koloru.',
+        ));
+        ?>
 
         <!-- STATS / PROOF STRIP -->
         <div class="hg-gallery-hero-strip">

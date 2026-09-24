@@ -12,15 +12,13 @@ get_header();
     <div class="hg-container">
 
         <!-- COMPACT HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_tile2_oferta.webp'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">WYSZUKIWARKA STUDIO HI-GLOSS</span>
-                <h1 class="hg-subpage-banner-title">
-                    WYNIKI DLA: <span style="color: #25aae1;">"<?php echo get_search_query(); ?>"</span>
-                </h1>
-            </div>
-        </div>
+        <?php
+        get_template_part('template-parts/subpage-banner', null, array(
+            'image' => HIGLOSS_THEME_URI . '/assets/images/ai_tile2_oferta.webp',
+            'badge' => 'WYSZUKIWARKA STUDIO HI-GLOSS',
+            'title' => 'WYNIKI DLA: <span>"' . get_search_query() . '"</span>',
+        ));
+        ?>
 
         <!-- SEARCH FORM -->
         <div style="max-width: 600px; margin: 0 auto 3rem auto;">

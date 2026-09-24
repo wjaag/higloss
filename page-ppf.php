@@ -12,15 +12,14 @@ get_header();
     <div class="hg-container">
         
         <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #10b981; background-image: url('<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.webp'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">PAINT PROTECTION FILM (PPF) SZCZECIN - MIERZYN</span>
-                <h1 class="hg-subpage-banner-title">
-                    BEZBARWNE <span>FOLIE OCHRONNE PPF</span>
-                </h1>
-            </div>
-        </div>
+        <?php
+        get_template_part('template-parts/subpage-banner', null, array(
+            'accent' => '#10b981',
+            'image'  => HIGLOSS_THEME_URI . '/assets/images/ai_oferta_ppf.webp',
+            'badge'  => 'PAINT PROTECTION FILM (PPF) SZCZECIN - MIERZYN',
+            'title'  => 'BEZBARWNE <span>FOLIE OCHRONNE PPF</span>',
+        ));
+        ?>
 
         <!-- 2-COLUMN EDITORIAL CONTENT GRID WITH EXPANDED SEO CONTENT -->
         <div class="hg-grid hg-grid-2" style="gap: 2.8rem; align-items: flex-start; margin-bottom: 4rem;">

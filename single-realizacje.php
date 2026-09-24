@@ -21,17 +21,13 @@ get_header();
         ?>
 
             <!-- HERO COMPACT BANNER -->
-            <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; <?php if (has_post_thumbnail()) : ?>background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>');<?php endif; ?>">
-                <div class="hg-subpage-banner-vignette"></div>
-                <div class="hg-subpage-banner-content">
-                    <span class="hg-subpage-banner-badge">
-                        <?php echo !empty($model_label) ? esc_html($model_label) : 'REALIZACJA HI-GLOSS DESIGN'; ?>
-                    </span>
-                    <h1 class="hg-subpage-banner-title">
-                        <?php the_title(); ?>
-                    </h1>
-                </div>
-            </div>
+            <?php
+            get_template_part('template-parts/subpage-banner', null, array(
+                'image' => has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '',
+                'badge' => !empty($model_label) ? esc_html($model_label) : 'REALIZACJA HI-GLOSS DESIGN',
+                'title' => get_the_title(),
+            ));
+            ?>
 
             <!-- PRZED / PO COMPARE (IF BEFORE IMAGE ADDED IN ADMIN) -->
             <?php if ($before_id && has_post_thumbnail()) :

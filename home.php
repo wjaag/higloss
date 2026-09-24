@@ -17,18 +17,14 @@ $theme_uri = get_template_directory_uri();
     <div class="hg-container">
 
         <!-- HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">ODPOWIEDZI EKSPERTA &bull; OKLEJANIE &bull; PPF &bull; DETAILING</span>
-                <h1 class="hg-subpage-banner-title">
-                    PORADNIK CAR WRAPPINGU <span style="color: #25aae1;">SZCZECIN / MIERZYN</span>
-                </h1>
-                <p style="color: #cbd5e1; max-width: 640px; margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.6;">
-                    Rzetelne odpowiedzi na pytania, które słyszymy codziennie w studiu: cenniki, przepisy, pielęgnacja i technologia. Bez marketingowej wody — piszemy o tym, co robimy pod Szczecinem.
-                </p>
-            </div>
-        </div>
+        <?php
+        get_template_part('template-parts/subpage-banner', null, array(
+            'image' => $theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp',
+            'badge' => 'ODPOWIEDZI EKSPERTA &bull; OKLEJANIE &bull; PPF &bull; DETAILING',
+            'title' => 'PORADNIK CAR WRAPPINGU <span>SZCZECIN / MIERZYN</span>',
+            'desc'  => 'Rzetelne odpowiedzi na pytania, które słyszymy codziennie w studiu: cenniki, przepisy, pielęgnacja i technologia. Bez marketingowej wody — piszemy o tym, co robimy pod Szczecinem.',
+        ));
+        ?>
 
         <?php
         // Tresc strony "Pytania" (pole tresci w WP-Admin) — blok SEO nad lista

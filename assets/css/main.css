@@ -193,6 +193,14 @@ body.admin-bar .hg-header {
   color: var(--banner-accent, #25aae1);
 }
 
+.hg-subpage-banner-desc {
+  color: #cbd5e1;
+  max-width: 640px;
+  margin: 0.8rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 /* Editorial Description Card (Maximum High-Contrast Readability) */
 .hg-editorial-card {
   background: #0d111a;

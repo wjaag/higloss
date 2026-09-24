@@ -13,22 +13,17 @@ $theme_uri = get_template_directory_uri();
     <div class="hg-container">
 
         <!-- COMPACT HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji.webp'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">PORTFOLIO STUDIO SZCZECIN &bull; MIERZYN</span>
-                <h1 class="hg-subpage-banner-title">
-                    <?php if (is_tax()) : ?>
-                        <?php single_term_title(); ?> &bull; <span style="color: #25aae1;">HI-GLOSS</span>
-                    <?php else : ?>
-                        GALERIA <span style="color: #25aae1;">REALIZACJI</span>
-                    <?php endif; ?>
-                </h1>
-                <p style="color: #cbd5e1; max-width: 640px; margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.6;">
-                    Samochody wykonane w naszym studio w Mierzynie. Zobacz jakość dopasowania krawędzi, wykończenie lakiernicze i precyzję aplikacji.
-                </p>
-            </div>
-        </div>
+        <?php
+        $hg_realizacje_title = is_tax()
+            ? single_term_title('', false) . ' &bull; <span>HI-GLOSS</span>'
+            : 'GALERIA <span>REALIZACJI</span>';
+        get_template_part('template-parts/subpage-banner', null, array(
+            'image' => $theme_uri . '/assets/images/galeria_realizacji.webp',
+            'badge' => 'PORTFOLIO STUDIO SZCZECIN &bull; MIERZYN',
+            'title' => $hg_realizacje_title,
+            'desc'  => 'Samochody wykonane w naszym studio w Mierzynie. Zobacz jakość dopasowania krawędzi, wykończenie lakiernicze i precyzję aplikacji.',
+        ));
+        ?>
 
         <?php if (have_posts()) : ?>
             <div class="hg-gallery-grid">

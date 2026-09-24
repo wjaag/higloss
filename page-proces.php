@@ -20,18 +20,14 @@ $hg_step_shade = 'linear-gradient(100deg, rgba(7, 10, 16, 0.96) 22%, rgba(7, 10,
     <div class="hg-container">
 
         <!-- HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">PROCES REALIZACJI &bull; STUDIO SZCZECIN / MIERZYN</span>
-                <h1 class="hg-subpage-banner-title">
-                    JAK WYGLĄDA <span>OKLEJANIE AUTA?</span>
-                </h1>
-                <p style="color: #cbd5e1; max-width: 640px; margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.6;">
-                    Od pierwszego telefonu do odbioru auta mija zwykle 3–5 dni roboczych. Znasz dokładnie, co dzieje się z Twoim samochodem na każdym etapie — bez niespodzianek i bez skrótów kosztem jakości.
-                </p>
-            </div>
-        </div>
+        <?php
+        get_template_part('template-parts/subpage-banner', null, array(
+            'image' => $theme_uri . '/assets/images/gallery_ppf_application.webp',
+            'badge' => 'PROCES REALIZACJI &bull; STUDIO SZCZECIN / MIERZYN',
+            'title' => 'JAK WYGLĄDA <span>OKLEJANIE AUTA?</span>',
+            'desc'  => 'Od pierwszego telefonu do odbioru auta mija zwykle 3–5 dni roboczych. Znasz dokładnie, co dzieje się z Twoim samochodem na każdym etapie — bez niespodzianek i bez skrótów kosztem jakości.',
+        ));
+        ?>
 
         <!-- 6 ETAPÓW -->
         <section style="margin-top: 3rem;" aria-labelledby="proces-kroki">

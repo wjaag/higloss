@@ -26,15 +26,13 @@ $faq_query = new WP_Query(array(
     <div class="hg-container">
 
         <!-- COMPACT HERO BANNER -->
-        <div class="hg-subpage-image-banner" style="--banner-accent: #25aae1; background-image: url('<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.webp'); ?>');">
-            <div class="hg-subpage-banner-vignette"></div>
-            <div class="hg-subpage-banner-content">
-                <span class="hg-subpage-banner-badge">FAQ &bull; WIEDZA ZE STUDIA &bull; SZCZECIN / MIERZYN</span>
-                <h1 class="hg-subpage-banner-title">
-                    PYTANIA <span>I ODPOWIEDZI</span>
-                </h1>
-            </div>
-        </div>
+        <?php
+        get_template_part('template-parts/subpage-banner', null, array(
+            'image' => $theme_uri . '/assets/images/ai_tile2_oferta.webp',
+            'badge' => 'FAQ &bull; WIEDZA ZE STUDIA &bull; SZCZECIN / MIERZYN',
+            'title' => 'PYTANIA <span>I ODPOWIEDZI</span>',
+        ));
+        ?>
 
         <?php
         // Wstep SEO — pole tresci tej strony (edytowalne w WP-Admin)
