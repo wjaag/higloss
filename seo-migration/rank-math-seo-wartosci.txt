@@ -1,0 +1,212 @@
+====================================================================
+HI-GLOSS DESIGN — GOTOWE WARTOŚCI DO RANK MATH (kopiuj-wklej)
+Przygotowano: 2026-09-24
+====================================================================
+
+Ten plik NIE jest częścią kodu motywu i niczego nie zmienia na stronie.
+To ściąga do ręcznego wklejenia w polach wtyczki Rank Math SEO
+(Wtyczki -> Rank Math SEO -> edycja każdej strony -> zakładka
+"Ogólne" w module Rank Math pod edytorem WordPressa).
+
+Dla każdej strony wklej:
+- Fraza kluczowa (Focus Keyword)
+- Tytuł SEO (Title)
+- Opis (Meta Description)
+
+--------------------------------------------------------------------
+DANE FIRMY DO KREATORA / LOCAL SEO (Rank Math -> Titles & Meta -> Local SEO)
+--------------------------------------------------------------------
+Nazwa firmy:      HI-GLOSS DESIGN
+Typ:              Firma lokalna (Local Business)
+Adres:            Podmiejska 4, 72-006 Mierzyn
+Telefon:          +48 605 088 065
+E-mail:           biuro@hi-glossdesign.pl
+Miasto docelowe:  Szczecin / Mierzyn
+
+Sitemapa do zgłoszenia w Google Search Console:
+https://hi-glossdesign.pl/sitemap_index.xml
+
+====================================================================
+STRONA GŁÓWNA — /
+====================================================================
+Fraza kluczowa:
+oklejanie aut Szczecin
+
+Tytuł SEO:
+Oklejanie aut Szczecin — Car Wrapping, PPF i Detailing | HI-GLOSS DESIGN
+
+Opis:
+Studio car wrappingu w Mierzynie k. Szczecina. Zmiana koloru folią, PPF,
+detailing i oklejanie reklamowe. 15 lat praktyki. Bezpłatna wycena online.
+
+====================================================================
+OFERTA — /oferta/
+====================================================================
+Fraza kluczowa:
+oferta oklejania aut
+
+Tytuł SEO:
+Oferta — Oklejanie Aut, PPF, Detailing i Reklama | HI-GLOSS DESIGN
+
+Opis:
+Pełna oferta HI-GLOSS DESIGN: zmiana koloru folią, bezbarwne PPF,
+detailing i przyciemnianie szyb oraz oklejanie reklamowe aut. Sprawdź ceny.
+
+====================================================================
+ZMIANA KOLORU — /zmiana-koloru/
+====================================================================
+Fraza kluczowa:
+zmiana koloru auta folią Szczecin
+
+Tytuł SEO:
+Zmiana koloru auta folią Szczecin — Car Wrapping | HI-GLOSS DESIGN
+
+Opis:
+Folie 3M i Avery Dennison, pełna paleta kolorów i wykończeń. Odwracalna
+metamorfoza auta bez lakierowania. Szczecin, Mierzyn. Bezpłatna wycena.
+
+====================================================================
+PPF — /ppf/
+====================================================================
+Fraza kluczowa:
+folia PPF Szczecin
+
+Tytuł SEO:
+Folia ochronna PPF na auto — Szczecin, Mierzyn | HI-GLOSS DESIGN
+
+Opis:
+Ochrona lakieru folią PPF: Full Front i Full Body. Montaż w hali,
+gwarancja producenta. Zabezpiecz auto przed odpryskami i rysami.
+
+====================================================================
+DETAILING — /detailing/
+====================================================================
+Fraza kluczowa:
+przyciemnianie szyb Szczecin
+
+Tytuł SEO:
+Detailing aut i przyciemnianie szyb Szczecin | HI-GLOSS DESIGN
+
+Opis:
+Korekta lakieru, powłoki ochronne i przyciemnianie szyb z atestem oraz
+dechroming. Profesjonalny detailing w Mierzynie k. Szczecina.
+
+====================================================================
+REKLAMA — /reklama/
+====================================================================
+Fraza kluczowa:
+oklejanie aut reklamą Szczecin
+
+Tytuł SEO:
+Oklejanie aut reklamą — reklama na samochodzie Szczecin | HI-GLOSS
+
+Opis:
+Projekt, druk UV i profesjonalny montaż. Branding pojedynczego auta lub
+całej floty firmowej. Szczecin i Mierzyn. Zapytaj o wycenę.
+
+====================================================================
+PROCES — /proces/
+====================================================================
+Fraza kluczowa:
+jak wygląda oklejanie auta
+
+Tytuł SEO:
+Jak wygląda oklejanie auta? Proces krok po kroku | HI-GLOSS DESIGN
+
+Opis:
+Od bezpłatnej wyceny po odbiór gotowego auta: demontaż wg procedur,
+oklejanie w hali i kontrola jakości. Zobacz cały proces.
+
+====================================================================
+GALERIA / REALIZACJE — /galeria/
+====================================================================
+Fraza kluczowa:
+realizacje oklejanie aut
+
+Tytuł SEO:
+Realizacje — Galeria oklejania aut, PPF i detailingu | HI-GLOSS DESIGN
+
+Opis:
+Zobacz nasze realizacje: zmiany koloru, PPF, oklejanie reklamowe
+i detailing. Zdjęcia przed i po z Mierzyna i Szczecina.
+
+====================================================================
+SZKOLENIA — /szkolenia/
+====================================================================
+Fraza kluczowa:
+szkolenie car wrapping Szczecin
+
+Tytuł SEO:
+Szkolenia car wrappingu Szczecin — kurs oklejania aut | HI-GLOSS DESIGN
+
+Opis:
+Kursy car wrappingu w małych grupach (max 4 osoby na trenera). 15 lat
+praktyki, wiedza z realnych realizacji. Szczecin, Mierzyn.
+
+====================================================================
+FAQ — /faq/
+====================================================================
+Fraza kluczowa:
+oklejanie auta pytania
+
+Tytuł SEO:
+FAQ — Najczęstsze pytania o oklejanie aut i folie | HI-GLOSS DESIGN
+
+Opis:
+Odpowiedzi na pytania o koszty, trwałość i pielęgnację folii, PPF oraz
+detailingu. Sprawdź, zanim zdecydujesz się na oklejanie auta.
+
+====================================================================
+O FIRMIE — /o-firmie/
+====================================================================
+Fraza kluczowa:
+studio car wrapping Szczecin
+
+Tytuł SEO:
+O nas — Studio car wrappingu HI-GLOSS DESIGN | Szczecin, Mierzyn
+
+Opis:
+15 lat praktyki i setki realizacji. Poznaj zespół i pasję do rzemiosła
+stojącą za każdym oklejeniem auta w naszym studiu w Mierzynie.
+
+====================================================================
+KONTAKT — /kontakt/
+====================================================================
+Fraza kluczowa:
+kontakt oklejanie aut Szczecin
+
+Tytuł SEO:
+Kontakt — HI-GLOSS DESIGN | Oklejanie aut Szczecin, Mierzyn
+
+Opis:
+Zadzwoń, napisz lub odwiedź nas: Podmiejska 4, Mierzyn k. Szczecina.
+Umów bezpłatną wycenę oklejenia, PPF lub detailingu.
+
+====================================================================
+POLITYKA PRYWATNOŚCI — /polityka-prywatnosci/
+====================================================================
+Fraza kluczowa: (brak — strona nie ma konkurować w wynikach wyszukiwania)
+
+Ustawienie w Rank Math:
+Zaawansowane -> "Robots Meta" -> zaznacz "No Index"
+(strona ma być niewidoczna dla Google)
+
+====================================================================
+REALIZACJE (pojedyncze wpisy w /galeria/)
+====================================================================
+Dla każdej realizacji:
+Tytuł SEO:  [tytuł realizacji] | HI-GLOSS DESIGN
+Opis:       użyj krótkiego opisu realizacji, który już jest na stronie
+            (np. jaki model auta, jaka usługa — kolor/PPF/detailing)
+
+====================================================================
+PORADNIKI (artykuły blogowe)
+====================================================================
+Frazę kluczową ustaw jako istniejący długi tytuł artykułu
+(np. "ile kosztuje przyciemnianie szyb", "oklejanie auta reklamą cena"
+itp. — tytuły już są przygotowane w motywie).
+Opis: skróć pierwszy akapit artykułu do ok. 150-155 znaków.
+
+====================================================================
+KONIEC PLIKU
+====================================================================
