@@ -358,8 +358,20 @@ document.addEventListener('DOMContentLoaded', function () {
     function initGalleryFilter() {
         const filterBtns = document.querySelectorAll('.hg-gallery-btn[data-filter]');
         const galleryCards = document.querySelectorAll('.hg-gallery-card, .hg-work-card');
+        const filterGroup = document.getElementById('hgGalleryFilterGroup');
+        const filterToggle = document.getElementById('hgGalleryFilterToggle');
+        const filterToggleLabel = document.getElementById('hgGalleryFilterToggleLabel');
 
         if (!filterBtns.length || !galleryCards.length) return;
+
+        function closeMobileFilter(refocus) {
+            if (!filterGroup || !filterGroup.classList.contains('is-open')) return;
+            filterGroup.classList.remove('is-open');
+            if (filterToggle) {
+                filterToggle.setAttribute('aria-expanded', 'false');
+                if (refocus) filterToggle.focus();
+            }
+        }
 
         function applyFilter(filter, pressedBtn) {
             // Update button active states
@@ -368,6 +380,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 b.classList.toggle('is-active', isActive);
                 b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
             });
+
+            // Na mobile: etykieta zwinietej listy pokazuje wybrana kategorie (z licznikiem)
+            if (filterToggleLabel && pressedBtn) {
+                filterToggleLabel.innerHTML = pressedBtn.innerHTML;
+            }
 
             // Filter cards with smooth fade
             galleryCards.forEach(function (card) {
@@ -393,11 +410,28 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.addEventListener('click', function () {
                 const filter = this.getAttribute('data-filter');
                 applyFilter(filter, this);
+                closeMobileFilter();
                 if (window.history && history.replaceState) {
                     history.replaceState(null, '', filter === 'all' ? location.pathname : '#usluga-' + filter);
                 }
             });
         });
+
+        // Rozwijana lista filtrow na mobile (na desktopie ten przycisk jest ukryty w CSS)
+        if (filterToggle && filterGroup) {
+            filterToggle.addEventListener('click', function () {
+                const isOpen = filterGroup.classList.toggle('is-open');
+                filterToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!filterGroup.contains(event.target)) closeMobileFilter();
+            });
+
+            filterGroup.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') closeMobileFilter(true);
+            });
+        }
 
         // Glebokie linki z podstron uslug: /galeria/#usluga-ppf -> od razu przefiltrowana galeria
         const hashMatch = location.hash.match(/^#usluga-(.+)$/);
@@ -407,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             if (wanted) {
                 applyFilter(wanted.getAttribute('data-filter'), wanted);
-                const wrap = wanted.closest('.hg-gallery-filter-wrap');
+                const wrap = wanted.closest('.hg-gallery-filter-group') || wanted.closest('.hg-gallery-filter-wrap');
                 if (wrap) {
                     wrap.scrollIntoView({ block: 'start' });
                 }

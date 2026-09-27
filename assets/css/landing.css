@@ -3265,6 +3265,137 @@ body:not(.home) .hg-footer-main {
   color: #020407;
 }
 
+/* Filtr kategorii na mobile: pigulki zwijaja sie w liste rozwijana,
+   stylistyka 1:1 z istniejacym custom-selectem kalkulatora wyceny
+   (.hg-select-toggle / .hg-select-list) — spojny jezyk wizualny motywu. */
+.hg-gallery-filter-group {
+  margin-bottom: 2.5rem;
+}
+
+.hg-gallery-filter-group .hg-gallery-filter-wrap {
+  margin-bottom: 0;
+}
+
+.hg-gallery-filter-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hg-gallery-filter-group {
+    position: relative;
+    z-index: 6;
+  }
+
+  .hg-js .hg-gallery-filter-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    background: rgba(3, 5, 8, 0.5);
+    border: 1px solid var(--hg-line-strong);
+    border-radius: 14px;
+    color: #fff;
+    font-family: var(--hg-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.25s ease, background 0.25s ease, border-radius 0.15s ease;
+  }
+
+  .hg-js .hg-gallery-filter-toggle:hover {
+    border-color: rgba(37, 170, 225, 0.45);
+  }
+
+  .hg-js .hg-gallery-filter-group.is-open .hg-gallery-filter-toggle {
+    background: rgba(3, 5, 8, 0.85);
+    border-color: var(--hg-blue);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .hg-gallery-filter-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .hg-gallery-filter-chevron {
+    flex: 0 0 auto;
+    width: 14px;
+    height: 14px;
+    color: #838fa1;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+
+  .hg-js .hg-gallery-filter-group.is-open .hg-gallery-filter-chevron {
+    transform: rotate(180deg);
+    color: var(--hg-blue-light);
+  }
+
+  /* Bez JS: lista pilek zostaje po prostu widoczna, w pionie, cala rozwinieta. */
+  .hg-gallery-filter-wrap {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.4rem;
+  }
+
+  .hg-js .hg-gallery-filter-wrap {
+    position: absolute;
+    z-index: 25;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    gap: 0.15rem;
+    padding: 0.4rem;
+    background: #0b0f16;
+    border: 1px solid var(--hg-line-strong);
+    border-radius: 14px;
+    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .hg-js .hg-gallery-filter-group.is-open .hg-gallery-filter-wrap {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .hg-gallery-filter-wrap .hg-gallery-btn {
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 9px;
+  }
+
+  .hg-js .hg-gallery-filter-wrap .hg-gallery-btn {
+    border-color: transparent;
+    background: transparent;
+  }
+
+  .hg-js .hg-gallery-filter-wrap .hg-gallery-btn:hover {
+    background: rgba(37, 170, 225, 0.12);
+    color: #fff;
+  }
+
+  .hg-js .hg-gallery-filter-wrap .hg-gallery-btn.is-active {
+    background: rgba(37, 170, 225, 0.16);
+    border-color: transparent;
+    box-shadow: none;
+    border-left: 3px solid var(--hg-blue);
+    padding-left: calc(1.35rem - 3px);
+  }
+}
+
 /* Before / After Interactive Showcase Section */
 .hg-gallery-grid {
   display: grid;

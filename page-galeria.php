@@ -115,15 +115,25 @@ $theme_uri = get_template_directory_uri();
         ?>
 
         <!-- FILTR REALIZACJI WG RODZAJU USLUGI -->
-        <div class="hg-gallery-filter-wrap" role="group" aria-label="Filtr realizacji wg rodzaju usługi">
-            <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
-                Wszystkie <span class="hg-gallery-btn-count"><?php echo (int) $hg_filter_total; ?></span>
+        <!-- Na mobile (<=768px, JS wlaczony) .hg-gallery-filter-wrap zwija sie w liste
+             rozwijana pod .hg-gallery-filter-toggle — patrz assets/css/landing.css
+             i initGalleryFilter() w assets/js/main.js. Bez JS pilki zostaja widoczne
+             jako zwykla, stale rozwinieta lista (progresywne wzbogacanie, jak reszta motywu). -->
+        <div class="hg-gallery-filter-group" id="hgGalleryFilterGroup">
+            <button type="button" class="hg-gallery-filter-toggle" id="hgGalleryFilterToggle" aria-expanded="false" aria-controls="hgGalleryFilterWrap">
+                <span class="hg-gallery-filter-toggle-label" id="hgGalleryFilterToggleLabel">Wszystkie <span class="hg-gallery-btn-count"><?php echo (int) $hg_filter_total; ?></span></span>
+                <svg class="hg-gallery-filter-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5.5 9 6.5 6.5L18.5 9"/></svg>
             </button>
-            <?php foreach ($hg_filter_cats as $hg_fslug => $hg_fcat) : ?>
-            <button type="button" class="hg-gallery-btn" data-filter="<?php echo esc_attr($hg_fslug); ?>" aria-pressed="false">
-                <?php echo esc_html($hg_fcat['name']); ?> <span class="hg-gallery-btn-count"><?php echo (int) $hg_fcat['count']; ?></span>
-            </button>
-            <?php endforeach; ?>
+            <div class="hg-gallery-filter-wrap" id="hgGalleryFilterWrap" role="group" aria-label="Filtr realizacji wg rodzaju usługi">
+                <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
+                    Wszystkie <span class="hg-gallery-btn-count"><?php echo (int) $hg_filter_total; ?></span>
+                </button>
+                <?php foreach ($hg_filter_cats as $hg_fslug => $hg_fcat) : ?>
+                <button type="button" class="hg-gallery-btn" data-filter="<?php echo esc_attr($hg_fslug); ?>" aria-pressed="false">
+                    <?php echo esc_html($hg_fcat['name']); ?> <span class="hg-gallery-btn-count"><?php echo (int) $hg_fcat['count']; ?></span>
+                </button>
+                <?php endforeach; ?>
+            </div>
         </div>
 
         <?php if ($realizacje_query->have_posts()) : ?>
