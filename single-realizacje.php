@@ -8,9 +8,8 @@
 get_header();
 ?>
 
-<main style="padding: 6.5rem 0 5rem; flex: 1;">
-    <div class="hg-container">
-        
+<main style="padding: 0 0 5rem; flex: 1;">
+
         <?php while (have_posts()) : the_post(); 
             $car_model   = get_post_meta(get_the_ID(), '_higloss_car_model', true);
             $service_type= get_post_meta(get_the_ID(), '_higloss_service_type', true);
@@ -18,16 +17,48 @@ get_header();
             $model_label = (!empty($car_model) && ! higloss_model_in_title($car_model)) ? $car_model : '';
             $spec_rows   = higloss_get_realizacja_specs(get_the_ID());
             $before_id   = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
+
+            // Tytul realizacji zwykle w formacie "Model — Efekt" — dzielimy na dwie linie hero,
+            // druga czesc dostaje stylistyczny "pusty" konturowy wariant (jak na innych podstronach).
+            // Jesli myslnika brak, wyswietlamy caly tytul jedna linia (bezpieczny fallback).
+            $hg_title_raw = get_the_title();
+            if (false !== strpos($hg_title_raw, ' — ')) {
+                list($hg_title_l1, $hg_title_l2) = explode(' — ', $hg_title_raw, 2);
+                $hg_hero_title_html = esc_html($hg_title_l1) . '<br><span>' . esc_html($hg_title_l2) . '</span>';
+            } else {
+                $hg_hero_title_html = esc_html($hg_title_raw);
+            }
+            $hg_hero_eyebrow = !empty($model_label)
+                ? esc_html($model_label) . ' · Studio Szczecin / Mierzyn'
+                : 'Realizacja HI-GLOSS DESIGN · Szczecin / Mierzyn';
+            $hg_hero_lead = has_excerpt()
+                ? get_the_excerpt()
+                : 'Zobacz pełną specyfikację projektu, zdjęcia przed / po i szczegóły materiałowe tej realizacji HI-GLOSS DESIGN.';
         ?>
 
-            <!-- HERO COMPACT BANNER -->
-            <?php
-            get_template_part('template-parts/subpage-banner', null, array(
-                'image' => has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '',
-                'badge' => !empty($model_label) ? esc_html($model_label) : 'REALIZACJA HI-GLOSS DESIGN',
-                'title' => get_the_title(),
-            ));
-            ?>
+            <!-- HERO (bez zdjecia w tle — sam gradient + siatka, jak reszta design-systemu) -->
+            <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
+                <div class="hg-hero-shade"></div>
+                <div class="hg-hero-grid" aria-hidden="true"></div>
+                <div class="hg-container hg-hero-inner">
+                    <div class="hg-hero-content">
+                        <p class="hg-eyebrow hg-reveal"><span></span> <?php echo $hg_hero_eyebrow; ?></p>
+                        <h1 id="hero-title" class="hg-hero-title hg-reveal"><?php echo $hg_hero_title_html; ?></h1>
+                        <p class="hg-hero-lead hg-reveal"><?php echo esc_html($hg_hero_lead); ?></p>
+                        <div class="hg-hero-actions hg-reveal">
+                            <a href="tel:+48605088065" class="hg-btn hg-btn-primary">Zadzwoń: 605 088 065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                            <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-btn hg-btn-ghost">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="hg-hero-proof hg-reveal" role="group" aria-label="Dlaczego warto nam zaufać">
+                        <div><strong>500+</strong><span>oklejonych<br>pojazdów</span></div>
+                        <div><strong>15 lat</strong><span>doświadczenia<br>w branży</span></div>
+                        <div><strong>10 lat</strong><span>gwarancji<br>na folie PPF</span></div>
+                    </div>
+                </div>
+            </section>
+
+    <div class="hg-container" style="margin-top: 3rem;">
 
             <!-- PRZED / PO COMPARE (IF BEFORE IMAGE ADDED IN ADMIN) -->
             <?php if ($before_id && has_post_thumbnail()) :
