@@ -122,7 +122,7 @@ $theme_uri = get_template_directory_uri();
         <div class="hg-gallery-filter-group" id="hgGalleryFilterGroup">
             <button type="button" class="hg-gallery-filter-toggle" id="hgGalleryFilterToggle" aria-expanded="false" aria-controls="hgGalleryFilterWrap">
                 <span class="hg-gallery-filter-toggle-label" id="hgGalleryFilterToggleLabel">Wszystkie <span class="hg-gallery-btn-count"><?php echo (int) $hg_filter_total; ?></span></span>
-                <svg class="hg-gallery-filter-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5.5 9 6.5 6.5L18.5 9"/></svg>
+                <svg class="hg-gallery-filter-chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 9 6.5 6.5L18.5 9"/></svg>
             </button>
             <div class="hg-gallery-filter-wrap" id="hgGalleryFilterWrap" role="group" aria-label="Filtr realizacji wg rodzaju usługi">
                 <button type="button" class="hg-gallery-btn is-active" data-filter="all" aria-pressed="true">
