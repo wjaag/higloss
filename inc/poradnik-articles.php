@@ -130,7 +130,7 @@ function higloss_poradnik_articles() {
         array(
             'title'   => 'Przyciemnianie szyb w 2026 roku — co wolno, czego nie wolno i o co chodzi z atestem',
             'slug'    => 'przyciemnianie-szyb-przepisy',
-            'image'   => 'ai_oferta_detailing.webp',
+            'image'   => 'ai_oferta_przyciemnianie_szyb.webp',
             'excerpt' => 'Przednia szyba musi przepuszczać min. 75% światła, a przednie boczne 70%. Tylne szyby możesz przyciemnić dowolnie. Wyjaśniamy przepisy, mandaty i rolę atestu folii.',
             'content' => '
 <h2>Jak wyglądają przepisy w skrócie</h2>
@@ -167,7 +167,7 @@ function higloss_poradnik_articles() {
 </ul>
 
 <h2>Jak robimy to w HI-GLOSS DESIGN</h2>
-<p>Zawsze zaczynamy od rozmowy: mierzymy fabryczną przepuszczalność szyb, pokazujemy próbki folii o różnej ciemności i uczciwie mówimy, co jest legalne, a co już ryzykiem. Aplikujemy folie atermiczne i ceramiczne z filtrem IR oraz pełnym atestem. Szczegóły usługi: <a href="/detailing/">przyciemnianie szyb i detailing</a>. Pytania? <strong>605 088 065</strong> albo <a href="/kontakt/">kontakt przez stronę</a>.</p>
+<p>Zawsze zaczynamy od rozmowy: mierzymy fabryczną przepuszczalność szyb, pokazujemy próbki folii o różnej ciemności i uczciwie mówimy, co jest legalne, a co już ryzykiem. Aplikujemy folie atermiczne i ceramiczne z filtrem IR oraz pełnym atestem. Szczegóły usługi: <a href="/przyciemnianie-szyb/">przyciemnianie szyb</a>. Pytania? <strong>605 088 065</strong> albo <a href="/kontakt/">kontakt przez stronę</a>.</p>
 ',
         ),
 
@@ -572,7 +572,7 @@ function higross_poradnik_articles_v3() {
 <p><em>Kwoty są orientacyjne i dotyczą regionu Szczecina. Dokładną wycenę przygotowujemy bezpłatnie po podaniu modelu auta i wybranej klasy folii.</em></p>
 
 <h2>Ceramiczna czy piecowa — którą wybrać?</h2>
-<p>Obie klasy blokują do 99% promieniowania UV i dają ten sam efekt wizualny. <strong>Ceramika</strong> dodatkowo wyraźnie ogranicza promieniowanie podczerwone (mniej nagrzane wnętrze, lżej pracująca klimatyzacja) i nie zakłóca elektroniki. <strong>Folia piecowa</strong> to sprawdzona klasyka w niższym budżecie — głęboka, trwała barwa bez dopłaty za termikę. Pełne porównanie znajdziesz w opisie usługi <a href="/detailing/">przyciemniania szyb</a>.</p>
+<p>Obie klasy blokują do 99% promieniowania UV i dają ten sam efekt wizualny. <strong>Ceramika</strong> dodatkowo wyraźnie ogranicza promieniowanie podczerwone (mniej nagrzane wnętrze, lżej pracująca klimatyzacja) i nie zakłóca elektroniki. <strong>Folia piecowa</strong> to sprawdzona klasyka w niższym budżecie — głęboka, trwała barwa bez dopłaty za termikę. Pełne porównanie znajdziesz w opisie usługi <a href="/przyciemnianie-szyb/">przyciemniania szyb</a>.</p>
 
 <h2>Co dokładnie dostajesz w tej cenie?</h2>
 <ul>

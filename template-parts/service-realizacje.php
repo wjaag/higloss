@@ -14,10 +14,11 @@
 
 $slug  = get_post_field('post_name', get_queried_object_id());
 $heads = array(
-    'zmiana-koloru' => array('label' => 'zmiana koloru',                 'accent' => '#25aae1'),
-    'ppf'           => array('label' => 'ochrona lakieru PPF',           'accent' => '#10b981'),
-    'reklama'       => array('label' => 'reklama i branding',            'accent' => '#ff9900'),
-    'detailing'     => array('label' => 'szyby, dechroming i detailing', 'accent' => '#ff0055'),
+    'zmiana-koloru'       => array('label' => 'zmiana koloru',       'accent' => '#25aae1'),
+    'ppf'                 => array('label' => 'ochrona lakieru PPF', 'accent' => '#10b981'),
+    'reklama'             => array('label' => 'reklama i branding',  'accent' => '#ff9900'),
+    'dechroming'          => array('label' => 'dechroming i detale', 'accent' => '#ff0055'),
+    'przyciemnianie-szyb' => array('label' => 'przyciemnianie szyb', 'accent' => '#06b6d4'),
 );
 
 if (empty($heads[$slug])) {

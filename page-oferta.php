@@ -11,7 +11,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
 <main id="main-content" class="hg-landing">
     <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
-        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.webp'); ?> 1408w" sizes="100vw" alt="Oferta HI-GLOSS DESIGN — zmiana koloru, folia PPF, reklama na auto i detailing" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_tile2_oferta.webp'); ?> 1408w" sizes="100vw" alt="Oferta HI-GLOSS DESIGN — zmiana koloru, folia PPF, dechroming, przyciemnianie szyb i reklama na auto" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
         <div class="hg-hero-shade"></div>
         <div class="hg-hero-grid" aria-hidden="true"></div>
         <div class="hg-container hg-hero-inner">
@@ -42,79 +42,8 @@ $theme_uri = HIGLOSS_THEME_URI;
                 <p>Każda usługa ma własną stronę z pakietami, realizacjami i wyceną. Możesz też od razu napisać — dobierzemy zakres za Ciebie.</p>
             </header>
 
-            <div class="hg-service-grid">
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Samochód po całościowej zmianie koloru folią" width="1408" height="768" loading="lazy">
-                        <span>01</span>
-                        <p>Car wrapping</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Całościowa zmiana koloru</h3>
-                        <p>Odwracalna alternatywa dla lakierowania. Oklejamy auta, motocykle i łodzie foliami wylewanymi premium — w połysku, satynie, macie, carbonie i wykończeniach typu kameleon.</p>
-                        <ul>
-                            <li><span>Czas realizacji</span><strong>3–5 dni</strong></li>
-                            <li><span>Gwarancja producenta</span><strong>5–7 lat</strong></li>
-                            <li><span>Materiały</span><strong>3M / Avery / Hexis</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/zmiana-koloru')); ?>" class="hg-text-link">Poznaj zmianę koloru <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
+            <?php get_template_part('template-parts/service-tiles'); ?>
 
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Aplikacja bezbarwnej folii ochronnej PPF na maskę samochodu" width="1408" height="768" loading="lazy">
-                        <span>02</span>
-                        <p>Paint Protection Film</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Bezbarwne folie PPF</h3>
-                        <p>Niemal niewidoczna bariera chroniąca lakier przed odpryskami, zarysowaniami, chemią drogową i codziennym zużyciem. Powierzchnia folii regeneruje mikrorysy pod wpływem ciepła.</p>
-                        <ul>
-                            <li><span>Grubość folii</span><strong>140–200 μm</strong></li>
-                            <li><span>Trwałość</span><strong>8–10 lat</strong></li>
-                            <li><span>Pakiety</span><strong>Strefy / Full Front / Full Body</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/ppf')); ?>" class="hg-text-link">Poznaj ochronę PPF <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
-
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_reklama.webp'); ?>" alt="Flota samochodów dostawczych z oznakowaniem reklamowym" width="1408" height="768" loading="lazy">
-                        <span>03</span>
-                        <p>Fleet branding</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Reklama i branding flot</h3>
-                        <p>Projektujemy, drukujemy i aplikujemy grafikę, która pracuje na rozpoznawalność marki w każdym miejscu. Obsługujemy pojedyncze auta firmowe i powtarzalne wdrożenia flotowe.</p>
-                        <ul>
-                            <li><span>Realizacja</span><strong>Projekt + druk + montaż</strong></li>
-                            <li><span>Zaplecze</span><strong>Drukarki i plotery na miejscu</strong></li>
-                            <li><span>Doświadczenie</span><strong>DHL / Warta / MŚP</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/reklama')); ?>" class="hg-text-link">Poznaj branding flot <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
-
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" alt="Samochód przygotowany do detailingu i zabezpieczenia" width="1408" height="768" loading="lazy">
-                        <span>04</span>
-                        <p>Finishing touch</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Detailing</h3>
-                        <p>Przyciemnianie szyb atestowanymi foliami, sportowy Shadow Line, oklejanie elementów wnętrza oraz przygotowanie lakieru do aplikacji. Detale, które domykają cały projekt.</p>
-                        <ul>
-                            <li><span>Ochrona UV</span><strong>Do 99%</strong></li>
-                            <li><span>Dechroming</span><strong>Połysk / satyna</strong></li>
-                            <li><span>Typowy czas usługi</span><strong>1 dzień</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/detailing')); ?>" class="hg-text-link">Poznaj detailing <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
-            </div>
         </div>
     </section>
 

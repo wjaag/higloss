@@ -16,10 +16,11 @@ if (!defined('ABSPATH')) {
 
 function higloss_realizacje_categories() {
     return array(
-        'zmiana-koloru' => 'Zmiana koloru',
-        'ppf'           => 'Folia ochronna PPF',
-        'reklama'       => 'Reklama i branding',
-        'detailing'     => 'Detailing i detale',
+        'zmiana-koloru'       => 'Zmiana koloru',
+        'ppf'                 => 'Folia ochronna PPF',
+        'reklama'             => 'Reklama i branding',
+        'dechroming'          => 'Dechroming (Shadow Line)',
+        'przyciemnianie-szyb' => 'Przyciemnianie szyb',
     );
 }
 
@@ -71,10 +72,14 @@ function higloss_realizacje_fields_config() {
                 '_higloss_scope'         => array('label' => 'Zakres usługi',          'chip' => 'Zakres',   'type' => 'select', 'options' => array('Projekt + druk + montaż', 'Druk + montaż', 'Tylko montaż')),
                 '_higloss_film_used'     => array('label' => 'Materiał / system druku', 'chip' => 'Materiał', 'type' => 'text',   'placeholder' => 'np. druk UV + laminat ochronny'),
             ),
-            'detailing' => array(
-                '_higloss_service_subtype' => array('label' => 'Rodzaj usługi',          'chip' => 'Usługa', 'type' => 'select', 'options' => array('Przyciemnianie szyb', 'Dechroming (Shadow Line)', 'Oklejanie wnętrza', 'Powłoka ochronna', 'Kolorowanie detali', 'Inna')),
-                '_higloss_finish_type'     => array('label' => 'Wykończenie',            'chip' => 'Efekt',  'type' => 'select', 'options' => higloss_finish_options()),
-                '_higloss_attest'          => array('label' => 'Atest / norma (dla szyb)', 'chip' => 'Atest', 'type' => 'text',   'placeholder' => 'np. folia atestowana P-21'),
+            'dechroming' => array(
+                '_higloss_service_subtype' => array('label' => 'Rodzaj usługi', 'chip' => 'Usługa', 'type' => 'select', 'options' => array('Shadow Line (listwy, grill)', 'Przyciemnianie lamp', 'Paski / grafiki na masce', 'Dach / lusterka w kontrastowym kolorze', 'Emblematy i dodatki', 'Inna')),
+                '_higloss_finish_type'     => array('label' => 'Wykończenie',   'chip' => 'Efekt',   'type' => 'select', 'options' => higloss_finish_options()),
+            ),
+            'przyciemnianie-szyb' => array(
+                '_higloss_film_type'    => array('label' => 'Rodzaj folii',   'chip' => 'Folia',          'type' => 'select', 'options' => array('Ceramiczna', 'Piecowa')),
+                '_higloss_tint_percent' => array('label' => 'Przyciemnienie', 'chip' => 'Przyciemnienie', 'type' => 'text',   'placeholder' => 'np. 20%, 35%, 5%'),
+                '_higloss_attest'       => array('label' => 'Atest / norma',  'chip' => 'Atest',          'type' => 'text',   'placeholder' => 'np. folia atestowana P-21'),
             ),
             /* Realizacja bez kategorii — dawny, ogolny uklad pol */
             'ogolna' => array(
@@ -103,10 +108,17 @@ function higloss_all_realizacja_field_keys() {
     return $map;
 }
 
-/* Jednorazowe auto-tworzenie 4 kategorii o prawidlowych slugach (= kolory kart) */
+/*
+ * Auto-tworzenie kategorii o prawidlowych slugach (= kolory kart). Bez
+ * globalnej blokady "juz zrobione na zawsze" — dzieki temu nowa kategoria
+ * dopisana kiedykolwiek do higloss_realizacje_categories() (np. przy
+ * rozszerzeniu oferty) sama sie utworzy przy najblizszym wejsciu do panelu,
+ * rowniez na juz dzialajacej stronie. term_exists() pilnuje, zeby istniejace
+ * kategorie nigdy nie byly duplikowane ani nadpisywane.
+ */
 add_action('admin_init', 'higloss_realizacje_ensure_terms');
 function higloss_realizacje_ensure_terms() {
-    if (!taxonomy_exists('kategoria_realizacji') || get_option('higloss_terms_seeded')) {
+    if (!taxonomy_exists('kategoria_realizacji')) {
         return;
     }
     foreach (higloss_realizacje_categories() as $slug => $name) {
@@ -114,7 +126,6 @@ function higloss_realizacje_ensure_terms() {
             wp_insert_term($name, 'kategoria_realizacji', array('slug' => $slug));
         }
     }
-    update_option('higloss_terms_seeded', 1);
 }
 
 /* Kategoria realizacji (obiekt WP_Term) albo null */

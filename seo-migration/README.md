@@ -29,7 +29,7 @@ Adresy wymagające 301:
 |---|---|---|
 | `/oferta/zmiana-koloru-auta` | `/zmiana-koloru/` | ta sama usługa |
 | `/oferta/oklejanie-aut` (reklama/grafika/floty: DHL, Warta, Poczta Polska) | `/reklama/` | odpowiednik tematyczny |
-| `/oferta/usługi-dodatkowe` (blacharka + przyciemnianie szyb) | `/detailing/` | odpowiednik tematyczny |
+| `/oferta/usługi-dodatkowe` (blacharka + przyciemnianie szyb) | `/przyciemnianie-szyb/` | odpowiednik tematyczny (dawna strona /detailing/ została w 2026-09 podzielona na /dechroming/ i /przyciemnianie-szyb/) |
 | `/galeria/zmiana-koloru-auta` + `?catpage=N` | `/galeria/` | kategoria galerii |
 | `/galeria/oklejanie-aut` | `/galeria/` | kategoria galerii |
 | ~80 pojedynczych realizacji `/galeria/**` | `/galeria/` | masowe, jedną regułą regex |

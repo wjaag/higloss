@@ -15,7 +15,7 @@ Legenda kolumny „Cel": gdzie ląduje przekierowanie 301 po przełączeniu na W
 | `/kontakt` | `/kontakt/` | bez reguły |
 | `/oferta/zmiana-koloru-auta` | `/zmiana-koloru/` | reguła 301 |
 | `/oferta/oklejanie-aut` | `/reklama/` | reguła 301 |
-| `/oferta/usługi-dodatkowe` | `/detailing/` | reguła 301 (uwaga: „ł" w ścieżce) |
+| `/oferta/usługi-dodatkowe` | `/przyciemnianie-szyb/` | reguła 301 (uwaga: „ł" w ścieżce); dawna usługa "blacharka + przyciemnianie szyb" po podziale strony /detailing/ na dwie osobne strony (2026-09) najlepiej pasuje tematycznie do /przyciemnianie-szyb/ |
 
 ## B. Kategorie galerii (2)
 

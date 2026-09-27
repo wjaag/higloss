@@ -1,6 +1,7 @@
 ====================================================================
 HI-GLOSS DESIGN — GOTOWE WARTOŚCI DO RANK MATH (kopiuj-wklej)
-Przygotowano: 2026-09-24
+Przygotowano: 2026-09-24, zaktualizowano: 2026-09-27 (podział usługi
+"Detailing" na dwie osobne strony: Dechroming i Przyciemnianie szyb)
 ====================================================================
 
 Ten plik NIE jest częścią kodu motywu i niczego nie zmienia na stronie.
@@ -33,11 +34,11 @@ Fraza kluczowa:
 oklejanie aut Szczecin
 
 Tytuł SEO:
-Oklejanie aut Szczecin — Car Wrapping, PPF i Detailing | HI-GLOSS DESIGN
+Oklejanie aut Szczecin — Car Wrapping, PPF, Dechroming | HI-GLOSS DESIGN
 
 Opis:
 Studio car wrappingu w Mierzynie k. Szczecina. Zmiana koloru folią, PPF,
-detailing i oklejanie reklamowe. 15 lat praktyki. Bezpłatna wycena online.
+dechroming i przyciemnianie szyb. 15 lat praktyki. Bezpłatna wycena online.
 
 ====================================================================
 OFERTA — /oferta/
@@ -46,11 +47,11 @@ Fraza kluczowa:
 oferta oklejania aut
 
 Tytuł SEO:
-Oferta — Oklejanie Aut, PPF, Detailing i Reklama | HI-GLOSS DESIGN
+Oferta — Oklejanie Aut, PPF, Dechroming i Reklama | HI-GLOSS DESIGN
 
 Opis:
 Pełna oferta HI-GLOSS DESIGN: zmiana koloru folią, bezbarwne PPF,
-detailing i przyciemnianie szyb oraz oklejanie reklamowe aut. Sprawdź ceny.
+dechroming, przyciemnianie szyb oraz oklejanie reklamowe aut. Sprawdź ceny.
 
 ====================================================================
 ZMIANA KOLORU — /zmiana-koloru/
@@ -79,17 +80,30 @@ Ochrona lakieru folią PPF: Full Front i Full Body. Montaż w hali,
 gwarancja producenta. Zabezpiecz auto przed odpryskami i rysami.
 
 ====================================================================
-DETAILING — /detailing/
+DECHROMING — /dechroming/
+====================================================================
+Fraza kluczowa:
+dechroming Szczecin
+
+Tytuł SEO:
+Dechroming (Shadow Line) Szczecin — czarne listwy | HI-GLOSS DESIGN
+
+Opis:
+Oklejamy chromowane listwy, grill, lusterka i lampy folią Shadow Line
+w połysku lub satynie. Studio w Mierzynie k. Szczecina. Bezpłatna wycena.
+
+====================================================================
+PRZYCIEMNIANIE SZYB — /przyciemnianie-szyb/
 ====================================================================
 Fraza kluczowa:
 przyciemnianie szyb Szczecin
 
 Tytuł SEO:
-Detailing aut i przyciemnianie szyb Szczecin | HI-GLOSS DESIGN
+Przyciemnianie szyb Szczecin — folia z atestem | HI-GLOSS DESIGN
 
 Opis:
-Korekta lakieru, powłoki ochronne i przyciemnianie szyb z atestem oraz
-dechroming. Profesjonalny detailing w Mierzynie k. Szczecina.
+Folie ceramiczne i piecowe z atestem, ochrona UV do 99%. Legalne
+przyciemnianie szyb w Mierzynie k. Szczecina. Bezpłatna wycena online.
 
 ====================================================================
 REKLAMA — /reklama/
@@ -124,11 +138,11 @@ Fraza kluczowa:
 realizacje oklejanie aut
 
 Tytuł SEO:
-Realizacje — Galeria oklejania aut, PPF i detailingu | HI-GLOSS DESIGN
+Realizacje — Galeria oklejania aut, PPF, dechromingu | HI-GLOSS DESIGN
 
 Opis:
-Zobacz nasze realizacje: zmiany koloru, PPF, oklejanie reklamowe
-i detailing. Zdjęcia przed i po z Mierzyna i Szczecina.
+Zobacz nasze realizacje: zmiany koloru, PPF, dechroming i przyciemnianie
+szyb. Zdjęcia przed i po z Mierzyna i Szczecina.
 
 ====================================================================
 SZKOLENIA — /szkolenia/
@@ -153,8 +167,8 @@ Tytuł SEO:
 FAQ — Najczęstsze pytania o oklejanie aut i folie | HI-GLOSS DESIGN
 
 Opis:
-Odpowiedzi na pytania o koszty, trwałość i pielęgnację folii, PPF oraz
-detailingu. Sprawdź, zanim zdecydujesz się na oklejanie auta.
+Odpowiedzi na pytania o koszty, trwałość i pielęgnację folii, PPF,
+dechromingu i przyciemniania szyb. Sprawdź, zanim zdecydujesz się na oklejanie.
 
 ====================================================================
 O FIRMIE — /o-firmie/
@@ -180,7 +194,7 @@ Kontakt — HI-GLOSS DESIGN | Oklejanie aut Szczecin, Mierzyn
 
 Opis:
 Zadzwoń, napisz lub odwiedź nas: Podmiejska 4, Mierzyn k. Szczecina.
-Umów bezpłatną wycenę oklejenia, PPF lub detailingu.
+Umów bezpłatną wycenę oklejenia, PPF, dechromingu lub przyciemniania szyb.
 
 ====================================================================
 POLITYKA PRYWATNOŚCI — /polityka-prywatnosci/
@@ -197,7 +211,8 @@ REALIZACJE (pojedyncze wpisy w /galeria/)
 Dla każdej realizacji:
 Tytuł SEO:  [tytuł realizacji] | HI-GLOSS DESIGN
 Opis:       użyj krótkiego opisu realizacji, który już jest na stronie
-            (np. jaki model auta, jaka usługa — kolor/PPF/detailing)
+            (np. jaki model auta, jaka usługa — kolor/PPF/dechroming/
+            przyciemnianie szyb)
 
 ====================================================================
 PORADNIKI (artykuły blogowe)

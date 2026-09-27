@@ -50,9 +50,13 @@ function higloss_bootstrap_pages() {
             'title'    => 'Oklejanie reklamowe i floty',
             'template' => 'page-reklama.php',
         ),
-        'detailing' => array(
-            'title'    => 'Detailing i przyciemnianie szyb',
-            'template' => 'page-detailing.php',
+        'dechroming' => array(
+            'title'    => 'Dechroming (Shadow Line)',
+            'template' => 'page-dechroming.php',
+        ),
+        'przyciemnianie-szyb' => array(
+            'title'    => 'Przyciemnianie szyb',
+            'template' => 'page-przyciemnianie-szyb.php',
         ),
         'szkolenia' => array(
             'title'    => 'Szkolenia car wrappingu',
@@ -222,6 +226,70 @@ function higloss_bootstrap_szkolenia_page() {
     }
 }
 add_action('init', 'higloss_bootstrap_szkolenia_page', 29);
+
+/**
+ * Bootstrap — strona /dechroming (page-dechroming.php).
+ *
+ * Zastepuje dawna wspolna strone /detailing (szyby + dechroming w jednym) po
+ * podziale oferty na 6 osobnych uslug. Haczyk na `init`, zeby strona powstala
+ * rowniez przy wgraniu nowej wersji motywu na juz aktywnej instalacji — bez
+ * ponownej aktywacji. Idempotentne: istniejaca strona (slug) nie jest nadpisywana.
+ */
+function higloss_bootstrap_dechroming_page() {
+    if (get_option('higloss_dechroming_seeded')) {
+        return;
+    }
+    $existing = get_page_by_path('dechroming');
+    if ($existing) {
+        if (!get_post_meta($existing->ID, '_wp_page_template', true)) {
+            update_post_meta($existing->ID, '_wp_page_template', 'page-dechroming.php');
+        }
+        update_option('higloss_dechroming_seeded', 1);
+        return;
+    }
+    $new_id = wp_insert_post(array(
+        'post_title'   => 'Dechroming (Shadow Line)',
+        'post_name'    => 'dechroming',
+        'post_status'  => 'publish',
+        'post_type'    => 'page',
+        'post_content' => '',
+    ));
+    if ($new_id && !is_wp_error($new_id)) {
+        update_post_meta($new_id, '_wp_page_template', 'page-dechroming.php');
+        update_option('higloss_dechroming_seeded', 1);
+    }
+}
+add_action('init', 'higloss_bootstrap_dechroming_page', 40);
+
+/**
+ * Bootstrap — strona /przyciemnianie-szyb (page-przyciemnianie-szyb.php).
+ * Analogicznie do powyzszej.
+ */
+function higloss_bootstrap_przyciemnianie_szyb_page() {
+    if (get_option('higloss_przyciemnianie_szyb_seeded')) {
+        return;
+    }
+    $existing = get_page_by_path('przyciemnianie-szyb');
+    if ($existing) {
+        if (!get_post_meta($existing->ID, '_wp_page_template', true)) {
+            update_post_meta($existing->ID, '_wp_page_template', 'page-przyciemnianie-szyb.php');
+        }
+        update_option('higloss_przyciemnianie_szyb_seeded', 1);
+        return;
+    }
+    $new_id = wp_insert_post(array(
+        'post_title'   => 'Przyciemnianie szyb',
+        'post_name'    => 'przyciemnianie-szyb',
+        'post_status'  => 'publish',
+        'post_type'    => 'page',
+        'post_content' => '',
+    ));
+    if ($new_id && !is_wp_error($new_id)) {
+        update_post_meta($new_id, '_wp_page_template', 'page-przyciemnianie-szyb.php');
+        update_option('higloss_przyciemnianie_szyb_seeded', 1);
+    }
+}
+add_action('init', 'higloss_bootstrap_przyciemnianie_szyb_page', 41);
 
 /**
  * Bootstrap v2 — Poradnik (blog SEO).

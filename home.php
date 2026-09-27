@@ -20,7 +20,7 @@ $theme_uri = get_template_directory_uri();
         <?php
         get_template_part('template-parts/subpage-banner', null, array(
             'image' => $theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp',
-            'badge' => 'ODPOWIEDZI EKSPERTA &bull; OKLEJANIE &bull; PPF &bull; DETAILING',
+            'badge' => 'ODPOWIEDZI EKSPERTA &bull; OKLEJANIE &bull; PPF &bull; SZYBY',
             'title' => 'PORADNIK CAR WRAPPINGU <span>SZCZECIN / MIERZYN</span>',
             'desc'  => 'Rzetelne odpowiedzi na pytania, które słyszymy codziennie w studiu: cenniki, przepisy, pielęgnacja i technologia. Bez marketingowej wody — piszemy o tym, co robimy pod Szczecinem.',
         ));

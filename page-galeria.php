@@ -76,10 +76,11 @@ $theme_uri = get_template_directory_uri();
 
         // Filtr wg rodzaju uslugi: kategorie zbieramy z faktycznie wyswietlanych kart
         $hg_filter_defaults = array(
-            'zmiana-koloru' => 'Zmiana koloru',
-            'ppf'           => 'Ochrona PPF',
-            'reklama'       => 'Reklama i branding',
-            'detailing'     => 'Detailing i detale',
+            'zmiana-koloru'          => 'Zmiana koloru',
+            'ppf'                    => 'Ochrona PPF',
+            'reklama'                => 'Reklama i branding',
+            'dechroming'             => 'Dechroming',
+            'przyciemnianie-szyb'    => 'Przyciemnianie szyb',
         );
         $hg_filter_cats = array();
         if ($realizacje_query->have_posts()) {
@@ -97,10 +98,11 @@ $theme_uri = get_template_directory_uri();
             }
         } else {
             $hg_filter_cats = array(
-                'zmiana-koloru' => array('name' => $hg_filter_defaults['zmiana-koloru'], 'count' => 4),
-                'ppf'           => array('name' => $hg_filter_defaults['ppf'], 'count' => 2),
-                'reklama'       => array('name' => $hg_filter_defaults['reklama'], 'count' => 1),
-                'detailing'     => array('name' => $hg_filter_defaults['detailing'], 'count' => 1),
+                'zmiana-koloru'       => array('name' => $hg_filter_defaults['zmiana-koloru'], 'count' => 4),
+                'ppf'                 => array('name' => $hg_filter_defaults['ppf'], 'count' => 2),
+                'reklama'             => array('name' => $hg_filter_defaults['reklama'], 'count' => 1),
+                'dechroming'          => array('name' => $hg_filter_defaults['dechroming'], 'count' => 1),
+                'przyciemnianie-szyb' => array('name' => $hg_filter_defaults['przyciemnianie-szyb'], 'count' => 1),
             );
         }
         $hg_filter_order = array_keys($hg_filter_defaults);
@@ -150,7 +152,7 @@ $theme_uri = get_template_directory_uri();
                         'gallery_ppf_application.webp'    => 'gallery_ppf_application_before.webp',
                         'ai_oferta_ppf.webp'              => 'ai_oferta_ppf_before.webp',
                         'gallery_fleet_commercial.webp'   => 'gallery_fleet_before.webp',
-                        'ai_oferta_detailing.webp'        => 'ai_oferta_detailing_before.webp',
+                        'ai_oferta_dechroming.webp'       => 'ai_oferta_dechroming_before.webp',
                     );
                     $thumb_basename  = basename(parse_url($thumb_url, PHP_URL_PATH));
                     $before_meta_id  = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
@@ -458,34 +460,66 @@ $theme_uri = get_template_directory_uri();
                     </div>
                 </article>
 
-                <!-- CARD 8: DETAILING & DECHROMING -->
-                <article class="hg-gallery-card" data-category="detailing">
-                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing_before.webp'); ?>" data-lightbox-title="Detailing &amp; Dechroming — Shadow Line Studio" data-lightbox-meta="Dechroming listew &bull; Przyciemnianie szyb &bull; Powłoki ceramiczne" data-lightbox-link="<?php echo esc_url(home_url('/detailing')); ?>>
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" alt="Detailing i Dechroming" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
+                <!-- CARD 8: DECHROMING -->
+                <article class="hg-gallery-card" data-category="dechroming">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming_before.webp'); ?>" data-lightbox-title="Dechroming — Shadow Line Studio" data-lightbox-meta="Dechroming listew &bull; Shadow Line &bull; Gloss Black" data-lightbox-link="<?php echo esc_url(home_url('/dechroming')); ?>">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming.webp'); ?>" alt="Dechroming — oklejone listwy i grill folią Shadow Line" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
                         <div class="hg-gallery-vignette"></div>
-                        <span class="hg-gallery-cat-pill cat-detailing">Detailing &amp; Detale</span>
+                        <span class="hg-gallery-cat-pill cat-dechroming">Dechroming</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
                             <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
                         </button>
                     </div>
                     <div class="hg-gallery-content">
                         <div>
-                            <h2 class="hg-gallery-title">Dechroming &amp; Przyciemnianie Szyb</h2>
-                            <p class="hg-gallery-desc">Kompletne oklejenie chromowanych listew folią Shadow Line Gloss Black oraz termiczne przyciemnienie szyb foliami z filtrem IR.</p>
+                            <h2 class="hg-gallery-title">Dechroming — Shadow Line</h2>
+                            <p class="hg-gallery-desc">Kompletne oklejenie chromowanych listew, grillu i lamp folią Shadow Line Gloss Black — auto traci wszystkie błyszczące akcenty na rzecz jednolitej, głębokiej czerni.</p>
                         </div>
                         <div>
                             <div class="hg-gallery-specs-row">
                                 <span class="hg-gallery-spec-item">Folia: <strong>3M 2080 Gloss Black</strong></span>
-                                <span class="hg-gallery-spec-item">Szyby: <strong>Ceramic IR Tint</strong></span>
+                                <span class="hg-gallery-spec-item">Zakres: <strong>Listwy, grill, lampy</strong></span>
                                 <span class="hg-gallery-spec-item">Czas: <strong>1 dzień</strong></span>
-                                <span class="hg-gallery-spec-item">Atest: <strong>Atest ISiC</strong></span>
                             </div>
                             <div class="hg-gallery-actions">
-                                <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_detailing_before.webp'); ?>" data-lightbox-title="Dechroming &amp; Przyciemnianie Szyb" data-lightbox-meta="Stylizacja detali &bull; Shadow Line &bull; Termoizolacja">
+                                <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming.webp'); ?>" data-lightbox-before="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming_before.webp'); ?>" data-lightbox-title="Dechroming — Shadow Line" data-lightbox-meta="Dechroming listew &bull; Shadow Line &bull; Gloss Black">
                                     <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg> Przed / Po
                                 </button>
-                                <a href="<?php echo esc_url(home_url('/detailing')); ?>" class="hg-gallery-card-btn btn-primary">
-                                    Oferta Detailing &rarr;
+                                <a href="<?php echo esc_url(home_url('/dechroming')); ?>" class="hg-gallery-card-btn btn-primary">
+                                    Oferta Dechroming &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 9: PRZYCIEMNIANIE SZYB -->
+                <article class="hg-gallery-card" data-category="przyciemnianie-szyb">
+                    <div class="hg-gallery-media-box" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_przyciemnianie_szyb.webp'); ?>" data-lightbox-title="Przyciemnianie szyb — folia ceramiczna z atestem" data-lightbox-meta="Folia ceramiczna &bull; Atest &bull; Ochrona UV do 99%" data-lightbox-link="<?php echo esc_url(home_url('/przyciemnianie-szyb')); ?>">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_przyciemnianie_szyb.webp'); ?>" alt="Przyciemnianie szyb — aplikacja folii ceramicznej" loading="lazy" srcset="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_przyciemnianie_szyb-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_przyciemnianie_szyb-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/ai_oferta_przyciemnianie_szyb.webp'); ?> 1408w" sizes="(max-width: 768px) 92vw, 400px" decoding="async">
+                        <div class="hg-gallery-vignette"></div>
+                        <span class="hg-gallery-cat-pill cat-przyciemnianie-szyb">Przyciemnianie szyb</span>
+                        <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
+                            <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
+                        </button>
+                    </div>
+                    <div class="hg-gallery-content">
+                        <div>
+                            <h2 class="hg-gallery-title">Przyciemnianie szyb — folia ceramiczna</h2>
+                            <p class="hg-gallery-desc">Atestowana folia ceramiczna z filtrem IR — blokuje do 99% promieniowania UV, chłodniejsze wnętrze latem i pełna zgodność z przepisami o przepuszczalności światła.</p>
+                        </div>
+                        <div>
+                            <div class="hg-gallery-specs-row">
+                                <span class="hg-gallery-spec-item">Folia: <strong>Ceramic IR Tint</strong></span>
+                                <span class="hg-gallery-spec-item">Ochrona UV: <strong>Do 99%</strong></span>
+                                <span class="hg-gallery-spec-item">Atest: <strong>Na życzenie</strong></span>
+                            </div>
+                            <div class="hg-gallery-actions">
+                                <button type="button" class="hg-gallery-card-btn" data-lightbox-img="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_przyciemnianie_szyb.webp'); ?>" data-lightbox-title="Przyciemnianie szyb — folia ceramiczna" data-lightbox-meta="Folia ceramiczna &bull; Atest &bull; Ochrona UV do 99%">
+                                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg> Przed / Po
+                                </button>
+                                <a href="<?php echo esc_url(home_url('/przyciemnianie-szyb')); ?>" class="hg-gallery-card-btn btn-primary">
+                                    Oferta Przyciemnianie szyb &rarr;
                                 </a>
                             </div>
                         </div>

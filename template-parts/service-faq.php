@@ -1,6 +1,7 @@
 <?php
 /**
- * Sekcja FAQ na stronach uslug (zmiana koloru / PPF / reklama / detailing).
+ * Sekcja FAQ na stronach uslug (zmiana koloru / PPF / reklama / dechroming /
+ * przyciemnianie szyb).
  * Dane pochodza z higloss_service_faqs() — jedno zrodlo dla wszystkich
  * szablonow uslug. (Schematy JSON-LD i meta obsluguje wylacznie wtyczka SEO.)
  *

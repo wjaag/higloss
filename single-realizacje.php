@@ -145,7 +145,8 @@ get_header();
             $_rel_map = array(
                 'ppf'           => array(array('/ppf/', 'Zobacz usługę: bezbarwne folie ochronne PPF'), array('/ile-kosztuje-folia-ppf-cennik/', 'Ile kosztuje folia PPF — cennik')),
                 'reklama'       => array(array('/reklama/', 'Zobacz usługę: reklama i branding flot'), array('/jak-dlugo-trzyma-sie-folia/', 'Jak długo trzyma się folia na aucie?')),
-                'detailing'     => array(array('/detailing/', 'Zobacz usługę: szyby, dechroming i detailing'), array('/przyciemnianie-szyb-przepisy/', 'Przyciemnianie szyb — co mówią przepisy')),
+                'dechroming'          => array(array('/dechroming/', 'Zobacz usługę: dechroming (Shadow Line)'), array('/przyciemnianie-szyb-przepisy/', 'Przyciemnianie szyb — co mówią przepisy')),
+                'przyciemnianie-szyb' => array(array('/przyciemnianie-szyb/', 'Zobacz usługę: przyciemnianie szyb'), array('/pielegnacja-folii-po-oklejeniu/', 'Jak dbać o folię po oklejeniu auta')),
                 'zmiana-koloru' => array(array('/zmiana-koloru/', 'Zobacz usługę: zmiana koloru auta folią'), array('/ile-kosztuje-zmiana-koloru-auta-folia/', 'Ile kosztuje zmiana koloru auta folią?')),
             );
             $_rel_slug = function_exists('higloss_service_guess') ? higloss_service_guess(get_the_title() . ' ' . $service_type) : null;

@@ -136,10 +136,16 @@
   background: #fffbeb;
   color: #b45309;
 }
-.hg-cat-pill.hg-cat-detailing.is-active {
+.hg-cat-pill.hg-cat-detailing.is-active,
+.hg-cat-pill.hg-cat-dechroming.is-active {
   border-color: #8b5cf6;
   background: #f5f3ff;
   color: #6d28d9;
+}
+.hg-cat-pill.hg-cat-przyciemnianie-szyb.is-active {
+  border-color: #06b6d4;
+  background: #ecfeff;
+  color: #0e7490;
 }
 .hg-cat-pill.hg-cat-ogolna.is-active {
   border-color: #64748b;

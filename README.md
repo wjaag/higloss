@@ -7,7 +7,7 @@ Dedykowany, jednopłaszczyznowy motyw dla studia car wrappingu **HI-GLOSS DESIGN
 Strona główna składa informacje z dotychczasowych podstron w jeden, spójny lejek:
 
 1. pełnoekranowy hero z głównym CTA,
-2. oferta: zmiana koloru, PPF, branding flot, szyby/dechroming/detailing,
+2. oferta: zmiana koloru, PPF, dechroming, przyciemnianie szyb, branding flot, szkolenia,
 3. prezentacja studia i przewag,
 4. czteroetapowy proces współpracy,
 5. dynamiczne portfolio z CPT `realizacje`,

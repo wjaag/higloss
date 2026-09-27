@@ -2268,6 +2268,8 @@ body:not(.home) .hg-header {
 .hg-work-grid .hg-reveal:nth-child(3) { transition-delay: 0.14s; }
 .hg-service-grid .hg-reveal:nth-child(4),
 .hg-process-grid .hg-reveal:nth-child(4) { transition-delay: 0.2s; }
+.hg-service-grid .hg-reveal:nth-child(5) { transition-delay: 0.26s; }
+.hg-service-grid .hg-reveal:nth-child(6) { transition-delay: 0.32s; }
 
 /* ==========================================================================
    HERO (above-the-fold): WYLACZONY reveal sterowany JS.
@@ -3354,9 +3356,15 @@ body:not(.home) .hg-footer-main {
   color: #fbbf24;
 }
 
-.hg-gallery-cat-pill.cat-detailing {
+.hg-gallery-cat-pill.cat-detailing,
+.hg-gallery-cat-pill.cat-dechroming {
   border-color: #8b5cf6;
   color: #a78bfa;
+}
+
+.hg-gallery-cat-pill.cat-przyciemnianie-szyb {
+  border-color: #06b6d4;
+  color: #22d3ee;
 }
 
 .hg-gallery-zoom-btn {
@@ -3735,12 +3743,17 @@ body:not(.home) .hg-footer-main {
   }
   .hg-lightbox-pair:not(.has-before) .hg-lightbox-img {
     max-width: 92vw;
-    max-height: calc(100vh - 260px);
+    max-height: calc(100vh - 170px);
   }
   .hg-lightbox-vs {
     width: 32px;
     height: 32px;
     transform: rotate(90deg);
+  }
+  /* Na telefonie tytul/meta/opis realizacji psuly uklad pod zdjeciem —
+     zostawiamy tylko zdjecie i przyciski akcji (realizacja / wycena). */
+  .hg-lightbox-info {
+    display: none;
   }
 }
 

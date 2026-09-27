@@ -28,7 +28,8 @@ Frazy lokalne, podział na strony (1 fraza główna + 2–4 poboczne na stronę)
 | `/zmiana-koloru/` | zmiana koloru auta folią Szczecin | całościowe oklejanie samochodu, folia mat/carbon |
 | `/ppf/` | folia ochronna PPF Szczecin | zabezpieczenie lakieru folią |
 | `/reklama/` | oklejanie reklamowe samochodów Szczecin | reklama na samochodzie, oklejanie floty |
-| `/detailing/` | przyciemnianie szyb Szczecin | detailing aut Szczecin |
+| `/dechroming/` | dechroming Szczecin | Shadow Line, czarne listwy |
+| `/przyciemnianie-szyb/` | przyciemnianie szyb Szczecin | folia ceramiczna z atestem |
 | `/galeria/` | realizacje oklejania aut | (zbiera long tail z podstron realizacji) |
 
 Walidacja wolumenów: Keyword Planner / Senuto (trial) / podpowiedzi Google. **Zatwierdzenie przez nas przed krokiem 3.**

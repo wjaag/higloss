@@ -28,11 +28,17 @@ $links_map = array(
         array('Realizacja: Ford Transit — branding dla DHL', '/realizacja/ford-transit-branding-dhl/'),
         array('Realizacja: Volvo — branding firmowy Waterdrop', '/realizacja/volvo-branding-auta-firmy-waterdrop/'),
     ),
-    'detailing' => array(
-        array('Przyciemnianie szyb — co mówią przepisy', '/przyciemnianie-szyb-przepisy/'),
-        array('Jak dbać o folię po oklejeniu auta', '/pielegnacja-folii-po-oklejeniu/'),
+    'dechroming' => array(
         array('Realizacja: Mercedes GLK — lampy i dechroming', '/realizacja/mercedes-glk-przyciemnianie-lamp-i-dechroming-grila/'),
         array('Realizacja: Dodge Charger — paski na masce', '/realizacja/dodge-charger-paski-na-masce/'),
+        array('Jak dbać o folię po oklejeniu auta', '/pielegnacja-folii-po-oklejeniu/'),
+        array('Zobacz usługę: przyciemnianie szyb', '/przyciemnianie-szyb/'),
+    ),
+    'przyciemnianie-szyb' => array(
+        array('Przyciemnianie szyb — co mówią przepisy', '/przyciemnianie-szyb-przepisy/'),
+        array('Jak dbać o folię po oklejeniu auta', '/pielegnacja-folii-po-oklejeniu/'),
+        array('Ile kosztuje oklejenie dachu folią', '/ile-kosztuje-oklejenie-dachu-auta-folia/'),
+        array('Zobacz usługę: dechroming (Shadow Line)', '/dechroming/'),
     ),
     'szkolenia' => array(
         array('Ile kosztuje zmiana koloru auta folią?', '/ile-kosztuje-zmiana-koloru-auta-folia/'),

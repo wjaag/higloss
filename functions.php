@@ -300,18 +300,22 @@ add_action('wp_ajax_nopriv_higloss_quote', 'higloss_handle_quote_calculator');
 
 /**
  * Rozpoznaje branze realizacji po tytule + polu "wykonana usluga" (tekst wpisywany przez klienta).
- * Zwraca slug: zmiana-koloru | ppf | reklama | detailing albo null.
- * Kolejnosc regul ma znaczenie (ppf wygrywa z "ochrona lakieru", reklama z "branding").
+ * Zwraca slug: zmiana-koloru | ppf | reklama | dechroming | przyciemnianie-szyb albo null.
+ * Kolejnosc regul ma znaczenie (ppf wygrywa z "ochrona lakieru", reklama z "branding",
+ * dechroming/lampy sprawdzane PRZED przyciemnianiem szyb, zeby "przyciemnianie lamp" trafilo
+ * do dechromingu/detali, a nie do przyciemniania szyb).
  */
 function higloss_service_guess($text) {
     $t = strtolower((string) $text);
     if ('' === trim($t)) return null;
     if (preg_match('/ppf|ochron/i', $t)) return 'ppf';
     if (preg_match('/reklam|brand/i', $t)) return 'reklama';
-    if (preg_match('/szyb|dechrom|detailing|lamp|przyciemn/i', $t)) return 'detailing';
+    if (preg_match('/dechrom|shadow line|listw|chrom|lamp/i', $t)) return 'dechroming';
+    if (preg_match('/szyb|przyciemn|tint/i', $t)) return 'przyciemnianie-szyb';
     if (preg_match('/zmiana|kolor|mat|satyna|połysk|paski|dach|grafik|motyw|wrap/i', $t)) return 'zmiana-koloru';
     return null;
 }
+
 
 /**
  * Auto-alt dla obrazkow z biblioteki: pusty alt -> tytul realizacji rodzica
@@ -334,7 +338,8 @@ function higloss_auto_image_alt($attr, $attachment) {
 }
 
 /**
- * Pytania FAQ dla stron uslug (zmiana koloru / PPF / reklama / detailing).
+ * Pytania FAQ dla stron uslug (zmiana koloru / PPF / reklama / dechroming /
+ * przyciemnianie szyb).
  * JEDYNE ZRODLO PRAWDY: te same dane renderuja widoczny akordeon
  * (template-parts/service-faq.php). Schematy JSON-LD obsluguje wylacznie wtyczka SEO.
  */
@@ -367,12 +372,21 @@ function higloss_service_faqs($slug) {
                 array('Czy oklejenie reklamowe da się zdjąć np. po leasingu?', 'Tak — profesjonalny demontaż nie pozostawia śladów na lakierze i przywraca auto do stanu sprzed oklejenia.'),
             ),
         ),
-        'detailing' => array(
-            'title' => 'Najczęstsze pytania o szyby i detailing',
+        'dechroming' => array(
+            'title' => 'Najczęstsze pytania o dechroming (Shadow Line)',
+            'items' => array(
+                array('Co to jest dechroming?', 'Oklejanie fabrycznie chromowanych listew i ozdobników folią w kolorze czarnego połysku lub satyny (tzw. Shadow Line) — szybki sposób na sportowy charakter auta bez wymiany elementów.'),
+                array('Jakie elementy najczęściej oklejacie?', 'Najczęściej listwy wokół szyb, grill, emblematy, lusterka i zderzaki, a dodatkowo przyciemnianie lamp (Light/Dark Smoke) oraz paski na masce.'),
+                array('Ile trwa dechroming?', 'Standardowa usługa (listwy, emblematy, lusterka) zajmuje zwykle 1 dzień roboczy — auto odstawiasz rano, a odbierasz po południu.'),
+                array('Czy dechroming da się cofnąć?', 'Tak — folia Shadow Line jest w pełni odwracalna i po zdjęciu nie zostawia śladów na oryginalnym chromie ani lakierze, o ile był wcześniej w dobrym stanie.'),
+            ),
+        ),
+        'przyciemnianie-szyb' => array(
+            'title' => 'Najczęstsze pytania o przyciemnianie szyb',
             'items' => array(
                 array('Czy przyciemnianie przednich szyb jest legalne?', 'Przednia szyba musi przepuszczać minimum 75% światła, a przednie boczne minimum 70%. Tylne szyby boczne i tylną szybę możesz przyciemnić dowolnie — doradzimy rozwiązanie w pełni zgodne z przepisami.'),
                 array('Czy stosujecie folie z atestem?', 'Tak — pracujemy wyłącznie na atestowanych foliach renomowanych producentów i do każdej realizacji wydajemy potwierdzenie zastosowanego materiału.'),
-                array('Co to jest dechroming?', 'Oklejanie fabrycznie chromowanych listew i ozdobników folią w kolorze czarnego połysku lub satyny (tzw. Shadow Line) — szybki sposób na sportowy charakter auta bez wymiany elementów.'),
+                array('Jaka jest różnica między folią ceramiczną a piecową?', 'Ceramiczna wyraźnie mocniej redukuje nagrzewanie wnętrza i nie zakłóca elektroniki ani GPS; piecowa to sprawdzona, trwała barwa w niższej cenie — obie blokują do 99% promieniowania UV.'),
                 array('Ile trwa przyciemnianie szyb?', 'Standardowa usługa zajmuje zwykle 1 dzień — auto odstawiasz rano, a odbierasz po południu.'),
             ),
         ),
@@ -411,9 +425,26 @@ function higloss_legacy_ofirmie_redirects() {
         $target = '/ppf/';
     } elseif (preg_match('#^/o-firmie/\d+-(oklej|reklam|flot)#', $path)) {
         $target = '/reklama/';
-    } elseif (preg_match('#^/o-firmie/\d+-(szyb|dechrom|detailing|uslugi)#', $path)) {
-        $target = '/detailing/';
+    } elseif (preg_match('#^/o-firmie/\d+-dechrom#', $path)) {
+        $target = '/dechroming/';
+    } elseif (preg_match('#^/o-firmie/\d+-(szyb|detailing|uslugi)#', $path)) {
+        $target = '/przyciemnianie-szyb/';
     }
     wp_safe_redirect(home_url($target), 301);
     exit;
+}
+
+/**
+ * Przekierowanie 301: dawna wspolna strona /detailing (szyby + dechroming
+ * w jednym) -> nowa strona /dechroming/ po podziale oferty na 6 osobnych
+ * uslug. Strona /detailing wciaz istnieje w bazie (opublikowana), wiec nie
+ * wpada w powyzszy handler 404 — trzeba ja zlapac osobno, przed zaladowaniem
+ * szablonu.
+ */
+add_action('template_redirect', 'higloss_legacy_detailing_redirect', 1);
+function higloss_legacy_detailing_redirect() {
+    if (is_page('detailing')) {
+        wp_safe_redirect(home_url('/dechroming/'), 301);
+        exit;
+    }
 }
