@@ -22,17 +22,32 @@ $faq_query = new WP_Query(array(
 ));
 ?>
 
-<main id="main-content" style="padding: 7.5rem 0 5rem; flex: 1;">
-    <div class="hg-container">
+<main id="main-content" class="hg-landing" style="padding: 0 0 5rem; flex: 1;">
 
-        <!-- COMPACT HERO BANNER -->
-        <?php
-        get_template_part('template-parts/subpage-banner', null, array(
-            'image' => $theme_uri . '/assets/images/ai_tile2_oferta.webp',
-            'badge' => 'FAQ &bull; WIEDZA ZE STUDIA &bull; SZCZECIN / MIERZYN',
-            'title' => 'PYTANIA <span>I ODPOWIEDZI</span>',
-        ));
-        ?>
+    <!-- HERO -->
+    <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/faq_konsultacja.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/faq_konsultacja-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/faq_konsultacja-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/faq_konsultacja.webp'); ?> 1408w" sizes="100vw" alt="FAQ HI-GLOSS DESIGN — konsultacja doboru koloru folii w studiu Szczecin / Mierzyn" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
+        <div class="hg-hero-shade"></div>
+        <div class="hg-hero-grid" aria-hidden="true"></div>
+        <div class="hg-container hg-hero-inner">
+            <div class="hg-hero-content">
+                <p class="hg-eyebrow hg-reveal"><span></span> FAQ · wiedza ze studia · Szczecin / Mierzyn</p>
+                <h1 id="hero-title" class="hg-hero-title hg-reveal">Zanim zadzwonisz,<br><span>sprawdź odpowiedź tutaj.</span></h1>
+                <p class="hg-hero-lead hg-reveal">Zebraliśmy pytania, które najczęściej słyszymy w hali w Mierzynie — o czas realizacji, gwarancję, pielęgnację folii i wybór materiału. Nie znajdziesz odpowiedzi? Zadzwoń, doradzimy indywidualnie.</p>
+                <div class="hg-hero-actions hg-reveal">
+                    <a href="#faq-lista" class="hg-btn hg-btn-primary">Przeglądaj artykuły <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
+                    <a href="tel:+48605088065" class="hg-btn hg-btn-ghost">Zadzwoń: 605 088 065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                </div>
+            </div>
+            <div class="hg-hero-proof hg-reveal" role="group" aria-label="Dlaczego warto nam zaufać">
+                <div><strong>15 lat</strong><span>doświadczenia<br>w branży</span></div>
+                <div><strong>500+</strong><span>oklejonych<br>pojazdów</span></div>
+                <div><strong>24 h</strong><span>czas odpowiedzi<br>na pytanie</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hg-container" style="margin-top: 3rem;">
 
         <?php
         // Wstep SEO — pole tresci tej strony (edytowalne w WP-Admin)
@@ -47,7 +62,7 @@ $faq_query = new WP_Query(array(
         <div style="margin-top: 2.5rem;"></div>
 
         <?php if ($faq_query->have_posts()) : ?>
-            <div class="hg-grid hg-grid-2" style="gap: 2.5rem; margin-bottom: 2.5rem;">
+            <div id="faq-lista" class="hg-grid hg-grid-2" style="gap: 2.5rem; margin-bottom: 2.5rem; scroll-margin-top: 6.5rem;">
                 <?php while ($faq_query->have_posts()) : $faq_query->the_post();
                     $lead = has_excerpt() ? get_the_excerpt() : wp_trim_words(wp_strip_all_tags(get_the_content()), 24, '...');
                 ?>

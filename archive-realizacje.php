@@ -7,23 +7,37 @@
 
 get_header();
 $theme_uri = get_template_directory_uri();
+$hg_realizacje_hero_title = is_tax()
+    ? esc_html(single_term_title('', false)) . '<br><span>w HI-GLOSS DESIGN</span>'
+    : 'Realizacje<br><span>prosto z naszej hali.</span>';
 ?>
 
-<main id="main-content" style="padding: 7.5rem 0 5rem; flex: 1;">
-    <div class="hg-container">
+<main id="main-content" class="hg-landing" style="padding: 0 0 5rem; flex: 1;">
 
-        <!-- COMPACT HERO BANNER -->
-        <?php
-        $hg_realizacje_title = is_tax()
-            ? single_term_title('', false) . ' &bull; <span>HI-GLOSS</span>'
-            : 'GALERIA <span>REALIZACJI</span>';
-        get_template_part('template-parts/subpage-banner', null, array(
-            'image' => $theme_uri . '/assets/images/galeria_realizacji.webp',
-            'badge' => 'PORTFOLIO STUDIO SZCZECIN &bull; MIERZYN',
-            'title' => $hg_realizacje_title,
-            'desc'  => 'Samochody wykonane w naszym studio w Mierzynie. Zobacz jakość dopasowania krawędzi, wykończenie lakiernicze i precyzję aplikacji.',
-        ));
-        ?>
+    <!-- HERO -->
+    <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero.webp'); ?> 1408w" sizes="100vw" alt="Baza realizacji HI-GLOSS DESIGN — oklejone auta w studiu Szczecin / Mierzyn" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
+        <div class="hg-hero-shade"></div>
+        <div class="hg-hero-grid" aria-hidden="true"></div>
+        <div class="hg-container hg-hero-inner">
+            <div class="hg-hero-content">
+                <p class="hg-eyebrow hg-reveal"><span></span> Baza realizacji · Szczecin / Mierzyn</p>
+                <h1 id="hero-title" class="hg-hero-title hg-reveal"><?php echo $hg_realizacje_hero_title; ?></h1>
+                <p class="hg-hero-lead hg-reveal">Każde auto z tej listy przeszło przez naszą halę w Mierzynie. Sprawdź jakość dopasowania krawędzi, wykończenie lakiernicze i szczegóły materiałowe pojedynczych realizacji.</p>
+                <div class="hg-hero-actions hg-reveal">
+                    <a href="<?php echo esc_url(home_url('/galeria/')); ?>" class="hg-btn hg-btn-primary">Wszystkie realizacje <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
+                    <a href="<?php echo esc_url(home_url('/#wycena')); ?>" class="hg-btn hg-btn-ghost">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                </div>
+            </div>
+            <div class="hg-hero-proof hg-reveal" role="group" aria-label="Dlaczego warto nam zaufać">
+                <div><strong>500+</strong><span>oklejonych<br>pojazdów</span></div>
+                <div><strong>15 lat</strong><span>doświadczenia<br>w branży</span></div>
+                <div><strong>10 lat</strong><span>gwarancji<br>na folie PPF</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hg-container" style="margin-top: 3rem;">
 
         <?php if (have_posts()) : ?>
             <div class="hg-gallery-grid">
@@ -85,9 +99,10 @@ $theme_uri = get_template_directory_uri();
             </div>
 
             <!-- PAGINATION -->
-            <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="hg-poradnik-pagination" style="text-align: center; margin-bottom: 3rem;">
                 <?php the_posts_pagination(array(
                     'mid_size'  => 2,
+                    'class'     => 'hg-poradnik-pagination',
                     'prev_text' => __('&laquo; Poprzednie', 'higloss2026'),
                     'next_text' => __('Następne &raquo;', 'higloss2026'),
                 )); ?>

@@ -9,67 +9,33 @@
  */
 
 get_header();
+$theme_uri = get_template_directory_uri();
 ?>
 
-<main style="padding: 6.5rem 0 0; flex: 1;">
-    <div class="hg-container">
+<main class="hg-landing" style="padding: 0; flex: 1;">
 
-        <!-- COMPACT HERO PHOTO BANNER WITH TITLE ON PHOTO
-             Uklad identyczny jak na pozostalych podstronach (page-ppf / page-zmiana-koloru):
-             wylacznie badge + H1. Kazdy dodatkowy element (np. akapit) nie miesci sie
-             w stalej wysokosci baneru 240px i rozjezdza sie z winieta. -->
-        <?php
-        get_template_part('template-parts/subpage-banner', null, array(
-            'accent' => '#8b5cf6',
-            'image'  => HIGLOSS_THEME_URI . '/assets/images/szkolenia_banner.webp',
-            'badge'  => 'SZKOLENIA CAR WRAPPINGU SZCZECIN - MIERZYN',
-            'title'  => 'PROFESJONALNE <span>SZKOLENIA CAR WRAPPINGU</span>',
-        ));
-        ?>
-
-        <!-- STATS / PROOF STRIP -->
-        <div class="hg-gallery-hero-strip">
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div>
-                    <strong>15 lat</strong>
-                    <small>praktyki w oklejaniu</small>
+    <!-- HERO -->
+    <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_banner.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_banner-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/szkolenia_banner-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/szkolenia_banner.webp'); ?> 1408w" sizes="100vw" alt="Szkolenia car wrappingu HI-GLOSS DESIGN — praktyczne warsztaty w hali w Mierzynie" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
+        <div class="hg-hero-shade"></div>
+        <div class="hg-hero-grid" aria-hidden="true"></div>
+        <div class="hg-container hg-hero-inner">
+            <div class="hg-hero-content">
+                <p class="hg-eyebrow hg-reveal"><span style="background:#8b5cf6;"></span> Szkolenia car wrappingu · Szczecin / Mierzyn</p>
+                <h1 id="hero-title" class="hg-hero-title hg-reveal">Naucz się oklejać<br><span>auta jak profesjonalista.</span></h1>
+                <p class="hg-hero-lead hg-reveal">Praktyczne szkolenia w małych grupach — 15 lat doświadczenia w oklejaniu przekute w program, w którym od pierwszego dnia pracujesz na prawdziwym aucie, z certyfikatem i materiałami w cenie.</p>
+                <div class="hg-hero-actions hg-reveal">
+                    <a href="#program" class="hg-btn hg-btn-primary" style="background:#8b5cf6; border-color:#8b5cf6; color:#000000;">Zobacz program <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
+                    <a href="tel:+48605088065" class="hg-btn hg-btn-ghost">Zadzwoń: 605 088 065 <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                 </div>
             </div>
-
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div>
-                    <strong>Max 4 os.</strong>
-                    <small>na trenera</small>
-                </div>
-            </div>
-
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l2-5h14l2 5v5h-3m-12 0H3v-5Zm4 0h10"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-                </div>
-                <div>
-                    <strong>100%</strong>
-                    <small>praktyki na autach</small>
-                </div>
-            </div>
-
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>
-                </div>
-                <div>
-                    <strong>Certyfikat</strong>
-                    <small>+ materiały w cenie</small>
-                </div>
+            <div class="hg-hero-proof hg-reveal" role="group" aria-label="Dlaczego te szkolenia">
+                <div><strong>15 lat</strong><span>praktyki<br>w oklejaniu</span></div>
+                <div><strong>Max 4</strong><span>osoby<br>na trenera</span></div>
+                <div><strong>100%</strong><span>praktyki<br>na autach</span></div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- PROGRAM: CZTERY MODULY -->
     <section class="hg-section hg-services" id="program" aria-labelledby="szkolenia-program-title">

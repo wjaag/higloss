@@ -16,21 +16,35 @@ $theme_uri = get_template_directory_uri();
 $hg_step_shade = 'linear-gradient(100deg, rgba(7, 10, 16, 0.96) 22%, rgba(7, 10, 16, 0.82) 58%, rgba(7, 10, 16, 0.55) 100%)';
 ?>
 
-<main id="main-content" style="padding: 7.5rem 0 5rem; flex: 1;">
-    <div class="hg-container">
+<main id="main-content" class="hg-landing" style="padding: 0 0 5rem; flex: 1;">
 
-        <!-- HERO BANNER -->
-        <?php
-        get_template_part('template-parts/subpage-banner', null, array(
-            'image' => $theme_uri . '/assets/images/gallery_ppf_application.webp',
-            'badge' => 'PROCES REALIZACJI &bull; STUDIO SZCZECIN / MIERZYN',
-            'title' => 'JAK WYGLĄDA <span>OKLEJANIE AUTA?</span>',
-            'desc'  => 'Od pierwszego telefonu do odbioru auta mija zwykle 3–5 dni roboczych. Znasz dokładnie, co dzieje się z Twoim samochodem na każdym etapie — bez niespodzianek i bez skrótów kosztem jakości.',
-        ));
-        ?>
+    <!-- HERO -->
+    <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/gallery_ppf_application.webp'); ?> 1408w" sizes="100vw" alt="Jak wygląda oklejanie auta — proces aplikacji folii w studiu HI-GLOSS DESIGN" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
+        <div class="hg-hero-shade"></div>
+        <div class="hg-hero-grid" aria-hidden="true"></div>
+        <div class="hg-container hg-hero-inner">
+            <div class="hg-hero-content">
+                <p class="hg-eyebrow hg-reveal"><span></span> Proces realizacji · Szczecin / Mierzyn</p>
+                <h1 id="hero-title" class="hg-hero-title hg-reveal">Jak wygląda<br><span>oklejanie auta?</span></h1>
+                <p class="hg-hero-lead hg-reveal">Od pierwszego telefonu do odbioru auta mija zwykle 3–5 dni roboczych. Poznaj każdy etap — od diagnozy lakieru po kontrolę jakości — zanim jeszcze przyjedziesz do hali.</p>
+                <div class="hg-hero-actions hg-reveal">
+                    <a href="#etapy" class="hg-btn hg-btn-primary">Zobacz 6 kroków <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
+                    <a href="<?php echo esc_url(home_url('/#wycena')); ?>" class="hg-btn hg-btn-ghost">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                </div>
+            </div>
+            <div class="hg-hero-proof hg-reveal" role="group" aria-label="Dlaczego warto nam zaufać">
+                <div><strong>3–5</strong><span>dni — pełny<br>proces od A do Z</span></div>
+                <div><strong>6</strong><span>kroków od diagnozy<br>po kontrolę jakości</span></div>
+                <div><strong>10 lat</strong><span>gwarancji<br>na folię PPF</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hg-container" style="margin-top: 3rem;">
 
         <!-- 6 ETAPÓW -->
-        <section style="margin-top: 3rem;" aria-labelledby="proces-kroki">
+        <section id="etapy" style="margin-top: 0;" aria-labelledby="proces-kroki">
             <header class="hg-section-heading hg-reveal" style="margin-bottom: 1.8rem;">
                 <div>
                     <p class="hg-kicker">Etap po etapie</p>

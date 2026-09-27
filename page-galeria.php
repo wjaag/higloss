@@ -7,68 +7,41 @@
 
 get_header();
 $theme_uri = get_template_directory_uri();
+$hg_galeria_paged = max(1, (int) get_query_var('paged'), (int) get_query_var('page'));
 ?>
 
-<main id="main-content" style="padding: 7.5rem 0 5rem; flex: 1;">
-    <div class="hg-container">
-        
-        <!-- HERO BANNER -->
-        <?php
-        get_template_part('template-parts/subpage-banner', null, array(
-            'image' => $theme_uri . '/assets/images/galeria_realizacji.webp',
-            'badge' => 'PORTFOLIO STUDIO SZCZECIN &bull; MIERZYN',
-            'title' => 'GALERIA REALIZACJI <span>HI-GLOSS</span>',
-            'desc'  => 'Poznaj wybrane transformacje aut naszych klientów. Każdy projekt to indywidualne podejście, demontaż z zachowaniem procedur fabrycznych i najwyższej klasy folie ochronne oraz do zmiany koloru.',
-        ));
-        ?>
+<main id="main-content" class="hg-landing" style="padding: 0 0 5rem; flex: 1;">
 
-        <!-- STATS / PROOF STRIP -->
-        <div class="hg-gallery-hero-strip">
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                </div>
-                <div>
-                    <strong>500+</strong>
-                    <small>Oklejonych pojazdów</small>
+    <!-- HERO -->
+    <section class="hg-hero hg-page-hero" aria-labelledby="hero-title">
+        <img class="hg-hero-media" src="<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero.webp'); ?>" srcset="<?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero-480.webp'); ?> 480w, <?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero-768.webp'); ?> 768w, <?php echo esc_url($theme_uri . '/assets/images/galeria_realizacji_hero.webp'); ?> 1408w" sizes="100vw" alt="Galeria realizacji HI-GLOSS DESIGN — oklejone auta w studiu Szczecin / Mierzyn" width="1408" height="768" fetchpriority="high" data-no-lazy="1">
+        <div class="hg-hero-shade"></div>
+        <div class="hg-hero-grid" aria-hidden="true"></div>
+        <div class="hg-container hg-hero-inner">
+            <div class="hg-hero-content">
+                <p class="hg-eyebrow hg-reveal"><span></span> Portfolio studio · Szczecin / Mierzyn</p>
+                <h1 id="hero-title" class="hg-hero-title hg-reveal">Efekty, które<br><span>mówią same za siebie.</span></h1>
+                <p class="hg-hero-lead hg-reveal">Ponad 500 oklejonych pojazdów — zmiana koloru, ochrona PPF, dechroming i przyciemnianie szyb foliami 3M, Avery Dennison i STEK. Filtruj realizacje wg usługi i zobacz zdjęcia przed / po.</p>
+                <div class="hg-hero-actions hg-reveal">
+                    <a href="#hgGalleryFilterGroup" class="hg-btn hg-btn-primary">Filtruj realizacje <svg class="hg-ui-icon hg-ui-icon--arrow-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13.5l6 6 6-6"/></svg></a>
+                    <a href="<?php echo esc_url(home_url('/#wycena')); ?>" class="hg-btn hg-btn-ghost">Bezpłatna wycena <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                 </div>
             </div>
-
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                </div>
-                <div>
-                    <strong>15 Lat</strong>
-                    <small>Doświadczenia w branży</small>
-                </div>
-            </div>
-
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div>
-                    <strong>10 Lat</strong>
-                    <small>Gwarancji na folie PPF</small>
-                </div>
-            </div>
-
-            <div class="hg-gallery-hero-metric">
-                <div class="hg-gallery-hero-metric-icon">
-                    <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                </div>
-                <div>
-                    <strong>3M / Avery / STEK</strong>
-                    <small>Certyfikowane materiały</small>
-                </div>
+            <div class="hg-hero-proof hg-reveal" role="group" aria-label="Dlaczego warto nam zaufać">
+                <div><strong>500+</strong><span>oklejonych<br>pojazdów</span></div>
+                <div><strong>15 lat</strong><span>doświadczenia<br>w branży</span></div>
+                <div><strong>10 lat</strong><span>gwarancji<br>na folie PPF</span></div>
             </div>
         </div>
+    </section>
+
+    <div class="hg-container" style="margin-top: 3rem;">
 
         <?php
         $args = array(
             'post_type'      => 'realizacje',
             'posts_per_page' => 24,
+            'paged'          => $hg_galeria_paged,
             'orderby'        => 'date',
             'order'          => 'DESC'
         );
@@ -226,6 +199,21 @@ $theme_uri = get_template_directory_uri();
                     </article>
                 <?php endwhile; wp_reset_postdata(); ?>
             </div>
+
+            <!-- PAGINACJA -->
+            <?php if ($realizacje_query->max_num_pages > 1) : ?>
+            <div class="hg-poradnik-pagination" style="text-align: center; margin-top: 2.5rem;">
+                <?php
+                echo paginate_links(array(
+                    'total'     => $realizacje_query->max_num_pages,
+                    'current'   => $hg_galeria_paged,
+                    'format'    => '?paged=%#%',
+                    'prev_text' => '&laquo; Poprzednie',
+                    'next_text' => 'Następne &raquo;',
+                ));
+                ?>
+            </div>
+            <?php endif; ?>
 
         <?php else : ?>
             
