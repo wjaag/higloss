@@ -719,4 +719,30 @@ document.addEventListener('DOMContentLoaded', function () {
             hgShowCookies();
         });
     });
+
+    /* single-realizacje.php — prosty przelacznik zdjecia hero PO <-> PRZED
+       (bez przeciagania suwakiem). stopPropagation zapobiega jednoczesnemu
+       otwarciu delegowanego lightboxa PRZED/PO przy kliku w ten przycisk. */
+    const hgRzHeroToggle = document.getElementById('hgRealizacjaHeroToggle');
+    const hgRzHeroImg = document.getElementById('hgRealizacjaHeroImg');
+    const hgRzHeroTag = document.getElementById('hgRealizacjaHeroTag');
+    if (hgRzHeroToggle && hgRzHeroImg) {
+        const hgRzAfterIcon = '<svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2.1l4 4-4 4M3 12.6v-1a4 4 0 0 1 4-4h14M7 21.9l-4-4 4-4M21 11.4v1a4 4 0 0 1-4 4H3"/></svg>';
+        hgRzHeroToggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const showingBefore = hgRzHeroToggle.getAttribute('data-state') === 'before';
+            const nextSrc = showingBefore
+                ? hgRzHeroImg.getAttribute('data-after-src')
+                : hgRzHeroImg.getAttribute('data-before-src');
+            if (!nextSrc) return;
+            hgRzHeroImg.setAttribute('src', nextSrc);
+            hgRzHeroToggle.setAttribute('data-state', showingBefore ? 'after' : 'before');
+            hgRzHeroToggle.innerHTML = hgRzAfterIcon + (showingBefore ? 'Zobacz PRZED' : 'Zobacz PO');
+            if (hgRzHeroTag) {
+                hgRzHeroTag.textContent = showingBefore ? 'PO' : 'PRZED';
+                hgRzHeroTag.classList.toggle('is-before', !showingBefore);
+            }
+        });
+    }
 });

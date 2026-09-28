@@ -103,7 +103,7 @@ $theme_uri = HIGLOSS_THEME_URI;
 
     <article class="hg-service-card hg-reveal">
         <div class="hg-service-image">
-            <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_banner.webp'); ?>" alt="Trener car wrappingu ucząca dwóch kursantów aplikacji folii na masce" width="1408" height="768" loading="lazy">
+            <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_podstawy.webp'); ?>" alt="Szkolenie z podstaw car wrappingu — kursant dociska folię rakelką na krawędzi drzwi" width="1408" height="768" loading="lazy">
             <span>06</span>
             <p>Car Wrapping Academy</p>
         </div>

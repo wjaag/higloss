@@ -3578,6 +3578,120 @@ body:not(.home) .hg-footer-main {
   color: #fff;
 }
 
+/* ---------------------------------------------------------------------------
+ * single-realizacje.php — hero ze zdjeciem PO/PRZED zamiast statystyk.
+ * Reuzywa komponentow galerii (media-box, cat-pill, spec-item, zoom-btn)
+ * w nowym, "elastycznym" (bez wymuszonej ~760px wysokosci) ukladzie hero.
+ * ------------------------------------------------------------------------- */
+
+/* Hero elastyczny — tresc decyduje o wysokosci, bez sztywnego minimum. */
+.hg-page-hero.hg-hero-compact {
+  min-height: 0;
+}
+
+/* Dwie kolumny hero (tresc + zdjecie), wyrownane do srodka zamiast do dolu. */
+.hg-hero-inner.hg-hero-inner--media {
+  align-items: center;
+}
+
+/* Breadcrumb "Wszystkie realizacje" — lekki link tekstowy, nie przycisk. */
+.hg-realizacja-back {
+  margin-bottom: 1.5rem;
+}
+
+/* Pigulka kategorii uzyta w tresci (nie na zdjeciu) — wariant statyczny/klikalny. */
+.hg-gallery-cat-pill.hg-pill-inline {
+  position: static;
+  display: inline-flex;
+  margin-bottom: 1.6rem;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.hg-gallery-cat-pill.hg-pill-inline:hover {
+  background: rgba(37, 170, 225, 0.16);
+}
+
+/* Rzad chipow specyfikacji w hero — bez gornej linii (nie jest kontynuacja karty). */
+.hg-gallery-specs-row.hg-specs-row--hero {
+  border-top: none;
+  padding-top: 0;
+  margin: 1.7rem 0 2.2rem;
+}
+
+/* Zdjecie hero — wieksze i proporcjonalne, nie sztywne 270px z kart galerii. */
+.hg-realizacja-hero-media {
+  width: clamp(300px, 34vw, 460px);
+  height: auto;
+  aspect-ratio: 4 / 3;
+  flex: none;
+  border: 1px solid var(--hg-line);
+}
+
+@media (max-width: 720px) {
+  .hg-realizacja-hero-media {
+    width: 100%;
+  }
+}
+
+/* Lupa zawsze widoczna — nie ma tu rodzica .hg-gallery-card, ktory ja pokazuje na hover. */
+.hg-realizacja-hero-media .hg-gallery-zoom-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Znacznik PO/PRZED w rogu zdjecia (stan aktualnie wyswietlanej klatki). */
+.hg-realizacja-hero-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: var(--hg-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  background: var(--hg-blue);
+  color: #04121d;
+  border-radius: 4px;
+}
+
+.hg-realizacja-hero-tag.is-before {
+  background: rgba(4, 7, 12, 0.85);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Prosty przycisk przelaczajacy zdjecie PO <-> PRZED (bez przeciagania suwakiem). */
+.hg-realizacja-hero-toggle {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  background: rgba(4, 7, 12, 0.82);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-family: var(--hg-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.hg-realizacja-hero-toggle:hover {
+  background: var(--hg-blue);
+  border-color: var(--hg-blue);
+  color: #04121d;
+}
+
 .hg-gallery-actions {
   display: flex;
   gap: 0.75rem;

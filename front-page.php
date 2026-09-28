@@ -267,74 +267,31 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                 <p>Praktyczne szkolenia car wrappingu w ogrzewanej hali w Mierzynie — na prawdziwych autach, foliach premium i w małych grupach. Dla warsztatów, detailerów i osób startujących w branży.</p>
             </header>
 
-            <div class="hg-service-grid">
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_podstawy.webp'); ?>" alt="Szkolenie z podstaw car wrappingu — kursant dociska folię rakelką na krawędzi drzwi" width="1408" height="768" loading="lazy">
-                        <span>01</span>
-                        <p>Podstawy</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Podstawy i zmiana koloru</h3>
-                        <p>Przygotowanie lakieru, narzędzia, cięcie i praca na krzywiznach, a następnie pełna zmiana koloru z demontażem i zawijaniem folii w głąb elementów.</p>
-                        <ul>
-                            <li><span>Format</span><strong>Grupy 2–4 os.</strong></li>
-                            <li><span>Poziom</span><strong>Od zera</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/szkolenia')); ?>" class="hg-text-link">Poznaj program szkoleń <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
+            <ul class="hg-process-grid">
+                <li><span>M1</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.9 2.9-2.1-2.1 2.9-2.9Z"/></svg></div>
+                    <h3>Podstawy car wrappingu</h3>
+                    <p>Przygotowanie lakieru, narzędzia, cięcie i praca na krzywiznach. Pierwszy element oklejasz jeszcze przed południem.</p>
+                </li>
+                <li><span>M2</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 7-7 7-7-7 7-7Z"/></svg></div>
+                    <h3>Całościowa zmiana koloru</h3>
+                    <p>Demontaż elementów, zawijanie folii w głąb, wykończenia krawędzi i kontrola jakości jak przy zleceniu komercyjnym.</p>
+                </li>
+                <li><span>M3</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3>Ochrona PPF</h3>
+                    <p>Folia poliuretanowa: strefy aplikacji, praca z samoregeneracją i wykończenia, których nie widać gołym okiem.</p>
+                </li>
+                <li><span>M4</span>
+                    <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 8h13v8H1zM14 11h4l3 3v2h-7"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div>
+                    <h3>Reklama i branding flot</h3>
+                    <p>Wielkoformatowa grafika, druk i aplikacja na pojazdach firmowych — moduł także dla działów marketingu.</p>
+                </li>
+            </ul>
 
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_ppf.webp'); ?>" alt="Szkolenie z folii ochronnych PPF — naciąganie bezbarwnej folii na błotnik auta" width="1408" height="768" loading="lazy">
-                        <span>02</span>
-                        <p>Ochrona</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Ochrona PPF</h3>
-                        <p>Praca z folią poliuretanową: strefy aplikacji, wykończenia krawędzi i właściwości samoregeneracji mikrorys pod wpływem ciepła.</p>
-                        <ul>
-                            <li><span>Format</span><strong>Indywidualnie</strong></li>
-                            <li><span>Poziom</span><strong>Średni</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/szkolenia')); ?>" class="hg-text-link">Poznaj moduł PPF <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
-
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_branding.webp'); ?>" alt="Szkolenie z brandingu flot — aplikacja wielkoformatowej grafiki na auto dostawcze" width="1408" height="768" loading="lazy">
-                        <span>03</span>
-                        <p>Branding</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Reklama i branding flot</h3>
-                        <p>Wielkoformatowa grafika, druk i aplikacja na pojazdach firmowych — dla działów marketingu i flot, które chcą oklejać samodzielnie.</p>
-                        <ul>
-                            <li><span>Format</span><strong>Dla firm</strong></li>
-                            <li><span>Poziom</span><strong>Dowolny</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/szkolenia')); ?>" class="hg-text-link">Poznaj moduł branding <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
-
-                <article class="hg-service-card hg-reveal">
-                    <div class="hg-service-image">
-                        <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_certyfikat.webp'); ?>" alt="Materiały szkoleniowe i certyfikat HI-GLOSS DESIGN — rakelki, opalarka i wzorniki folii" width="1408" height="768" loading="lazy">
-                        <span>+</span>
-                        <p>Certyfikat</p>
-                    </div>
-                    <div class="hg-service-body">
-                        <h3>Materiały i certyfikat w cenie</h3>
-                        <p>Folie premium, narzędzia i sprzęt grzewczy zapewniamy na miejscu. Po szkoleniu otrzymujesz certyfikat oraz konsultacje po wdrożeniu.</p>
-                        <ul>
-                            <li><span>Miejsce</span><strong>Hala Mierzyn</strong></li>
-                            <li><span>Termin</span><strong>Do ustalenia</strong></li>
-                        </ul>
-                        <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hg-text-link">Zapytaj o termin <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-                    </div>
-                </article>
+            <div style="text-align: center; margin-top: 2.6rem;">
+                <a href="<?php echo esc_url(home_url('/szkolenia')); ?>" class="hg-btn hg-btn-cyan">Zobacz pełny program szkoleń <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </div>
         </div>
     </section>
