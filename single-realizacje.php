@@ -59,10 +59,6 @@ get_header();
                 <div class="hg-hero-grid" aria-hidden="true"></div>
                 <div class="hg-container hg-hero-inner hg-hero-inner--media">
                     <div class="hg-hero-content">
-                        <a href="<?php echo esc_url(home_url('/galeria/')); ?>" class="hg-text-link hg-realizacja-back hg-reveal">
-                            <svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                            Wszystkie realizacje
-                        </a>
                         <a href="<?php echo esc_url($hg_cat_link); ?>" class="hg-gallery-cat-pill hg-pill-inline cat-<?php echo esc_attr($hg_cat_slug); ?> hg-reveal">
                             <?php echo esc_html($hg_cat_name); ?>
                         </a>
