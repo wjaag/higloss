@@ -64,6 +64,7 @@ get_header();
                         </a>
                         <h1 id="hero-title" class="hg-hero-title hg-reveal"><?php echo $hg_hero_title_html; ?></h1>
                         <?php if (!empty($hg_specs_hero)) : ?>
+                        <span class="hg-specs-row-label hg-reveal">Specyfikacja</span>
                         <div class="hg-gallery-specs-row hg-specs-row--hero hg-reveal">
                             <?php foreach ($hg_specs_hero as $row) : ?>
                             <span class="hg-gallery-spec-item"><?php echo esc_html($row['chip'] ?: $row['label']); ?>: <strong><?php echo esc_html($row['value']); ?></strong></span>

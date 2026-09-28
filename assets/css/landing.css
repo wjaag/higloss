@@ -3601,6 +3601,32 @@ body:not(.home) .hg-footer-main {
   line-height: 0.96;
 }
 
+/* Mniejszy odstep od navbara — hero jest kompaktowe (krotsza tresc),
+   nie potrzebuje az tak duzego zapasu nad soba jak strony uslugowe
+   (specificity > .hg-page-hero .hg-hero-inner). */
+.hg-page-hero.hg-hero-compact .hg-hero-inner {
+  padding-top: 108px;
+  padding-bottom: 64px;
+}
+
+@media (max-width: 720px) {
+  .hg-page-hero.hg-hero-compact .hg-hero-inner {
+    padding-top: 96px;
+  }
+}
+
+/* Etykieta nad chipami specyfikacji w hero. */
+.hg-specs-row-label {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-family: var(--hg-heading);
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(235, 242, 249, 0.5);
+}
+
 /* Pigulka kategorii uzyta w tresci (nie na zdjeciu) — wariant statyczny/klikalny. */
 .hg-gallery-cat-pill.hg-pill-inline {
   position: static;
