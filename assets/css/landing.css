@@ -3589,9 +3589,10 @@ body:not(.home) .hg-footer-main {
   min-height: 0;
 }
 
-/* Dwie kolumny hero (tresc + zdjecie), wyrownane do srodka zamiast do dolu. */
+/* Kolumny hero wyrownane do gornej krawedzi (pigulka+H1 zaczynaja sie
+   dokladnie na wysokosci gornej krawedzi zdjecia), nie do srodka. */
 .hg-hero-inner.hg-hero-inner--media {
-  align-items: center;
+  align-items: start;
 }
 
 /* Mniejszy H1 na tej podstronie — hero jest kompaktowe, tytul nie musi
@@ -3599,26 +3600,35 @@ body:not(.home) .hg-footer-main {
 .hg-page-hero.hg-hero-compact .hg-hero-title {
   font-size: clamp(2.1rem, 4vw, 3.6rem);
   line-height: 0.96;
+  margin-bottom: 0;
 }
 
-/* Mniejszy odstep od navbara — hero jest kompaktowe (krotsza tresc),
-   nie potrzebuje az tak duzego zapasu nad soba jak strony uslugowe
-   (specificity > .hg-page-hero .hg-hero-inner). */
+/* Znaczaco mniejszy odstep od navbara — hero jest kompaktowe (krotsza
+   tresc), wystarczy tyle, zeby delikatnie zejsc ponizej paska nawigacji
+   (76px) (specificity > .hg-page-hero .hg-hero-inner). */
 .hg-page-hero.hg-hero-compact .hg-hero-inner {
-  padding-top: 108px;
+  padding-top: 84px;
   padding-bottom: 64px;
 }
 
 @media (max-width: 720px) {
   .hg-page-hero.hg-hero-compact .hg-hero-inner {
-    padding-top: 96px;
+    padding-top: 82px;
   }
 }
 
-/* Etykieta nad chipami specyfikacji w hero. */
+/* Rytm pionowy hero: pigulka+H1 na gorze -> 64px nizej specyfikacja
+   (naglowek blisko chipow) -> 64px nizej przyciski CTA. */
+.hg-page-hero.hg-hero-compact .hg-hero-actions {
+  margin-top: 4rem;
+}
+
+/* Etykieta nad chipami specyfikacji w hero — 64px od H1 powyzej,
+   blisko samych chipow ponizej. */
 .hg-specs-row-label {
   display: block;
-  margin-bottom: 0.7rem;
+  margin-top: 4rem;
+  margin-bottom: 0.3rem;
   font-family: var(--hg-heading);
   font-weight: 800;
   font-size: 0.7rem;
@@ -3641,13 +3651,15 @@ body:not(.home) .hg-footer-main {
 }
 
 /* Rzad chipow specyfikacji w hero — bez gornej linii (nie jest kontynuacja karty),
-   wyrazniejszy wyglad niz na kartach galerii (to tu jest glowna tresc informacyjna). */
+   wyrazniejszy wyglad niz na kartach galerii (to tu jest glowna tresc informacyjna).
+   Bez wlasnych marginesow pionowych — rytm 64px/64px pilnuja sasiedzi (etykieta i CTA). */
 .hg-gallery-specs-row.hg-specs-row--hero {
   border-top: none;
   padding-top: 0;
-  margin: 1.7rem 0 2.2rem;
+  margin: 0;
   gap: 0.7rem;
 }
+
 
 .hg-gallery-specs-row.hg-specs-row--hero .hg-gallery-spec-item {
   font-size: 0.8rem;
