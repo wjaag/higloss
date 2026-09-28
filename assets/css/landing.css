@@ -3603,18 +3603,12 @@ body:not(.home) .hg-footer-main {
   margin-bottom: 0;
 }
 
-/* Znaczaco mniejszy odstep od navbara — hero jest kompaktowe (krotsza
-   tresc), wystarczy tyle, zeby delikatnie zejsc ponizej paska nawigacji
-   (76px) (specificity > .hg-page-hero .hg-hero-inner). */
+/* Znacznie mniejszy odstep od navbara — hero jest kompaktowe, tresc
+   zaczyna sie niemal od razu pod paskiem nawigacji (76px wysokosci)
+   (specificity > .hg-page-hero .hg-hero-inner). */
 .hg-page-hero.hg-hero-compact .hg-hero-inner {
-  padding-top: 84px;
+  padding-top: 78px;
   padding-bottom: 64px;
-}
-
-@media (max-width: 720px) {
-  .hg-page-hero.hg-hero-compact .hg-hero-inner {
-    padding-top: 82px;
-  }
 }
 
 /* Rytm pionowy hero: pigulka+H1 na gorze -> 64px nizej specyfikacja
