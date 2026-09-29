@@ -124,7 +124,7 @@ get_header();
                 </div>
             </section>
 
-    <div class="hg-container" style="margin-top: 3rem;">
+    <div class="hg-container hg-realizacja-content">
 
             <!-- Uwaga: dedykowana sekcja PRZED/PO zostala usunieta stad — te sama funkcje
                  (podglad PO, przelacznik na PRZED, pelnoekranowy lightbox porownawczy)
