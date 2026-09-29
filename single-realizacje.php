@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main style="padding: 0 0 5rem; flex: 1;">
+<main class="hg-landing" style="padding: 0 0 5rem; flex: 1;">
 
         <?php while (have_posts()) : the_post(); 
             $car_model   = get_post_meta(get_the_ID(), '_higloss_car_model', true);
