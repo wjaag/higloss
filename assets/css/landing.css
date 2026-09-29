@@ -3798,6 +3798,13 @@ body:not(.home) .hg-footer-main {
   .hg-hero-inner.hg-hero-inner--media {
     display: flex;
     flex-direction: column;
+    /* KLUCZOWE: bazowa .hg-hero-inner ma "gap: 3rem" (uzywane na desktopie
+       dla 2-kolumnowego grida tekst/zdjecie). W kolumnie flex na mobile ten
+       sam "gap" wstawia sie MIEDZY KAZDYM dzieckiem, sumujac sie z ponizszymi
+       margin-top na poszczegolnych sekcjach (np. 48px gap + 24px margin =
+       72px zamiast zamierzonych 24px). Zerujemy go tutaj, zeby o odstepach
+       decydowaly wylacznie jawne marginesy ponizej. */
+    gap: 0;
   }
 
   .hg-hero-inner--media .hg-hero-content {
