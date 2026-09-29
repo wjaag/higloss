@@ -3603,11 +3603,12 @@ body:not(.home) .hg-footer-main {
   margin-bottom: 0;
 }
 
-/* Znacznie mniejszy odstep od navbara — hero jest kompaktowe, tresc
-   zaczyna sie niemal od razu pod paskiem nawigacji (76px wysokosci)
+/* Odstep od navbara — hero jest kompaktowe, ale tresc nie ma "przylegac"
+   do paska nawigacji (76px wysokosci); wystarczajacy oddech, wciaz wyraznie
+   mniejszy niz standardowe strony uslugowe (~150px)
    (specificity > .hg-page-hero .hg-hero-inner). */
 .hg-page-hero.hg-hero-compact .hg-hero-inner {
-  padding-top: 78px;
+  padding-top: 120px;
   padding-bottom: 64px;
 }
 
@@ -3790,7 +3791,7 @@ body:not(.home) .hg-footer-main {
    (ktore w DOM jest osobnym elementem, poza .hg-hero-content). */
 @media (max-width: 980px) {
   .hg-page-hero.hg-hero-compact .hg-hero-inner {
-    padding-top: 72px;
+    padding-top: 100px;
   }
 
   .hg-hero-inner.hg-hero-inner--media {
