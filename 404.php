@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main style="padding: 9rem 0 6rem; flex: 1; display: flex; align-items: center;">
+<main style="padding: 0 0 6rem; flex: 1; display: flex; align-items: center;">
     <div class="hg-container">
         
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">

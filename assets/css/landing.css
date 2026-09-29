@@ -392,14 +392,6 @@ body:not(.home) .hg-header {
   stroke: none;
 }
 
-.hg-ui-icon--accent {
-  color: var(--hg-blue-light);
-}
-
-.hg-ui-icon--gold {
-  color: #f4c94f;
-}
-
 .hg-btn:hover .hg-ui-icon--arrow-ne,
 .hg-nav-cta:hover .hg-ui-icon--arrow-ne,
 .hg-text-link:hover .hg-ui-icon--arrow-ne,
@@ -704,58 +696,6 @@ body:not(.home) .hg-header {
 .hg-material-list b {
   color: rgba(255, 255, 255, 0.3);
   font-size: 0.66em;
-}
-
-/* Pasek „Zaufali nam" — wariant kliencki (pigulki), odroznia sie od paska marek folii */
-.hg-material-strip--clients {
-  background: #0a0f18;
-  border-top: none;
-}
-
-.hg-material-strip--clients .hg-container {
-  grid-template-columns: 220px 1fr;
-  min-height: 96px;
-}
-
-.hg-material-strip--clients p {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  color: #25aae1;
-  letter-spacing: 0.22em;
-}
-
-.hg-material-strip--clients p::before {
-  content: "";
-  width: 18px;
-  height: 1px;
-  background: #25aae1;
-  flex: none;
-}
-
-.hg-material-strip--clients .hg-material-list {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.45rem;
-}
-
-.hg-material-strip--clients .hg-material-list span {
-  color: rgba(255, 255, 255, 0.78);
-  font-family: var(--hg-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.42rem 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.hg-material-strip--clients .hg-material-list b {
-  color: inherit;
-  font-size: inherit;
-  font-weight: inherit;
 }
 
 /* „Zaufali nam" — wiersz w sekcji Wybrane realizacje (strona glowna) */
@@ -1513,11 +1453,6 @@ body:not(.home) .hg-header {
 
 .hg-contact-phone:hover {
   color: var(--hg-blue-light);
-}
-
-.hg-contact-phone-secondary {
-  color: #697588;
-  font-size: clamp(1.15rem, 2vw, 1.65rem);
 }
 
 .hg-contact-details {
@@ -2332,36 +2267,6 @@ body:not(.home) .hg-footer-main {
   color: #020407;
 }
 
-.hg-svc-specs {
-  margin: 2.1rem 0 0;
-  padding: 0;
-  border-top: 1px solid var(--hg-line);
-  list-style: none;
-}
-
-.hg-svc-specs li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 52px;
-  border-bottom: 1px solid var(--hg-line);
-  font-size: 0.78rem;
-}
-
-.hg-svc-specs li span {
-  color: #748195;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.hg-svc-specs li strong {
-  color: #fff;
-  font-weight: 700;
-  text-align: right;
-}
-
 .hg-svc-note {
   margin-top: 2rem;
   padding: 1.35rem 1.5rem;
@@ -2391,7 +2296,6 @@ body:not(.home) .hg-footer-main {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.hg-service-page .hg-process-grid h3,
 .hg-process-grid--3 h3 {
   font-size: clamp(1.25rem, 2vw, 1.7rem);
   font-weight: 900;
@@ -2432,72 +2336,6 @@ body:not(.home) .hg-footer-main {
   color: var(--hg-muted);
   font-size: 0.8rem;
   line-height: 1.65;
-}
-
-.hg-svc-siblings {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--hg-line);
-  border: 1px solid var(--hg-line);
-}
-
-.hg-svc-sibling {
-  position: relative;
-  min-height: 250px;
-  overflow: hidden;
-  background: var(--hg-surface);
-}
-
-.hg-svc-sibling img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.7) contrast(1.04);
-  transition: transform 0.8s var(--hg-ease), filter 0.5s ease;
-}
-
-.hg-svc-sibling::after {
-  position: absolute;
-  inset: 0;
-  content: '';
-  background: linear-gradient(180deg, rgba(3, 5, 8, 0.08), rgba(3, 5, 8, 0.88));
-}
-
-.hg-svc-sibling:hover img {
-  transform: scale(1.05);
-  filter: saturate(1) contrast(1.04);
-}
-
-.hg-svc-sibling-copy {
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1.4rem 1.5rem;
-}
-
-.hg-svc-sibling small {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: var(--hg-blue-light);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.hg-svc-sibling strong {
-  display: block;
-  color: #fff;
-  font-family: var(--hg-heading);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
 }
 
 .hg-legal {
@@ -2549,13 +2387,8 @@ body:not(.home) .hg-footer-main {
     font-size: clamp(2.5rem, 12vw, 4.4rem);
   }
 
-  .hg-svc-chips,
-  .hg-svc-siblings {
+  .hg-svc-chips {
     grid-template-columns: 1fr;
-  }
-
-  .hg-svc-sibling {
-    min-height: 220px;
   }
 }
 
@@ -2980,10 +2813,6 @@ body:not(.home) .hg-footer-main {
     font-size: clamp(1.65rem, 8vw, 2.35rem);
   }
 
-  .hg-contact-phone-secondary {
-    font-size: 1.1rem;
-  }
-
   .hg-form-row {
     grid-template-columns: 1fr;
   }
@@ -3149,60 +2978,6 @@ body:not(.home) .hg-footer-main {
 /* ==========================================================================
    ADVANCED CAR WRAPPING GALLERY, LIGHTBOX & BEFORE/AFTER SHOWCASE
    ========================================================================== */
-
-.hg-gallery-hero-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.hg-gallery-hero-metric {
-  background: rgba(14, 20, 30, 0.7);
-  border: 1px solid var(--hg-line);
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  backdrop-filter: blur(10px);
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.hg-gallery-hero-metric:hover {
-  border-color: var(--hg-blue);
-  transform: translateY(-2px);
-}
-
-.hg-gallery-hero-metric-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background: rgba(37, 170, 225, 0.12);
-  border: 1px solid rgba(37, 170, 225, 0.3);
-  display: grid;
-  place-items: center;
-  color: var(--hg-blue);
-  flex-shrink: 0;
-}
-
-.hg-gallery-hero-metric strong {
-  display: block;
-  font-family: var(--hg-heading);
-  font-size: 1.35rem;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.1;
-}
-
-.hg-gallery-hero-metric small {
-  display: block;
-  color: var(--hg-muted);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 0.2rem;
-}
 
 /* Category Filter Bar */
 .hg-gallery-filter-wrap {

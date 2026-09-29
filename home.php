@@ -13,7 +13,7 @@ get_header();
 $theme_uri = get_template_directory_uri();
 ?>
 
-<main id="main-content" style="padding: 7.5rem 0 5rem; flex: 1;">
+<main id="main-content" style="padding: 0 0 5rem; flex: 1;">
     <div class="hg-container">
 
         <!-- HERO BANNER -->

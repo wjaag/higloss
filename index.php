@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main style="padding: 10rem 0 6rem;">
+<main style="padding: 0 0 6rem;">
     <div class="hg-container">
         <?php if (have_posts()) : ?>
             <div class="hg-grid hg-grid-3">
