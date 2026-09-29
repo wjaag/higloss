@@ -3818,9 +3818,28 @@ body:not(.home) .hg-footer-main {
     margin-top: 1.5rem;
   }
   .hg-hero-inner--media .hg-gallery-specs-row.hg-specs-row--hero { order: 5; }
+
+  /* Przyciski CTA w hero (Zadzwon / Bezplatna wycena) w jednej linii obok
+     siebie zamiast pod soba na cala szerokosc — mniej marnowanej wysokosci
+     na mobile, ten sam ukiad co dolny sticky pasek .hg-mobile-actions. */
   .hg-hero-inner--media .hg-hero-actions {
     order: 6;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    max-width: none;
+    width: 100%;
     margin-top: 1.5rem;
+  }
+
+  .hg-hero-inner--media .hg-hero-actions .hg-btn {
+    width: 100%;
+    padding: 0.7rem 0.5rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    gap: 0.4rem;
+    white-space: normal;
+    text-align: center;
   }
 }
 
