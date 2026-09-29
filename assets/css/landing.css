@@ -3782,6 +3782,43 @@ body:not(.home) .hg-footer-main {
   color: #04121d;
 }
 
+/* single-realizacje.php — mobile (header kurczy sie do 70px na <=980px,
+   patrz @media(max-width:980px) .hg-header powyzej): mniejszy odstep od
+   navbara + inna kolejnosc sekcji hero (pigulki -> H1 -> zdjecie PRZED/PO
+   -> specyfikacja -> przyciski). ".hg-hero-content" dostaje "display:contents",
+   zeby jej dzieci mogly wymieszac sie w kolejnosci z sasiednim zdjeciem
+   (ktore w DOM jest osobnym elementem, poza .hg-hero-content). */
+@media (max-width: 980px) {
+  .hg-page-hero.hg-hero-compact .hg-hero-inner {
+    padding-top: 72px;
+  }
+
+  .hg-hero-inner.hg-hero-inner--media {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hg-hero-inner--media .hg-hero-content {
+    display: contents;
+  }
+
+  .hg-hero-inner--media .hg-hero-pill-row { order: 1; }
+  .hg-hero-inner--media .hg-hero-title { order: 2; }
+  .hg-hero-inner--media .hg-realizacja-hero-media {
+    order: 3;
+    margin: 1.5rem auto 0;
+  }
+  .hg-hero-inner--media .hg-specs-row-label {
+    order: 4;
+    margin-top: 2rem;
+  }
+  .hg-hero-inner--media .hg-gallery-specs-row.hg-specs-row--hero { order: 5; }
+  .hg-hero-inner--media .hg-hero-actions {
+    order: 6;
+    margin-top: 2rem;
+  }
+}
+
 .hg-gallery-actions {
   display: flex;
   gap: 0.75rem;
