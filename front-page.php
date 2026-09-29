@@ -367,7 +367,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         </span>
                         <span class="hg-google-proof-copy">
                             <small>Opinie naszych klientów</small>
-                            <strong>Wysoki ranking w Google</strong>
+                            <strong>Zobacz ranking w Google</strong>
                         </span>
                     </a>
 
