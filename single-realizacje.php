@@ -13,8 +13,12 @@ get_header();
         <?php while (have_posts()) : the_post(); 
             $car_model   = get_post_meta(get_the_ID(), '_higloss_car_model', true);
             $service_type= get_post_meta(get_the_ID(), '_higloss_service_type', true);
-            // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach
+            // Gdy tytuł już zawiera markę/model, nie powtarzamy go w dopiskach (lightbox itp.)
             $model_label = (!empty($car_model) && ! higloss_model_in_title($car_model)) ? $car_model : '';
+            // Pigulka marki/modelu w hero: pokazujemy ZAWSZE, niezaleznie od tresci
+            // tytulu — tytuly sa optymalizowane pod SEO/fraze kluczowa i nie zawsze
+            // zawieraja marke/model, wiec to jedyne pewne, ustrukturyzowane miejsce.
+            $hg_model_pill = trim((string) $car_model);
             $spec_rows   = higloss_get_realizacja_specs(get_the_ID());
             $before_id   = (int) get_post_meta(get_the_ID(), '_higloss_before_image', true);
 
@@ -59,9 +63,15 @@ get_header();
                 <div class="hg-hero-grid" aria-hidden="true"></div>
                 <div class="hg-container hg-hero-inner hg-hero-inner--media">
                     <div class="hg-hero-content">
-                        <a href="<?php echo esc_url($hg_cat_link); ?>" class="hg-gallery-cat-pill hg-pill-inline cat-<?php echo esc_attr($hg_cat_slug); ?> hg-reveal">
-                            <?php echo esc_html($hg_cat_name); ?>
-                        </a>
+                        <div class="hg-hero-pill-row hg-reveal">
+                            <a href="<?php echo esc_url($hg_cat_link); ?>" class="hg-gallery-cat-pill hg-pill-inline cat-<?php echo esc_attr($hg_cat_slug); ?>">
+                                <?php echo esc_html($hg_cat_name); ?>
+                            </a>
+                            <?php if ($hg_model_pill) : ?>
+                            <span class="hg-hero-pill-sep" aria-hidden="true">&bull;</span>
+                            <span class="hg-model-pill"><?php echo esc_html($hg_model_pill); ?></span>
+                            <?php endif; ?>
+                        </div>
                         <h1 id="hero-title" class="hg-hero-title hg-reveal"><?php echo $hg_hero_title_html; ?></h1>
                         <?php if (!empty($hg_specs_hero)) : ?>
                         <span class="hg-specs-row-label hg-reveal">Specyfikacja</span>

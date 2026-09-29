@@ -3644,6 +3644,43 @@ body:not(.home) .hg-footer-main {
   background: rgba(37, 170, 225, 0.16);
 }
 
+/* single-realizacje.php — rzad pigulek w hero: kategoria + marka/model auta.
+   Marka/model pochodzi z osobnego pola kreatora (_higloss_car_model), NIE z
+   tytulu — tytuly sa pod SEO/fraze kluczowa i nie zawsze zawieraja model,
+   dlatego to jedyne pewne miejsce, w ktorym auto zawsze widac. */
+.hg-hero-pill-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.hg-hero-pill-row .hg-gallery-cat-pill.hg-pill-inline {
+  margin-bottom: 0;
+}
+
+.hg-hero-pill-sep {
+  color: var(--hg-muted);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.hg-model-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--hg-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--hg-line);
+  color: var(--hg-muted);
+  border-radius: 4px;
+}
+
 /* Rzad chipow specyfikacji w hero — bez gornej linii (nie jest kontynuacja karty),
    wyrazniejszy wyglad niz na kartach galerii (to tu jest glowna tresc informacyjna).
    Bez wlasnych marginesow pionowych — rytm 64px/64px pilnuja sasiedzi (etykieta i CTA). */
