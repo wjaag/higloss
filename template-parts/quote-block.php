@@ -53,7 +53,7 @@ $service_options  = array(
                     <div><span>Godziny</span><p>Pon.–Pt. 09:00–17:00<br>Sobota: po umówieniu</p></div>
                 </div>
 
-                <a class="hg-google-proof" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
+                <a class="hg-google-proof hg-google-proof--mini" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
                     <span class="hg-google-proof-star" aria-hidden="true">
                         <svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24"><path d="m12 2.6 2.92 5.98 6.58.94-4.77 4.63 1.14 6.55L12 17.5l-5.87 3.2 1.14-6.55L2.5 9.52l6.58-.94L12 2.6Z"/></svg>
                     </span>
@@ -61,7 +61,6 @@ $service_options  = array(
                         <small>Opinie naszych klientów</small>
                         <strong>Wysoki ranking w Google</strong>
                     </span>
-                    <svg class="hg-ui-icon hg-ui-icon--arrow-ne" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
                 </a>
 
                 <div class="hg-contact-socials">

@@ -398,7 +398,6 @@ body:not(.home) .hg-header {
 .hg-contact-phone:hover .hg-ui-icon--arrow-ne,
 .hg-map-caption a:hover .hg-ui-icon--arrow-ne,
 .hg-work-card:hover .hg-ui-icon--arrow-ne,
-.hg-google-proof:hover .hg-ui-icon--arrow-ne,
 .hg-mobile-actions a:hover .hg-ui-icon--arrow-ne,
 .hg-footer a:hover .hg-ui-icon--arrow-ne {
   transform: translate(2px, -2px);
@@ -2140,10 +2139,6 @@ body:not(.home) .hg-header {
   letter-spacing: 0.02em;
   line-height: 1.3;
   text-transform: uppercase;
-}
-
-.hg-google-proof > .hg-ui-icon {
-  color: #f4c94f;
 }
 
 /* Compact variant for the footer */
