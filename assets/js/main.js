@@ -726,6 +726,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const hgRzHeroToggle = document.getElementById('hgRealizacjaHeroToggle');
     const hgRzHeroImg = document.getElementById('hgRealizacjaHeroImg');
     const hgRzHeroTag = document.getElementById('hgRealizacjaHeroTag');
+    const hgRzHeroMedia = document.getElementById('hgRealizacjaHeroMedia');
     if (hgRzHeroToggle && hgRzHeroImg) {
         const hgRzAfterIcon = '<svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2.1l4 4-4 4M3 12.6v-1a4 4 0 0 1 4-4h14M7 21.9l-4-4 4-4M21 11.4v1a4 4 0 0 1-4 4H3"/></svg>';
         hgRzHeroToggle.addEventListener('click', function (event) {
@@ -743,6 +744,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 hgRzHeroTag.textContent = showingBefore ? 'PO' : 'PRZED';
                 hgRzHeroTag.classList.toggle('is-before', !showingBefore);
             }
+            // Lightbox ma pokazywac WYLACZNIE aktualnie ustawione zdjecie (bez pary
+            // porownawczej) — podmieniamy cel na pelnorozdzielcza wersje tego samego
+            // stanu (PRZED/PO), zeby powiekszenie zawsze zgadzalo sie z podgladem.
+            if (hgRzHeroMedia) {
+                const nextFull = showingBefore
+                    ? hgRzHeroImg.getAttribute('data-after-full')
+                    : hgRzHeroImg.getAttribute('data-before-full');
+                if (nextFull) hgRzHeroMedia.setAttribute('data-lightbox-img', nextFull);
+            }
+            hgRzHeroImg.alt = hgRzHeroImg.alt.replace(/efekt (PRZED|PO)$/, 'efekt ' + (showingBefore ? 'PO' : 'PRZED'));
         });
     }
 });

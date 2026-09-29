@@ -1,2 +1,3 @@
-# produkty skryptu build-theme-zip.sh — paczke buduj lokalnie, nie commituj
+# lokalne paczki ZIP motywu — nie commituj
 /dist/
+*.zip

@@ -77,15 +77,23 @@ get_header();
                         </div>
                     </div>
 
-                    <!-- Zdjecie PO z prostym przelacznikiem na PRZED (bez "przeciagania") +
-                         kliknięcie otwiera istniejacy lightbox PRZED/PO (data-lightbox-*). -->
+                    <!-- Zdjecie PO z prostym przelacznikiem na PRZED (bez "przeciagania").
+                         Kliknięcie otwiera lightbox TYLKO z aktualnie ustawionym zdjeciem
+                         (PRZED albo PO — bez pary porownawczej): dlatego kontener NIE ma
+                         data-lightbox-before, a JS podmienia data-lightbox-img przy kazdym
+                         przelaczeniu (patrz main.js, sekcja hgRealizacjaHeroToggle). -->
                     <div class="hg-gallery-media-box hg-realizacja-hero-media hg-reveal"
+                         id="hgRealizacjaHeroMedia"
                          data-lightbox-img="<?php echo esc_url($hg_after_full); ?>"
-                         <?php if ($hg_before_full) : ?>data-lightbox-before="<?php echo esc_url($hg_before_full); ?>"<?php endif; ?>
                          data-lightbox-title="<?php the_title_attribute(); ?>"
                          data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_type ?: 'Realizacja HI-GLOSS')); ?>"
                          data-lightbox-desc="<?php echo esc_attr($hg_lb_desc); ?>">
-                        <img id="hgRealizacjaHeroImg" src="<?php echo esc_url($hg_after_large); ?>" data-after-src="<?php echo esc_url($hg_after_large); ?>" <?php if ($hg_before_large) : ?>data-before-src="<?php echo esc_url($hg_before_large); ?>"<?php endif; ?> alt="<?php the_title_attribute(); ?> — efekt PO">
+                        <img id="hgRealizacjaHeroImg" src="<?php echo esc_url($hg_after_large); ?>"
+                             data-after-src="<?php echo esc_url($hg_after_large); ?>"
+                             data-after-full="<?php echo esc_url($hg_after_full); ?>"
+                             <?php if ($hg_before_large) : ?>data-before-src="<?php echo esc_url($hg_before_large); ?>"<?php endif; ?>
+                             <?php if ($hg_before_full) : ?>data-before-full="<?php echo esc_url($hg_before_full); ?>"<?php endif; ?>
+                             alt="<?php the_title_attribute(); ?> — efekt PO">
                         <div class="hg-gallery-vignette"></div>
                         <span class="hg-realizacja-hero-tag" id="hgRealizacjaHeroTag">PO</span>
                         <button type="button" class="hg-gallery-zoom-btn" aria-label="Powiększ zdjęcie">
