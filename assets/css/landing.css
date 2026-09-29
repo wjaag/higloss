@@ -4125,6 +4125,20 @@ body:not(.home) .hg-footer-main {
   .hg-lightbox-img, .hg-lightbox-pair .hg-lightbox-img { max-height: calc(100vh - 300px); }
 }
 
+/* Lightbox realizacji (single-realizacja, hero PRZED/PO): samo zdjecie,
+   bez paska tytul/opis/CTA ponizej — obrazek wykorzystuje odzyskana przestrzen.
+   Selektor [hidden] sam w sobie nie wystarczy: .hg-lightbox-bottom ma wlasny
+   "display: flex" o tej samej specyficznosci co UA-owe "[hidden]{display:none}",
+   dlatego ukrywanie wymusza dedykowana klasa na korzeniu lightboxa. */
+.hg-lightbox--no-info .hg-lightbox-bottom {
+  display: none;
+}
+
+.hg-lightbox--no-info .hg-lightbox-img-wrap,
+.hg-lightbox--no-info .hg-lightbox-img {
+  max-height: calc(100vh - 140px);
+}
+
 @media (max-width: 768px) {
   .hg-lightbox-bottom { flex-direction: column; align-items: stretch; }
   .hg-lightbox-ctas { width: 100%; }

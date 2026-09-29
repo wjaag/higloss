@@ -81,13 +81,18 @@ get_header();
                          Kliknięcie otwiera lightbox TYLKO z aktualnie ustawionym zdjeciem
                          (PRZED albo PO — bez pary porownawczej): dlatego kontener NIE ma
                          data-lightbox-before, a JS podmienia data-lightbox-img przy kazdym
-                         przelaczeniu (patrz main.js, sekcja hgRealizacjaHeroToggle). -->
+                         przelaczeniu (patrz main.js, sekcja hgRealizacjaHeroToggle).
+                         Strzalki w lightboxie (data-lightbox-nav="przed-po") przelaczaja
+                         miedzy PRZED/PO zamiast przewijac "galerie" (tu i tak jest 1 zdjecie). -->
                     <div class="hg-gallery-media-box hg-realizacja-hero-media hg-reveal"
                          id="hgRealizacjaHeroMedia"
                          data-lightbox-img="<?php echo esc_url($hg_after_full); ?>"
+                         data-lightbox-after-full="<?php echo esc_url($hg_after_full); ?>"
+                         <?php if ($hg_before_full) : ?>data-lightbox-before-full="<?php echo esc_url($hg_before_full); ?>" data-lightbox-nav="przed-po"<?php endif; ?>
                          data-lightbox-title="<?php the_title_attribute(); ?>"
                          data-lightbox-meta="<?php echo esc_attr(($model_label ? $model_label . ' &bull; ' : '') . ($service_type ?: 'Realizacja HI-GLOSS')); ?>"
-                         data-lightbox-desc="<?php echo esc_attr($hg_lb_desc); ?>">
+                         data-lightbox-desc="<?php echo esc_attr($hg_lb_desc); ?>"
+                         data-lightbox-hide-info="1">
                         <img id="hgRealizacjaHeroImg" src="<?php echo esc_url($hg_after_large); ?>"
                              data-after-src="<?php echo esc_url($hg_after_large); ?>"
                              data-after-full="<?php echo esc_url($hg_after_full); ?>"

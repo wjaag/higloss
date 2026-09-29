@@ -450,6 +450,35 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     initGalleryFilter();
 
+    /* single-realizacje.php — ustawia mala podglad-fotke hero (PO/PRZED) i jej
+       tag/przycisk. Uzywane zarowno przez klik przycisku "Zobacz PRZED/PO" pod
+       zdjeciem, jak i przez strzalki lightboxa (zeby po zamknieciu podglad na
+       stronie zgadzal sie z tym, co bylo ostatnio widoczne w powiekszeniu). */
+    function hgSetRealizacjaHeroState(showBefore) {
+        const toggle = document.getElementById('hgRealizacjaHeroToggle');
+        const img = document.getElementById('hgRealizacjaHeroImg');
+        const tag = document.getElementById('hgRealizacjaHeroTag');
+        const media = document.getElementById('hgRealizacjaHeroMedia');
+        if (!toggle || !img) return;
+
+        const nextSrc = showBefore ? img.getAttribute('data-before-src') : img.getAttribute('data-after-src');
+        if (!nextSrc) return;
+
+        img.setAttribute('src', nextSrc);
+        img.alt = img.alt.replace(/efekt (PRZED|PO)$/, 'efekt ' + (showBefore ? 'PRZED' : 'PO'));
+        toggle.setAttribute('data-state', showBefore ? 'before' : 'after');
+        const afterIcon = '<svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2.1l4 4-4 4M3 12.6v-1a4 4 0 0 1 4-4h14M7 21.9l-4-4 4-4M21 11.4v1a4 4 0 0 1-4 4H3"/></svg>';
+        toggle.innerHTML = afterIcon + (showBefore ? 'Zobacz PO' : 'Zobacz PRZED');
+        if (tag) {
+            tag.textContent = showBefore ? 'PRZED' : 'PO';
+            tag.classList.toggle('is-before', showBefore);
+        }
+        if (media) {
+            const nextFull = showBefore ? img.getAttribute('data-before-full') : img.getAttribute('data-after-full');
+            if (nextFull) media.setAttribute('data-lightbox-img', nextFull);
+        }
+    }
+
     /* ==========================================
        Automotive Lightbox Gallery
        ========================================== */
@@ -484,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <button type="button" class="hg-lightbox-nav hg-lightbox-next" id="hgLightboxNext" aria-label="Następna realizacja">&#10095;</button>
                 </div>
-                <div class="hg-lightbox-bottom">
+                <div class="hg-lightbox-bottom" id="hgLightboxBottom">
                     <div class="hg-lightbox-info">
                         <h4 id="hgLightboxTitle">Realizacja HI-GLOSS DESIGN</h4>
                         <p id="hgLightboxMeta">Szczecin / Mierzyn</p>
@@ -506,6 +535,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const metaEl = document.getElementById('hgLightboxMeta');
         const descEl = document.getElementById('hgLightboxDesc');
         const counterEl = document.getElementById('hgLightboxCounter');
+        const bottomEl = document.getElementById('hgLightboxBottom');
         const closeBtn = document.getElementById('hgLightboxClose');
         const prevBtn = document.getElementById('hgLightboxPrev');
         const nextBtn = document.getElementById('hgLightboxNext');
@@ -514,6 +544,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let currentGalleryItems = [];
         let currentIndex = 0;
+        let currentNav = '';
+        let currentAfterFull = '';
+        let currentBeforeFull = '';
+        let currentShowingBefore = false;
 
         function getVisibleGalleryItems() {
             const triggers = Array.from(document.querySelectorAll('[data-lightbox-img]'));
@@ -538,6 +572,20 @@ document.addEventListener('DOMContentLoaded', function () {
             const meta = target.getAttribute('data-lightbox-meta') || 'Car wrapping · Folie PPF · Mierzyn';
             const desc = target.getAttribute('data-lightbox-desc') || '';
             const subLink = target.getAttribute('data-lightbox-link') || '';
+            const hideInfo = target.getAttribute('data-lightbox-hide-info') === '1';
+
+            // Realizacja-hero: strzalki lightboxa przelaczaja PRZED/PO zamiast
+            // przewijac galerie — zapamietujemy oba pelnorozdzielcze adresy i to,
+            // ktory z nich jest akurat widoczny (wg data-lightbox-img ustawionego
+            // przez przycisk PRZED/PO na stronie).
+            currentNav = target.getAttribute('data-lightbox-nav') || '';
+            currentAfterFull = target.getAttribute('data-lightbox-after-full') || imgSrc;
+            currentBeforeFull = target.getAttribute('data-lightbox-before-full') || '';
+            currentShowingBefore = !!currentBeforeFull && imgSrc === currentBeforeFull;
+
+            const isPrzedPoNav = currentNav === 'przed-po' && !!currentBeforeFull;
+            if (prevBtn) prevBtn.setAttribute('aria-label', isPrzedPoNav ? 'Przełącz na zdjęcie PRZED/PO' : 'Poprzednia realizacja');
+            if (nextBtn) nextBtn.setAttribute('aria-label', isPrzedPoNav ? 'Przełącz na zdjęcie PRZED/PO' : 'Następna realizacja');
 
             imgEl.src = imgSrc;
             imgEl.alt = title;
@@ -548,6 +596,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 descEl.hidden = !desc;
             }
             counterEl.textContent = (currentIndex + 1 < 10 ? '0' : '') + (currentIndex + 1) + ' / ' + (currentGalleryItems.length < 10 ? '0' : '') + currentGalleryItems.length;
+
+            // Realizacja-hero (pojedyncze zdjecie PRZED/PO) ma pokazywac WYLACZNIE
+            // powiekszone zdjecie — bez tytulu/opisu/przyciskow ponizej.
+            if (bottomEl) bottomEl.hidden = hideInfo;
+            lightbox.classList.toggle('hg-lightbox--no-info', hideInfo);
 
             if (beforeSrc) {
                 beforeImgEl.src = beforeSrc;
@@ -582,8 +635,28 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.remove('lightbox-open');
         }
 
-        function nextItem() { openLightboxAt(currentIndex + 1); }
-        function prevItem() { openLightboxAt(currentIndex - 1); }
+        // Realizacja-hero (data-lightbox-nav="przed-po"): zamiast przewijac
+        // "galerie" (tu i tak jest jedno zdjecie), strzalki/klawiatura/swipe
+        // przelaczaja PRZED<->PO w miejscu i trzymaja w zgodzie maly podglad
+        // pod lightboxem. Zwraca true, jesli przejela obsluge nawigacji.
+        function togglePrzedPoInLightbox() {
+            if (currentNav !== 'przed-po' || !currentBeforeFull) return false;
+            currentShowingBefore = !currentShowingBefore;
+            const nextSrc = currentShowingBefore ? currentBeforeFull : currentAfterFull;
+            imgEl.src = nextSrc;
+            imgEl.alt = (titleEl.textContent || 'Realizacja HI-GLOSS DESIGN') + ' — efekt ' + (currentShowingBefore ? 'PRZED' : 'PO');
+            hgSetRealizacjaHeroState(currentShowingBefore);
+            return true;
+        }
+
+        function nextItem() {
+            if (togglePrzedPoInLightbox()) return;
+            openLightboxAt(currentIndex + 1);
+        }
+        function prevItem() {
+            if (togglePrzedPoInLightbox()) return;
+            openLightboxAt(currentIndex - 1);
+        }
 
         document.addEventListener('click', function (e) {
             const trigger = e.target.closest('[data-lightbox-img]');
@@ -725,35 +798,12 @@ document.addEventListener('DOMContentLoaded', function () {
        otwarciu delegowanego lightboxa PRZED/PO przy kliku w ten przycisk. */
     const hgRzHeroToggle = document.getElementById('hgRealizacjaHeroToggle');
     const hgRzHeroImg = document.getElementById('hgRealizacjaHeroImg');
-    const hgRzHeroTag = document.getElementById('hgRealizacjaHeroTag');
-    const hgRzHeroMedia = document.getElementById('hgRealizacjaHeroMedia');
     if (hgRzHeroToggle && hgRzHeroImg) {
-        const hgRzAfterIcon = '<svg class="hg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2.1l4 4-4 4M3 12.6v-1a4 4 0 0 1 4-4h14M7 21.9l-4-4 4-4M21 11.4v1a4 4 0 0 1-4 4H3"/></svg>';
         hgRzHeroToggle.addEventListener('click', function (event) {
             event.preventDefault();
             event.stopPropagation();
             const showingBefore = hgRzHeroToggle.getAttribute('data-state') === 'before';
-            const nextSrc = showingBefore
-                ? hgRzHeroImg.getAttribute('data-after-src')
-                : hgRzHeroImg.getAttribute('data-before-src');
-            if (!nextSrc) return;
-            hgRzHeroImg.setAttribute('src', nextSrc);
-            hgRzHeroToggle.setAttribute('data-state', showingBefore ? 'after' : 'before');
-            hgRzHeroToggle.innerHTML = hgRzAfterIcon + (showingBefore ? 'Zobacz PRZED' : 'Zobacz PO');
-            if (hgRzHeroTag) {
-                hgRzHeroTag.textContent = showingBefore ? 'PO' : 'PRZED';
-                hgRzHeroTag.classList.toggle('is-before', !showingBefore);
-            }
-            // Lightbox ma pokazywac WYLACZNIE aktualnie ustawione zdjecie (bez pary
-            // porownawczej) — podmieniamy cel na pelnorozdzielcza wersje tego samego
-            // stanu (PRZED/PO), zeby powiekszenie zawsze zgadzalo sie z podgladem.
-            if (hgRzHeroMedia) {
-                const nextFull = showingBefore
-                    ? hgRzHeroImg.getAttribute('data-after-full')
-                    : hgRzHeroImg.getAttribute('data-before-full');
-                if (nextFull) hgRzHeroMedia.setAttribute('data-lightbox-img', nextFull);
-            }
-            hgRzHeroImg.alt = hgRzHeroImg.alt.replace(/efekt (PRZED|PO)$/, 'efekt ' + (showingBefore ? 'PO' : 'PRZED'));
+            hgSetRealizacjaHeroState(!showingBefore);
         });
     }
 });
