@@ -739,6 +739,13 @@ body:not(.home) .hg-header {
   font-weight: inherit;
 }
 
+/* Druga, zduplikowana kopia pigułek – widoczna tylko na mobile, tworzy
+   płynną pętlę paska "Zaufali nam" (auto-przesuwanie). Ukryta dla czytników
+   ekranu i niewidoczna na desktopie/tablecie. */
+.hg-clients-dup {
+  display: none;
+}
+
 /* Services */
 .hg-services {
   background:
@@ -2808,28 +2815,39 @@ body:not(.home) .hg-footer-main {
     transform: translateX(-50%) rotate(90deg);
   }
 
-  /* "Zaufali nam" – na mobile pigułki firm jako poziomy slider z przewijaniem */
+  /* "Zaufali nam" – na mobile pigułki firm jako pasek, który sam się
+     delikatnie przesuwa (nieskończona, płynna pętla). Lista jest
+     zduplikowana (.hg-clients-dup, aria-hidden) i animowana o -50%, co przy
+     identycznej drugiej kopii daje bezszwowe zapętlenie bez "skoku". */
+  .hg-clients-row {
+    overflow: hidden;
+  }
+
   .hg-clients-list {
     flex-wrap: nowrap;
     justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    margin: 1.1rem -1rem 0;
-    padding: 0.15rem 1rem 0.5rem;
-    mask-image: linear-gradient(90deg, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
-  }
-
-  .hg-clients-list::-webkit-scrollbar {
-    display: none;
+    width: max-content;
+    margin-top: 1.1rem;
+    animation: hg-clients-marquee 28s linear infinite;
+    mask-image: linear-gradient(90deg, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
   }
 
   .hg-clients-list span {
     flex: 0 0 auto;
-    scroll-snap-align: start;
+  }
+
+  .hg-clients-dup {
+    display: inline-block;
+  }
+
+  @keyframes hg-clients-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   .hg-work-grid {

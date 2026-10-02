@@ -252,6 +252,14 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                     <span>TVP3 <b>SZCZECIN</b></span>
                     <span>WATERDROP</span>
                     <span>EVIL STEAKHOUSE</span>
+                    <!-- Duplikat na potrzeby płynnego auto-przesuwania paska na mobile (ukryty przed czytnikami ekranu) -->
+                    <span class="hg-clients-dup" aria-hidden="true">DHL</span>
+                    <span class="hg-clients-dup" aria-hidden="true">WARTA</span>
+                    <span class="hg-clients-dup" aria-hidden="true">SAMSUNG</span>
+                    <span class="hg-clients-dup" aria-hidden="true">POCZTA <b>POLSKA</b></span>
+                    <span class="hg-clients-dup" aria-hidden="true">TVP3 <b>SZCZECIN</b></span>
+                    <span class="hg-clients-dup" aria-hidden="true">WATERDROP</span>
+                    <span class="hg-clients-dup" aria-hidden="true">EVIL STEAKHOUSE</span>
                 </div>
             </div>
         </div>
