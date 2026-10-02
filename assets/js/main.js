@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 '<ul class="hg-select-list" role="listbox" tabindex="-1"></ul>';
             if (labelText) {
                 wrap.querySelector('.hg-select-toggle').setAttribute('aria-label', labelText.textContent.trim());
+                wrap.querySelector('.hg-select-list').setAttribute('aria-label', labelText.textContent.trim());
             }
             select.after(wrap);
 
@@ -501,12 +502,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="hg-lightbox-img-wrap">
                         <div class="hg-lightbox-pair" id="hgLightboxPair">
                             <figure class="hg-lightbox-side hg-lightbox-before">
-                                <img src="" alt="Auto przed realizacją w studio HI-GLOSS DESIGN" class="hg-lightbox-img" id="hgLightboxBeforeImg">
+                                <img src="" alt="Auto przed realizacją w studio HI-GLOSS DESIGN" class="hg-lightbox-img" id="hgLightboxBeforeImg" width="1200" height="800">
                                 <figcaption>PRZED</figcaption>
                             </figure>
                             <span class="hg-lightbox-vs" aria-hidden="true">&#8594;</span>
                             <figure class="hg-lightbox-side hg-lightbox-after">
-                                <img src="" alt="Auto po realizacji w studio HI-GLOSS DESIGN" class="hg-lightbox-img" id="hgLightboxImg">
+                                <img src="" alt="Auto po realizacji w studio HI-GLOSS DESIGN" class="hg-lightbox-img" id="hgLightboxImg" width="1200" height="800">
                                 <figcaption>PO</figcaption>
                             </figure>
                         </div>

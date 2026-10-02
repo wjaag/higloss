@@ -53,10 +53,10 @@ $theme_uri = HIGLOSS_THEME_URI;
                 <p class="hg-history-note">Doświadczenie, które widać w każdym detalu — od grafiki samochodowej po kompleksową ochronę lakieru.</p>
             </div>
             <div class="hg-feature-points hg-reveal">
-                <div><span>01</span><p><strong>Własne zaplecze</strong>Druk wielkoformatowy i precyzyjne plotery tnące na miejscu.</p></div>
-                <div><span>02</span><p><strong>Kontrolowane warunki</strong>Ogrzewana, przygotowana do aplikacji pracownia.</p></div>
-                <div><span>03</span><p><strong>Materiały premium</strong>System dobierany do auta, efektu i sposobu użytkowania.</p></div>
-                <div><span>04</span><p><strong>Pełne przygotowanie</strong>Dbałość o lakier, demontaż i bezpieczne wykończenie detali.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5"/><path d="M6 18H4.5A1.5 1.5 0 0 1 3 16.5v-5A1.5 1.5 0 0 1 4.5 10h15a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5H18"/><rect x="7" y="14" width="10" height="7"/></svg></span><p><strong>Własne zaplecze</strong>Druk wielkoformatowy i precyzyjne plotery tnące na miejscu.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14.8V5a2 2 0 1 0-4 0v9.8a4 4 0 1 0 4 0Z"/><path d="M10 8h1"/></svg></span><p><strong>Kontrolowane warunki</strong>Ogrzewana, przygotowana do aplikacji pracownia.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg></span><p><strong>Materiały premium</strong>System dobierany do auta, efektu i sposobu użytkowania.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 5 3 8.5 7 10 4-1.5 7-5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4.5"/></svg></span><p><strong>Pełne przygotowanie</strong>Dbałość o lakier, demontaż i bezpieczne wykończenie detali.</p></div>
             </div>
         </div>
     </section>

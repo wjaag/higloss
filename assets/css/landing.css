@@ -693,7 +693,8 @@ body:not(.home) .hg-header {
 }
 
 .hg-material-list b {
-  color: rgba(255, 255, 255, 0.3);
+  /* .5 zamiast .3 — kontrast 5.3:1 zamiast 2.6:1 (WCAG AA wymaga min. 4.5:1) */
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.66em;
 }
 
@@ -829,6 +830,10 @@ body:not(.home) .hg-header {
 
 .hg-service-body .hg-text-link {
   margin-top: auto;
+  /* bez tego link (inline-flex) rozciaga sie na cala szerokosc kolumny flex
+     (.hg-service-body ma domyslne align-items:stretch) i podkreslenie
+     (border-bottom) ciagnie sie przez caly kafelek zamiast tylko pod tekstem */
+  align-self: flex-start;
 }
 
 .hg-service-body h3 {
@@ -975,10 +980,19 @@ body:not(.home) .hg-header {
 }
 
 .hg-feature-points span {
+  display: flex;
+  align-items: flex-start;
   color: var(--hg-blue);
-  font-family: var(--hg-heading);
-  font-size: 0.7rem;
-  font-weight: 900;
+}
+
+.hg-feature-points span svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .hg-feature-points p {
@@ -1060,6 +1074,33 @@ body:not(.home) .hg-header {
   font-weight: 800;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+}
+
+/* Subtelna strzalka "zobacz kolejny krok": po prawej stronie kafelka na
+   ukladzie poziomym (desktop/tablet), na dole kafelka po obrocie o 90st,
+   gdy kafelki ukladaja sie w jednej kolumnie (mobile, patrz media query
+   nizej). .hg-process-grid li ma juz position:relative. */
+.hg-process-next {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: var(--hg-line-strong);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.hg-process-next svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .hg-process-grid p {
@@ -2014,7 +2055,8 @@ body:not(.home) .hg-header {
 .hg-footer-bottom p,
 .hg-footer-bottom a {
   margin: 0;
-  color: #5e6a7b;
+  /* var(--hg-muted) zamiast #5e6a7b — kontrast 8.1:1 zamiast 3.7:1 (WCAG AA) */
+  color: var(--hg-muted);
   font-size: 0.61rem;
   letter-spacing: 0.04em;
 }
@@ -2122,7 +2164,9 @@ body:not(.home) .hg-header {
 
 .hg-google-proof-copy small {
   display: block;
-  color: #6b7789;
+  /* var(--hg-muted) zamiast #6b7789 — na tak drobnym tekscie (0.57rem)
+     poprzedni kolor byl na granicy 4.4-4.5:1 w zaleznosci od tla; teraz 7.8-8:1 */
+  color: var(--hg-muted);
   font-size: 0.57rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -2754,6 +2798,14 @@ body:not(.home) .hg-footer-main {
 
   .hg-process-icon {
     margin: 2rem 0 1.5rem;
+  }
+
+  .hg-process-next {
+    top: auto;
+    right: auto;
+    bottom: 0.7rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
   }
 
   .hg-work-grid {

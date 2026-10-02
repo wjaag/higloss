@@ -15,7 +15,7 @@ $footer_section_url = static function ($section) use ($is_landing) {
     <div class="hg-container">
         <div class="hg-footer-main">
             <div class="hg-footer-brand">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" aria-label="HI-GLOSS DESIGN — strona główna">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="hg-brand-logo" aria-label="HI-GLOSS DESIGN Car wrapping studio — przejdź do strony głównej">
                     <img src="<?php echo esc_url(HIGLOSS_THEME_URI . '/assets/images/logo.webp'); ?>" alt="HI-GLOSS DESIGN — studio oklejania i zmiany koloru aut, Szczecin / Mierzyn" width="52" height="52">
                     <span class="hg-brand-copy"><strong>HI-GLOSS<span>DESIGN</span></strong><small>Car wrapping studio</small></span>
                 </a>
@@ -28,7 +28,7 @@ $footer_section_url = static function ($section) use ($is_landing) {
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.2l.8-4h-4V9c0-.7.3-1 1-1Z" class="hg-icon-fill"/></svg>
                     </a>
                 </div>
-                <a class="hg-google-proof hg-google-proof--mini" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
+                <a class="hg-google-proof hg-google-proof--mini" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów Zobacz ranking w Google — wysoka ocena HI-GLOSS DESIGN">
                     <span class="hg-google-proof-star" aria-hidden="true">
                         <svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24"><path d="m12 2.6 2.92 5.98 6.58.94-4.77 4.63 1.14 6.55L12 17.5l-5.87 3.2 1.14-6.55L2.5 9.52l6.58-.94L12 2.6Z"/></svg>
                     </span>

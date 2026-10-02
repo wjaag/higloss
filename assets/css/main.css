@@ -332,7 +332,9 @@ body.admin-bar .hg-header {
 
 .hg-btn-cyan {
   background: #25aae1;
-  color: #ffffff;
+  /* #020407 zamiast bialego — jak w .hg-btn-primary na tym samym niebieskim
+     tle: kontrast 7.74:1 zamiast 2.65:1 (WCAG AA wymaga min. 4.5:1). */
+  color: #020407;
   border: 2px solid #25aae1;
 }
 

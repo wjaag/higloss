@@ -106,10 +106,10 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             </div>
 
             <div class="hg-feature-points hg-reveal">
-                <div><span>01</span><p><strong>Własne zaplecze</strong>Druk wielkoformatowy i precyzyjne plotery tnące na miejscu.</p></div>
-                <div><span>02</span><p><strong>Kontrolowane warunki</strong>Ogrzewana, przygotowana do aplikacji pracownia.</p></div>
-                <div><span>03</span><p><strong>Materiały premium</strong>System dobierany do auta, efektu i sposobu użytkowania.</p></div>
-                <div><span>04</span><p><strong>Pełne przygotowanie</strong>Dbałość o lakier, demontaż i bezpieczne wykończenie detali.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5"/><path d="M6 18H4.5A1.5 1.5 0 0 1 3 16.5v-5A1.5 1.5 0 0 1 4.5 10h15a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5H18"/><rect x="7" y="14" width="10" height="7"/></svg></span><p><strong>Własne zaplecze</strong>Druk wielkoformatowy i precyzyjne plotery tnące na miejscu.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14.8V5a2 2 0 1 0-4 0v9.8a4 4 0 1 0 4 0Z"/><path d="M10 8h1"/></svg></span><p><strong>Kontrolowane warunki</strong>Ogrzewana, przygotowana do aplikacji pracownia.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z"/><path d="m4 12 8 4.5 8-4.5"/><path d="m4 16.5 8 4.5 8-4.5"/></svg></span><p><strong>Materiały premium</strong>System dobierany do auta, efektu i sposobu użytkowania.</p></div>
+                <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 5 3 8.5 7 10 4-1.5 7-5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4.5"/></svg></span><p><strong>Pełne przygotowanie</strong>Dbałość o lakier, demontaż i bezpieczne wykończenie detali.</p></div>
             </div>
         </div>
     </section>
@@ -125,10 +125,10 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             </header>
 
             <ol class="hg-process-grid">
-                <li class="hg-reveal"><span>01</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>Rozmowa i wycena</h3><p>Poznajemy auto, oczekiwany efekt i sposób użytkowania. Dobieramy rozwiązanie oraz zakres prac.</p></li>
-                <li class="hg-reveal"><span>02</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16 8-12 8 12-8 4-8-4Z"/><path d="m8 14 4 2 4-2M12 4v12"/></svg></div><h3>Projekt i materiał</h3><p>Wybieramy kolor, strukturę lub przygotowujemy projekt grafiki. Potwierdzamy materiał i termin realizacji.</p></li>
-                <li class="hg-reveal"><span>03</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 18.5 9.5M3 21l3.5-1 12-12a2.8 2.8 0 0 0-4-4l-12 12L3 21Z"/><path d="m13 6 4 4"/></svg></div><h3>Przygotowanie i aplikacja</h3><p>Myjemy, dekontaminujemy i przygotowujemy powierzchnię. Aplikujemy folię w kontrolowanych warunkach.</p></li>
-                <li class="hg-reveal"><span>04</span><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Kontrola i odbiór</h3><p>Sprawdzamy każdy detal, omawiamy pielęgnację i przekazujemy gotowy pojazd wraz z zaleceniami.</p></li>
+                <li class="hg-reveal"><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>Rozmowa i wycena</h3><p>Poznajemy auto, oczekiwany efekt i sposób użytkowania. Dobieramy rozwiązanie oraz zakres prac.</p><span class="hg-process-next" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></span></li>
+                <li class="hg-reveal"><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16 8-12 8 12-8 4-8-4Z"/><path d="m8 14 4 2 4-2M12 4v12"/></svg></div><h3>Projekt i materiał</h3><p>Wybieramy kolor, strukturę lub przygotowujemy projekt grafiki. Potwierdzamy materiał i termin realizacji.</p><span class="hg-process-next" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></span></li>
+                <li class="hg-reveal"><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 18.5 9.5M3 21l3.5-1 12-12a2.8 2.8 0 0 0-4-4l-12 12L3 21Z"/><path d="m13 6 4 4"/></svg></div><h3>Przygotowanie i aplikacja</h3><p>Myjemy, dekontaminujemy i przygotowujemy powierzchnię. Aplikujemy folię w kontrolowanych warunkach.</p><span class="hg-process-next" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></span></li>
+                <li class="hg-reveal"><div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Kontrola i odbiór</h3><p>Sprawdzamy każdy detal, omawiamy pielęgnację i przekazujemy gotowy pojazd wraz z zaleceniami.</p><span class="hg-process-next" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></span></li>
             </ol>
             <p style="text-align: center; margin-top: 2rem;">
                 <a href="<?php echo esc_url(home_url('/proces/')); ?>" class="hg-gallery-card-btn btn-primary">Pełny proces krok po kroku &rarr;</a>
@@ -245,12 +245,13 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             <div class="hg-clients-row hg-reveal">
                 <p class="hg-clients-label">Zaufali nam</p>
                 <div class="hg-clients-list">
-                    <span>DHL <b>COURIER</b></span>
+                    <span>DHL</span>
                     <span>WARTA</span>
                     <span>SAMSUNG</span>
                     <span>POCZTA <b>POLSKA</b></span>
                     <span>TVP3 <b>SZCZECIN</b></span>
                     <span>WATERDROP</span>
+                    <span>EVIL STEAKHOUSE</span>
                 </div>
             </div>
         </div>
@@ -268,22 +269,22 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
             </header>
 
             <ul class="hg-process-grid">
-                <li><span>M1</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.9 2.9-2.1-2.1 2.9-2.9Z"/></svg></div>
                     <h3>Podstawy car wrappingu</h3>
                     <p>Przygotowanie lakieru, narzędzia, cięcie i praca na krzywiznach. Pierwszy element oklejasz jeszcze przed południem.</p>
                 </li>
-                <li><span>M2</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 7-7 7-7-7 7-7Z"/></svg></div>
                     <h3>Całościowa zmiana koloru</h3>
                     <p>Demontaż elementów, zawijanie folii w głąb, wykończenia krawędzi i kontrola jakości jak przy zleceniu komercyjnym.</p>
                 </li>
-                <li><span>M3</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                     <h3>Ochrona PPF</h3>
                     <p>Folia poliuretanowa: strefy aplikacji, praca z samoregeneracją i wykończenia, których nie widać gołym okiem.</p>
                 </li>
-                <li><span>M4</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 8h13v8H1zM14 11h4l3 3v2h-7"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div>
                     <h3>Reklama i branding flot</h3>
                     <p>Wielkoformatowa grafika, druk i aplikacja na pojazdach firmowych — moduł także dla działów marketingu.</p>
@@ -361,7 +362,7 @@ $instagram_url = 'https://www.instagram.com/higlossdesign/';
                         <div><span>Godziny</span><p>Pon.–Pt. 09:00–17:00<br>Sobota: po umówieniu</p></div>
                     </div>
 
-                    <a class="hg-google-proof hg-google-proof--mini" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów — wysoki ranking HI-GLOSS DESIGN w Google">
+                    <a class="hg-google-proof hg-google-proof--mini" href="https://www.google.com/maps/search/?api=1&query=HI-GLOSS+DESIGN+Podmiejska+4+Mierzyn" target="_blank" rel="noopener noreferrer" aria-label="Opinie naszych klientów Zobacz ranking w Google — wysoka ocena HI-GLOSS DESIGN">
                         <span class="hg-google-proof-star" aria-hidden="true">
                             <svg class="hg-ui-icon hg-ui-icon--fill" viewBox="0 0 24 24"><path d="m12 2.6 2.92 5.98 6.58.94-4.77 4.63 1.14 6.55L12 17.5l-5.87 3.2 1.14-6.55L2.5 9.52l6.58-.94L12 2.6Z"/></svg>
                         </span>

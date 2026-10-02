@@ -49,22 +49,22 @@ $theme_uri = get_template_directory_uri();
             </header>
 
             <ul class="hg-process-grid">
-                <li><span>M1</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.9 2.9-2.1-2.1 2.9-2.9Z"/></svg></div>
                     <h3>Podstawy car wrappingu</h3>
                     <p>Przygotowanie lakieru, narzędzia, cięcie i praca na krzywiznach. Pierwszy element oklejasz jeszcze przed południem.</p>
                 </li>
-                <li><span>M2</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 7-7 7-7-7 7-7Z"/></svg></div>
                     <h3>Całościowa zmiana koloru</h3>
                     <p>Demontaż elementów, zawijanie folii w głąb, wykończenia krawędzi i kontrola jakości jak przy zleceniu komercyjnym.</p>
                 </li>
-                <li><span>M3</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                     <h3>Ochrona PPF</h3>
                     <p>Folia poliuretanowa: strefy aplikacji, praca z samoregeneracją i wykończenia, których nie widać gołym okiem.</p>
                 </li>
-                <li><span>M4</span>
+                <li>
                     <div class="hg-process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 8h13v8H1zM14 11h4l3 3v2h-7"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div>
                     <h3>Reklama i branding flot</h3>
                     <p>Wielkoformatowa grafika, druk i aplikacja na pojazdach firmowych — moduł także dla działów marketingu.</p>

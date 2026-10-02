@@ -14,7 +14,6 @@ $theme_uri = HIGLOSS_THEME_URI;
     <article class="hg-service-card hg-reveal">
         <div class="hg-service-image">
             <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_zmiana_koloru.webp'); ?>" alt="Samochód po całościowej zmianie koloru folią" width="1408" height="768" loading="lazy">
-            <span>01</span>
             <p>Car wrapping</p>
         </div>
         <div class="hg-service-body">
@@ -32,7 +31,6 @@ $theme_uri = HIGLOSS_THEME_URI;
     <article class="hg-service-card hg-reveal">
         <div class="hg-service-image">
             <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_ppf.webp'); ?>" alt="Aplikacja bezbarwnej folii ochronnej PPF na maskę samochodu" width="1408" height="768" loading="lazy">
-            <span>02</span>
             <p>Paint Protection Film</p>
         </div>
         <div class="hg-service-body">
@@ -50,7 +48,6 @@ $theme_uri = HIGLOSS_THEME_URI;
     <article class="hg-service-card hg-reveal">
         <div class="hg-service-image">
             <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_dechroming.webp'); ?>" alt="Samochód z odchromowanymi listwami i grillem, folia Shadow Line" width="1408" height="768" loading="lazy">
-            <span>03</span>
             <p>Shadow Line</p>
         </div>
         <div class="hg-service-body">
@@ -68,7 +65,6 @@ $theme_uri = HIGLOSS_THEME_URI;
     <article class="hg-service-card hg-reveal">
         <div class="hg-service-image">
             <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_przyciemnianie_szyb.webp'); ?>" alt="Technik aplikujący folię przyciemniającą na szybę samochodu" width="1408" height="768" loading="lazy">
-            <span>04</span>
             <p>Window Tinting</p>
         </div>
         <div class="hg-service-body">
@@ -86,7 +82,6 @@ $theme_uri = HIGLOSS_THEME_URI;
     <article class="hg-service-card hg-reveal">
         <div class="hg-service-image">
             <img src="<?php echo esc_url($theme_uri . '/assets/images/ai_oferta_reklama.webp'); ?>" alt="Flota samochodów dostawczych z oznakowaniem reklamowym" width="1408" height="768" loading="lazy">
-            <span>05</span>
             <p>Fleet branding</p>
         </div>
         <div class="hg-service-body">
@@ -104,7 +99,6 @@ $theme_uri = HIGLOSS_THEME_URI;
     <article class="hg-service-card hg-reveal">
         <div class="hg-service-image">
             <img src="<?php echo esc_url($theme_uri . '/assets/images/szkolenia_podstawy.webp'); ?>" alt="Szkolenie z podstaw car wrappingu — kursant dociska folię rakelką na krawędzi drzwi" width="1408" height="768" loading="lazy">
-            <span>06</span>
             <p>Car Wrapping Academy</p>
         </div>
         <div class="hg-service-body">
